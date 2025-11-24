@@ -103,4 +103,43 @@ permalink: /pricing/
 
 <details style="margin-bottom:10px; border:1px solid #ddd; border-radius:5px; padding:10px; background:#fff8f0;">
   <summary style="font-weight:bold; cursor:pointer; list-style:none; position:relative; padding-left:24px;">
-    <span class="arrow" style="position:absolute; left:0; top:50%; transform:tra
+    <span class="arrow" style="position:absolute; left:0; top:50%; transform:translateY(-50%); display:inline-block; transition: transform 0.3s;">►</span>
+    How long does it take to get my NIE?
+  </summary>
+  <p style="margin-top:8px;">With our full support, most clients receive their NIE within a few weeks depending on appointment availability and document readiness. We proactively schedule and manage appointments to speed up the process.</p>
+</details>
+
+<details style="margin-bottom:10px; border:1px solid #ddd; border-radius:5px; padding:10px; background:#fff8f0;">
+  <summary style="font-weight:bold; cursor:pointer; list-style:none; position:relative; padding-left:24px;">
+    <span class="arrow" style="position:absolute; left:0; top:50%; transform:translateY(-50%); display:inline-block; transition: transform 0.3s;">►</span>
+    What is included in property purchase support?
+  </summary>
+  <p style="margin-top:8px;">We review your reservation contract, check the property registry, represent you at the notary, and handle post-purchase filings. We coordinate with specialist property lawyers to minimise legal risk and ensure a clean title.</p>
+</details>
+
+<details style="margin-bottom:10px; border:1px solid #ddd; border-radius:5px; padding:10px; background:#fff8f0;">
+  <summary style="font-weight:bold; cursor:pointer; list-style:none; position:relative; padding-left:24px;">
+    <span class="arrow" style="position:absolute; left:0; top:50%; transform:translateY(-50%); display:inline-block; transition: transform 0.3s;">►</span>
+    Who should use the Digital Nomad Visa Support service?
+  </summary>
+  <p style="margin-top:8px;">Anyone planning to live and work remotely in Spain under the Digital Nomad Visa will benefit. We guide you through eligibility, document preparation, tax implications, and residency activation.</p>
+</details>
+
+<details style="margin-bottom:10px; border:1px solid #ddd; border-radius:5px; padding:10px; background:#fff8f0;">
+  <summary style="font-weight:bold; cursor:pointer; list-style:none; position:relative; padding-left:24px;">
+    <span class="arrow" style="position:absolute; left:0; top:50%; transform:translateY(-50%); display:inline-block; transition: transform 0.3s;">►</span>
+    Can I pay in installments?
+  </summary>
+  <p style="margin-top:8px;">Yes — we offer a 50/50 split payment structure. Pay half to start and the remainder on completion. We accept cards and bank transfers. Optional extras (translations, tax advice) are billed separately at cost.</p>
+</details>
+
+<!-- Arrow animation CSS -->
+<style>
+  details[open] summary .arrow { transform: rotate(90deg) translateY(-50%); }
+  summary::-webkit-details-marker { display:none; }
+</style>
+
+<hr>
+
+<!-- Footer CTA -->
+<p>Need a tailored quote? <a href="https://calendly.com/hello-jurospain/30min">Book a call</a> or email <a href="mailto:hello@jurospain.com">hello@jurospain.com</a>.</p>
