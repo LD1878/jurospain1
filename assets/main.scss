@@ -314,3 +314,22 @@ table {
   h1 { font-size: 1.6rem; }
   h2 { font-size: 1.1rem; }
 }
+summary {
+  list-style: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+summary:hover,
+summary:focus {
+  background: rgba($sp-gold, 0.1);
+  color: $sp-wine;
+  border-radius: 4px;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
