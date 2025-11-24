@@ -110,11 +110,11 @@ details {
 }
 
 details[open] summary .arrow {
-  transform: rotate(90deg) translateY(-50%);
+  transform: none; /* remove rotation since arrow is gone */
 }
 
 summary::-webkit-details-marker {
-  display: none;
+  display: none; /* hide default marker */
 }
 
 summary {
@@ -122,16 +122,7 @@ summary {
   cursor: pointer;
   list-style: none;
   position: relative;
-  padding-left: 20px;
-}
-
-summary .arrow {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  display: inline-block;
-  transition: transform 0.3s;
+  padding-left: 0; /* remove space reserved for arrow */
 }
 
 /* -----------------------------
