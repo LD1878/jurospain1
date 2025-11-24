@@ -1,33 +1,54 @@
 ---
 layout: page
 title: About Juro Spain
-description: English-speaking legal experts helping expats with visas, residency, and property purchases across Spain.
+description: Trusted English-speaking lawyers helping expats secure visas, residency, and property in Spain with expert guidance.
 permalink: /about/
 ---
 
-## Expert legal support for expats in Spain
+## Your English-Speaking Legal Partner in Spain
 
-Juro Spain specializes in relocation law for international families and professionals moving to Spain. With over 11 years of experience guiding expats through Spanish immigration, property transactions, and residency processes, we provide clear, English-first legal services nationwide.
+Moving to Spain should be exciting, not stressful. At **Juro Spain**, we help English-speaking expats navigate Spanish immigration, residency, and property purchases with confidence. With over **11 years of experience**, our team combines legal expertise, local knowledge, and personal support to make your relocation smooth and stress-free.
 
-## What we believe in
+We are more than lawyers. We are your guide to starting a new life in Spain.  
 
-- **Clarity before paperwork.** We translate Spanish legal requirements into plain English roadmaps.
-- **Quality partnerships.** We work only with vetted notaries, tax advisors, and immigration specialists.
-- **Momentum.** Immigration and property timelines move fast—we keep every case on track.
+## Why Expats Choose Juro Spain
 
-## Our services across Spain
+- **Clear guidance in English.** We explain visas, residency, and property transactions in plain English.  
+- **Trusted local partners.** We collaborate with vetted notaries, tax advisors, and immigration specialists across Spain.  
+- **Efficient process.** We keep your case moving and handle Spanish bureaucracy so you do not have to.  
+- **Nationwide support with local presence.** In-person assistance is available in **Barcelona, Valencia, Málaga, and Alicante** through our partner network.  
 
-We serve expats throughout Spain with in-person support available in Barcelona, Valencia, Málaga, and Alicante through our trusted partner network.
+## Services for Expats in Spain
 
-### Immigration & residency expertise
-NIE applications, Golden Visa processing, Digital Nomad Visa support, non-lucrative residency, and visa renewals
+### Immigration and Residency
+- NIE applications  
+- Golden Visa processing  
+- Digital Nomad Visa support  
+- Non-lucrative residency and renewals  
 
-### Property purchase guidance
-Contract reviews, notary representation, mortgage assistance for international buyers, and power of attorney services
+### Property Purchase Support
+- Contract review and negotiation  
+- Notary representation  
+- Mortgage guidance for international buyers  
+- Power of attorney services  
 
-### Relocation essentials
-Banking setup, empadronamiento registration, autónomo business registration, and ongoing compliance support
+### Relocation Essentials
+- Bank account setup  
+- Empadronamiento registration  
+- Autónomo business registration  
+- Ongoing compliance and legal support  
 
-## How we work with you
+## How We Work With You
 
-1. **
+1. **Initial Consultation** – We assess your needs and explain your options in plain English.  
+2. **Personalized Plan** – We create a step-by-step plan tailored to your situation.  
+3. **Hands-On Support** – We handle paperwork and liaise with authorities on your behalf.  
+4. **Ongoing Assistance** – We stay with you after arrival to ensure compliance and peace of mind.  
+
+## Why Juro Spain is Different
+
+Unlike other law firms that work from a distance, we combine **local expertise with English-first service**. Our clients avoid costly mistakes, understand every step of the process, and enjoy a smooth transition to life in Spain.  
+
+> “Juro Spain made moving to Barcelona effortless. Everything was explained in English and they handled all the tricky bureaucracy.” – Satisfied Client  
+
+**Start your Spanish adventure with confidence. Contact us today for expert legal guidance for expats.**  
