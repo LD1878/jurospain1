@@ -7,7 +7,7 @@ permalink: /contact/
 
 ## Book a call
 
-Schedule a consultation at a time that suits you: [Book a call](https://calendly.com/YOUR-CALENDLY).
+Schedule a consultation at a time that suits you: [Book a call](https://calendly.com/hello-jurospain/30min).
 
 ## Send a message
 
