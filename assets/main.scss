@@ -4,116 +4,164 @@
 
 @import "minima";
 
-/* --- Retro Minor Tweaks --- */
-
-/* Page background */
+/* -----------------------------
+   General Body & Background
+----------------------------- */
 body {
-  background-color: #fff8f0; /* soft beige retro feel */
-  font-family: 'Lato', Arial, sans-serif;
-  color: #333;
-  line-height: 1.65;
+  background-color: #fff8f0; /* light beige */
+  color: #333; /* easy-to-read dark text */
+  font-family: "Helvetica", "Arial", sans-serif;
+  line-height: 1.6;
 }
 
-/* Headings color with subtle shadow */
-h1, h2, h3 {
-  color: #E30613; /* JURO red */
-  text-shadow: 0 1px #FFD700; /* subtle yellow accent */
+/* -----------------------------
+   Header & Menu
+----------------------------- */
+.navbar, .site-header {
+  background-color: #fff8f0; /* light background */
+  color: #E30613; /* red text */
+  border-bottom: 2px solid #FFD700; /* subtle gold underline */
 }
 
-/* Menu / Navigation styling */
-nav {
-  background-color: #E30613; /* JURO red */
-  padding: 12px 20px;
-  border-bottom: 4px solid #FFD700; /* JURO yellow */
-}
-
-nav a {
-  color: #fff;
+.navbar a, .site-header a {
+  color: #E30613;
   font-weight: bold;
-  margin-right: 20px;
   text-decoration: none;
-  transition: all 0.3s ease;
+  margin-right: 15px;
 }
 
-nav a:hover {
+.navbar a:hover, .site-header a:hover {
+  color: #FFD700; /* gold hover for branding accent */
+}
+
+/* -----------------------------
+   Links
+----------------------------- */
+a {
+  color: #E30613;
+  font-weight: bold;
+}
+
+a:hover {
   color: #FFD700;
-  text-shadow: 1px 1px 0 #333;
+  text-decoration: underline;
 }
 
-/* Section cards for content */
-section, .card {
-  background-color: #fff;
+/* -----------------------------
+   Cards / Post Listings / Forms
+----------------------------- */
+.post-card, form {
+  background-color: #ffffff; /* white cards for readability */
+  border: 2px solid #FFD700; /* gold border for subtle branding */
   border-radius: 8px;
   padding: 20px;
   margin-bottom: 24px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05); /* subtle shadow for depth */
 }
 
-/* Buttons and CTAs */
-a.cta, button {
-  background-color: #E30613;
+.post-card h2 a {
+  color: #E30613;
+  text-decoration: none;
+}
+
+.post-card h2 a:hover {
+  text-decoration: underline;
+}
+
+/* -----------------------------
+   Forms Inputs & Textareas
+----------------------------- */
+form input, form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #E30613;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+form button, .cta {
+  background: #E30613;
   color: #fff;
   font-weight: bold;
-  border-radius: 6px;
-  padding: 12px 20px;
-  border: 2px solid #FFD700;
+  padding: 10px 20px;
+  border-radius: 5px;
   text-decoration: none;
+  border: none;
   cursor: pointer;
-  transition: all 0.25s ease-in-out;
+  transition: all 0.2s ease;
 }
 
-a.cta:hover, button:hover {
-  background-color: #FFD700;
+form button:hover, .cta:hover {
+  background: #FFD700;
   color: #E30613;
-  border-color: #E30613;
 }
 
-/* FAQ / Glossary boxes */
+/* -----------------------------
+   FAQ / Details Styling
+----------------------------- */
 details {
-  background-color: #fff8f0;
-  border: 1px solid #FFD700;
-  border-radius: 6px;
+  background: #fff8f0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
   padding: 10px;
   margin-bottom: 10px;
-}
-
-summary {
-  font-weight: bold;
-  cursor: pointer;
-  position: relative;
-  padding-left: 20px;
-}
-
-/* Arrow indicator for FAQ */
-summary .arrow {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  display: inline-block;
-  color: #E30613;
-  transition: transform 0.3s;
 }
 
 details[open] summary .arrow {
   transform: rotate(90deg) translateY(-50%);
 }
 
-/* Optional subtle body pattern (retro texture) */
-body::before {
-  content: "";
-  position: fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background: repeating-linear-gradient(
-    45deg,
-    rgba(255, 255, 255, 0.05),
-    rgba(255, 255, 255, 0.05) 1px,
-    transparent 1px,
-    transparent 5px
-  );
-  pointer-events: none;
-  z-index: -1;
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary {
+  font-weight: bold;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  padding-left: 20px;
+}
+
+summary .arrow {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-block;
+  transition: transform 0.3s;
+}
+
+/* -----------------------------
+   Tables
+----------------------------- */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+table, th, td {
+  border: 1px solid #FFD700;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #E30613;
+  color: #fff;
+}
+
+/* -----------------------------
+   Misc / Spacing
+----------------------------- */
+hr {
+  border: 0;
+  border-top: 2px solid #FFD700;
+  margin: 40px 0;
 }
