@@ -4,156 +4,193 @@ title: Legal Help for Expats in Spain | JURO Spain
 description: Expert English-speaking legal guidance for expats in Spain. Visas, property, residency, and trusted lawyers for a smooth relocation.
 permalink: /
 ---
-<h1>English-Speaking Legal Advice for Expats in <span style="color:#E30613;">J</span><span style="color:#FFD700;">U</span><span style="color:#E30613;">R</span><span style="color:#FFD700;">O</span> Spain</h1>
-
-<p>
-Welcome to <span style="color:#E30613;">J</span><span style="color:#FFD700;">U</span><span style="color:#E30613;">R</span><span style="color:#FFD700;">O</span> Spain – your trusted partner for navigating the legal and practical aspects of relocating to Spain. We help English-speaking expats move, settle, and thrive, providing expert guidance on visas, residency, property, and everyday life.
-</p>
-
-<p>
-Our team relies on <strong>specialist lawyers for each area</strong>, so whether you need help with immigration, property transactions, or administrative matters, you’ll get expert support tailored to your needs.
-</p>
-
-<hr>
-
-<h2>Our Services</h2>
-
-<h3>Immigration & Visas</h3>
-<p>
-We assist with NIE numbers, Golden Visa, Digital Nomad Visa, and residency applications. <strong>Specialist immigration lawyers</strong> ensure your paperwork is accurate and processed quickly.
-</p>
-
-<h3>Property & Mortgages</h3>
-<p>
-Purchase reviews, notary representation, mortgage comparisons. We work with <strong>dedicated property lawyers</strong> to make buying or renting in Spain safe, transparent, and stress-free.
-</p>
-
-<h3>Life in Spain</h3>
-<p>
-Banking setup, empadronamiento, autónomo registration, and more. Our <strong>relocation specialists</strong> help you settle smoothly, avoiding common pitfalls.
-</p>
-
-<hr>
-
-<h2>Why <span style="color:#E30613;">J</span><span style="color:#FFD700;">U</span><span style="color:#E30613;">R</span><span style="color:#FFD700;">O</span> Spain?</h2>
-
-<ul style="list-style-type:none; padding-left:0;">
-<li>✓ English-first communication</li>
-<li>✓ Fixed, transparent pricing</li>
-<li>✓ Nationwide coverage—Madrid, Barcelona, Valencia, Málaga, Alicante</li>
-<li>✓ Fast turnarounds</li>
-<li>✓ Trusted specialist lawyers for every topic</li>
-</ul>
-
-<hr>
-
-<h2 style="margin-top:40px;">Contact <span style="color:#E30613;">J</span><span style="color:#FFD700;">U</span><span style="color:#E30613;">R</span><span style="color:#FFD700;">O</span> Spain</h2>
-
-<form action="https://formspree.io/f/mwpjpyoj" method="POST" style="background:#fff8f0; border:2px solid #E30613; padding:20px; border-radius:8px; max-width:500px;">
-
-  <label for="name" style="font-weight:bold; display:block; margin-bottom:5px;">Name</label>
-  <input type="text" id="name" name="name" required style="width:100%; padding:10px; margin-bottom:15px; border:1px solid #E30613; border-radius:5px; font-weight:bold;">
-
-  <label for="email" style="font-weight:bold; display:block; margin-bottom:5px;">Email</label>
-  <input type="email" id="email" name="_replyto" required style="width:100%; padding:10px; margin-bottom:15px; border:1px solid #E30613; border-radius:5px; font-weight:bold;">
-
-  <label for="message" style="font-weight:bold; display:block; margin-bottom:5px;">What is this regarding?</label>
-  <textarea id="message" name="message" required rows="5" style="width:100%; padding:10px; margin-bottom:15px; border:1px solid #E30613; border-radius:5px; font-weight:bold;"></textarea>
-
-  <button type="submit" style="background:#E30613; color:#fff; font-weight:bold; padding:12px 20px; border:none; border-radius:5px; cursor:pointer;">
-    Send Message
-  </button>
-</form>
-
-<hr>
-
-<h2>Who <span style="color:#E30613;">J</span><span style="color:#FFD700;">U</span><span style="color:#E30613;">R</span><span style="color:#FFD700;">O</span> Spain Helps (FAQ)</h2>
-
-<!-- FAQ Section -->
-<details style="margin-bottom:10px; border:1px solid #ddd; border-radius:5px; padding:10px; background:#fff8f0;">
-  <summary style="font-weight:bold; cursor:pointer; list-style:none; position:relative; padding-left:20px;">
-    <span class="arrow" style="position:absolute; left:0; top:50%; transform:translateY(-50%); display:inline-block; transition: transform 0.3s;">►</span>
-    I'm an English-speaking expat moving to Spain—how can <span style="color:#E30613;">J</span><span style="color:#FFD700;">U</span><span style="color:#E30613;">R</span><span style="color:#FFD700;">O</span> Spain help me?
-  </summary>
-  <p style="margin-top:5px;">
-    <span style="color:#E30613;">J</span><span style="color:#FFD700;">U</span><span style="color:#E30613;">R</span><span style="color:#FFD700;">O</span> Spain provides trusted legal guidance for English-speaking expats new to Spain. We rely on <strong>specific expert lawyers depending on your needs</strong>, whether visas, residency, property, or settling in. Our team ensures clear communication and smooth navigation of Spanish bureaucracy.
-  </p>
-</details>
-
-<details style="margin-bottom:10px; border:1px solid #ddd; border-radius:5px; padding:10px; background:#fff8f0;">
-  <summary style="font-weight:bold; cursor:pointer; list-style:none; position:relative; padding-left:20px;">
-    <span class="arrow" style="position:absolute; left:0; top:50%; transform:translateY(-50%); display:inline-block; transition: transform 0.3s;">►</span>
-    Do I need a lawyer if I'm just relocating to Spain?
-  </summary>
-  <p style="margin-top:5px;">
-    While not always mandatory, working with a trusted legal team like <span style="color:#E30613;">J</span><span style="color:#FFD700;">U</span><span style="color:#E30613;">R</span><span style="color:#FFD700;">O</span> Spain can save time and prevent costly mistakes. We assign <strong>specialist lawyers for immigration, property, or other areas</strong>, ensuring expats get the most expert guidance possible.
-  </p>
-</details>
-
-<details style="margin-bottom:10px; border:1px solid #ddd; border-radius:5px; padding:10px; background:#fff8f0;">
-  <summary style="font-weight:bold; cursor:pointer; list-style:none; position:relative; padding-left:20px;">
-    <span class="arrow" style="position:absolute; left:0; top:50%; transform:translateY(-50%); display:inline-block; transition: transform 0.3s;">►</span>
-    Can <span style="color:#E30613;">J</span><span style="color:#FFD700;">U</span><span style="color:#E30613;">R</span><span style="color:#FFD700;">O</span> Spain help me with property or rental matters?
-  </summary>
-  <p style="margin-top:5px;">
-    Yes! We support English-speaking expats with property purchases, mortgages, notary representation, and rental guidance. <strong>We work with dedicated property lawyers</strong> to make sure your transactions are safe, legal, and transparent.
-  </p>
-</details>
-
-<details style="margin-bottom:10px; border:1px solid #ddd; border-radius:5px; padding:10px; background:#fff8f0;">
-  <summary style="font-weight:bold; cursor:pointer; list-style:none; position:relative; padding-left:20px;">
-    <span class="arrow" style="position:absolute; left:0; top:50%; transform:translateY(-50%); display:inline-block; transition: transform 0.3s;">►</span>
-    I'm new to Spain—can you help me settle in?
-  </summary>
-  <p style="margin-top:5px;">
-    Absolutely. <span style="color:#E30613;">J</span><span style="color:#FFD700;">U</span><span style="color:#E30613;">R</span><span style="color:#FFD700;">O</span> Spain helps expats open bank accounts, register for local services, obtain NIE numbers, and understand Spanish regulations. We rely on <strong>specialist lawyers for different relocation areas</strong> to ensure your move is smooth and stress-free.
-  </p>
-</details>
-
-<details style="margin-bottom:10px; border:1px solid #ddd; border-radius:5px; padding:10px; background:#fff8f0;">
-  <summary style="font-weight:bold; cursor:pointer; list-style:none; position:relative; padding-left:20px;">
-    <span class="arrow" style="position:absolute; left:0; top:50%; transform:translateY(-50%); display:inline-block; transition: transform 0.3s;">►</span>
-    Is <span style="color:#E30613;">J</span><span style="color:#FFD700;">U</span><span style="color:#E30613;">R</span><span style="color:#FFD700;">O</span> Spain only for certain regions?
-  </summary>
-  <p style="margin-top:5px;">
-    No. We provide nationwide coverage across Spain, including Madrid, Barcelona, Valencia, Málaga, and Alicante. English-speaking expats anywhere in Spain can access our trusted legal guidance and support services.
-  </p>
-</details>
-
-<details style="margin-bottom:10px; border:1px solid #ddd; border-radius:5px; padding:10px; background:#fff8f0;">
-  <summary style="font-weight:bold; cursor:pointer; list-style:none; position:relative; padding-left:20px;">
-    <span class="arrow" style="position:absolute; left:0; top:50%; transform:translateY(-50%); display:inline-block; transition: transform 0.3s;">►</span>
-    What if I need help with both visas and property?
-  </summary>
-  <p style="margin-top:5px;">
-    <span style="color:#E30613;">J</span><span style="color:#FFD700;">U</span><span style="color:#E30613;">R</span><span style="color:#FFD700;">O</span> Spain coordinates between our **specialist lawyers** so you can get comprehensive support across multiple areas without confusion.
-  </p>
-</details>
-
-<details style="margin-bottom:10px; border:1px solid #ddd; border-radius:5px; padding:10px; background:#fff8f0;">
-  <summary style="font-weight:bold; cursor:pointer; list-style:none; position:relative; padding-left:20px;">
-    <span class="arrow" style="position:absolute; left:0; top:50%; transform:translateY(-50%); display:inline-block; transition: transform 0.3s;">►</span>
-    Can I communicate entirely in English?
-  </summary>
-  <p style="margin-top:5px;">
-    Yes! All our legal guidance and services are **English-first**, ensuring that English-speaking expats can understand every step. We match you with lawyers who are comfortable working in English.
-  </p>
-</details>
-
-<!-- FAQ arrow style -->
+<!-- Retro & polished styles -->
 <style>
-details[open] summary .arrow {
-  transform: rotate(90deg) translateY(-50%);
+:root {
+  --juro-red: #E30613;
+  --juro-yellow: #FFD700;
+  --retro-bg: #fff8f0;
+  --retro-accent: #f4f4f4;
+  --dark-gray: #333;
 }
-summary::-webkit-details-marker {
-  display: none;
+
+body {
+  font-family: 'Arial', sans-serif;
+  color: var(--dark-gray);
+  line-height:1.6;
+}
+
+h1,h2,h3 { margin: 18px 0 12px 0; }
+h1 { font-size:2.4rem; text-align:center; }
+
+.hero {
+  background: var(--retro-bg);
+  border:2px solid var(--juro-red);
+  border-radius:12px;
+  padding:30px 20px;
+  text-align:center;
+  margin-bottom:24px;
+  box-shadow: 3px 3px 8px rgba(0,0,0,0.05);
+}
+
+.hero p { font-size:1.1rem; margin:12px 0; }
+
+.cta-button {
+  background: var(--juro-red);
+  color: #fff;
+  font-weight:bold;
+  padding:14px 22px;
+  border-radius:8px;
+  text-decoration:none;
+  display:inline-block;
+  margin-top:12px;
+  transition: all 0.2s;
+}
+.cta-button:hover { transform: scale(1.05); background: #b4040e; }
+
+.services-grid { display:flex; flex-wrap:wrap; gap:18px; margin:24px 0; justify-content:center; }
+.service-box {
+  flex:1 1 300px;
+  border:2px solid var(--juro-red);
+  border-radius:12px;
+  padding:18px;
+  background: var(--retro-accent);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.service-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 4px 4px 12px rgba(0,0,0,0.1);
+}
+.service-icon { font-size:28px; margin-bottom:8px; display:inline-block; }
+.service-title { font-weight:bold; font-size:1.05rem; margin-bottom:6px; }
+
+.note { background:#fff; border-left:4px solid var(--juro-red); padding:12px; border-radius:6px; margin:12px 0; font-style:italic; }
+
+details.service-faq { margin-bottom:12px; border:1px solid #ddd; border-radius:8px; padding:12px; background: var(--retro-bg); }
+summary.service-sum {
+  font-weight:700;
+  cursor:pointer;
+  list-style:none;
+  position:relative;
+  padding-left:28px;
+  transition: background 0.2s;
+}
+summary.service-sum:hover { background:#ffeccc; }
+summary.service-sum .arrow { position:absolute; left:6px; top:50%; transform:translateY(-50%); transition: transform .25s; display:inline-block; }
+details[open] summary.service-sum .arrow { transform: rotate(90deg) translateY(-50%); }
+summary.service-sum::-webkit-details-marker { display:none; }
+
+form.contact-form {
+  background: var(--retro-bg);
+  border:2px solid var(--juro-red);
+  border-radius:8px;
+  padding:24px;
+  max-width:500px;
+  margin:24px auto;
+  box-shadow: 3px 3px 8px rgba(0,0,0,0.05);
+}
+form.contact-form label { font-weight:bold; display:block; margin-bottom:5px; }
+form.contact-form input, form.contact-form textarea {
+  width:100%; padding:12px; margin-bottom:15px; border:1px solid var(--juro-red); border-radius:5px; font-weight:bold;
+  font-size:1rem;
+}
+form.contact-form button {
+  width:100%; background: var(--juro-red); color:#fff; font-weight:bold; padding:14px; border:none; border-radius:5px; cursor:pointer;
+  font-size:1rem; transition: transform .2s;
+}
+form.contact-form button:hover { transform: scale(1.03); background:#b4040e; }
+
+@media(max-width:720px) {
+  .services-grid { flex-direction:column; align-items:center; }
+  h1 { font-size:2rem; }
 }
 </style>
 
-<hr>
+<!-- Hero -->
+<div class="hero">
+  <h1>English-Speaking Legal Guidance for Expats in <span style="color:var(--juro-red);">J</span><span style="color:var(--juro-yellow);">U</span><span style="color:var(--juro-red);">R</span><span style="color:var(--juro-yellow);">O</span> Spain</h1>
+  <p>From visas and residency to property and banking, we coordinate with trusted lawyers to make your move smooth, fast, and stress-free.</p>
+  <a href="https://calendly.com/hello-jurospain/30min" class="cta-button">Book a 30-Minute Call</a>
+</div>
 
-<h2>Let's Get Started</h2>
+<!-- Services -->
+<h2 style="text-align:center;">Our Services</h2>
+<div class="services-grid">
+  <div class="service-box">
+    <div class="service-icon">🛂</div>
+    <div class="service-title">Immigration & Visas</div>
+    <p>We coordinate NIE, Digital Nomad Visa, and residency applications with <strong>specialist immigration lawyers</strong> for fast, error-free processing.</p>
+  </div>
 
-<p>
-<a href="https://calendly.com/hello-jurospain/30min">Book a call</a> · <a href="mailto:hello@jurospain.com">hello@jurospain.com</a>
-</p>
+  <div class="service-box">
+    <div class="service-icon">🏡</div>
+    <div class="service-title">Property & Mortgages</div>
+    <p>Purchase reviews, notary representation, mortgage comparisons — all coordinated with <strong>dedicated property lawyers</strong>.</p>
+  </div>
+
+  <div class="service-box">
+    <div class="service-icon">💳</div>
+    <div class="service-title">Banking & Settling In</div>
+    <p>Bank account setup, empadronamiento, autónomo registration — we handle all steps and liaise with lawyers where needed.</p>
+  </div>
+</div>
+
+<!-- Why Choose JURO -->
+<h2 style="text-align:center;">Why Choose <span style="color:var(--juro-red);">J</span><span style="color:var(--juro-yellow);">U</span><span style="color:var(--juro-red);">R</span><span style="color:var(--juro-yellow);">O</span> Spain?</h2>
+<ul style="max-width:600px; margin:auto;">
+  <li>✓ English-first communication</li>
+  <li>✓ Trusted specialist lawyers for every topic</li>
+  <li>✓ Transparent fixed pricing</li>
+  <li>✓ Nationwide coverage (Barcelona, Valencia, Málaga, Alicante, and beyond)</li>
+  <li>✓ Fast, practical support — paperwork, appointments, deadlines handled</li>
+</ul>
+
+<div class="note"><strong>Important:</strong> We are not a law firm. We coordinate your relocation and legal processes and connect you to vetted Spanish lawyers for each specialist area.</div>
+
+<!-- Contact Form -->
+<h2 style="text-align:center;">Contact <span style="color:var(--juro-red);">J</span><span style="color:var(--juro-yellow);">U</span><span style="color:var(--juro-red);">R</span><span style="color:var(--juro-yellow);">O</span> Spain</h2>
+<form class="contact-form" action="https://formspree.io/f/mwpjpyoj" method="POST">
+  <label for="name">Name</label>
+  <input type="text" id="name" name="name" required>
+
+  <label for="email">Email</label>
+  <input type="email" id="email" name="_replyto" required>
+
+  <label for="message">What is this regarding?</label>
+  <textarea id="message" name="message" rows="5" required></textarea>
+
+  <button type="submit">Send Message</button>
+</form>
+
+<!-- FAQ Section -->
+<h2 style="text-align:center;">Who <span style="color:var(--juro-red);">J</span><span style="color:var(--juro-yellow);">U</span><span style="color:var(--juro-red);">R</span><span style="color:var(--juro-yellow);">O</span> Spain Helps (FAQ)</h2>
+
+<details class="service-faq">
+  <summary class="service-sum"><span class="arrow">►</span> Are you a law firm?</summary>
+  <p>No. We coordinate relocation, visas, property, and administrative processes and connect you with vetted specialist lawyers when needed.</p>
+</details>
+
+<details class="service-faq">
+  <summary class="service-sum"><span class="arrow">►</span> Do I need a lawyer for my move?</summary>
+  <p>We match you with lawyers only if your case requires legal representation, saving time and avoiding mistakes.</p>
+</details>
+
+<details class="service-faq">
+  <summary class="service-sum"><span class="arrow">►</span> Can you handle visas and property together?</summary>
+  <p>Yes! Our team coordinates multiple services seamlessly with specialist lawyers where needed.</p>
+</details>
+
+<details class="service-faq">
+  <summary class="service-sum"><span class="arrow">►</span> Is all communication in English?</summary>
+  <p>Absolutely — every step is English-first.</p>
+</details>
+
+<details class="service-faq">
+  <summary class="service-sum"><span class="arrow">►</span> Nationwide coverage?</summary>
+  <p>Yes — we coordinate across Spain including Barcelona, Valencia, Málaga, Alicante, and beyond.</p>
+</details>
+
+<!-- Bottom CTA -->
+<div style="text-align:center; margin-top:24px;">
+  <a href="https://calendly.com/hello-jurospain/30min" class="cta-button">Book Your 30-Minute Call</a>
+</div>
