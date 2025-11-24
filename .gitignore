@@ -1,0 +1,10 @@
+# Ignore generated site output
+_site/
+
+# Ignore common editor/temp files
+.DS_Store
+*.swp
+*.tmp
+
+# Ignore bundle vendor directory
+/vendor/bundle/
