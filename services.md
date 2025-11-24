@@ -4,153 +4,260 @@ title: Services
 description: English-speaking relocation and legal-support services for expats moving to Spain — visas, NIE, property, banking, autónomo, and more. Delivered with trusted lawyer partners.
 permalink: /services/
 ---
-<h1><span style="color:#E30613;">J</span><span style="color:#FFD700;">U</span><span style="color:#E30613;">R</span><span style="color:#FFD700;">O</span> Spain Services</h1>
+<!-- Centralized styles (inline so nothing else needed) -->
+<style>
+  /* Brand colours */
+  :root { --juro-red:#E30613; --juro-yellow:#FFD700; --soft-bg:#fff8f0; --muted:#666; }
 
-<p>
-Relocating to Spain as an international family or remote professional can feel overwhelming.  
-We provide clear, English-first support for visas, NIE numbers, property purchases, banking, autónomo setup, and everyday life admin — all delivered with <strong>trusted, topic-specific Spanish lawyers</strong>.
-</p>
+  /* Page layout */
+  .services-grid { display:flex; flex-wrap:wrap; gap:18px; margin:18px 0 30px; }
+  .service-box { flex:1 1 320px; border:2px solid var(--juro-red); background:var(--soft-bg); border-radius:10px; padding:16px; box-sizing:border-box; }
+  .service-icon { font-size:28px; margin-bottom:8px; display:inline-block; width:44px; height:44px; line-height:44px; text-align:center; border-radius:8px; background:#fff; border:1px solid rgba(0,0,0,0.06); }
+  .service-title { font-size:1.05rem; margin:6px 0 8px; font-weight:700; }
+  .muted { color:var(--muted); font-size:0.95rem; }
+  .divider { height:8px; background:linear-gradient(90deg,var(--juro-red),var(--juro-yellow)); border-radius:4px; margin:22px 0; }
 
-<p style="background:#fff8f0; border-left:4px solid #E30613; padding:12px; font-size:1rem;">
-<strong>We are not a law firm.</strong>  
-We coordinate your relocation and connect you with vetted lawyers who specialise in the exact area you need — immigration, property, tax, business, or civil matters.
-</p>
+  /* CTA */
+  .cta-box { border:2px solid var(--juro-red); background:var(--soft-bg); padding:18px; border-radius:10px; text-align:center; margin:20px 0; }
+  .cta-button { background:var(--juro-red); color:#fff; padding:10px 16px; border-radius:6px; text-decoration:none; font-weight:700; display:inline-block; }
 
-<hr>
+  /* FAQ styles + arrow */
+  details.service-faq { margin-bottom:12px; border:1px solid #ddd; border-radius:8px; padding:12px; background:var(--soft-bg); }
+  summary.service-sum { font-weight:700; cursor:pointer; list-style:none; position:relative; padding-left:28px; }
+  summary.service-sum .arrow { position:absolute; left:6px; top:50%; transform:translateY(-50%); transition: transform .25s; display:inline-block; }
+  details[open] summary.service-sum .arrow { transform: rotate(90deg) translateY(-50%); }
+  summary.service-sum::-webkit-details-marker { display:none; }
 
-<h2>Immigration Essentials</h2>
+  /* Responsive */
+  @media (max-width:700px) {
+    .services-grid{ flex-direction:column; }
+  }
 
-<h3>NIE & Residency Numbers</h3>
+  /* Small highlight for 'we are not a law firm' */
+  .note { background:#fff; border-left:4px solid var(--juro-red); padding:12px; border-radius:6px; margin:12px 0; }
+</style>
+
+<!-- Page content -->
+<h1><span style="color:var(--juro-red);">J</span><span style="color:var(--juro-yellow);">U</span><span style="color:var(--juro-red);">R</span><span style="color:var(--juro-yellow);">O</span> Spain — Services for Expats</h1>
+
+<p class="muted">Clear, English-first support for relocating to Spain: visas & residency, NIE numbers, property transactions, banking, autónomo registration, and practical onboarding — delivered via trusted, specialist lawyer partners when legal representation is required.</p>
+
+<div class="note">
+  <strong>Not a law firm.</strong> We coordinate relocation, documents, and process management and connect you with vetted Spanish lawyers who specialise in the exact area you need (immigration, property, tax, civil matters). You’ll always know if and when a lawyer is involved.
+</div>
+
+<div class="divider" aria-hidden="true"></div>
+
+<!-- Services grid -->
+<h2>Core Services</h2>
+<div class="services-grid">
+
+  <div class="service-box" aria-labelledby="immigration-title">
+    <div class="service-icon">🛂</div>
+    <div id="immigration-title" class="service-title">Immigration & Residency</div>
+    <div class="muted">
+      NIE applications, residency activation, document checks and in-person support. We coordinate police, consulate and administrative steps for English-speaking expats.
+    </div>
+  </div>
+
+  <div class="service-box" aria-labelledby="digital-title">
+    <div class="service-icon">💻</div>
+    <div id="digital-title" class="service-title">Digital Nomad Visa Support</div>
+    <div class="muted">
+      Eligibility assessment, income & employment documentation, insurance checks and residency activation guidance for remote workers and founders.
+    </div>
+  </div>
+
+  <div class="service-box" aria-labelledby="nlv-title">
+    <div class="service-icon">🏝️</div>
+    <div id="nlv-title" class="service-title">Non-Lucrative Residency</div>
+    <div class="muted">
+      Financial planning, consulate preparation, insurance review and renewal roadmaps for long-term residency without local employment.
+    </div>
+  </div>
+
+  <div class="service-box" aria-labelledby="property-title">
+    <div class="service-icon">🏡</div>
+    <div id="property-title" class="service-title">Property Transactions</div>
+    <div class="muted">
+      Reservation & contract review, nota simple and registry searches, notary attendance and post-purchase filings — coordinated with partner property lawyers.
+    </div>
+  </div>
+
+  <div class="service-box" aria-labelledby="mortgage-title">
+    <div class="service-icon">🏦</div>
+    <div id="mortgage-title" class="service-title">Mortgages for Expats</div>
+    <div class="muted">
+      Bank comparisons, LTV guidance, application packaging and translations — we prepare everything to optimise your mortgage outcome.
+    </div>
+  </div>
+
+  <div class="service-box" aria-labelledby="poa-title">
+    <div class="service-icon">✍️</div>
+    <div id="poa-title" class="service-title">Power of Attorney (POA)</div>
+    <div class="muted">
+      Bilingual POAs, apostille coordination and representation at notary signings so you can act in Spain when needed.
+    </div>
+  </div>
+
+  <div class="service-box" aria-labelledby="banking-title">
+    <div class="service-icon">💳</div>
+    <div id="banking-title" class="service-title">Banking Support</div>
+    <div class="muted">
+      Non-resident account setup, KYC preparation, branch introductions and online banking walkthroughs.
+    </div>
+  </div>
+
+  <div class="service-box" aria-labelledby="autonomo-title">
+    <div class="service-icon">📑</div>
+    <div id="autonomo-title" class="service-title">Autónomo Registration</div>
+    <div class="muted">
+      Hacienda & Social Security onboarding, IVA guidance, accounting tool recommendations and compliance reminders.
+    </div>
+  </div>
+
+</div> <!-- end services-grid -->
+
+<div class="divider" aria-hidden="true"></div>
+
+<!-- Why choose -->
+<h2>Why choose <span style="color:var(--juro-red);">J</span><span style="color:var(--juro-yellow);">U</span><span style="color:var(--juro-red);">R</span><span style="color:var(--juro-yellow);">O</span> Spain?</h2>
+
 <ul>
-  <li>Document review and required translations</li>
-  <li>Appointment booking + in-person representation where needed</li>
-  <li>Follow-up with police stations and consulates</li>
+  <li><strong>English-first</strong> — clear instructions and support in English throughout the process.</li>
+  <li><strong>Specialist partners</strong> — we match you to vetted lawyers only when legal representation is needed.</li>
+  <li><strong>Fixed-fee clarity</strong> — transparent pricing where possible and clear quotes when partner fees are required.</li>
+  <li><strong>Nationwide coverage</strong> — we coordinate remotely and arrange in-person meetings through local partners as needed.</li>
+  <li><strong>Fast, practical</strong> — we manage paperwork, appointments and deadlines so you can get on with moving.</li>
 </ul>
-<p><a href="{{ '/guides/nie-number-spain/' | relative_url }}">Learn how NIE works →</a></p>
 
-<h3>Digital Nomad Visa</h3>
-<ul>
-  <li>Eligibility checks for remote workers, founders, and contractors</li>
-  <li>Income, employment & qualification documentation</li>
-  <li>Health insurance, background checks & tax coordination</li>
-</ul>
-<p><a href="{{ '/guides/digital-nomad-visa-spain/' | relative_url }}">Understand the Digital Nomad Visa →</a></p>
+<div class="cta-box">
+  <h3 style="margin:0 0 8px 0;">Not sure which service fits?</h3>
+  <p class="muted" style="margin:0 0 12px 0;">Book a short call and we’ll recommend the exact mix of services for your move — no obligation.</p>
+  <a class="cta-button" href="https://calendly.com/hello-jurospain/30min">Book a call — 30 minutes</a>
+</div>
 
-<h3>Non-Lucrative Residency (NLV)</h3>
-<ul>
-  <li>Financial planning & income verification</li>
-  <li>Consulate appointment preparation</li>
-  <li>Renewal roadmap for year 2 and beyond</li>
-</ul>
-<p><a href="{{ '/guides/non-lucrative-visa-spain/' | relative_url }}">See the Non-Lucrative steps →</a></p>
+<div class="divider" aria-hidden="true"></div>
 
-<hr>
+<!-- Large FAQ section (human-friendly + structured for Google) -->
+<h2 id="faq">Frequently Asked Questions</h2>
 
-<h2>Property Services</h2>
-
-<h3>Buying Property</h3>
-<ul>
-  <li><em>Nota simple</em> checks & land registry searches</li>
-  <li>Reservation & purchase contract review with partner property lawyers</li>
-  <li>Notary attendance and post-completion filings</li>
-</ul>
-<p><a href="{{ '/guides/buying-property-in-spain/' | relative_url }}">Property buying checklist →</a></p>
-
-<h3>Mortgages for Expats</h3>
-<ul>
-  <li>Comparing banks, interest rates & expat LTV options</li>
-  <li>Document preparation and translations</li>
-  <li>Insurance and valuation coordination</li>
-</ul>
-<p><a href="{{ '/guides/mortgages-for-expats-spain/' | relative_url }}">Explore mortgage options →</a></p>
-
-<h3>Power of Attorney (POA)</h3>
-<ul>
-  <li>Bilingual power drafting</li>
-  <li>Apostille management abroad</li>
-  <li>Representation at notary signings</li>
-</ul>
-<p><a href="{{ '/guides/power-of-attorney-spain/' | relative_url }}">How POAs work →</a></p>
-
-<hr>
-
-<h2>Settling in Spain</h2>
-
-<h3>Banking Support</h3>
-<ul>
-  <li>Non-resident account setup</li>
-  <li>KYC preparation and branch introductions</li>
-  <li>Online banking walkthroughs</li>
-</ul>
-<p><a href="{{ '/guides/opening-a-bank-account-spain/' | relative_url }}">Open a Spanish bank account →</a></p>
-
-<h3>Empadronamiento</h3>
-<ul>
-  <li>Council appointment booking</li>
-  <li>Document preparation & proof of address</li>
-  <li>Certificates for schools, healthcare & residency files</li>
-</ul>
-<p><a href="{{ '/guides/empadronamiento-spain/' | relative_url }}">Why registration matters →</a></p>
-
-<h3>Autónomo (Self-Employed) Registration</h3>
-<ul>
-  <li>Hacienda & Social Security onboarding</li>
-  <li>IVA filing guidance & accounting tools</li>
-  <li>Quarterly reminders & compliance checks</li>
-</ul>
-<p><a href="{{ '/guides/register-as-autonomo-spain/' | relative_url }}">Get started as autónomo →</a></p>
-
-<hr>
-
-<h2 style="margin-top:30px;">Book a Call</h2>
-<p>Get a tailored plan for your move to Spain:</p>
-<p><a href="https://calendly.com/hello-jurospain/30min" style="background:#E30613; color:#fff; padding:10px 16px; border-radius:5px; text-decoration:none; font-weight:bold;">Book a call</a></p>
-
-<hr>
-
-<h2>Frequently Asked Questions</h2>
-
-<details>
-<summary><strong>Are you a law firm?</strong></summary>
-<p>No. <span style="color:#E30613;">J</span><span style="color:#FFD700;">U</span><span style="color:#E30613;">R</span><span style="color:#FFD700;">O</span> Spain is a relocation and coordination service. We partner with topic-specific, vetted Spanish lawyers — immigration, civil, tax, business, and property — depending on your case.</p>
+<details class="service-faq">
+  <summary class="service-sum"><span class="arrow">►</span> Are you a law firm?</summary>
+  <div class="muted">No. <span style="color:var(--juro-red);">J</span><span style="color:var(--juro-yellow);">U</span><span style="color:var(--juro-red);">R</span><span style="color:var(--juro-yellow);">O</span> Spain is a relocation and coordination service. We work with vetted, specialist Spanish lawyers depending on the area — immigration, property, tax, or civil matters. If your case needs legal representation, we introduce and coordinate with the right lawyer and manage the process end-to-end.</div>
 </details>
 
-<details>
-<summary><strong>Why use JURO Spain instead of going directly to a lawyer?</strong></summary>
-<ul>
-  <li>We simplify the process in native English</li>
-  <li>We assign the <em>right</em> lawyer for your exact situation (not all lawyers do immigration, property, tax, etc.)</li>
-  <li>We handle documents, translations, forms, and appointments</li>
-  <li>You avoid miscommunication and Spanish bureaucracy</li>
-</ul>
+<details class="service-faq">
+  <summary class="service-sum"><span class="arrow">►</span> Why not contact a lawyer directly?</summary>
+  <div class="muted">
+    Many expats benefit from a one-stop coordinator who:
+    <ul>
+      <li>speaks fluent English</li>
+      <li>prepares paperwork correctly</li>
+      <li>pre-screens lawyers and matches the best specialist</li>
+      <li>handles translations, bookings and follow-ups so the legal work is efficient</li>
+    </ul>
+  </div>
 </details>
 
-<details>
-<summary><strong>Where do you operate?</strong></summary>
-<p>Nationwide. We help clients moving to Barcelona, Valencia, Málaga, Alicante, Madrid, the islands, and everywhere in between. Most work is digital; in-person can be coordinated where needed via our lawyer partners.</p>
+<details class="service-faq">
+  <summary class="service-sum"><span class="arrow">►</span> How does your lawyer partnership work?</summary>
+  <div class="muted">
+    We maintain relationships with vetted lawyers across Spain. For each case we:
+    <ol>
+      <li>assess your needs</li>
+      <li>select the best-fit lawyer partner</li>
+      <li>coordinate documents, translations and appointments</li>
+      <li>oversee progress and communicate updates to you in English</li>
+    </ol>
+  </div>
 </details>
 
-<details>
-<summary><strong>How does pricing work?</strong></summary>
-<p>We offer fixed-fee packages wherever possible. If a case requires a lawyer with highly specific expertise (e.g., complex property issues), we provide a clear quote before you proceed.</p>
+<details class="service-faq">
+  <summary class="service-sum"><span class="arrow">►</span> How do you charge for partner lawyer work?</summary>
+  <div class="muted">
+    We provide transparent quotes. Where partner lawyer fees are required, we present a clear breakdown before you proceed. Wherever possible we offer fixed-fee packages for coordination and standard processes.
+  </div>
 </details>
 
-<details>
-<summary><strong>Do you handle communication with lawyers?</strong></summary>
-<p>Yes — we coordinate the whole workflow. You always know what’s happening, what’s needed, and who’s involved.</p>
+<details class="service-faq">
+  <summary class="service-sum"><span class="arrow">►</span> Do you operate nationwide?</summary>
+  <div class="muted">Yes — we coordinate remotely across Spain and arrange in-person meetings through our local partners when necessary (Barcelona, Valencia, Málaga, Alicante and other locations as needed).</div>
 </details>
 
-<details>
-<summary><strong>Can you help families and couples?</strong></summary>
-<p>Absolutely. Many of our relocation clients are families moving for work, school, or lifestyle changes.</p>
+<details class="service-faq">
+  <summary class="service-sum"><span class="arrow">►</span> Can you help families and couples?</summary>
+  <div class="muted">Absolutely. We regularly work with families, partners and groups relocating together — from school certificates and empadronamiento to family residency and property purchases.</div>
 </details>
 
-<details>
-<summary><strong>Do you work with non-EU and EU citizens?</strong></summary>
-<p>Yes — we assist both EU citizens (residency matters, NIE, bureaucratic setup) and non-EU citizens (visa-based moves).</p>
+<details class="service-faq">
+  <summary class="service-sum"><span class="arrow">►</span> What documents will I need for NIE / visas?</summary>
+  <div class="muted">Documents vary by process. Typically: passport, proof of address, appointment confirmations, proof of funds for visas, employment or contract letters. We supply a tailored checklist for your case and help collect, translate and validate documents.</div>
 </details>
 
-<hr>
+<details class="service-faq">
+  <summary class="service-sum"><span class="arrow">►</span> How long does the process take?</summary>
+  <div class="muted">Timing depends on the service. NIEs can be weeks; visa processes depend on consulate workloads; property purchases vary with transaction complexity. We set expectations up front and manage timelines actively to reduce delays.</div>
+</details>
 
-<p><strong>Ready to start your move?</strong></p>
-<p><a href="https://calendly.com/hello-jurospain/30min" style="background:#E30613; color:#fff; padding:10px 16px; border-radius:5px; text-decoration:none; font-weight:bold;">Book a call</a></p>
+<!-- FAQ arrow behavior (reused from homepage pattern) -->
+<style>
+  details[open] summary.service-sum .arrow { transform: rotate(90deg) translateY(-50%); }
+  summary.service-sum::-webkit-details-marker { display:none; }
+</style>
+
+<!-- FAQPage JSON-LD for rich results -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Are you a law firm?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. JURO Spain is a relocation and coordination service. We work with vetted, specialist Spanish lawyers depending on the area — immigration, property, tax, or civil matters. If your case needs legal representation, we introduce and coordinate with the right lawyer and manage the process end-to-end." }
+    },
+    {
+      "@type": "Question",
+      "name": "Why not contact a lawyer directly?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Many expats benefit from a one-stop coordinator who speaks fluent English, prepares paperwork correctly, pre-screens lawyers and matches the best specialist, and handles translations, bookings and follow-ups so the legal work is efficient." }
+    },
+    {
+      "@type": "Question",
+      "name": "How does your lawyer partnership work?",
+      "acceptedAnswer": { "@type": "Answer", "text": "We assess your needs, select the best-fit lawyer partner, coordinate documents, translations and appointments, and oversee progress while communicating updates in English." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you charge for partner lawyer work?",
+      "acceptedAnswer": { "@type": "Answer", "text": "We provide transparent quotes. Where partner lawyer fees are required, we present a clear breakdown before you proceed. Wherever possible we offer fixed-fee packages for coordination and standard processes." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you operate nationwide?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes — we coordinate remotely across Spain and arrange in-person meetings through our local partners when necessary (Barcelona, Valencia, Málaga, Alicante and other locations as needed)." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you help families and couples?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. We regularly work with families, partners and groups relocating together — from school certificates and empadronamiento to family residency and property purchases." }
+    },
+    {
+      "@type": "Question",
+      "name": "What documents will I need for NIE / visas?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Documents vary by process. Typically: passport, proof of address, appointment confirmations, proof of funds for visas, employment or contract letters. We supply a tailored checklist for your case and help collect, translate and validate documents." }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does the process take?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Timing depends on the service. NIEs can be weeks; visa processes depend on consulate workloads; property purchases vary with transaction complexity. We set expectations up front and manage timelines actively to reduce delays." }
+    }
+  ]
+}
+</script>
+
+<!-- Bottom CTA -->
+<div style="margin-top:22px;">
+  <p><strong>Ready to plan your move?</strong></p>
+  <p><a class="cta-button" href="https://calendly.com/hello-jurospain/30min">Book a call — 30 minutes</a></p>
+</div>
