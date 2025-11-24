@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Legal help for living in Spain—simple, clear, fast.
+title: Legal help for living in Spain. Simple, clear, fast.
 description: Relocation-focused legal support in Spain with English-speaking experts and clear pricing.
 permalink: /
 ---
@@ -35,4 +35,4 @@ Banking setup, empadronamiento, autónomo registration
 
 ## Let's get started
 
-[Book a call](https://calendly.com/YOUR-CALENDLY) · [hello@jurospain.com](mailto:hello@jurospain.com)
+[Book a call](https://calendly.com/hello-jurospain/30min) · [hello@jurospain.com](mailto:hello@jurospain.com)
