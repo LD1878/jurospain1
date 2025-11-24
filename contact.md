@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Contact | JURO Spain
+title: Contact
 description: Book a call, send us a message, or arrange an appointment. JURO Spain offers English-speaking legal help across Spain with in-person options by arrangement.
 permalink: /contact/
 ---
