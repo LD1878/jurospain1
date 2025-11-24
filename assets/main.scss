@@ -204,57 +204,45 @@ h3 {
 }
 
 /* ===========================
-   FAQ / Details Styling
+   FAQ / Details Styling (clickable, no arrows)
    =========================== */
-/* Clean details styling with custom arrow */
 details {
   background: $sp-sand;
   border: 1px solid rgba(0,0,0,0.06);
   border-radius: 6px;
   padding: 10px 14px;
   margin-bottom: 12px;
+  transition: background 0.18s ease, border-color 0.18s ease;
 }
 
 summary {
   font-weight: 700;
   cursor: pointer;
   list-style: none;
-  position: relative;
-  padding-right: 26px;
   padding-left: 0;
+  padding-right: 0;
   outline: none;
+  transition: color 0.15s ease, background 0.15s ease;
 }
 
-/* custom chevron */
-summary::after {
-  content: "+";
-  position: absolute;
-  right: 12px;
-  top: 8px;
-  font-weight: 700;
-  color: $sp-wine;
-  background: transparent;
-  width: 20px;
-  height: 20px;
-  line-height: 20px;
-  text-align: center;
-  border-radius: 3px;
-  transition: transform 0.12s ease, color 0.12s ease;
-}
-
-/* when open, show minus */
-details[open] summary::after {
-  content: "−";
-  color: $sp-gold;
-}
-
-/* summary focus style for accessibility */
+/* Hover and focus highlights */
+summary:hover,
 summary:focus {
-  outline: 3px solid rgba($sp-gold, 0.25);
+  background: rgba($sp-gold, 0.1);  /* subtle highlight on hover */
+  color: $sp-wine;                  /* slightly darker text */
   border-radius: 4px;
 }
 
-/* FAQ content */
+/* Remove any pseudo-elements used for arrows */
+summary::after {
+  content: none;
+}
+
+details[open] summary::after {
+  content: none;
+}
+
+/* FAQ content styling */
 details p {
   margin-top: 10px;
   color: darken($sp-char, 6%);
