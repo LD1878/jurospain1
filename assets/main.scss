@@ -3,3 +3,117 @@
 ---
 
 @import "minima";
+
+/* --- Retro Minor Tweaks --- */
+
+/* Page background */
+body {
+  background-color: #fff8f0; /* soft beige retro feel */
+  font-family: 'Lato', Arial, sans-serif;
+  color: #333;
+  line-height: 1.65;
+}
+
+/* Headings color with subtle shadow */
+h1, h2, h3 {
+  color: #E30613; /* JURO red */
+  text-shadow: 0 1px #FFD700; /* subtle yellow accent */
+}
+
+/* Menu / Navigation styling */
+nav {
+  background-color: #E30613; /* JURO red */
+  padding: 12px 20px;
+  border-bottom: 4px solid #FFD700; /* JURO yellow */
+}
+
+nav a {
+  color: #fff;
+  font-weight: bold;
+  margin-right: 20px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  color: #FFD700;
+  text-shadow: 1px 1px 0 #333;
+}
+
+/* Section cards for content */
+section, .card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Buttons and CTAs */
+a.cta, button {
+  background-color: #E30613;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 12px 20px;
+  border: 2px solid #FFD700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+a.cta:hover, button:hover {
+  background-color: #FFD700;
+  color: #E30613;
+  border-color: #E30613;
+}
+
+/* FAQ / Glossary boxes */
+details {
+  background-color: #fff8f0;
+  border: 1px solid #FFD700;
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+summary {
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  padding-left: 20px;
+}
+
+/* Arrow indicator for FAQ */
+summary .arrow {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-block;
+  color: #E30613;
+  transition: transform 0.3s;
+}
+
+details[open] summary .arrow {
+  transform: rotate(90deg) translateY(-50%);
+}
+
+/* Optional subtle body pattern (retro texture) */
+body::before {
+  content: "";
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.05) 1px,
+    transparent 1px,
+    transparent 5px
+  );
+  pointer-events: none;
+  z-index: -1;
+}
