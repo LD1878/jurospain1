@@ -1,10 +1,7 @@
 ---
-# This empty YAML block ensures Jekyll processes the SCSS into CSS.
+# Must be included to process the SCSS file
 ---
-/* * JURO Spain New Theme Styles (SCSS/CSS)
- * NOTE: The old 'minima' styles and variables have been removed 
- * to implement the new, cleaner design provided.
- */
+/* JURO Spain New Theme Styles (SCSS/CSS) */
 
 /* CSS Variables */
 :root {
@@ -336,7 +333,7 @@ details p {
   color: #555;
 }
 
-/* Footer */
+/* Footer (already in _layouts/default.html, these are the styles) */
 .site-footer {
   background: var(--bg-color);
   border-top: 2px solid var(--border-color);
@@ -401,22 +398,4 @@ section { margin: 3rem 0; }
   .services-grid {
     grid-template-columns: 1fr;
   }
-}
-
-/* The Page Switcher styles were part of the demo HTML. 
-   These are not needed for a multi-page Jekyll site but are kept here 
-   in case you want to use a similar component elsewhere. */
-.page-nav {
-  /* ... (styles for page-nav if you keep it) */
-}
-.page-content {
-    /* This style is not needed for Jekyll's multi-page setup */
-    display: block !important; 
-}
-
-/* Ensure images scale nicely */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
 }
