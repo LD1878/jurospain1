@@ -1,92 +1,167 @@
 ---
-layout: page
-title: Spanish Legal & Immigration Glossary
-description: Essential Spanish legal terms, visa vocabulary, and immigration concepts explained in plain English for expats.
+layout: default
+title: Spanish Legal Glossary
+description: Essential Spanish legal terms explained in clear English for expats dealing with visas, residency, and property in Spain.
 permalink: /glossary/
 ---
-<style>
-:root {
-  --juro-red: #E30613;
-  --juro-yellow: #FFD700;
-  --gloss-bg: #fff8f0;
-  --gloss-accent: #f4f4f4;
-  --dark-gray: #333;
-}
-body { font-family:'Arial', sans-serif; color: var(--dark-gray); line-height:1.6; }
-h1,h2 { margin:18px 0 12px 0; text-align:center; }
-h1 { font-size:2rem; }
-details { margin-bottom:10px; border:1px solid #ddd; border-radius:6px; padding:10px; background:var(--gloss-bg); }
-summary { cursor:pointer; font-weight:bold; padding-left:20px; position:relative; }
-summary .arrow { position:absolute; left:0; top:50%; transform:translateY(-50%); transition: transform 0.25s; }
-details[open] summary .arrow { transform: rotate(90deg) translateY(-50%); }
-summary::-webkit-details-marker { display:none; }
-a.cta { color: var(--juro-red); font-weight:bold; text-decoration:underline; }
-</style>
 
-<h1>Spanish Legal & Immigration Glossary</h1>
-<p style="text-align:center;">Quick-reference guide to Spanish legal, visa, and immigration terminology — explained in plain English for expats.</p>
+# Spanish Legal & Expat Glossary
 
-<!-- Section A -->
-<h2>A</h2>
+Spanish legal terminology can be confusing. We've compiled the most essential terms you'll encounter during your residency application, property purchase, and relocation process, explained simply in English.
+
+---
+
+<h2>🇪🇸 Residency & Immigration Terms</h2>
+
 <details>
-  <summary><span class="arrow">►</span> Abogado</summary>
-  <p>Lawyer or attorney. Required for property purchases and complex immigration matters. <a class="cta" href="/services/">See our services</a></p>
-</details>
-<details>
-  <summary><span class="arrow">►</span> AJD (Actos Jurídicos Documentados)</summary>
-  <p>Stamp duty tax applied to legal documents like mortgages. <a class="cta" href="/pricing/">Check related pricing</a></p>
-</details>
-<details>
-  ...(truncated 7505 characters)...ummary>
-  <p>Residence or residency status in Spain.</p>
-</details>
-<details>
-  <summary><span class="arrow">►</span> Resguardo</summary>
-  <p>Proof of submission for administrative applications.</p>
+    <summary>NIE (Número de Identidad de Extranjero)</summary>
+    <p>
+        **Definition:** This is the **Foreigner's Identity Number**. It's a unique, mandatory tax identification number required for nearly all legal activities in Spain, including opening a bank account, buying property, signing contracts, or starting a job. It is **not** the same as a residency card (TIE).
+    </p>
 </details>
 
-<!-- Section S -->
-<h2>S</h2>
 <details>
-  <summary><span class="arrow">►</span> Schengen Area</summary>
-  <p>26 European countries with open borders. Spanish residency allows travel here.</p>
-</details>
-<details>
-  <summary><span class="arrow">►</span> Sede Electrónica</summary>
-  <p>Government websites for appointments, online procedures, and document submission.</p>
-</details>
-<details>
-  <summary><span class="arrow">►</span> Social Security Number</summary>
-  <p>Required for employment and healthcare access. Different from NIE.</p>
+    <summary>TIE (Tarjeta de Identidad de Extranjero)</summary>
+    <p>
+        **Definition:** The **Foreigner's Identity Card**. This is the physical card that confirms your official residency status in Spain (e.g., Non-Lucrative, Digital Nomad, or EU citizen registration). You receive this card after your residency application has been approved.
+    </p>
 </details>
 
-<!-- Section T -->
-<h2>T</h2>
 <details>
-  <summary><span class="arrow">►</span> TIE</summary>
-  <p>Foreigner Identity Card for non-EU residents. Must carry as ID.</p>
-</details>
-<details>
-  <summary><span class="arrow">►</span> Traductor Jurado</summary>
-  <p>Sworn translator for certified legal document translations.</p>
+    <summary>Non-Lucrative Visa (NLV)</summary>
+    <p>
+        **Definition:** A Spanish residency visa for non-EU citizens who wish to live in Spain without engaging in local economic activity (work). It requires demonstrating sufficient **passive income or substantial savings** to support oneself and dependents.
+    </p>
 </details>
 
-<!-- Section V -->
-<h2>V</h2>
 <details>
-  <summary><span class="arrow">►</span> Visa Nacional</summary>
-  <p>National long-stay visa for work, study, non-lucrative, or digital nomad purposes.</p>
-</details>
-<details>
-  <summary><span class="arrow">►</span> Volante de Empadronamiento</summary>
-  <p>See Certificado de Empadronamiento.</p>
+    <summary>Digital Nomad Visa</summary>
+    <p>
+        **Definition:** A Spanish residency permit for **remote workers or freelancers** who work primarily for companies outside of Spain. It offers a fast-track route to residency, typically granted for three years initially.
+    </p>
 </details>
 
-<hr>
-<p style="text-align:center; font-size:1.1rem; margin-top:24px;">
-Need help navigating Spanish bureaucracy? <a class="cta" href="https://calendly.com/hello-jurospain/30min">Book a consultation</a> or <a class="cta" href="mailto:hello@jurospain.com">email us</a> today!
-</p>
-<!-- --- NEW ADDITIONS: Wrap sections in div for better anchor scrolling --- -->
-<div class="glossary-section" id="section-a">  <!-- Example for A, repeat for others -->
-  <!-- Existing content unchanged -->
+<details>
+    <summary>Golden Visa</summary>
+    <p>
+        **Definition:** A residency permit granted to non-EU citizens who make a **significant capital investment** in the Spanish economy, most commonly by purchasing real estate valued at **€500,000 or more**.
+    </p>
+</details>
+
+<details>
+    <summary>Schengen Area</summary>
+    <p>
+        **Definition:** A zone comprising 26 European countries that have abolished passport and all other types of border control at their mutual borders. Once you obtain a Spanish residency card (TIE), you are generally free to travel within the Schengen Area.
+    </p>
+</details>
+
+<details>
+    <summary>Residencia de Larga Duración</summary>
+    <p>
+        **Definition:** **Long-term residency**, typically applied for after five continuous years of legal residency in Spain. This status grants you permanent residency rights.
+    </p>
+</details>
+
+---
+
+<h2>🏠 Property & Financial Terms</h2>
+
+<details>
+    <summary>Escritura Pública</summary>
+    <p>
+        **Definition:** The **public deed of sale**. This is the official legal document signed before a Notary that formally transfers ownership of the property from the seller to the buyer. This is the final step in the conveyancing process.
+    </p>
+</details>
+
+<details>
+    <summary>Nota Simple</summary>
+    <p>
+        **Definition:** A brief extract from the **Property Registry (Registro de la Propiedad)**. It is a vital document that confirms the current legal owner, identifies any outstanding debts (mortgages, liens, or claims) on the property, and provides its legal description.
+    </p>
+</details>
+
+<details>
+    <summary>Notario (Notary)</summary>
+    <p>
+        **Definition:** A **public official** who is required to authenticate and certify legal documents, ensuring all parties fully understand and legally agree to the contents. Their presence is mandatory for signing the Escritura Pública and granting a Power of Attorney (POA).
+    </p>
+</details>
+
+<details>
+    <summary>Plusvalía Tax</summary>
+    <p>
+        **Definition:** A **local municipal tax** levied on the theoretical increase in the value of the land when a property is transferred (sold). The seller is generally responsible for this tax.
+    </p>
+</details>
+
+<details>
+    <summary>IBI (Impuesto sobre Bienes Inmuebles)</summary>
+    <p>
+        **Definition:** The **Annual Property Tax**. This is a municipal tax based on the cadastral (official administrative) value of the property, similar to council tax or property tax in other countries.
+    </p>
+</details>
+
+<details>
+    <summary>Poder Notarial (Power of Attorney - POA)</summary>
+    <p>
+        **Definition:** A legal document, signed before a Notary, that gives a designated person (e.g., your lawyer) the **legal authority to act on your behalf** for specific purposes, such as signing a property deed or opening a bank account.
+    </p>
+</details>
+
+---
+
+<h2>✅ Bureaucracy & Administration Terms</h2>
+
+<details>
+    <summary>Empadronamiento (Padrón)</summary>
+    <p>
+        **Definition:** The process of officially **registering yourself as a resident** with your local town hall (Ayuntamiento). This is mandatory if you plan to live in Spain for more than six months and is required for many administrative tasks.
+    </p>
+</details>
+
+<details>
+    <summary>Certificado de Empadronamiento</summary>
+    <p>
+        **Definition:** The **physical certificate** received from the town hall that proves you are officially registered at a specific address (Padrón). It is often required to prove your address for visa renewals or other procedures.
+    </p>
+</details>
+
+<details>
+    <summary>Traductor Jurado</summary>
+    <p>
+        **Definition:** A **Sworn Translator**. This is an official, government-certified translator whose translation carries the same legal validity as the original document. Most official documents (birth certificates, marriage certificates) must be translated by a *Traductor Jurado* for Spanish procedures.
+    </p>
+</details>
+
+<details>
+    <summary>Certificado Digital</summary>
+    <p>
+        **Definition:** A **digital certificate** that allows citizens and residents to securely identify themselves online and digitally sign documents with government agencies (like the Tax Agency or Social Security) without needing to visit an office in person.
+    </p>
+</details>
+
+<details>
+    <summary>Autónomo</summary>
+    <p>
+        **Definition:** The official Spanish term for **self-employed** or a sole trader. If you plan to work for yourself while living in Spain, you must register as an *Autónomo* with the Spanish tax and social security authorities.
+    </p>
+</details>
+
+<details>
+    <summary>Hacienda</summary>
+    <p>
+        **Definition:** The colloquial term for the **Spanish Tax Agency (Agencia Tributaria)**. This is the government body responsible for collecting taxes, administering the tax system, and managing customs duties.
+    </p>
+</details>
+
+---
+
+## Need Specific Legal Advice?
+
+<p class="center">If a term isn't clear or you need specific legal advice on how one of these terms applies to your case, book a free consultation to speak with an English-speaking legal expert.</p>
+
+<div class="center">
+    <a href="https://calendly.com/hello-jurospain/30min" class="btn" target="_blank" rel="noopener noreferrer">
+        Ask a Lawyer
+    </a>
 </div>
