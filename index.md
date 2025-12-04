@@ -21,20 +21,20 @@ permalink: /
 
 <p class="center">We simplify the legal and administrative process, ensuring your move is secure and compliant from day one.</p>
 
-<div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 24px 0; justify-content: center;">
+<div class="services-grid" style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 24px 0; justify-content: center;">
     
     <a href="{{ '/services/' | relative_url }}" class="card" style="flex: 1 1 300px; text-decoration: none;">
-        <h3 class="service-title">🇪🇸 Immigration & Residency</h3>
+        <h3>🇪🇸 Immigration & Residency</h3>
         <p>NIE, Digital Nomad, Non-Lucrative Visa (NLV), and renewals. Secure your right to live legally in Spain.</p>
     </a>
     
     <a href="{{ '/services/' | relative_url }}" class="card" style="flex: 1 1 300px; text-decoration: none;">
-        <h3 class="service-title">🏠 Property Purchase</h3>
+        <h3>🏠 Property Purchase</h3>
         <p>End-to-end legal conveyancing, due diligence, and notary representation to protect your property investment.</p>
     </a>
 
     <a href="{{ '/services/' | relative_url }}" class="card" style="flex: 1 1 300px; text-decoration: none;">
-        <h3 class="service-title">✅ Relocation Essentials</h3>
+        <h3>✅ Relocation Essentials</h3>
         <p>Bank accounts, Empadronamiento, Autónomo (self-employment) registration, and legal compliance.</p>
     </a>
 </div>
