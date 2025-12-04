@@ -23,8 +23,14 @@ layout: null
         <div class="container">
             <a class="site-title" href="{{ '/' | relative_url }}">J<span style="color:var(--sp-gold);">U</span>R<span style="color:var(--sp-gold);">O</span> Spain</a>
             
+            <!-- Mobile Menu Toggle -->
             <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
                 Menu ☰
+            </button>
+
+            <!-- Dark Mode Toggle -->
+            <button id="dark-mode-toggle" aria-label="Toggle dark mode" class="menu-toggle">
+                🌞/🌙
             </button>
             
             <nav class="site-nav">
@@ -92,6 +98,8 @@ layout: null
             const menuToggle = document.querySelector('.menu-toggle');
             const siteNav = document.querySelector('.site-nav');
             const siteHeader = document.querySelector('.site-header');
+            const darkToggle = document.getElementById('dark-mode-toggle');
+            const htmlEl = document.documentElement;
 
             // Mobile Menu Toggle Logic
             if (menuToggle && siteNav) {
@@ -112,6 +120,29 @@ layout: null
                         siteHeader.classList.remove('scrolled');
                     }
                 });
+            }
+
+            // Dark Mode Toggle Logic
+            if (darkToggle) {
+                // Load saved mode from localStorage
+                const savedMode = localStorage.getItem('dark-mode');
+                if (savedMode === 'true') htmlEl.classList.add('dark-mode');
+
+                // Optionally respect system preference if no saved mode
+                if (!savedMode) {
+                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    if (prefersDark) htmlEl.classList.add('dark-mode');
+                }
+
+                // Click handler
+                darkToggle.addEventListener('click', () => {
+                    htmlEl.classList.toggle('dark-mode');
+                    localStorage.setItem('dark-mode', htmlEl.classList.contains('dark-mode'));
+                    darkToggle.textContent = htmlEl.classList.contains('dark-mode') ? '🌙' : '🌞';
+                });
+
+                // Set initial icon
+                darkToggle.textContent = htmlEl.classList.contains('dark-mode') ? '🌙' : '🌞';
             }
         });
     </script>
