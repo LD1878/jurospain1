@@ -1,31 +1,78 @@
 /* ==========================================================
-   JURO Spain: Final Production CSS (High UX Focus)
+   JURO Spain: Final Production CSS
+   Light Mode + Spanish Sunset Dark Mode
+   With UX/UI Expert Optimizations
    ========================================================== */
 
-/* 1. Theme Variables (Spain Brand & Neutrals) */
+/* ----------------------------------------------------------
+   1. DESIGN TOKEN SYSTEM (LIGHT MODE BASE)
+   ---------------------------------------------------------- */
+
 :root {
-  --sp-red: #E30613;      /* Primary Accent (Spanish Red) */
-  --sp-gold: #FFC400;     /* Secondary Accent (Spanish Gold) */
-  --sp-char: #232323;     /* Deep Charcoal Text (Max Readability) */
+  /* Brand Colors */
+  --sp-red: #E30613;
+  --sp-gold: #FFC400;
+
+  /* Neutrals */
+  --sp-char: #232323;
   --sp-white: #ffffff;
-  --sp-light-bg: #fcfcfc; /* Page Background (Slightly off-white) */
-  --sp-card-bg: #ffffff;  /* Card Background */
-  --sp-muted: #8b8b85;    /* Muted Text/Border Color */
+  --sp-light-bg: #fcfcfc;
+  --sp-card-bg: #ffffff;
+  --sp-muted: #8b8b85;
+
+  /* Borders */
+  --sp-border: #ddd;
+
+  /* Radius */
   --sp-radius: 6px;
-  
+
   /* Typography */
-  --sp-font-heavy: 'Oswald', sans-serif; /* Bulky/Brand Font */
+  --sp-font-heavy: 'Oswald', sans-serif;
   --sp-font-body: 'Arial', sans-serif;
   --sp-max-width: 1200px;
+
+  /* Spacing Scale */
+  --sp-space-1: 0.25rem;
+  --sp-space-2: 0.5rem;
+  --sp-space-3: 1rem;
+  --sp-space-4: 1.5rem;
+  --sp-space-5: 2rem;
+  --sp-space-6: 3rem;
+
+  /* Elevations */
+  --elev-1: 0 2px 6px rgba(0,0,0,0.06);
+  --elev-2: 0 6px 12px rgba(0,0,0,0.12);
+  --elev-3: 0 10px 20px rgba(0,0,0,0.18);
 }
 
-/* 2. Base / Body (Micro-typography and Anti-aliasing) */
+/* ----------------------------------------------------------
+   2. DARK MODE (SPANISH SUNSET THEME)
+   ---------------------------------------------------------- */
+
+html.dark-mode {
+  --sp-light-bg: #1e1a17;        /* Twilight earth */
+  --sp-card-bg: #2a2521;         /* Warm stone */
+  --sp-white: #f5f1ed;           /* Soft cream */
+  --sp-char: #f5f1ed;            /* Text */
+  --sp-muted: #b8aea4;           /* Muted text */
+  --sp-border: #3c352f;          /* Warm shadow borders */
+
+  /* Accents softened for dark mode */
+  --sp-red: #ff4d4f;             /* Sunset red */
+  --sp-gold: #e6b25c;            /* Dusk gold */
+}
+
+/* ----------------------------------------------------------
+   3. BASE STYLES & TYPOGRAPHY
+   ---------------------------------------------------------- */
+
 *, *::before, *::after {
-    box-sizing: border-box; /* Universal box-sizing for predictable layout */
+  box-sizing: border-box;
 }
 
 html {
-    font-size: 16px;
+  font-size: 16px;
+  font-feature-settings: "liga" 1, "kern" 1;
 }
 
 body {
@@ -34,64 +81,66 @@ body {
   font-family: var(--sp-font-body);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  padding-top: 0;
   margin: 0;
 }
 
-/* 3. Typography (Bulky Headings) */
 h1, h2, h3 {
   font-family: var(--sp-font-heavy);
   font-weight: 700;
-  text-transform: uppercase;
-  margin: 1.5rem 0 0.8rem 0;
+  margin: var(--sp-space-5) 0 var(--sp-space-3) 0;
   line-height: 1.2;
 }
 
-h1 { 
-    font-size: 3rem; 
-    text-align: center; 
-    color: var(--sp-red); 
-    letter-spacing: -0.05rem; /* Tighten for boldness */
+h1 {
+  font-size: 3rem;
+  text-align: center;
+  color: var(--sp-red);
+  letter-spacing: -0.02em;
 }
-h2 { 
-    font-size: 2rem; 
-    border-bottom: 3px solid var(--sp-gold); 
-    padding-bottom: 0.5rem; 
-    margin-bottom: 1.5rem;
+h2 {
+  font-size: 2rem;
+  border-bottom: 3px solid var(--sp-gold);
+  padding-bottom: var(--sp-space-2);
 }
-h3 { 
-    font-size: 1.25rem; 
-    text-transform: none; 
-    font-weight: 600; 
-    color: var(--sp-red); 
-    margin-top: 0;
+h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--sp-red);
 }
 
-/* Utility Classes */
 .center { text-align: center; }
 .small { font-size: 0.9rem; color: var(--sp-muted); }
-hr { border: 0; border-top: 1px solid #eee; margin: 30px 0; }
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--sp-border);
+  margin: var(--sp-space-5) 0;
+}
+
 .container {
   max-width: var(--sp-max-width);
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 var(--sp-space-4);
 }
 
-/* 4. Header & Navigation (Sticky & Shrinking) */
+/* ----------------------------------------------------------
+   4. HEADER & NAVIGATION
+   ---------------------------------------------------------- */
+
 .site-header {
-  background-color: var(--sp-card-bg); /* Clean white header */
-  border-bottom: 4px solid var(--sp-gold); /* Bold gold separator */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  position: sticky; top: 0; z-index: 1000;
-  padding: 1.5rem 0;
-  transition: all 0.3s ease-in-out;
+  background-color: var(--sp-card-bg);
+  border-bottom: 4px solid var(--sp-gold);
+  box-shadow: var(--elev-1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: var(--sp-space-5) 0;
+  transition: padding 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* Shrink effect on scroll */
 .site-header.scrolled {
-  padding: 0.75rem 0; 
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  padding: var(--sp-space-3) 0;
+  box-shadow: var(--elev-2);
 }
 
 .site-header .container {
@@ -100,183 +149,200 @@ hr { border: 0; border-top: 1px solid #eee; margin: 30px 0; }
   align-items: center;
 }
 
-/* Logo/Title Style (Bulky Font & Spain Colors) */
 .site-title {
   font-family: var(--sp-font-heavy);
   font-size: 2rem;
   font-weight: 800;
-  text-decoration: none;
   color: var(--sp-red);
-  transition: font-size 0.3s;
+  text-decoration: none;
+  transition: font-size 0.3s ease;
 }
 
 .site-header.scrolled .site-title {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
-/* Navigation Links */
+/* NAV LINKS */
+
 .site-nav a {
   color: var(--sp-char);
   text-decoration: none;
   font-weight: 500;
-  padding: 0.5rem 0.8rem;
+  padding: var(--sp-space-2) var(--sp-space-3);
   transition: color 0.2s, background-color 0.2s;
 }
 
 .site-nav a:hover {
   color: var(--sp-red);
-  background-color: rgba(227, 6, 19, 0.05);
+  background-color: rgba(227,6,19,0.05);
   border-radius: var(--sp-radius);
 }
 
-/* 5. Buttons (.btn) */
+/* ----------------------------------------------------------
+   5. BUTTONS
+   ---------------------------------------------------------- */
+
 .btn {
   background: var(--sp-red);
   color: var(--sp-white) !important;
   font-weight: 700;
-  padding: 1rem 1.5rem;
+  padding: var(--sp-space-3) var(--sp-space-4);
   border-radius: var(--sp-radius);
-  text-decoration: none;
   display: inline-block;
-  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
   text-transform: uppercase;
-  font-size: 1rem;
   border: none;
   cursor: pointer;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
 .btn:hover {
-  background: #a8040d; /* Darker red on hover */
+  background: #a8040d;
   transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+  box-shadow: var(--elev-2);
 }
 
-/* 6. Page Components (.card, .hero) */
+.btn:active {
+  transform: translateY(0);
+  box-shadow: var(--elev-1);
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--sp-gold);
+  outline-offset: 3px;
+}
+
+/* ----------------------------------------------------------
+   6. CARDS & HERO
+   ---------------------------------------------------------- */
+
 .card, .post-card {
   background: var(--sp-card-bg);
-  border: 1px solid #ddd;
+  border: 1px solid var(--sp-border);
   border-radius: var(--sp-radius);
-  padding: 25px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
-  transition: box-shadow 0.3s;
+  padding: var(--sp-space-5);
+  box-shadow: var(--elev-1);
+  transition: box-shadow 0.3s, background-color 0.3s;
 }
+
 .card:hover {
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  box-shadow: var(--elev-2);
 }
 
 .hero {
-  background: var(--sp-light-bg);
-  border: 1px solid #eee;
+  background: var(--sp-card-bg);
+  border: 1px solid var(--sp-border);
   border-radius: var(--sp-radius);
-  padding: 3rem 2rem;
-  margin-bottom: 2rem;
+  padding: var(--sp-space-6) var(--sp-space-4);
 }
 
-/* 7. UX STRUCTURE: Services Grid (For Homepage/Services) */
+/* ----------------------------------------------------------
+   7. SERVICES GRID
+   ---------------------------------------------------------- */
+
 .services-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem; 
-    margin: 30px 0; 
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-space-4);
+  margin: var(--sp-space-5) 0;
+  justify-content: center;
 }
 
 .services-grid .card {
-    flex: 1 1 300px;
-    text-align: left; 
-    padding: 25px; 
-    text-decoration: none; 
-    color: var(--sp-char); 
-    transition: transform 0.3s, box-shadow 0.3s;
-    height: auto; 
+  flex: 1 1 300px;
+  height: auto;
+  transition: transform 0.3s;
 }
 
-.services-grid a.card:hover {
-    transform: translateY(-4px); 
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
-    background-color: #ffffff;
+.services-grid .card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--elev-2);
 }
 
-.services-grid a.card h3 {
-    color: var(--sp-red);
+.services-grid h3 {
+  color: var(--sp-red);
 }
 
-/* 8. Forms (Apple-Level Focus State) */
+/* ----------------------------------------------------------
+   8. FORMS
+   ---------------------------------------------------------- */
+
 label {
   display: block;
   font-weight: 600;
-  margin-top: 1rem;
-  margin-bottom: 0.3rem;
-  color: var(--sp-char);
+  margin-top: var(--sp-space-4);
+  margin-bottom: var(--sp-space-1);
 }
 
 input[type="text"],
 input[type="email"],
 textarea {
   width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #ccc;
+  padding: var(--sp-space-3);
+  border: 1px solid var(--sp-border);
   border-radius: var(--sp-radius);
-  box-sizing: border-box; 
   font-family: var(--sp-font-body);
   font-size: 1rem;
+  background: var(--sp-white);
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
+input:focus,
 textarea:focus {
   border-color: var(--sp-red);
-  box-shadow: 0 0 0 4px rgba(227, 6, 19, 0.15); 
+  box-shadow: 0 0 0 4px rgba(227,6,19,0.15);
   outline: none;
 }
 
 .card button[type="submit"] {
-    margin-top: 1.5rem;
-    width: 100%;
+  margin-top: var(--sp-space-5);
+  width: 100%;
 }
 
-/* 9. FAQ/Details (Glossary & Index) */
+/* ----------------------------------------------------------
+   9. FAQ ACCORDION
+   ---------------------------------------------------------- */
+
 .service-faq {
-    margin-bottom: 0.5rem;
-    border: 1px solid #eee;
-    border-radius: var(--sp-radius);
-    background-color: var(--sp-card-bg);
-    overflow: hidden;
+  margin-bottom: var(--sp-space-1);
+  border: 1px solid var(--sp-border);
+  border-radius: var(--sp-radius);
+  background: var(--sp-card-bg);
 }
 
 .service-faq summary {
-    font-weight: 700;
-    color: var(--sp-char);
-    padding: 1rem 1.5rem;
-    background-color: var(--sp-card-bg);
-    cursor: pointer;
-    transition: background-color 0.2s;
+  padding: var(--sp-space-4);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.service-faq summary:hover {
+  background-color: rgba(0,0,0,0.03);
 }
 
 .service-faq[open] summary {
-    background-color: var(--sp-light-bg);
-    color: var(--sp-red);
-    border-bottom: 1px solid #eee;
+  background: var(--sp-light-bg);
+  color: var(--sp-red);
 }
 
 .service-faq p {
-    padding: 0.5rem 1.5rem 1rem 1.5rem;
-    margin: 0;
+  padding: var(--sp-space-3) var(--sp-space-4);
+  margin: 0;
 }
 
-/* 10. Footer (Grid Layout with Separators) */
+/* ----------------------------------------------------------
+   10. FOOTER
+   ---------------------------------------------------------- */
+
 .site-footer {
   background: var(--sp-char);
   color: #fff;
-  padding: 40px 0 20px 0;
-  margin-top: 40px;
+  padding: var(--sp-space-6) 0 var(--sp-space-4);
+  margin-top: var(--sp-space-6);
   font-size: 0.9rem;
 }
 
 .site-footer a {
   color: #ddd;
-  text-decoration: none;
 }
 
 .site-footer a:hover {
@@ -286,98 +352,99 @@ textarea:focus {
 .footer-content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 20px;
-  margin-bottom: 20px;
+  gap: var(--sp-space-3);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: var(--sp-space-4);
 }
 
 .footer-section {
-    position: relative; /* Needed for the ::after element */
+  position: relative;
 }
 
-/* 🎯 NEW: Vertical Separator for Footer on Desktop */
+/* Desktop footer separators */
 @media (min-width: 901px) {
-    .footer-section:not(:last-child)::after {
-        content: '';
-        position: absolute;
-        top: 20px;
-        right: -10px; /* Aligns to the middle of the 20px gap */
-        height: calc(100% - 40px); /* Creates space at top/bottom */
-        width: 1px;
-        background: rgba(255, 255, 255, 0.15);
-    }
-}
-
-.footer-section h3 {
-    color: var(--sp-white);
-    text-transform: uppercase;
-    font-size: 1rem;
-}
-
-.footer-section ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-section ul li {
-    margin-bottom: 5px;
+  .footer-section:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: var(--sp-space-3);
+    right: -10px;
+    height: calc(100% - var(--sp-space-6));
+    width: 1px;
+    background: rgba(255,255,255,0.15);
+  }
 }
 
 .footer-bottom {
   text-align: center;
-  font-size: 0.8rem;
   color: #aaa;
+  font-size: 0.8rem;
 }
 
-/* Mobile Menu Toggles */
+/* ----------------------------------------------------------
+   11. MOBILE NAVIGATION
+   ---------------------------------------------------------- */
+
 .menu-toggle {
-    display: none; 
+  display: none;
 }
 
 @media (max-width: 900px) {
-    .site-nav {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background: var(--sp-card-bg);
-        border-top: 1px solid #eee;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        padding: 10px 0;
-    }
+  .site-nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--sp-card-bg);
+    border-top: 1px solid var(--sp-border);
+    box-shadow: var(--elev-2);
+    padding: var(--sp-space-2) 0;
 
-    .site-nav.active {
-        display: flex;
-    }
+    /* Smooth reveal animation */
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
 
-    .site-nav a {
-        padding: 10px 1.5rem;
-        border-bottom: 1px solid #f9f9f9;
-        width: 100%;
-        text-align: center;
-    }
-    
-    .site-nav a.btn {
-        margin: 10px 1.5rem;
-        width: auto;
-    }
+  .site-nav.active {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+  }
 
-    .menu-toggle {
-        display: block;
-        background: none;
-        border: none;
-        color: var(--sp-char);
-        font-size: 1.2rem;
-        cursor: pointer;
-        padding: 0.5rem;
-    }
+  .site-nav a {
+    padding: var(--sp-space-3);
+    border-bottom: 1px solid var(--sp-light-bg);
+    text-align: center;
+  }
 
-    h1 { font-size: 2rem; }
-    h2 { font-size: 1.5rem; }
-    .footer-content {
-        grid-template-columns: 1fr 1fr;
-    }
+  .menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+  }
+
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+}
+
+/* Secondary breakpoint (tablets & small laptops) */
+@media (max-width: 700px) {
+  .services-grid {
+    flex-direction: column;
+  }
+}
+
+/* ----------------------------------------------------------
+   12. REDUCED MOTION SUPPORT
+   ---------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
 }
