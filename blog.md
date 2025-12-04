@@ -1,46 +1,58 @@
 ---
 layout: default
-title: Juro Spain Blog - Legal Guides and News for Expats
-description: Latest articles and guides on Spanish visas, residency applications, property laws, and administrative tips for English-speaking expats.
+title: Juro Spain Legal Guides & Blog
+description: Expert articles and resources on obtaining Spanish residency, property law, visas, and living as an expat in Spain.
+permalink: /blog/
 ---
 
-<div class="wrapper fade-in py-4">
-    <section>
-        <h1>Legal Guides and News for Expats in Spain</h1>
-        <p class="lead">Stay up-to-date with the latest changes in Spanish immigration, property law, and essential administrative processes. Our articles are written in plain English to help you move forward with confidence.</p>
-    </section>
+# Your Resource for Spanish Legal & Expat Guides
 
-    <hr>
+Welcome to our expert knowledge hub. Here you will find clear, up-to-date guides, news, and tips covering the critical legal and administrative aspects of moving to and living in Spain.
+
+---
+
+{% assign sorted_posts = site.posts | sort: "date" | reverse %}
+
+{% if sorted_posts.size > 0 %}
     
-    <section class="post-listing">
-        <h2>Latest Articles</h2>
+    {% for post in sorted_posts %}
+
+    <div class="post-card">
+        <a href="{{ post.url | relative_url }}">
+            <h2>{{ post.title | escape }}</h2>
+        </a>
         
-        {% if site.posts.size > 0 %}
-            <ul class="post-list" style="list-style: none; padding: 0;">
-                {% for post in site.posts %}
-                <li class="card">
-                    <article>
-                        <h3>
-                            <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-                        </h3>
-                        
-                        <div class="post-meta" style="font-size: 0.9em; color: #777; margin-bottom: 0.5rem;">
-                            <span style="font-weight: 700;">Published:</span> 
-                            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
-                        </div>
+        <p class="small" style="margin-bottom: 0.5rem;">
+            Published: {{ post.date | date: "%B %d, %Y" }} 
+            {% if post.author %} | By: {{ post.author }} {% endif %}
+        </p>
+        
+        <p>{{ post.excerpt | strip_html | truncate: 180 }}</p>
 
-                        {{ post.excerpt | strip_html | truncate: 200 }} 
-                        
-                        <p style="margin-top: 1rem;"><a href="{{ post.url | relative_url }}" class="btn" style="padding: 6px 12px; font-size: 0.9em;">Read More &rarr;</a></p>
-                    </article>
-                </li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p class="text-center" style="padding: 2rem;">
-                We are currently preparing our first batch of guides. Check back soon for expert advice on visas and property!
-            </p>
-        {% endif %}
-    </section>
+        <a href="{{ post.url | relative_url }}" class="btn" style="padding: 0.5rem 1rem;">
+            Read Full Guide →
+        </a>
+    </div>
 
+    {% endfor %}
+
+{% else %}
+
+<div class="card center">
+    <h2>Content Coming Soon!</h2>
+    <p>We are currently writing our first set of comprehensive guides and articles. Please check back soon!</p>
+</div>
+
+{% endif %}
+
+---
+
+## Need Legal Advice Now?
+
+<p class="center">Don't wait for a blog post. If you have an urgent question about a visa, property purchase, or residency, book a free call.</p>
+
+<div class="center">
+    <a href="https://calendly.com/hello-jurospain/30min" class="btn" target="_blank" rel="noopener noreferrer">
+        Book Your Free Consultation
+    </a>
 </div>
