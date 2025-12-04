@@ -1,335 +1,422 @@
 ---
-# Only the main Sass file needs front matter so Jekyll processes it
+# This empty YAML block ensures Jekyll processes the SCSS into CSS.
 ---
+/* * JURO Spain New Theme Styles (SCSS/CSS)
+ * NOTE: The old 'minima' styles and variables have been removed 
+ * to implement the new, cleaner design provided.
+ */
 
-@import "minima";
-
-/* ===========================
-   Theme variables (Spain-ish)
-   =========================== */
-$sp-red:   #E30613;    // main accent red
-$sp-wine:  #7c1f1f;    // darker accent
-$sp-gold:  #FFD700;    // bright gold accent
-$sp-gold-soft: #e6c23a; // softer gold used subtly
-$sp-sand:  #fff8f0;    // page background beige (kept from your file)
-$sp-char:  #333;       // text color
-$muted:    #8b8b85;    // neutral muted tone
-$card-bg:  #ffffff;    // card background
-$radius:   8px;
-
-/* ===========================
-   Base / Body
-   =========================== */
-body {
-  background-color: $sp-sand;
-  color: $sp-char;
-  font-family: "Helvetica", "Arial", sans-serif;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* CSS Variables */
+:root {
+  --primary-color: #E30613;
+  --accent-color: #FFD700;
+  --bg-color: #FFF8F0;
+  --card-bg: #FFFFFF;
+  --text-color: #333;
+  --dark-red: #7C1F1F;
+  --border-color: #E6C23A;
+  --hover-bg: rgba(255, 215, 0, 0.1);
+  --shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 6px 24px rgba(0, 0, 0, 0.08);
 }
 
-/* ===========================
-   Header & Menu
-   =========================== */
-.navbar, .site-header {
-  background-color: $sp-sand;
-  color: $sp-red;
-  border-bottom: 2px solid $sp-gold;
-  box-shadow: none;
-}
-
-.navbar a, .site-header a {
-  color: $sp-red;
-  font-weight: 700;
-  text-decoration: none;
-  margin-right: 15px;
-}
-
-.navbar a:hover, .site-header a:hover {
-  color: $sp-gold;
-}
-
-/* ===========================
-   Links
-   =========================== */
-a {
-  color: $sp-red;
-  font-weight: 700;
-  text-decoration: none;
-  border-bottom: 1px dotted rgba($sp-wine, 0.08);
-}
-
-a:hover {
-  color: $sp-gold;
-  text-decoration: underline;
-}
-
-/* ===========================
-   Cards / Post Listings / Forms
-   =========================== */
-.post-card, form, .card, .pricing-card {
-  background-color: $card-bg;
-  border: 2px solid $sp-gold-soft;
-  border-radius: $radius;
-  padding: 20px;
-  margin-bottom: 24px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.04);
-}
-
-/* CTA buttons */
-form button, .cta, .btn {
-  background: $sp-red;
-  color: #fff;
-  font-weight: 700;
-  padding: 10px 20px;
-  border-radius: 6px;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  transition: background 0.18s ease, color 0.18s ease, transform 0.06s ease;
-  display: inline-block;
-}
-
-form button:hover, .cta:hover, .btn:hover {
-  background: $sp-gold;
-  color: $sp-wine;
-  transform: translateY(-1px);
-}
-
-/* ===========================
-   Form Inputs & Textareas
-   =========================== */
-form input, form textarea, input, textarea, select {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid lighten($sp-wine, 30%);
-  border-radius: 6px;
-  font-weight: 600;
-  font-size: 1rem;
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-/* ===========================
-   Headings & Typography
-   =========================== */
-h1, .page-title {
-  font-family: "Helvetica Neue", "Arial", sans-serif;
-  font-size: 2.4rem;
-  margin-bottom: 0.6rem;
-  color: $sp-wine;
-  letter-spacing: -0.5px;
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
-h2 {
-  font-size: 1.25rem;
-  color: $sp-wine;
-  margin-bottom: 0.45rem;
+h1, h2, h3 {
+  color: var(--dark-red);
   font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.8rem;
+  letter-spacing: -0.02em;
 }
 
-h3 {
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: .08em;
-  color: $sp-wine;
-  margin-bottom: .5rem;
-  font-weight: 700;
+h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 1.2rem; }
+h2 { font-size: clamp(1.5rem, 4vw, 2rem); margin-top: 2rem; }
+h3 { font-size: clamp(1rem, 3vw, 1.3rem); }
+p { margin-bottom: 1rem; }
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
 }
 
-/* ===========================
-   Pricing Table (improved)
-   =========================== */
-.pricing-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 28px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.03);
-  overflow: hidden;
-  border-radius: 8px;
+a:hover {
+  color: var(--accent-color);
 }
 
-.pricing-table th,
-.pricing-table td {
-  padding: 14px 16px;
-  text-align: left;
-  vertical-align: middle;
-  border-bottom: 1px solid rgba(0,0,0,0.04);
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
-.pricing-table thead th {
-  background: $sp-wine;
-  color: #fff;
-  font-weight: 700;
-  border-bottom: 2px solid darken($sp-wine, 6%);
+.wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
-.pricing-table tbody tr:nth-child(even) {
-  background: rgba($sp-gold, 0.03);
+/* Header */
+.site-header {
+  background: var(--bg-color);
+  border-bottom: 2px solid var(--accent-color);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
 }
 
-.pricing-table td.price {
-  font-weight: 800;
-  color: $sp-wine;
-}
-
-/* Make the package names stand out */
-.pricing-table td.package {
-  font-weight: 700;
-  color: $sp-wine;
-}
-
-/* Responsive table: stack on small screens */
-@media (max-width: 720px) {
-  .pricing-table, .pricing-table thead, .pricing-table tbody, .pricing-table th, .pricing-table td, .pricing-table tr {
-    display: block;
-  }
-  .pricing-table thead {
-    display: none;
-  }
-  .pricing-table td {
-    position: relative;
-    padding-left: 45%;
-    border-bottom: 1px solid rgba(0,0,0,0.04);
-  }
-  .pricing-table td::before {
-    content: attr(data-label);
-    position: absolute;
-    left: 16px;
-    top: 14px;
-    font-weight: 700;
-    color: $muted;
-  }
-}
-
-/* ===========================
-   FAQ / Details Styling (clickable, no arrows)
-   =========================== */
-details {
-  background: $sp-sand;
-  border: 1px solid rgba(0,0,0,0.06);
-  border-radius: 6px;
-  padding: 10px 14px;
-  margin-bottom: 12px;
-  transition: background 0.18s ease, border-color 0.18s ease;
-}
-
-summary {
-  font-weight: 700;
-  cursor: pointer;
-  list-style: none;
-  padding-left: 0;
-  padding-right: 0;
-  outline: none;
-  transition: color 0.15s ease, background 0.15s ease;
-}
-
-/* Hover and focus highlights */
-summary:hover,
-summary:focus {
-  background: rgba($sp-gold, 0.1);  /* subtle highlight on hover */
-  color: $sp-wine;                  /* slightly darker text */
-  border-radius: 4px;
-}
-
-/* Remove any pseudo-elements used for arrows */
-summary::after {
-  content: none;
-}
-
-details[open] summary::after {
-  content: none;
-}
-
-/* FAQ content styling */
-details p {
-  margin-top: 10px;
-  color: darken($sp-char, 6%);
-}
-
-/* ===========================
-   Utility: small helpers
-   =========================== */
-.center {
-  text-align: center;
-}
-
-.small {
-  font-size: 0.9rem;
-  color: $muted;
-}
-
-/* ===========================
-   Footer tweaks
-   =========================== */
-.site-footer {
-  background: transparent;
-  border-top: 2px solid rgba($sp-wine, 0.06);
-  color: darken($sp-char, 8%);
-  padding-top: 30px;
-}
-
-/* ===========================
-   Minor accessibility & performance
-   =========================== */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-table {
-  width: 100%;
-}
-
-/* ===========================
-   Pricing card (optional small component)
-   =========================== */
-.pricing-card {
+.site-header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
-.pricing-card .meta {
-  flex: 1 1 auto;
-  padding-right: 12px;
-}
-
-.pricing-card .price {
-  flex: 0 0 auto;
+.site-title {
+  font-size: 1.8rem;
   font-weight: 800;
-  color: $sp-wine;
-  font-size: 1.1rem;
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: transform 0.2s ease;
 }
 
-/* ===========================
-   Final small responsive tweaks
-   =========================== */
-@media (max-width: 720px) {
-  .post-card, .pricing-card, .card {
-    padding: 16px;
-  }
-  h1 { font-size: 1.6rem; }
-  h2 { font-size: 1.1rem; }
+.site-title:hover {
+  transform: scale(1.05);
 }
-summary {
-  list-style: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  cursor: pointer;
+
+.site-nav {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.site-nav a {
+  color: var(--dark-red);
   font-weight: 700;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.5rem 0;
+  position: relative;
 }
 
-summary:hover,
-summary:focus {
-  background: rgba($sp-gold, 0.1);
-  color: $sp-wine;
-  border-radius: 4px;
+.site-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-color);
+  transition: width 0.3s ease;
+}
+
+.site-nav a:hover::after {
+  width: 100%;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle { display: block; }
+  .site-nav {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+  .site-nav.active { display: flex; }
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-red) 100%);
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+  border-radius: 12px;
+  margin: 2rem auto;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+  animation: pulse 8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.hero h1 {
+  color: white;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+  position: relative;
+  z-index: 1;
+}
+
+/* Buttons */
+.btn, .cta {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  background: var(--accent-color);
+  color: var(--dark-red);
+  font-weight: 700;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 2px solid var(--accent-color);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+}
+
+.btn:hover, .cta:hover {
+  background: white;
+  color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+}
+
+/* Cards */
+.card, .service-card {
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.card:hover, .service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-color);
+}
+
+/* Services Grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.service-card {
+  text-align: center;
+}
+
+.service-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.service-card h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+/* Benefits List */
+.benefits-list {
+  list-style: none;
+  padding: 0;
+}
+
+.benefits-list li {
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  background: var(--card-bg);
+  border-left: 4px solid var(--accent-color);
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.benefits-list li:hover {
+  transform: translateX(8px);
+  border-left-color: var(--primary-color);
+}
+
+.benefits-list li::before {
+  content: '✓ ';
+  color: var(--primary-color);
+  font-weight: 800;
+  margin-right: 0.5rem;
+}
+
+/* FAQ */
+details {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+details:hover {
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow);
+}
+
+summary {
+  font-weight: 700;
+  color: var(--dark-red);
+  cursor: pointer;
+  list-style: none;
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 summary::-webkit-details-marker {
   display: none;
+}
+
+summary::before {
+  content: '►';
+  color: var(--primary-color);
+  transition: transform 0.3s ease;
+  font-size: 0.8rem;
+}
+
+details[open] summary::before {
+  transform: rotate(90deg);
+}
+
+details p {
+  margin-top: 1rem;
+  padding-left: 1.5rem;
+  color: #555;
+}
+
+/* Footer */
+.site-footer {
+  background: var(--bg-color);
+  border-top: 2px solid var(--border-color);
+  padding: 3rem 0 1.5rem;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid #ddd;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* Utilities */
+.text-center { text-align: center; }
+.py-4 { padding: 4rem 0; }
+section { margin: 3rem 0; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@media (max-width: 768px) {
+  .container, .wrapper {
+    padding: 0 1rem;
+  }
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* The Page Switcher styles were part of the demo HTML. 
+   These are not needed for a multi-page Jekyll site but are kept here 
+   in case you want to use a similar component elsewhere. */
+.page-nav {
+  /* ... (styles for page-nav if you keep it) */
+}
+.page-content {
+    /* This style is not needed for Jekyll's multi-page setup */
+    display: block !important; 
+}
+
+/* Ensure images scale nicely */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
