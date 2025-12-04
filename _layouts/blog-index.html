@@ -18,8 +18,8 @@ layout: default
     
     {% for post in sorted_posts %}
 
-    <div class="post-card">
-        <a href="{{ post.url | relative_url }}">
+    <div class="post-card" style="margin-bottom: 30px;">
+        <a href="{{ post.url | relative_url }}" style="text-decoration: none;">
             <h2>{{ post.title | escape }}</h2>
         </a>
         
@@ -29,13 +29,13 @@ layout: default
         
         {% assign raw_excerpt = post.excerpt | strip_html %}
         
-        {% assign cleaned_excerpt_stage_1 = raw_excerpt | replace: "Table of contents", "" | replace: "table of contents", "" | replace: "Overview:", "" %}
+        {% assign cleaned_excerpt_stage_1 = raw_excerpt | replace: "Table of contents", "" | replace: "table of contents", "" | replace: "Overview:", "" | replace: "-", "" | replace: "*", "" %}
 
-        {% assign cleaned_excerpt_stage_2 = cleaned_excerpt_stage_1 | replace: "\n", " " | replace: "   ", " " | replace: "  ", " " %}
+        {% assign cleaned_excerpt_stage_2 = cleaned_excerpt_stage_1 | newline_to_br | replace: "<br>", " " | replace: "   ", " " | replace: "  ", " " %}
         
-        {% assign final_excerpt = cleaned_excerpt_stage_2 | strip | truncate: 180 %}
+        {% assign final_excerpt = cleaned_excerpt_stage_2 | strip | truncate: 200 %}
         
-        <p>{{ final_excerpt }}</p>
+        <p>{{ final_excerpt }}...</p>
 
         <a href="{{ post.url | relative_url }}" class="btn" style="padding: 0.5rem 1rem;">
             Read Full Guide →
