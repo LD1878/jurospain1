@@ -1,15 +1,15 @@
 ---
 layout: default
-title: Juro Spain Legal Guides & Blog
+title: Your Resource for Spanish Legal & Expat Guides
 description: Expert articles and resources on obtaining Spanish residency, property law, visas, and living as an expat in Spain.
 permalink: /blog/
 ---
 
-# Your Resource for Spanish Legal & Expat Guides
+<h1>Your Resource for Spanish Legal & Expat Guides</h1>
 
 <p>Welcome to our expert knowledge hub. Here you will find clear, up-to-date guides, news, and tips covering the critical legal and administrative aspects of moving to and living in Spain.</p>
 
----
+<hr>
 
 {% assign sorted_posts = site.posts | sort: "date" | reverse %}
 
@@ -28,9 +28,13 @@ permalink: /blog/
         
         {% assign raw_excerpt = post.excerpt | strip_html %}
         
-        {% assign cleaned_excerpt = raw_excerpt | replace: "Table of contents", "" | replace: "table of contents", "" | replace: "Overview:", "" | strip | truncate: 180 %}
+        {% assign cleaned_excerpt_stage_1 = raw_excerpt | replace: "Table of contents", "" | replace: "table of contents", "" | replace: "Overview:", "" %}
+
+        {% assign cleaned_excerpt_stage_2 = cleaned_excerpt_stage_1 | replace: "\n", " " | replace: "   ", " " | replace: "  ", " " %}
         
-        <p>{{ cleaned_excerpt }}</p>
+        {% assign final_excerpt = cleaned_excerpt_stage_2 | strip | truncate: 180 %}
+        
+        <p>{{ final_excerpt }}</p>
 
         <a href="{{ post.url | relative_url }}" class="btn" style="padding: 0.5rem 1rem;">
             Read Full Guide →
@@ -48,9 +52,9 @@ permalink: /blog/
 
 {% endif %}
 
----
+<hr>
 
-## Need Legal Advice Now?
+<h2>Need Legal Advice Now?</h2>
 
 <p class="center">Don't wait for a blog post. If you have an urgent question about a visa, property purchase, or residency, book a free call.</p>
 
