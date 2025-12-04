@@ -1,85 +1,54 @@
 ---
-layout: default
-title: About Juro Spain - Your English-Speaking Legal Partner
+layout: page
+title: About Juro Spain
+description: Expert English-speaking lawyers helping expats secure visas, residency, and property in Spain with clear guidance and support.
+permalink: /about/
 ---
 
-<div class="wrapper fade-in py-4">
-    <section>
-        <h1>Your English-Speaking Legal Partner in Spain</h1>
-        <p class="lead">Moving to Spain should be exciting, not stressful. At **Juro Spain**, we help English-speaking expats navigate Spanish immigration, residency, and property purchases with confidence. With over **11 years of experience**, we combine legal expertise, local knowledge, and personal support to make your relocation smooth and stress-free.</p>
-        <p>We are more than lawyers. We are your guide to starting a new life in Spain.</p>
-    </section>
-    
-    <section>
-        <h2>Why Expats Choose Juro Spain</h2>
-        <ul class="benefits-list">
-            <li>**Clear guidance in English.** We explain visas, residency, and property transactions in plain English so you know exactly what to do.</li>
-            <li>**Trusted local partners.** We work only with vetted notaries, tax advisors, and immigration specialists across Spain.</li>
-            <li>**Efficient and stress-free process.** We handle Spanish bureaucracy so your case moves quickly and smoothly.</li>
-            <li>**Nationwide support with local presence.** In-person assistance is available in **Barcelona, Valencia, Málaga, and Alicante** through our trusted partner network.</li>
-        </ul>
-    </section>
+## Your English-Speaking Legal Partner in Spain
 
-    <section>
-        <h2>Services for Expats in Spain</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <span class="service-icon">🛂</span>
-                <h3>Immigration and Residency</h3>
-                <ul class="benefits-list" style="border:none;">
-                    <li>NIE applications</li>
-                    <li>Golden Visa processing</li>
-                    <li>Digital Nomad Visa support</li>
-                    <li>Non-lucrative residency and renewals</li>
-                </ul>
-            </div>
-            
-            <div class="service-card">
-                <span class="service-icon">🏠</span>
-                <h3>Property Purchase Support</h3>
-                <ul class="benefits-list" style="border:none;">
-                    <li>Contract review and negotiation</li>
-                    <li>Notary representation</li>
-                    <li>Mortgage guidance for international buyers</li>
-                    <li>Power of attorney services</li>
-                </ul>
-            </div>
-            
-            <div class="service-card">
-                <span class="service-icon">💼</span>
-                <h3>Relocation Essentials</h3>
-                <ul class="benefits-list" style="border:none;">
-                    <li>Bank account setup</li>
-                    <li>Empadronamiento registration</li>
-                    <li>Autónomo business registration</li>
-                    <li>Ongoing compliance and legal support</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+Moving to Spain should be exciting, not stressful. At **Juro Spain**, we help **English-speaking expats** navigate Spanish immigration, residency, and property purchases with confidence. With over **11 years of experience**, we combine **legal expertise**, **local knowledge**, and **personal support** to make your relocation smooth and stress-free.
 
-    <section>
-        <h2>How We Work With You</h2>
-        <ol class="benefits-list">
-            <li>**Initial Consultation** – We assess your situation and explain your options clearly in English.</li>
-            <li>**Personalized Plan** – We create a step-by-step roadmap tailored to your needs.</li>
-            <li>**Hands-On Support** – We handle paperwork and liaise with authorities on your behalf.</li>
-            <li>**Ongoing Assistance** – We stay with you after arrival to ensure compliance and peace of mind.</li>
-        </ol>
-    </section>
-    
-    <section>
-        <h2>Why Juro Spain is Different</h2>
-        <div class="card">
-            <p>Unlike other law firms that work from a distance, we combine **deep local expertise with English-first service**. Our clients avoid costly mistakes, understand every step of the process, and enjoy a smooth transition to life in Spain.</p>
-            <blockquote style="margin-top: 1.5rem; border-left: 4px solid var(--accent-color); padding-left: 1rem; color: #555;">
-                "Juro Spain made moving to Barcelona effortless. Everything was explained in English and they handled all the tricky bureaucracy." – Satisfied Client
-            </blockquote>
-        </div>
-    </section>
+We are more than lawyers. We are your guide to starting a new life in Spain.
 
-    <section class="text-center">
-        <h2>Start Your Spanish Adventure with Confidence.</h2>
-        <a href="{{ site.baseurl }}/contact.html" class="btn cta">Contact Us Today for Expert Legal Guidance</a>
-    </section>
-</div>
+## Why Expats Choose Juro Spain
+
+* **Clear guidance in English.** We explain visas, residency, and property transactions in plain English so you know exactly what to do.
+* **Trusted local partners.** We work only with vetted notaries, tax advisors, and immigration specialists across Spain.
+* **Efficient and stress-free process.** We handle Spanish bureaucracy so your case moves quickly and smoothly.
+* **Nationwide support with local presence.** In-person assistance is available in **Barcelona, Valencia, Málaga, and Alicante** through our trusted partner network.
+
+## Services for Expats in Spain
+
+### Immigration and Residency
+* NIE applications  
+* Golden Visa processing  
+* Digital Nomad Visa support  
+* Non-lucrative residency and renewals  
+
+### Property Purchase Support
+* Contract review and negotiation  
+* Notary representation  
+* Mortgage guidance for international buyers  
+* Power of attorney services  
+
+### Relocation Essentials
+* Bank account setup  
+* Empadronamiento registration  
+* Autónomo business registration  
+* Ongoing compliance and legal support  
+
+## How We Work With You
+
+1. **Initial Consultation** – We assess your situation and explain your options clearly in English.  
+2. **Personalized Plan** – We create a step-by-step roadmap tailored to your needs.  
+3. **Hands-On Support** – We handle paperwork and liaise with authorities on your behalf.  
+4. **Ongoing Assistance** – We stay with you after arrival to ensure compliance and peace of mind.
+
+## Why Juro Spain is Different
+
+Unlike other law firms that work from a distance, we combine **deep local expertise** with **English-first service**. Our clients avoid **costly mistakes**, understand **every step** of the process, and enjoy a smooth transition to life in Spain.
+
+> "Juro Spain made moving to Barcelona effortless. Everything was explained in English and they handled all the tricky bureaucracy." – Satisfied Client
+
+**Start your Spanish adventure with confidence. Contact us today for expert legal guidance for expats.**
