@@ -23,24 +23,24 @@ permalink: /
 
 <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 24px 0; justify-content: center;">
     
-    <a href="{{ '/services/#immigration' | relative_url }}" class="card" style="flex: 1 1 300px; text-decoration: none;">
+    <a href="{{ '/services/' | relative_url }}" class="card" style="flex: 1 1 300px; text-decoration: none;">
         <h3 class="service-title">🇪🇸 Immigration & Residency</h3>
         <p>NIE, Digital Nomad, Non-Lucrative Visa (NLV), and renewals. Secure your right to live legally in Spain.</p>
     </a>
     
-    <a href="{{ '/services/#property' | relative_url }}" class="card" style="flex: 1 1 300px; text-decoration: none;">
+    <a href="{{ '/services/' | relative_url }}" class="card" style="flex: 1 1 300px; text-decoration: none;">
         <h3 class="service-title">🏠 Property Purchase</h3>
         <p>End-to-end legal conveyancing, due diligence, and notary representation to protect your property investment.</p>
     </a>
 
-    <a href="{{ '/services/#relocation' | relative_url }}" class="card" style="flex: 1 1 300px; text-decoration: none;">
+    <a href="{{ '/services/' | relative_url }}" class="card" style="flex: 1 1 300px; text-decoration: none;">
         <h3 class="service-title">✅ Relocation Essentials</h3>
         <p>Bank accounts, Empadronamiento, Autónomo (self-employment) registration, and legal compliance.</p>
     </a>
 </div>
 
 <div class="center" style="margin-bottom: 2rem;">
-    <a href="{{ '/services.html' | relative_url }}" class="btn">
+    <a href="{{ '/services/' | relative_url }}" class="btn">
         View All Fixed-Fee Services
     </a>
 </div>
@@ -51,7 +51,7 @@ permalink: /
 
 <details class="service-faq">
     <summary class="service-sum">Are you a law firm?</summary>
-    <p>No. We coordinate relocation, visas, property, and administrative processes and connect you with **vetted specialist lawyers** when legal representation is needed.</p>
+    <p>No. We coordinate relocation, visas, property, and administrative processes and connect you with vetted specialist lawyers when legal representation is needed.</p>
 </details>
 
 <details class="service-faq">
