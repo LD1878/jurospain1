@@ -1,71 +1,100 @@
-/* ===========================
-   Theme Variables (Spanish Brand)
-   =========================== */
+/* ==========================================================
+   JURO Spain: Final Production CSS (High UX Focus)
+   ========================================================== */
+
+/* 1. Theme Variables (Spain Brand & Neutrals) */
 :root {
-  --sp-red: #E30613;    /* Main accent Red (Spanish Flag Red) */
-  --sp-gold: #FFC400;   /* Bright Gold accent (Spanish Flag Gold) */
-  --sp-char: #2c2c2c;   /* Text color (dark charcoal) */
-  --sp-sand: #fefefe;   /* Off-white background */
-  --sp-light-bg: #f7f7f7; /* Card/Hero background (very light gray) */
-  --sp-muted: #8b8b85;  /* Neutral muted tone */
-  --sp-font-heavy: 'Oswald', sans-serif; /* Recommended for a bulky look */
-  --sp-font-body: 'Arial', sans-serif;
+  --sp-red: #E30613;      /* Primary Accent (Spanish Red) */
+  --sp-gold: #FFC400;     /* Secondary Accent (Spanish Gold) */
+  --sp-char: #232323;     /* Deep Charcoal Text (Max Readability) */
+  --sp-white: #ffffff;
+  --sp-light-bg: #fcfcfc; /* Page Background (Slightly off-white) */
+  --sp-card-bg: #ffffff;  /* Card Background */
+  --sp-muted: #8b8b85;    /* Muted Text/Border Color */
   --sp-radius: 6px;
+  
+  /* Typography */
+  --sp-font-heavy: 'Oswald', sans-serif; /* Bulky/Brand Font */
+  --sp-font-body: 'Arial', sans-serif;
+  --sp-max-width: 1200px;
 }
 
-/* Include a Google Font for the bulky look (Requires link in _layouts/default.html) */
+/* 2. Base / Body (Micro-typography and Anti-aliasing) */
+*, *::before, *::after {
+    box-sizing: border-box; /* Universal box-sizing for predictable layout */
+}
 
-/* ===========================
-   Base / Body
-   =========================== */
+html {
+    font-size: 16px;
+}
+
 body {
-  background-color: var(--sp-sand);
+  background-color: var(--sp-light-bg);
   color: var(--sp-char);
   font-family: var(--sp-font-body);
-  line-height: 1.6;
-  padding-top: 0; /* Ensures header is flush */
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-top: 0;
+  margin: 0;
 }
 
-/* ===========================
-   Typography (Bulky H1/H2)
-   =========================== */
+/* 3. Typography (Bulky Headings) */
 h1, h2, h3 {
   font-family: var(--sp-font-heavy);
   font-weight: 700;
   text-transform: uppercase;
-  margin: 18px 0 12px 0;
-  color: var(--sp-char);
+  margin: 1.5rem 0 0.8rem 0;
+  line-height: 1.2;
 }
 
-h1 { font-size: 2.8rem; text-align: center; color: var(--sp-red); }
-h2 { font-size: 1.8rem; border-bottom: 2px solid var(--sp-gold); padding-bottom: 5px; }
-h3 { font-size: 1.2rem; text-transform: none; font-weight: 600; color: var(--sp-red); }
+h1 { 
+    font-size: 3rem; 
+    text-align: center; 
+    color: var(--sp-red); 
+    letter-spacing: -0.05rem; /* Tighten for boldness */
+}
+h2 { 
+    font-size: 2rem; 
+    border-bottom: 3px solid var(--sp-gold); 
+    padding-bottom: 0.5rem; 
+    margin-bottom: 1.5rem;
+}
+h3 { 
+    font-size: 1.25rem; 
+    text-transform: none; 
+    font-weight: 600; 
+    color: var(--sp-red); 
+    margin-top: 0;
+}
 
 /* Utility Classes */
 .center { text-align: center; }
 .small { font-size: 0.9rem; color: var(--sp-muted); }
-
-/* ===========================
-   Header & Menu (Less Bulky, Better Colors)
-   =========================== */
-.site-header {
-  background-color: var(--sp-light-bg); /* Use light grey for banner */
-  border-bottom: 4px solid var(--sp-gold); /* Bold gold line */
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-  transition: all 0.3s ease-in-out;
-  position: sticky; top: 0; z-index: 1000;
-  padding: 20px 0;
-}
-
-.site-header.scrolled {
-  padding: 10px 0; /* Shrinking effect */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
+hr { border: 0; border-top: 1px solid #eee; margin: 30px 0; }
 .container {
-  max-width: 1200px;
+  max-width: var(--sp-max-width);
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 1.5rem;
+}
+
+/* 4. Header & Navigation (Sticky & Shrinking) */
+.site-header {
+  background-color: var(--sp-card-bg); /* Clean white header */
+  border-bottom: 4px solid var(--sp-gold); /* Bold gold separator */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  position: sticky; top: 0; z-index: 1000;
+  padding: 1.5rem 0;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Shrink effect on scroll */
+.site-header.scrolled {
+  padding: 0.75rem 0; 
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.site-header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -74,16 +103,15 @@ h3 { font-size: 1.2rem; text-transform: none; font-weight: 600; color: var(--sp-
 /* Logo/Title Style (Bulky Font & Spain Colors) */
 .site-title {
   font-family: var(--sp-font-heavy);
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 800;
   text-decoration: none;
-  color: var(--sp-red); /* Base color for the logo */
+  color: var(--sp-red);
   transition: font-size 0.3s;
 }
-.site-title:hover { color: var(--sp-gold); }
 
 .site-header.scrolled .site-title {
-    font-size: 1.4rem; /* Shrinks with scroll */
+    font-size: 1.5rem;
 }
 
 /* Navigation Links */
@@ -91,7 +119,7 @@ h3 { font-size: 1.2rem; text-transform: none; font-weight: 600; color: var(--sp-
   color: var(--sp-char);
   text-decoration: none;
   font-weight: 500;
-  padding: 5px 12px;
+  padding: 0.5rem 0.8rem;
   transition: color 0.2s, background-color 0.2s;
 }
 
@@ -101,59 +129,86 @@ h3 { font-size: 1.2rem; text-transform: none; font-weight: 600; color: var(--sp-
   border-radius: var(--sp-radius);
 }
 
-/* ===========================
-   Buttons (.btn)
-   =========================== */
+/* 5. Buttons (.btn) */
 .btn {
   background: var(--sp-red);
-  color: #fff !important; /* !important to override nav color */
+  color: var(--sp-white) !important;
   font-weight: 700;
-  padding: 12px 20px;
+  padding: 1rem 1.5rem;
   border-radius: var(--sp-radius);
   text-decoration: none;
   display: inline-block;
-  transition: background 0.3s, transform 0.3s;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
   text-transform: uppercase;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
 }
 
 .btn:hover {
-  background: darken(var(--sp-red), 10%);
+  background: #a8040d; /* Darker red on hover */
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
 }
 
-/* ===========================
-   Page Components (.card, .hero)
-   =========================== */
+/* 6. Page Components (.card, .hero) */
 .card, .post-card {
-  background: #ffffff;
+  background: var(--sp-card-bg);
   border: 1px solid #ddd;
   border-radius: var(--sp-radius);
-  padding: 20px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  padding: 25px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
   transition: box-shadow 0.3s;
 }
 .card:hover {
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
 }
 
 .hero {
   background: var(--sp-light-bg);
   border: 1px solid #eee;
   border-radius: var(--sp-radius);
-  padding: 40px 20px;
-  margin-bottom: 30px;
+  padding: 3rem 2rem;
+  margin-bottom: 2rem;
 }
 
-/* ===========================
-   Forms (Fixing the Terrible Form Look)
-   =========================== */
+/* 7. UX STRUCTURE: Services Grid (For Homepage/Services) */
+.services-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem; 
+    margin: 30px 0; 
+    justify-content: center;
+}
+
+.services-grid .card {
+    /* Ensures three cards fit nicely and wrap gracefully */
+    flex: 1 1 300px;
+    text-align: left; /* Aligns text left inside the card */
+    padding: 25px; 
+    text-decoration: none; 
+    color: var(--sp-char); 
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: auto; /* Allow content to dictate height */
+}
+
+/* Hover effect on linked cards (e.g., in the services grid) */
+.services-grid a.card:hover {
+    transform: translateY(-4px); 
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    background-color: #ffffff;
+}
+
+.services-grid a.card h3 {
+    color: var(--sp-red);
+}
+
+/* 8. Forms (Apple-Level Focus State) */
 label {
   display: block;
   font-weight: 600;
-  margin-top: 15px;
-  margin-bottom: 5px;
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
   color: var(--sp-char);
 }
 
@@ -161,92 +216,22 @@ input[type="text"],
 input[type="email"],
 textarea {
   width: 100%;
-  padding: 12px;
+  padding: 0.75rem;
   border: 1px solid #ccc;
   border-radius: var(--sp-radius);
-  box-sizing: border-box; /* Crucial for padding/border inclusion */
+  box-sizing: border-box; 
   font-family: var(--sp-font-body);
   font-size: 1rem;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-/* Advanced Focus State (Impressive CSS) */
+/* Trust-building Focus State (Soft Glow) */
 input[type="text"]:focus,
 input[type="email"]:focus,
 textarea:focus {
   border-color: var(--sp-red);
-  box-shadow: 0 0 0 3px rgba(227, 6, 19, 0.2); /* Soft red glow */
+  box-shadow: 0 0 0 4px rgba(227, 6, 19, 0.15); /* Wider, softer red glow */
   outline: none;
 }
 
-/* Form Button Alignment */
-.card button[type="submit"] {
-    margin-top: 20px;
-    width: 100%;
-    /* Inherits .btn styles */
-}
-
-/* ===========================
-   FAQ/Details (Glossary & Index)
-   =========================== */
-.service-faq summary {
-    font-weight: 700;
-    color: var(--sp-char);
-    padding: 12px 15px;
-    background-color: #fcfcfc;
-    border-bottom: 1px solid #eee;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.service-faq[open] summary {
-    background-color: var(--sp-light-bg);
-    color: var(--sp-red);
-}
-
-.service-faq p {
-    padding: 10px 15px 15px 15px;
-    border-top: none;
-}
-
-/* ===========================
-   Footer
-   =========================== */
-.site-footer {
-  background: var(--sp-char);
-  color: #fff;
-  padding: 40px 0 20px 0;
-  margin-top: 40px;
-  font-size: 0.9rem;
-}
-
-.site-footer a {
-  color: #ddd;
-  text-decoration: none;
-}
-
-.site-footer a:hover {
-  color: var(--sp-gold);
-}
-
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-}
-
-.footer-section {
-  flex: 1 1 200px;
-  margin-right: 20px;
-}
-
-.footer-bottom {
-  text-align: center;
-  font-size: 0.8rem;
-  color: #aaa;
-}
-/* Mobile Menu Toggles */
-/* ... (Keep existing mobile menu CSS here) ... */
+.card button[type
