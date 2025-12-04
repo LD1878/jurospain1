@@ -1,30 +1,24 @@
-# Site Settings (Essential for SEO and Headers)
+# Site Settings
 title: JURO Spain
 tagline: English-Speaking Legal Guidance for Expats in Spain
-description: >- # This is used for SEO
-  From visas and residency to property and banking, we coordinate with trusted 
-  lawyers to make your move to Spain smooth, fast, and stress-free.
+description: >- # Used for SEO Meta Tag
+  Expert English-speaking legal coordination helping expats secure visas, residency, and 
+  property in Spain with clear guidance and personalized support.
 email: hello@jurospain.com
+url: "https://jurospain.com" 
+baseurl: "" # Empty for custom domain
 
-# URL & Baseurl (CRUCIAL for GitHub Pages Links)
-# IMPORTANT: Replace the placeholders below with your actual GitHub info.
-url: "https://jurospain.com" # Your custom domain
-baseurl: "" # Use "" if you are using a custom domain or publishing to a URL like 'username.github.io'
-
-# If you were publishing to 'username.github.io/repo-name/', you would use:
-# url: "https://username.github.io" 
-# baseurl: "/repo-name" 
-
-# Build settings
+# Build Settings
 markdown: kramdown
-theme: minima # Can be kept, but your SCSS overrides it.
+theme: minima
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-seo-tag # Highly recommended SEO plugin
 
 # Exclude unneeded files
 exclude:
   - Gemfile
   - Gemfile.lock
-  - node_modules
+  - README.md
   - vendor/
