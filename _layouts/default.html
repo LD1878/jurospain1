@@ -1,0 +1,84 @@
+---
+layout: compress
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title | default: site.title }} - {{ site.tagline }}</title>
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a class="site-title" href="{{ site.baseurl }}/" >JURO Spain</a>
+            
+            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+            
+            <nav class="site-nav">
+                <a href="{{ site.baseurl }}/">Home</a>
+                <a href="{{ site.baseurl }}/about.html">About</a>
+                <a href="{{ site.baseurl }}/services.html">Services</a>
+                <a href="{{ site.baseurl }}/blog.html">Blog</a>
+                <a href="{{ site.baseurl }}/contact.html">Contact</a>
+                <a href="https://calendly.com/hello-jurospain/30min" class="btn" target="_blank">Book a Call</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        {{ content }}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>JURO Spain</h3>
+                    <p>English-Speaking Legal Guidance for Expats in Spain. From visas and residency to property and banking.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="{{ site.baseurl }}/services.html">Immigration & Residency</a></li>
+                        <li><a href="{{ site.baseurl }}/services.html">Property Transactions</a></li>
+                        <li><a href="{{ site.baseurl }}/services.html">Banking Support</a></li>
+                        <li><a href="{{ site.baseurl }}/services.html">Business Registration</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="{{ site.baseurl }}/blog.html">Blog</a></li>
+                        <li><a href="#">Guides</a></li>
+                        <li><a href="#">Glossary</a></li>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="{{ site.baseurl }}/about.html">About Us</a></li>
+                        <li><a href="{{ site.baseurl }}/contact.html">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; {{ site.time | date: "%Y" }} JURO Spain. All rights reserved. Not a law firm.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.site-nav').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
