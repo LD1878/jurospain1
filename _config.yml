@@ -1,4 +1,4 @@
-title: JURO Spain
+title: JURO Spain | Legal Services for Expats
 description: English-speaking legal services for expats in Spain—visas, residency, property purchases, and relocation support.
 theme: minima
 url: "https://jurospain.com"
@@ -14,13 +14,17 @@ plugins:
   - jekyll-feed
 permalink: /:title/
 header_pages:
+  - services.md # UX Refinement: Move core offering first
+  - pricing.md # UX Refinement: Second, key decision point
   - about.md
-  - services.md
-  - pricing.md
-  - glossary.md
-  - contact.md
   - blog.md
+  - glossary.md
+  - contact.md # UX Refinement: Keep as the final CTA
 defaults:
+  - scope:
+      path: ""
+    values:
+      layout: page # UX Refinement: Add global page default for consistency
   - scope:
       path: ""
       type: posts
@@ -30,5 +34,3 @@ defaults:
       categories: guides
 sass:
   style: compressed
-# --- NEW ADDITIONS BELOW (for fonts and global style overrides) ---
-google_fonts: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
