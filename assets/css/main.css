@@ -182,17 +182,15 @@ hr { border: 0; border-top: 1px solid #eee; margin: 30px 0; }
 }
 
 .services-grid .card {
-    /* Ensures three cards fit nicely and wrap gracefully */
     flex: 1 1 300px;
-    text-align: left; /* Aligns text left inside the card */
+    text-align: left; 
     padding: 25px; 
     text-decoration: none; 
     color: var(--sp-char); 
     transition: transform 0.3s, box-shadow 0.3s;
-    height: auto; /* Allow content to dictate height */
+    height: auto; 
 }
 
-/* Hover effect on linked cards (e.g., in the services grid) */
 .services-grid a.card:hover {
     transform: translateY(-4px); 
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
@@ -225,13 +223,161 @@ textarea {
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-/* Trust-building Focus State (Soft Glow) */
 input[type="text"]:focus,
 input[type="email"]:focus,
 textarea:focus {
   border-color: var(--sp-red);
-  box-shadow: 0 0 0 4px rgba(227, 6, 19, 0.15); /* Wider, softer red glow */
+  box-shadow: 0 0 0 4px rgba(227, 6, 19, 0.15); 
   outline: none;
 }
 
-.card button[type
+.card button[type="submit"] {
+    margin-top: 1.5rem;
+    width: 100%;
+}
+
+/* 9. FAQ/Details (Glossary & Index) */
+.service-faq {
+    margin-bottom: 0.5rem;
+    border: 1px solid #eee;
+    border-radius: var(--sp-radius);
+    background-color: var(--sp-card-bg);
+    overflow: hidden;
+}
+
+.service-faq summary {
+    font-weight: 700;
+    color: var(--sp-char);
+    padding: 1rem 1.5rem;
+    background-color: var(--sp-card-bg);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.service-faq[open] summary {
+    background-color: var(--sp-light-bg);
+    color: var(--sp-red);
+    border-bottom: 1px solid #eee;
+}
+
+.service-faq p {
+    padding: 0.5rem 1.5rem 1rem 1.5rem;
+    margin: 0;
+}
+
+/* 10. Footer (Grid Layout with Separators) */
+.site-footer {
+  background: var(--sp-char);
+  color: #fff;
+  padding: 40px 0 20px 0;
+  margin-top: 40px;
+  font-size: 0.9rem;
+}
+
+.site-footer a {
+  color: #ddd;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  color: var(--sp-gold);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.footer-section {
+    position: relative; /* Needed for the ::after element */
+}
+
+/* 🎯 NEW: Vertical Separator for Footer on Desktop */
+@media (min-width: 901px) {
+    .footer-section:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        top: 20px;
+        right: -10px; /* Aligns to the middle of the 20px gap */
+        height: calc(100% - 40px); /* Creates space at top/bottom */
+        width: 1px;
+        background: rgba(255, 255, 255, 0.15);
+    }
+}
+
+.footer-section h3 {
+    color: var(--sp-white);
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 5px;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+/* Mobile Menu Toggles */
+.menu-toggle {
+    display: none; 
+}
+
+@media (max-width: 900px) {
+    .site-nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: var(--sp-card-bg);
+        border-top: 1px solid #eee;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        padding: 10px 0;
+    }
+
+    .site-nav.active {
+        display: flex;
+    }
+
+    .site-nav a {
+        padding: 10px 1.5rem;
+        border-bottom: 1px solid #f9f9f9;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .site-nav a.btn {
+        margin: 10px 1.5rem;
+        width: auto;
+    }
+
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        color: var(--sp-char);
+        font-size: 1.2rem;
+        cursor: pointer;
+        padding: 0.5rem;
+    }
+
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.5rem; }
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
