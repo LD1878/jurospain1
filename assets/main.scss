@@ -1,22 +1,25 @@
 ---
 # Must be included to process the SCSS file
 ---
-/* JURO Spain New Theme Styles (SCSS/CSS) */
+/* JURO Spain New Theme Styles (SCSS/CSS) - UX Optimized */
 
 /* CSS Variables */
 :root {
-  --primary-color: #E30613;
-  --accent-color: #FFD700;
-  --bg-color: #FFF8F0;
+  --primary-color: #E30613;      /* Red */
+  --accent-color: #FFD700;       /* Gold/Yellow */
+  --bg-color: #FFF8F0;           /* Off-White/Cream */
   --card-bg: #FFFFFF;
-  --text-color: #333;
-  --dark-red: #7C1F1F;
-  --border-color: #E6C23A;
+  --text-color: #333;            /* Near Black for high contrast */
+  --dark-red: #7C1F1F;           /* Deep Wine Red */
+  --border-color: #E6C23A;       /* Muted Gold border */
   --hover-bg: rgba(255, 215, 0, 0.1);
   --shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
   --shadow-lg: 0 6px 24px rgba(0, 0, 0, 0.08);
+  --input-border: #ccc;
+  --focus-ring: rgba(227, 6, 19, 0.4); /* Primary color focus ring */
 }
 
+/* Base Reset & Typography */
 * {
   margin: 0;
   padding: 0;
@@ -24,10 +27,10 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
-  line-height: 1.6;
+  line-height: 1.65; /* Increased for better readability */
   -webkit-font-smoothing: antialiased;
 }
 
@@ -39,10 +42,10 @@ h1, h2, h3 {
   letter-spacing: -0.02em;
 }
 
-h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 1.2rem; }
-h2 { font-size: clamp(1.5rem, 4vw, 2rem); margin-top: 2rem; }
-h3 { font-size: clamp(1rem, 3vw, 1.3rem); }
-p { margin-bottom: 1rem; }
+h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); margin-bottom: 1.5rem; }
+h2 { font-size: clamp(1.6rem, 4vw, 2.2rem); margin-top: 2rem; }
+h3 { font-size: clamp(1.1rem, 3vw, 1.4rem); }
+p { margin-bottom: 1.2rem; } /* Adjusted spacing */
 
 a {
   color: var(--primary-color);
@@ -53,8 +56,10 @@ a {
 
 a:hover {
   color: var(--accent-color);
+  text-decoration: underline;
 }
 
+/* Layout Containers */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -67,16 +72,22 @@ a:hover {
   padding: 0 2rem;
 }
 
-/* Header */
+hr {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: 3rem auto;
+  width: 50%;
+}
+
+/* Header & Navigation */
 .site-header {
   background: var(--bg-color);
-  border-bottom: 2px solid var(--accent-color);
+  border-bottom: 3px solid var(--accent-color); /* Thicker for emphasis */
   padding: 1rem 0;
   position: sticky;
   top: 0;
   z-index: 1000;
-  backdrop-filter: blur(10px);
-  box-shadow: var(--shadow);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); /* Better header shadow */
 }
 
 .site-header .container {
@@ -90,12 +101,11 @@ a:hover {
   font-size: 1.8rem;
   font-weight: 800;
   color: var(--primary-color);
-  text-decoration: none;
-  transition: transform 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 
 .site-title:hover {
-  transform: scale(1.05);
+  opacity: 0.8;
 }
 
 .site-nav {
@@ -120,8 +130,8 @@ a:hover {
   bottom: 0;
   left: 0;
   width: 0;
-  height: 2px;
-  background: var(--accent-color);
+  height: 3px;
+  background: var(--primary-color); /* Primary color underline */
   transition: width 0.3s ease;
 }
 
@@ -136,6 +146,7 @@ a:hover {
   font-size: 1.5rem;
   color: var(--primary-color);
   cursor: pointer;
+  padding: 0.5rem;
 }
 
 @media (max-width: 768px) {
@@ -145,19 +156,22 @@ a:hover {
     width: 100%;
     flex-direction: column;
     margin-top: 1rem;
+    background: var(--card-bg); /* Highlight menu on mobile */
+    padding: 1rem;
+    border-radius: 8px;
   }
   .site-nav.active { display: flex; }
 }
 
-/* Hero */
+/* Hero Section */
 .hero {
   background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-red) 100%);
   color: white;
-  padding: 4rem 2rem;
+  padding: 5rem 2rem; /* Increased vertical padding */
   text-align: center;
   border-radius: 12px;
-  margin: 2rem auto;
-  box-shadow: var(--shadow-lg);
+  margin: 3rem auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Stronger shadow for depth */
   position: relative;
   overflow: hidden;
 }
@@ -169,7 +183,7 @@ a:hover {
   right: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.15) 0%, transparent 70%); /* Stronger accent glow */
   animation: pulse 8s ease-in-out infinite;
 }
 
@@ -180,15 +194,15 @@ a:hover {
 
 .hero h1 {
   color: white;
-  font-size: clamp(2rem, 6vw, 3.5rem);
-  margin-bottom: 1rem;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  margin-bottom: 1.5rem;
   position: relative;
   z-index: 1;
 }
 
 .hero p {
-  font-size: 1.3rem;
-  margin-bottom: 2rem;
+  font-size: 1.4rem;
+  margin-bottom: 2.5rem;
   opacity: 0.95;
   position: relative;
   z-index: 1;
@@ -197,7 +211,7 @@ a:hover {
 /* Buttons */
 .btn, .cta {
   display: inline-block;
-  padding: 0.9rem 2rem;
+  padding: 1rem 2.5rem; /* Larger buttons for easier clicking */
   background: var(--accent-color);
   color: var(--dark-red);
   font-weight: 700;
@@ -208,7 +222,7 @@ a:hover {
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  font-size: 0.95rem;
+  font-size: 1rem;
   box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
 }
 
@@ -216,48 +230,72 @@ a:hover {
   background: white;
   color: var(--primary-color);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5); /* More noticeable hover effect */
 }
+
+/* Forms (NEW UX ADDITION) */
+form label {
+    display: block;
+    font-weight: 700;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--dark-red);
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form select,
+form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--input-border);
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px var(--focus-ring);
+}
+/* End Forms */
+
 
 /* Cards */
 .card, .service-card {
   background: var(--card-bg);
   border: 2px solid var(--border-color);
   border-radius: 12px;
-  padding: 2rem;
+  padding: 2.5rem; /* Slightly larger padding */
   margin-bottom: 2rem;
   box-shadow: var(--shadow);
   transition: all 0.3s ease;
 }
 
 .card:hover, .service-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-6px); /* More pronounced lift */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   border-color: var(--primary-color);
 }
 
 /* Services Grid */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly better mobile behavior */
   gap: 2rem;
   margin: 3rem 0;
 }
 
-.service-card {
-  text-align: center;
-}
-
 .service-icon {
-  font-size: 3rem;
+  font-size: 3.5rem; /* Larger icons */
   margin-bottom: 1rem;
   display: block;
 }
 
-.service-card h3 {
-  color: var(--primary-color);
-  margin-bottom: 1rem;
-}
 
 /* Benefits List */
 .benefits-list {
@@ -266,92 +304,40 @@ a:hover {
 }
 
 .benefits-list li {
-  padding: 1rem;
-  margin-bottom: 0.5rem;
+  padding: 1.2rem 1rem; /* Better internal padding */
+  margin-bottom: 1rem;
   background: var(--card-bg);
-  border-left: 4px solid var(--accent-color);
+  border-left: 5px solid var(--accent-color); /* Thicker border */
   border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   transition: all 0.2s ease;
 }
 
 .benefits-list li:hover {
-  transform: translateX(8px);
+  transform: translateX(10px); /* More pronounced slide */
   border-left-color: var(--primary-color);
 }
 
-.benefits-list li::before {
-  content: '✓ ';
-  color: var(--primary-color);
-  font-weight: 800;
-  margin-right: 0.5rem;
-}
 
-/* FAQ */
-details {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 1rem 1.5rem;
-  margin-bottom: 1rem;
-  transition: all 0.3s ease;
-}
-
-details:hover {
-  border-color: var(--primary-color);
-  box-shadow: var(--shadow);
-}
-
-summary {
-  font-weight: 700;
-  color: var(--dark-red);
-  cursor: pointer;
-  list-style: none;
-  padding: 0.5rem 0;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-summary::-webkit-details-marker {
-  display: none;
-}
-
-summary::before {
-  content: '►';
-  color: var(--primary-color);
-  transition: transform 0.3s ease;
-  font-size: 0.8rem;
-}
-
-details[open] summary::before {
-  transform: rotate(90deg);
-}
-
-details p {
-  margin-top: 1rem;
-  padding-left: 1.5rem;
-  color: #555;
-}
-
-/* Footer (already in _layouts/default.html, these are the styles) */
+/* Footer */
 .site-footer {
   background: var(--bg-color);
-  border-top: 2px solid var(--border-color);
-  padding: 3rem 0 1.5rem;
-  margin-top: 4rem;
+  border-top: 3px solid var(--border-color);
+  padding: 4rem 0 2rem;
+  margin-top: 5rem;
 }
 
 .footer-content {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 2rem;
   margin-bottom: 2rem;
 }
 
 .footer-section h3 {
   color: var(--primary-color);
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
+  margin-bottom: 1.2rem;
+  font-size: 1.3rem;
 }
 
 .footer-section ul {
@@ -360,7 +346,7 @@ details p {
 }
 
 .footer-section li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.7rem;
 }
 
 .footer-bottom {
@@ -371,15 +357,15 @@ details p {
   font-size: 0.9rem;
 }
 
-/* Utilities */
+/* Utilities & Animations */
 .text-center { text-align: center; }
 .py-4 { padding: 4rem 0; }
-section { margin: 3rem 0; }
+section { margin: 4rem 0; }
 
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -388,7 +374,7 @@ section { margin: 3rem 0; }
 }
 
 .fade-in {
-  animation: fadeInUp 0.6s ease-out;
+  animation: fadeInUp 0.8s ease-out; /* Slower, smoother animation */
 }
 
 @media (max-width: 768px) {
@@ -397,5 +383,8 @@ section { margin: 3rem 0; }
   }
   .services-grid {
     grid-template-columns: 1fr;
+  }
+  .hero {
+    padding: 3rem 1.5rem;
   }
 }
