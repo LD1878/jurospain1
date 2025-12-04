@@ -1,32 +1,30 @@
+# Site Settings (Essential for SEO and Headers)
 title: JURO Spain
-description: English-speaking legal services for expats in Spain—visas, residency, property purchases, and relocation support.
-theme: minima
-url: "https://jurospain.com"
-baseurl: ""
-lang: en
-timezone: Europe/Madrid
+tagline: English-Speaking Legal Guidance for Expats in Spain
+description: >- # This is used for SEO
+  From visas and residency to property and banking, we coordinate with trusted 
+  lawyers to make your move to Spain smooth, fast, and stress-free.
+email: hello@jurospain.com
+
+# URL & Baseurl (CRUCIAL for GitHub Pages Links)
+# IMPORTANT: Replace the placeholders below with your actual GitHub info.
+url: "https://jurospain.com" # Your custom domain
+baseurl: "" # Use "" if you are using a custom domain or publishing to a URL like 'username.github.io'
+
+# If you were publishing to 'username.github.io/repo-name/', you would use:
+# url: "https://username.github.io" 
+# baseurl: "/repo-name" 
+
+# Build settings
 markdown: kramdown
-kramdown:
-  input: GFM
-  hard_wrap: false
+theme: minima # Can be kept, but your SCSS overrides it.
 plugins:
-  - jekyll-seo-tag
   - jekyll-feed
-permalink: /:title/
-header_pages:
-  - about.md
-  - services.md
-  - pricing.md
-  - glossary.md
-  - contact.md
-  - blog.md
-defaults:
-  - scope:
-      path: ""
-      type: posts
-    values:
-      layout: post
-      author: Juro Spain Team
-      categories: guides
-sass:
-  style: compressed
+  - jekyll-sitemap
+
+# Exclude unneeded files
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/
