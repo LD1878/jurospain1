@@ -15,25 +15,49 @@ permalink: /
     <p class="small" style="margin-top: 10px;">Fixed-Fee Pricing. No Hidden Costs. Start Today.</p>
 </div>
 
----
+<hr>
 
-<h2>Our Core Expertise</h2>
+<h2>Why Expats Choose JURO Spain</h2>
 
-<p class="center">We simplify the legal and administrative process, ensuring your move is secure and compliant from day one.</p>
+<p class="center">We are more than a legal service. We are your partner for a smooth transition to Spanish life.</p>
 
-<div class="services-grid" style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 24px 0; justify-content: center;">
+<div class="services-grid">
     
-    <a href="{{ '/services/' | relative_url }}" class="card" style="flex: 1 1 300px; text-decoration: none;">
+    <div class="card">
+        <h3>Expert Guidance in English</h3>
+        <p>Avoid costly mistakes and confusion. We explain every step—visas, contracts, tax—in **plain English**, providing peace of mind.</p>
+    </div>
+    
+    <div class="card">
+        <h3>Fixed-Fee & Transparent</h3>
+        <p>No more hourly billing. All our core services come with a **fixed, predictable fee**, ensuring you know the total cost before we begin.</p>
+    </div>
+    
+    <div class="card">
+        <h3>Local Presence, Nationwide Support</h3>
+        <p>We work with trusted lawyers and specialists in **Barcelona, Valencia, Málaga, and Alicante** to provide in-person support where you need it most.</p>
+    </div>
+</div>
+
+<hr>
+
+<h2 class="center">Our Core Services</h2>
+
+<p class="center">We focus on the legal essentials you need to start your life in Spain quickly and securely.</p>
+
+<div class="services-grid">
+    
+    <a href="{{ '/services/' | relative_url }}" class="card">
         <h3>🇪🇸 Immigration & Residency</h3>
         <p>NIE, Digital Nomad, Non-Lucrative Visa (NLV), and renewals. Secure your right to live legally in Spain.</p>
     </a>
     
-    <a href="{{ '/services/' | relative_url }}" class="card" style="flex: 1 1 300px; text-decoration: none;">
+    <a href="{{ '/services/' | relative_url }}" class="card">
         <h3>🏠 Property Purchase</h3>
         <p>End-to-end legal conveyancing, due diligence, and notary representation to protect your property investment.</p>
     </a>
 
-    <a href="{{ '/services/' | relative_url }}" class="card" style="flex: 1 1 300px; text-decoration: none;">
+    <a href="{{ '/services/' | relative_url }}" class="card">
         <h3>✅ Relocation Essentials</h3>
         <p>Bank accounts, Empadronamiento, Autónomo (self-employment) registration, and legal compliance.</p>
     </a>
@@ -45,7 +69,7 @@ permalink: /
     </a>
 </div>
 
----
+<hr>
 
 <h2>Common Questions: How JURO Spain Helps (FAQ)</h2>
 
@@ -62,16 +86,6 @@ permalink: /
 <details class="service-faq">
     <summary class="service-sum">Can you handle visas and property together?</summary>
     <p>Yes! Our team coordinates multiple services seamlessly with specialist lawyers where needed, which is ideal for Golden Visa clients or those buying property during a visa application.</p>
-</details>
-
-<details class="service-faq">
-    <summary class="service-sum">Is all communication in English?</summary>
-    <p>Absolutely — every step, from initial consultation to final document handoff, is conducted in **English-first** to ensure complete clarity.</p>
-</details>
-
-<details class="service-faq">
-    <summary class="service-sum">Nationwide coverage?</summary>
-    <p>Yes — we coordinate across Spain including **Barcelona, Valencia, Málaga, Alicante**, and beyond, with local partners available for in-person requirements.</p>
 </details>
 
 <div class="center" style="margin-top:24px;">
