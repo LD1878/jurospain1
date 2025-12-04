@@ -1,72 +1,111 @@
 ---
-layout: page
-title: Services 
-description: English-speaking relocation and legal-support services for expats moving to Spain — visas, NIE, property, banking, autónomo, and more. Delivered with trusted lawyer partners.
+layout: default
+title: Our Services
+description: Comprehensive English-speaking legal services for expats, covering Spanish immigration, property, residency, and relocation essentials.
 permalink: /services/
 ---
-<!-- Centralized styles (inline so nothing else needed) -->
-<style>
-  /* Brand colours */
-  :root { --juro-red:#E30613; --juro-yellow:#FFD700; --soft-bg:#fff8f0; --muted:#666; }
 
-  /* Page layout */
-  .services-grid { display:flex; flex-wrap:wrap; gap:18px; margin:18px 0 30px; }
-  .service-box { flex:1 1 320px; border:2px solid var(--juro-red); background:var(--soft-bg); border-radius:10px; padding:16px; box-sizing:border-box; }
-  .service-icon { font-size:28px; margin-bottom:8px; display:inline-block; width:44px; height:44px; line-height:44px; text-align:center; border-radius:8px; background:#fff; border:1px solid rgba(0,0,0,0.06); }
-  .service-title { font-size:1.05rem; margin:6px 0 8px; font-weight:700; }
-  .muted { color:var(--muted); font-size:0.95rem; }
-  .divider { height:8px; background:linear-gradient(90deg,var(--juro-red),var(--juro-yellow)); border-radius:4px; margin:22px 0; }
+# Comprehensive Legal Services for Expats in Spain
 
-  /* CTA */
-  .cta-box { border:2px solid var(--juro-red); background:var(--soft-bg); padding:18px; border-radius:10px; text-align:center; margin:20px 0; }
-  .cta-button { background:var(--juro-red); color:#fff; padding:10px 16px; border-radius:6px; text-decoration:none; font-weight:700; display:inline-block; }
+At **JURO Spain**, we specialize in cutting through the Spanish bureaucracy so you can focus on your new life. Our services are structured to provide clear, English-first guidance from your initial idea to full residency and property ownership.
 
-  /* FAQ styles + arrow */
-  details.service-faq { margin-bottom:12px; border:1px solid #ddd; border-radius:8px; padding:12px; background:var(--soft-bg); }
-  summary.service-sum { font-weight:700; cursor:pointer; list-style:none; position:relative; padding-left:28px; }
-  summary.service-sum .arrow { position:absolute; left:6px; top:50%; transform:translateY(-50%); transition: transform .25s; }
-  details[open] summary.service-sum .arrow { transform: rotate(90...(truncated 10834 characters)...er lawyer work?",
-      "acceptedAnswer": { "@type": "Answer", "text": "We provide transparent quotes. Where partner lawyer fees are required, we present a clear breakdown before you proceed. Wherever possible we offer fixed-fee packages for coordination and standard processes." }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you operate nationwide?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes — we coordinate remotely across Spain and arrange in-person meetings through our local partners when necessary (Barcelona, Valencia, Málaga, Alicante and other locations as needed)." }
-    },
-    {
-      "@type": "Question",
-      "name": "Can you help families and couples?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. We regularly work with families, partners and groups relocating together — from school certificates and empadronamiento to family residency and property purchases." }
-    },
-    {
-      "@type": "Question",
-      "name": "What documents will I need for NIE / visas?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Documents vary by process. Typically: passport, proof of address, appointment confirmations, proof of funds for visas, employment or contract letters. We supply a tailored checklist for your case and help collect, translate and validate documents." }
-    },
-    {
-      "@type": "Question",
-      "name": "How long does the process take?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Timing depends on the service. NIEs can be weeks; visa processes depend on consulate workloads; property purchases vary with transaction complexity. We set expectations up front and manage timelines actively to reduce delays." }
-    }
-  ]
-}
-</script>
+---
 
-<!-- Bottom CTA -->
-<div style="margin-top:22px;">
-  <p><strong>Ready to plan your move?</strong></p>
-  <p><a class="cta-button" href="https://calendly.com/hello-jurospain/30min">Book a call — 30 minutes</a></p>
-</div>
-<!-- --- NEW ADDITIONS: Added classes to elements for global CSS --- -->
-<div class="services-grid">  <!-- Wrap grid -->
-  <!-- Existing grid content unchanged -->
+<div class="card center">
+    <p>Ready to get started or need a fixed-fee quote?</p>
+    <a href="https://calendly.com/hello-jurospain/30min" class="btn" target="_blank" rel="noopener noreferrer">
+        Book Your Free Initial Consultation
+    </a>
 </div>
 
-<div class="cta-box">  <!-- Wrap CTA -->
-  <!-- Existing CTA content unchanged -->
+---
+
+## 🇪🇸 1. Immigration and Residency
+
+The path to living legally in Spain is complex. We simplify the entire process, securing your right to stay and work (or not work) in the country.
+
+<div class="post-card">
+    <h3>Digital Nomad Visa & Golden Visa</h3>
+    <p>Specialized assistance for high-net-worth individuals and remote workers seeking residency through investment or specialized worker visas.</p>
+    <ul>
+        <li>**Full application support** from outside or inside Spain.</li>
+        <li>Review and optimization of financial and contractual requirements.</li>
+        <li>Dependent family member applications.</li>
+    </ul>
+    <a href="{{ '/pricing.html' | relative_url }}" class="btn">View Pricing</a>
 </div>
 
-<details class="service-faq">  <!-- Existing FAQs, classes already good -->
-  <!-- Unchanged -->
-</details>
-<!-- Repeat for all details -->
+<div class="post-card">
+    <h3>Non-Lucrative Residency & Renewals</h3>
+    <p>The ideal residency option for those who plan to live in Spain without working locally. We handle initial applications and mandatory renewals.</p>
+    <ul>
+        <li>Guidance on required proof of funds and medical insurance.</li>
+        <li>NIE number application processing.</li>
+        <li>Residency card (TIE) fingerprinting appointments.</li>
+    </ul>
+    <a href="{{ '/pricing.html' | relative_url }}" class="btn">View Pricing</a>
+</div>
+
+---
+
+## 🏠 2. Property & Real Estate Transactions
+
+Buying property in Spain can be complex. We ensure your investment is protected and the legal process is smooth, whether you are buying a holiday home or a permanent residence.
+
+<div class="post-card">
+    <h3>Full Conveyancing (Property Purchase)</h3>
+    <p>End-to-end legal support for the purchase of any Spanish real estate, covering due diligence, contract negotiation, and closing.</p>
+    <ul>
+        <li>**Comprehensive legal due diligence** (checking for debts, liens, and zoning issues).</li>
+        <li>Review and negotiation of the private purchase contract.</li>
+        <li>Representation at the Notary on your behalf via Power of Attorney (POA).</li>
+    </ul>
+    <a href="{{ '/pricing.html' | relative_url }}" class="btn">View Pricing</a>
+</div>
+
+<div class="post-card">
+    <h3>N.I.E. & POA Services</h3>
+    <p>Obtain the essential foreigner's identity number (NIE) and a Power of Attorney to complete purchases and handle legal matters remotely.</p>
+    <ul>
+        <li>Fast-track NIE application process.</li>
+        <li>Drafting and notarizing POAs for remote signature.</li>
+    </ul>
+    <a href="{{ '/pricing.html' | relative_url }}" class="btn">View Pricing</a>
+</div>
+
+---
+
+## ✅ 3. Relocation Essentials
+
+Once your visa and property are secured, we assist with the final, crucial steps to ensure you are fully integrated and compliant in Spain.
+
+<div class="post-card">
+    <h3>Banking & Registration Setup</h3>
+    <p>Navigating the Spanish banking system and local registrations can be frustrating. We make it simple.</p>
+    <ul>
+        <li>**Assistance opening non-resident bank accounts.**</li>
+        <li>Registration with the local town hall (**Empadronamiento**).</li>
+        <li>Guidance on social security affiliation (if applicable).</li>
+    </ul>
+</div>
+
+<div class="post-card">
+    <h3>Starting a Business (Autónomo)</h3>
+    <p>Guidance for self-employed individuals and small business owners setting up legally in Spain.</p>
+    <ul>
+        <li>Registration with the Spanish tax authority (AEAT) and Social Security.</li>
+        <li>Initial tax and VAT compliance setup.</li>
+    </ul>
+</div>
+
+---
+
+## ❓ Have Questions About Fees?
+
+<p>Our commitment is to transparency. All our services are offered on a clear, fixed-fee basis so you know the exact cost upfront, with no hidden charges.</p>
+
+<div class="center">
+    <a href="{{ '/pricing.html' | relative_url }}" class="btn" style="font-size: 1.25rem;">
+        View Our Fixed-Fee Pricing Guide
+    </a>
+</div>
