@@ -1,4 +1,3 @@
-
 ---
 layout: default
 title: Legal Help for Expats in Spain | JURO Spain
@@ -19,35 +18,31 @@ permalink: /
 <hr>
 
 <h2>Why Expats Choose JURO Spain</h2>
-
 <p class="center">We are more than a legal service. We are your partner for a smooth transition to Spanish life.</p>
 
 <div class="services-grid">
-    
     <div class="card">
         <h3>Expert Guidance in English</h3>
-        <p>Avoid costly mistakes and confusion. We explain every step—visas, contracts, tax—in **plain English**, providing peace of mind.</p>
+        <p>Avoid costly mistakes and confusion. We explain every step—visas, contracts, tax—in <strong>plain English</strong>, providing peace of mind.</p>
     </div>
     
     <div class="card">
         <h3>Fixed-Fee & Transparent</h3>
-        <p>No more hourly billing. All our core services come with a **fixed, predictable fee**, ensuring you know the total cost before we begin.</p>
+        <p>No more hourly billing. All our core services come with a <strong>fixed, predictable fee</strong>, ensuring you know the total cost before we begin.</p>
     </div>
     
     <div class="card">
         <h3>Local Presence, Nationwide Support</h3>
-        <p>We work with trusted lawyers and specialists in **Barcelona, Valencia, Málaga, and Alicante** to provide in-person support where you need it most.</p>
+        <p>We work with trusted lawyers and specialists in <strong>Barcelona, Valencia, Málaga, and Alicante</strong> to provide in-person support where you need it most.</p>
     </div>
 </div>
 
 <hr>
 
 <h2 class="center">Our Core Services</h2>
-
 <p class="center">We focus on the legal essentials you need to start your life in Spain quickly and securely.</p>
 
 <div class="services-grid">
-    
     <a href="{{ '/services/' | relative_url }}" class="card">
         <h3>🇪🇸 Immigration & Residency</h3>
         <p>NIE, Digital Nomad, Non-Lucrative Visa (NLV), and renewals. Secure your right to live legally in Spain.</p>
