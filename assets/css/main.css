@@ -448,3 +448,80 @@ textarea:focus {
     animation: none !important;
   }
 }
+/* ==========================================================
+   JURO Spain: Premium UX Enhancements
+   ========================================================== */
+
+/* 1. Soft Gradient Backgrounds */
+body {
+    background: linear-gradient(160deg, #fcfcfc 0%, #fff5f0 100%);
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+html.dark-mode body {
+    background: linear-gradient(160deg, #1e1a17 0%, #2a2320 100%);
+    color: var(--sp-white);
+}
+
+/* Hero and Cards Gradient Enhancement */
+.hero {
+    background: linear-gradient(135deg, var(--sp-light-bg), #fff7f3);
+    transition: background 0.5s ease;
+}
+
+html.dark-mode .hero {
+    background: linear-gradient(135deg, var(--sp-card-bg), #2c2420);
+}
+
+.card, .post-card {
+    background: linear-gradient(135deg, var(--sp-card-bg), #fef9f7);
+    transition: background 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+html.dark-mode .card, html.dark-mode .post-card {
+    background: linear-gradient(135deg, var(--sp-card-bg), #2a2320);
+}
+
+/* 2. Animated Nav Link Underline */
+.site-nav a {
+    position: relative;
+    padding-bottom: 0.25rem;
+    transition: color 0.2s ease;
+}
+
+.site-nav a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    background-color: var(--sp-red);
+    transition: width 0.3s ease;
+}
+
+.site-nav a:hover::after {
+    width: 100%;
+}
+
+/* 3. Enhanced Card Hover Animation */
+.services-grid a.card:hover,
+.card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    background-color: #ffffff;
+}
+
+/* 4. Smooth Transitions for All Elements in Dark Mode */
+html.dark-mode *,
+html * {
+    transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Optional: Glow effect on focus for inputs and buttons */
+input:focus,
+textarea:focus,
+.btn:focus {
+    box-shadow: 0 0 0 4px rgba(227,6,19,0.2);
+    outline: none;
+}
