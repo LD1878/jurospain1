@@ -24,12 +24,12 @@ layout: null
             </button>
             
             <nav class="site-nav">
-                                <a href="{{ '/services.html' | relative_url }}">Services</a>
-                <a href="{{ '/pricing.html' | relative_url }}">Pricing</a>
-                <a href="{{ '/about.html' | relative_url }}">About</a>
-                <a href="{{ '/blog.html' | relative_url }}">Blog</a>
-                <a href="{{ '/glossary.html' | relative_url }}">Glossary</a>
-                <a href="{{ '/contact.html' | relative_url }}">Contact</a>
+                                <a href="{{ '/services/' | relative_url }}">Services</a>
+                <a href="{{ '/pricing/' | relative_url }}">Pricing</a>
+                <a href="{{ '/about/' | relative_url }}">About</a>
+                <a href="{{ '/blog/' | relative_url }}">Blog</a>
+                <a href="{{ '/glossary/' | relative_url }}">Glossary</a>
+                <a href="{{ '/contact/' | relative_url }}">Contact</a>
                                 <a href="https://calendly.com/hello-jurospain/30min" class="btn" target="_blank" rel="noopener noreferrer">Book a Call</a>
             </nav>
         </div>
@@ -46,32 +46,32 @@ layout: null
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>JURO Spain</h3>
-                    <p class="small">English-Speaking Legal Guidance for Expats in Spain. From visas and residency to property and banking.</p>
+                    <p class="small">English-Speaking Legal Guidance for Expats in Spain.</p>
                 </div>
                 <div class="footer-section">
                     <h3>Services</h3>
                     <ul>
-                        <li><a href="{{ '/services.html' | relative_url }}">Immigration & Residency</a></li>
-                        <li><a href="{{ '/services.html' | relative_url }}">Property Transactions</a></li>
-                        <li><a href="{{ '/services.html' | relative_url }}">Banking Support</a></li>
-                        <li><a href="{{ '/services.html' | relative_url }}">Business Registration</a></li>
+                        <li><a href="{{ '/services/' | relative_url }}">Immigration & Residency</a></li>
+                        <li><a href="{{ '/services/' | relative_url }}">Property Transactions</a></li>
+                        <li><a href="{{ '/services/' | relative_url }}">Banking Support</a></li>
+                        <li><a href="{{ '/services/' | relative_url }}">Business Registration</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h3>Resources</h3>
                     <ul>
-                        <li><a href="{{ '/blog.html' | relative_url }}">Blog</a></li>
-                        <li><a href="{{ '/glossary.html' | relative_url }}">Glossary</a></li>
-                        <li><a href="{{ '/pricing.html' | relative_url }}">Pricing</a></li>
+                        <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
+                        <li><a href="{{ '/glossary/' | relative_url }}">Glossary</a></li>
+                        <li><a href="{{ '/pricing/' | relative_url }}">Pricing</a></li>
                         <li><a href="#">Guides</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h3>Company</h3>
                     <ul>
-                        <li><a href="{{ '/about.html' | relative_url }}">About Us</a></li>
-                        <li><a href="{{ '/contact.html' | relative_url }}">Contact Us</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="{{ '/about/' | relative_url }}">About Us</a></li>
+                        <li><a href="{{ '/contact/' | relative_url }}">Contact Us</a></li>
+                        <li><a href="{{ '/privacy/' | relative_url }}">Privacy Policy</a></li>
                         <li><a href="#">Terms of Service</a></li>
                     </ul>
                 </div>
@@ -91,10 +91,8 @@ layout: null
 
             if (menuToggle && siteNav) {
                 menuToggle.addEventListener('click', function() {
-                    // Toggles CSS class for mobile menu expansion
                     siteHeader.classList.toggle('menu-open');
                     siteNav.classList.toggle('active');
-                    // Accessibility improvement
                     const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
                     menuToggle.setAttribute('aria-expanded', !isExpanded);
                 });
