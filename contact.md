@@ -13,7 +13,7 @@ Need help with visas, residency, property or settling in Spain? JURO Spain provi
 
 ---
 
-## 📅 Book a Call
+<h2>📅 Book a Call</h2>
 
 <p>Schedule a short consultation to discuss your situation and receive a clear, fixed-fee estimate. This is the fastest way to get started.</p>
 
@@ -24,12 +24,12 @@ Need help with visas, residency, property or settling in Spain? JURO Spain provi
 </p>
 
 <p class="small">
-    *For best results, we recommend **embedding the Calendly widget here** instead of just linking out.
+    *For best results, we recommend embedding the Calendly widget here instead of just linking out.
 </p>
 
 ---
 
-## 📧 Send a Message
+<h2>📧 Send a Message</h2>
 
 <p>Email us directly with your goals, preferred timeline, and which services you're interested in:</p>
 <p>
@@ -38,7 +38,7 @@ Need help with visas, residency, property or settling in Spain? JURO Spain provi
 
 ---
 
-<h2 style="margin-top:30px;">Contact Form</h2>
+<h2>Contact Form</h2>
 
 <form action="https://formspree.io/f/mwpjpyoj" method="POST" class="card" style="max-width:640px;">
 
@@ -51,7 +51,7 @@ Need help with visas, residency, property or settling in Spain? JURO Spain provi
   <label for="message">What is this regarding?</label>
   <textarea id="message" name="message" required rows="6"></textarea>
 
-  <button type="submit">
+  <button type="submit" class="btn">
     Send Message
   </button>
 
@@ -60,7 +60,7 @@ Need help with visas, residency, property or settling in Spain? JURO Spain provi
 
 ---
 
-## 📍 In-Person Appointments (By Arrangement)
+<h2>📍 In-Person Appointments (By Arrangement)</h2>
 
 <p>
 We offer remote consultations nationwide and can arrange in-person meetings by appointment in selected cities (for example **Barcelona, Valencia, Málaga, and Alicante**) or at lawyers' local offices. If you need an in-person session, tell us in your booking or form message and we'll propose convenient options.
@@ -69,21 +69,3 @@ We offer remote consultations nationwide and can arrange in-person meetings by a
 <p class="small">
     *We are **not** based in Madrid as a primary office.
 </p>
-
----
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "JURO Spain",
-  "url": "https://jurospain.com",
-  "email": "mailto:hello@jurospain.com",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "email": "hello@jurospain.com",
-    "contactType": "customer service",
-    "availableLanguage": ["English", "Spanish"]
-  }
-}
-</script>
