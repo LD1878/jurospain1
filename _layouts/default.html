@@ -1,5 +1,5 @@
 ---
-layout: compress
+# The layout that wraps all your pages
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +12,7 @@ layout: compress
 <body>
     <header class="site-header">
         <div class="container">
-            <a class="site-title" href="{{ site.baseurl }}/" >JURO Spain</a>
+            <a class="site-title" href="{{ site.baseurl }}/">JURO Spain</a>
             
             <button class="menu-toggle" aria-label="Toggle menu">☰</button>
             
@@ -38,7 +38,6 @@ layout: compress
                     <h3>JURO Spain</h3>
                     <p>English-Speaking Legal Guidance for Expats in Spain. From visas and residency to property and banking.</p>
                 </div>
-                
                 <div class="footer-section">
                     <h3>Services</h3>
                     <ul>
@@ -48,7 +47,6 @@ layout: compress
                         <li><a href="{{ site.baseurl }}/services.html">Business Registration</a></li>
                     </ul>
                 </div>
-                
                 <div class="footer-section">
                     <h3>Resources</h3>
                     <ul>
@@ -58,7 +56,6 @@ layout: compress
                         <li><a href="#">Pricing</a></li>
                     </ul>
                 </div>
-                
                 <div class="footer-section">
                     <h3>Company</h3>
                     <ul>
@@ -76,8 +73,15 @@ layout: compress
     </footer>
 
     <script>
-        document.querySelector('.menu-toggle').addEventListener('click', function() {
-            document.querySelector('.site-nav').classList.toggle('active');
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const siteNav = document.querySelector('.site-nav');
+
+            if (menuToggle && siteNav) {
+                menuToggle.addEventListener('click', function() {
+                    siteNav.classList.toggle('active');
+                });
+            }
         });
     </script>
 </body>
