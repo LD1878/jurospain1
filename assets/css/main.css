@@ -1,20 +1,21 @@
 /*
- * Juro Spain - Custom CSS Styles
- * UX & Design Focused for a clean, professional feel.
- * Pure CSS for maximum compatibility with Jekyll/GitHub Pages.
+ * JURO SPAIN - CUSTOM DESIGN SYSTEM (PURE CSS)
+ * This stylesheet is optimized for stability, performance, and professional UX.
+ * File Location: assets/css/main.css
 */
 
 /* 1. --- Variables & Design System --- */
 :root {
-  --sp-red: #E30613;         /* Primary Brand Accent (Red) */
+  --sp-red: #E30613;         /* Primary Brand Accent (Spain Red) */
   --sp-wine: #7c1f1f;        /* Secondary Accent / Dark Text (Deep Maroon) */
-  --sp-gold-soft: #e6c23a;   /* Subtle Accent */
+  --sp-gold-soft: #e6c23a;   /* Subtle Accent for highlights */
   --sp-sand: #fcfaf8;        /* Clean Background (Warm Near-White) */
   --sp-char: #333333;        /* Body Text (Dark Charcoal) */
   --muted: #8b8b85;          /* Muted Text */
   --card-bg: #ffffff;        /* Card Background */
   --radius: 6px;             /* Subtle Rounding */
   --space-unit: 1.5rem;      /* Base Spacing (24px) */
+  --container-width: 1100px;
   --transition-speed: 0.2s;
 }
 
@@ -26,20 +27,21 @@ html {
 body {
   background-color: var(--sp-sand);
   color: var(--sp-char);
-  /* Classic, readable serif font for professional, authoritative feel */
+  /* Classic, readable serif font for professional, authoritative feel (Legal/Trust) */
   font-family: Georgia, serif;
-  line-height: calc(var(--space-unit) / 1.1 / 16); /* ~1.36 */
+  line-height: 1.36;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Paragraph and content spacing */
 p {
   margin-bottom: calc(var(--space-unit) * 0.75);
 }
 
-/* 3. --- Headings (Stronger Visual Hierarchy) --- */
+/* 3. --- Headings (Strong Visual Hierarchy) --- */
 h1, h2, h3, h4, .page-title {
-  /* Crisp, modern sans-serif for contrast and impact */
+  /* Crisp, modern sans-serif for headlines for contrast and impact */
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   color: var(--sp-wine);
   font-weight: 700;
@@ -61,13 +63,87 @@ h2 {
 
 h3 {
   font-size: 1.25rem;
-  color: var(--sp-red); /* Accent color for service/sub-section titles */
+  color: var(--sp-red); /* Use Accent Red for key service/section titles */
   font-weight: 700;
   margin-top: var(--space-unit);
   margin-bottom: calc(var(--space-unit) * 0.4);
 }
 
-/* 4. --- Links & Interaction --- */
+/* 4. --- Layout & Containers --- */
+.container {
+  max-width: var(--container-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.page-wrapper {
+    padding-top: calc(var(--space-unit) * 2);
+    padding-bottom: calc(var(--space-unit) * 2);
+}
+
+/* 5. --- Header & Navigation (Clean and Floating) --- */
+.site-header {
+  background-color: var(--card-bg);
+  border-bottom: 1px solid rgba(124, 31, 31, 0.1);
+  box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+  padding: 1rem 0;
+  position: sticky; /* Keep header visible on scroll for good UX */
+  top: 0;
+  z-index: 10;
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--sp-wine);
+    text-decoration: none;
+    padding: 0;
+    border-bottom: none;
+}
+
+/* Menu Toggle (Hidden by default on desktop) */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--sp-wine);
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    /* Accessibility: use default focus ring */
+}
+
+/* Desktop Navigation */
+.site-nav {
+    display: flex;
+    align-items: center;
+}
+
+.site-nav a {
+    color: var(--sp-wine);
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: var(--space-unit);
+    padding: 0.25rem 0.5rem;
+    border-bottom: none;
+    transition: all var(--transition-speed) ease;
+}
+
+.site-nav a:hover {
+    color: var(--sp-red);
+    border-bottom: 2px solid var(--sp-red);
+}
+
+/* 6. --- Links & Interaction --- */
 a {
   color: var(--sp-wine);
   font-weight: 600;
@@ -81,29 +157,30 @@ a:hover {
   border-bottom: 1px solid var(--sp-red);
 }
 
-/* 5. --- Layout: Header & Navigation --- */
-.site-header {
-  background-color: var(--card-bg);
-  border-bottom: 1px solid rgba(124, 31, 31, 0.1);
-  box-shadow: 0 1px 6px rgba(0,0,0,0.04);
-  padding: 1rem 0;
+/* 7. --- Call to Action (CTA) Buttons (.btn) --- */
+.btn {
+  background: var(--sp-red);
+  color: #fff !important; /* Force override of global link color */
+  font-weight: 700;
+  padding: 0.8rem 1.2rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  margin-left: calc(var(--space-unit) * 1.5); /* extra space from nav links */
+  transition: all var(--transition-speed) cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border-bottom: none !important;
 }
 
-.site-nav a {
-  color: var(--sp-wine);
-  font-weight: 600;
-  text-decoration: none;
-  margin-left: var(--space-unit);
-  padding: 0.25rem 0.5rem;
+.btn:hover {
+  background: var(--sp-wine); /* Deeper Wine color for professional hover state */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(227, 6, 19, 0.5);
   border-bottom: none;
 }
 
-.site-nav a:hover {
-  color: var(--sp-red);
-  border-bottom: 2px solid var(--sp-red);
-}
-
-/* 6. --- Modules: Cards, Posts, Forms --- */
+/* 8. --- Modules: Cards, Posts, Forms --- */
 .post-card, form, .card, .pricing-card {
   background-color: var(--card-bg);
   border: 1px solid rgba(124, 31, 31, 0.1);
@@ -113,126 +190,7 @@ a:hover {
   box-shadow: 0 8px 25px rgba(0,0,0,0.08); /* Deeper, elegant shadow */
 }
 
-/* 7. --- Call to Action (CTA) Buttons --- */
-form button, .cta, .btn {
-  background: var(--sp-red);
-  color: #fff;
-  font-weight: 700;
-  padding: 0.8rem calc(var(--space-unit) * 1.2);
-  border-radius: var(--radius);
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  display: inline-block;
-  transition: all var(--transition-speed) cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-form button:hover, .cta:hover, .btn:hover {
-  background: var(--sp-wine); /* Deeper Wine color for professional hover state */
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(227, 6, 19, 0.5);
-}
-
-/* 8. --- Form Inputs --- */
-form input, form textarea, input, textarea, select {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: calc(var(--space-unit) * 0.75);
-  border: 1px solid #d1d1cc; /* Lightened muted color */
-  border-radius: calc(var(--radius) / 2);
-  font-weight: 400;
-  box-sizing: border-box;
-  transition: border-color var(--transition-speed) ease;
-}
-
-form input:focus, form textarea:focus {
-  border-color: var(--sp-red);
-  outline: none;
-  box-shadow: 0 0 0 1px var(--sp-red);
-}
-
-/* 9. --- Pricing Table (Elegant Refinement) --- */
-.pricing-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: calc(var(--space-unit) * 2);
-  overflow: hidden;
-  border-radius: var(--radius);
-}
-
-.pricing-table th,
-.pricing-table td {
-  padding: 1rem 1.2rem;
-  border-bottom: 1px solid rgba(124, 31, 31, 0.08);
-}
-
-.pricing-table thead th {
-  background: var(--sp-wine);
-  color: var(--card-bg);
-  border-bottom: 4px solid var(--sp-red);
-}
-
-.pricing-table tbody tr:nth-child(even) {
-  background: rgba(124, 31, 31, 0.02);
-}
-
-.pricing-table tbody tr:hover {
-  background: rgba(227, 6, 19, 0.05); /* Highlight on hover */
-}
-
-.pricing-table td.price {
-  font-weight: 800;
-  color: var(--sp-red);
-  font-size: 1.15rem;
-}
-
-/* 10. --- FAQ / Details (Clean Collapse) --- */
-details {
-  background: var(--card-bg);
-  border: 1px solid rgba(124, 31, 31, 0.1);
-  border-radius: var(--radius);
-  margin-bottom: calc(var(--space-unit) * 0.5);
-  transition: box-shadow var(--transition-speed) ease, border-color var(--transition-speed) ease;
-  overflow: hidden;
-}
-
-summary {
-  font-weight: 700;
-  cursor: pointer;
-  list-style: none;
-  padding: 0.8rem var(--space-unit);
-  outline: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  transition: all var(--transition-speed) ease;
-}
-
-summary:hover,
-summary:focus {
-  background: rgba(227, 6, 19, 0.05);
-  color: var(--sp-wine);
-}
-
-details[open] {
-  border-color: var(--sp-red);
-  box-shadow: 0 0 0 1px var(--sp-red);
-}
-
-details p {
-  padding: 0 var(--space-unit) var(--space-unit) var(--space-unit);
-  margin-top: 0;
-  color: #404040;
-  border-top: 1px solid rgba(124, 31, 31, 0.05);
-}
-
-summary::-webkit-details-marker,
-summary::after {
-  display: none;
-  content: none;
-}
-
-/* 11. --- Quotes & Images --- */
+/* 9. --- Quotes & Images --- */
 blockquote {
   border-left: 5px solid var(--sp-gold-soft);
   color: var(--sp-char);
@@ -249,7 +207,7 @@ img {
   border-radius: calc(var(--radius) / 2);
 }
 
-/* 12. --- Footer --- */
+/* 10. --- Footer (Structured Layout) --- */
 .site-footer {
   background: transparent;
   border-top: 1px solid rgba(124, 31, 31, 0.1);
@@ -264,14 +222,109 @@ img {
   border-bottom: 1px solid var(--muted);
 }
 
-/* 13. --- Responsive Tweaks --- */
-@media (max-width: 720px) {
-  h1 { font-size: 2.2rem; }
-  h2 { font-size: 1.5rem; }
-  h3 { font-size: 1.1rem; }
-  body { line-height: 1.5; }
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: calc(var(--space-unit) * 1.5);
+    margin-bottom: var(--space-unit);
 }
 
-/* Utility classes */
+.footer-section {
+    flex: 1;
+}
+
+.footer-section h3 {
+    color: var(--sp-wine);
+    font-size: 1.1rem;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(124, 31, 31, 0.05);
+    padding-top: var(--space-unit);
+    color: var(--muted);
+}
+
+/* 11. --- Utility Classes --- */
 .center { text-align: center; }
 .small { font-size: 0.9rem; color: var(--muted); }
+
+/* 12. --- Responsive / Mobile Design --- */
+@media (max-width: 900px) {
+    /* Hide the Book a Call button on smaller screens by default for cleaner header */
+    .site-nav .btn {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Main Content Spacing */
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    /* Header & Mobile Nav */
+    .menu-toggle {
+        display: block; /* Show the menu toggle button */
+        margin-left: auto;
+    }
+
+    .site-nav {
+        /* Hide menu by default, take up full width below */
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%; /* Place below the header */
+        left: 0;
+        width: 100%;
+        background-color: var(--card-bg);
+        box-shadow: 0 6px 10px rgba(0,0,0,0.05);
+        border-top: 1px solid rgba(124, 31, 31, 0.1);
+        padding-bottom: 1rem;
+    }
+
+    /* Active state when JS toggles the class */
+    .site-header.menu-open .site-nav {
+        display: flex; /* Show the menu when active */
+    }
+
+    .site-nav a {
+        margin: 0;
+        padding: 0.75rem 1.5rem; /* Larger touch targets */
+        border-bottom: 1px solid rgba(124, 31, 31, 0.05);
+        width: 100%;
+        text-align: left;
+    }
+
+    .site-nav .btn {
+        display: block; /* Show CTA button inside the expanded menu */
+        margin: 1rem 1.5rem 0 1.5rem;
+        text-align: center;
+    }
+
+    /* Footer Layout */
+    .footer-content {
+        flex-direction: column;
+        gap: var(--space-unit);
+    }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.4rem; }
+    h3 { font-size: 1.1rem; }
+}
