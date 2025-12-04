@@ -1,76 +1,88 @@
 ---
-layout: page
-title: Pricing
-description: Transparent, fixed-fee legal packages for moving to and investing in Spain.
+layout: default
+title: Fixed-Fee Pricing
+description: Transparent, fixed-fee pricing for all our English-speaking legal services, including Digital Nomad Visas, property conveyancing, and residency applications.
 permalink: /pricing/
 ---
-<!-- Header -->
-<h1>Pricing — <span style="color:#E30613;">J</span><span style="color:#FFD700;">U</span><span style="color:#E30613;">R</span><span style="color:#FFD700;">O</span> Spain</h1>
 
-<p>Transparent, fixed-fee legal packages for moving to and investing in Spain. Choose a package below or <a href="https://calendly.com/hello-jurospain/30min">book a call</a> for a tailored quote.</p>
+# Transparent, Fixed-Fee Legal Pricing
 
-<hr>
+At **JURO Spain**, we believe in clear guidance, and that extends to our costs. All our services are offered on a **fixed-fee basis**, ensuring you know the exact total cost upfront—with no hidden hourly charges or unexpected bills.
 
-<!-- Jump links -->
-<h3 id="jump-to" style="margin-top:0;">Jump to:</h3>
-<ul style="padding-left:0; list-style:none;">
-  <li><a href="#nie-fast-track">NIE Fast-Track</a></li>
-  <li><a href="#property-purchase-protection">Property Purchase Protection</a></li>
-  <li><a href="#digital-nomad-visa-support">Digital Nomad Visa Support</a></li>
-  <li><a href="#non-lucrative-visa">Non-Lucrative Visa Made Simple</a></li>
-  <li><a href="#faq">FAQ</a></li>
-</ul>
+---
 
-<hr>
+<div class="card center">
+    <h2>Need a Custom Quote?</h2>
+    <p>Every case is unique. The best way to get a precise, fixed-fee quote for your specific residency or property transaction is to speak with us.</p>
+    <a href="https://calendly.com/hello-jurospain/30min" class="btn" style="font-size: 1.1rem;" target="_blank" rel="noopener noreferrer">
+        Book Your Free Consultation Today
+    </a>
+</div>
 
-<!-- Styled Pricing Table -->
-<table style="border-collapse:collapse; width:100%; background:#fff8f0;">
-  <thead>
-    <tr>
-      <th style="border-bottom:2px solid #E30613; padding:12px; text-align:left;">Package</th>
-      <th style="border-bottom:2px solid #E30613; padding:12px; text-align:left;">What’s Included</th>
-      <th style="border-bottom:2px solid #E30613; padding:12px; text-align:left;">From</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="padding:12px; border-top:1px solid #f0e6de;"><strong>NIE Fast-Track</strong></td>
-      <td style="padding:12px; border-top:1px solid #f0e6de;">We handle documents, appointments, translations and accompany you through the process for a smooth NIE application.</td>
-      <td style="padding:12px; border-t...(truncated 6303 characters)...nd ensure a clean title.</p>
-</details>
+---
 
-<details style="margin-bottom:10px; border:1px solid #ddd; border-radius:5px; padding:10px; background:#fff8f0;">
-  <summary style="font-weight:bold; cursor:pointer; list-style:none; position:relative; padding-left:24px;">
-    <span class="arrow" style="position:absolute; left:0; top:50%; transform:translateY(-50%); display:inline-block; transition: transform 0.3s;">►</span>
-    Who should use the Digital Nomad Visa Support service?
-  </summary>
-  <p style="margin-top:8px;">Anyone planning to live and work remotely in Spain under the Digital Nomad Visa will benefit. We guide you through eligibility, document preparation, tax implications, and residency activation.</p>
-</details>
+## 🇪🇸 Residency & Visa Application Fees (Examples)
 
-<details style="margin-bottom:10px; border:1px solid #ddd; border-radius:5px; padding:10px; background:#fff8f0;">
-  <summary style="font-weight:bold; cursor:pointer; list-style:none; position:relative; padding-left:24px;">
-    <span class="arrow" style="position:absolute; left:0; top:50%; transform:translateY(-50%); display:inline-block; transition: transform 0.3s;">►</span>
-    Can I pay in installments?
-  </summary>
-  <p style="margin-top:8px;">Yes — we offer a 50/50 split payment structure. Pay half to start and the remainder on completion. We accept cards and bank transfers. Optional extras (translations, tax advice) are billed separately at cost.</p>
-</details>
+<div class="post-card pricing-card">
+    <h3>Digital Nomad Visa (Initial Application)</h3>
+    <p>Full legal support for remote workers applying for the Digital Nomad Visa, including document preparation and submission.</p>
+    <div class="pricing-details">
+        <p class="price" style="font-size: 1.8rem; color: var(--sp-red); font-weight: 800; margin-bottom: 0.25rem;">€1,250</p>
+        <p class="small">Fixed Fee (excluding government fees)</p>
+    </div>
+    <a href="{{ '/contact.html' | relative_url }}" class="btn">Get Started</a>
+</div>
 
-<!-- Arrow animation CSS -->
-<style>
-  details[open] summary .arrow { transform: rotate(90deg) translateY(-50%); }
-  summary::-webkit-details-marker { display:none; }
-</style>
+<div class="post-card pricing-card">
+    <h3>Non-Lucrative Residency (NLV)</h3>
+    <p>Comprehensive service for the Non-Lucrative Visa, ideal for retirees or those living on passive income in Spain.</p>
+    <div class="pricing-details">
+        <p class="price" style="font-size: 1.8rem; color: var(--sp-red); font-weight: 800; margin-bottom: 0.25rem;">€1,100</p>
+        <p class="small">Fixed Fee (excluding government fees)</p>
+    </div>
+    <a href="{{ '/contact.html' | relative_url }}" class="btn">Get Started</a>
+</div>
 
-<hr>
+<div class="post-card pricing-card">
+    <h3>Golden Visa (Property Investment)</h3>
+    <p>Legal advice and application management for the Golden Visa route via significant capital investment (e.g., property).</p>
+    <div class="pricing-details">
+        <p class="price" style="font-size: 1.8rem; color: var(--sp-red); font-weight: 800; margin-bottom: 0.25rem;">€2,500+</p>
+        <p class="small">Quote based on complexity of investment</p>
+    </div>
+    <a href="{{ '/contact.html' | relative_url }}" class="btn">Request Quote</a>
+</div>
 
-<!-- Footer CTA -->
-<p>Need a tailored quote? <a href="https://calendly.com/hello-jurospain/30min">Book a call</a> or email <a href="mailto:hello@jurospain.com">hello@jurospain.com</a>.</p>
-<!-- --- NEW ADDITIONS: Classes for table and details --- -->
-<table class="pricing-table">  <!-- Add class for global styling -->
-  <!-- Existing table content unchanged -->
-</table>
+---
 
-<details class="pricing-faq">  <!-- Add class for enhanced accordion -->
-  <!-- Existing details unchanged -->
-</details>
-<!-- Repeat for all details -->
+## 🏠 Property & Conveyancing Services
+
+<div class="post-card pricing-card">
+    <h3>Full Property Conveyancing (Purchase)</h3>
+    <p>End-to-end legal due diligence, contract negotiation, and representation at the Notary for your Spanish property purchase.</p>
+    <div class="pricing-details">
+        <p class="price" style="font-size: 1.8rem; color: var(--sp-red); font-weight: 800; margin-bottom: 0.25rem;">0.8% - 1%</p>
+        <p class="small">Of purchase price (minimum fee applies)</p>
+    </div>
+    <a href="{{ '/contact.html' | relative_url }}" class="btn">Get a Quote</a>
+</div>
+
+<div class="post-card pricing-card">
+    <h3>NIE & Power of Attorney (POA) Service</h3>
+    <p>Essential service for clients requiring the NIE number and a notarized Power of Attorney to handle legal matters remotely.</p>
+    <div class="pricing-details">
+        <p class="price" style="font-size: 1.8rem; color: var(--sp-red); font-weight: 800; margin-bottom: 0.25rem;">€450</p>
+        <p class="small">Fixed Fee (plus notary fees)</p>
+    </div>
+    <a href="{{ '/contact.html' | relative_url }}" class="btn">Get Started</a>
+</div>
+
+---
+
+## Important Pricing Notes (Transparency)
+
+> "We promise no surprise costs. The fixed fee covers all legal review, document preparation, and government liaison by JURO Spain. Any third-party costs (like government application fees, notary fees, or registry fees) are clearly itemized in your quote."
+
+<p class="small">
+**Legal Disclaimer:** The prices listed above are examples for basic cases and may be subject to minor variations based on individual complexity (e.g., number of dependents, location of application). You will receive a definitive, binding quote after your initial consultation.
+</p>
