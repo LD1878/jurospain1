@@ -5,99 +5,115 @@ layout: null
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: 'en' }}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>{{ page.title | default: site.title }} | {{ site.description }}</title>
-    
-        <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-    
-    {% seo %}
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    
+    {% seo %}
 </head>
 <body>
-    <header class="site-header">
-        <div class="container">
-                        <a class="site-title" href="{{ '/' | relative_url }}">JURO Spain</a>
-            
-                        <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+    <header class="site-header">
+        <div class="container">
+            <a class="site-title" href="{{ '/' | relative_url }}">J<span style="color:var(--sp-gold);">U</span>R<span style="color:var(--sp-gold);">O</span> Spain</a>
+            
+            <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
                 Menu ☰
             </button>
-            
-            <nav class="site-nav">
-                                <a href="{{ '/services/' | relative_url }}">Services</a>
-                <a href="{{ '/pricing/' | relative_url }}">Pricing</a>
-                <a href="{{ '/about/' | relative_url }}">About</a>
-                <a href="{{ '/blog/' | relative_url }}">Blog</a>
-                <a href="{{ '/glossary/' | relative_url }}">Glossary</a>
-                <a href="{{ '/contact/' | relative_url }}">Contact</a>
-                                <a href="https://calendly.com/hello-jurospain/30min" class="btn" target="_blank" rel="noopener noreferrer">Book a Call</a>
-            </nav>
-        </div>
-    </header>
+            
+            <nav class="site-nav">
+                <a href="{{ '/services/' | relative_url }}">Services</a>
+                <a href="{{ '/pricing/' | relative_url }}">Pricing</a>
+                <a href="{{ '/about/' | relative_url }}">About</a>
+                <a href="{{ '/blog/' | relative_url }}">Blog</a>
+                <a href="{{ '/glossary/' | relative_url }}">Glossary</a>
+                <a href="{{ '/contact/' | relative_url }}">Contact</a>
+                <a href="https://calendly.com/hello-jurospain/30min" class="btn" target="_blank" rel="noopener noreferrer">Book a Call</a>
+            </nav>
+        </div>
+    </header>
 
     <div class="page-wrapper">
         <main class="container">
-            {{ content }}
-        </main>
+            {{ content }}
+        </main>
     </div>
 
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>JURO Spain</h3>
-                    <p class="small">English-Speaking Legal Guidance for Expats in Spain.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Services</h3>
-                    <ul>
-                        <li><a href="{{ '/services/' | relative_url }}">Immigration & Residency</a></li>
-                        <li><a href="{{ '/services/' | relative_url }}">Property Transactions</a></li>
-                        <li><a href="{{ '/services/' | relative_url }}">Banking Support</a></li>
-                        <li><a href="{{ '/services/' | relative_url }}">Business Registration</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Resources</h3>
-                    <ul>
-                        <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
-                        <li><a href="{{ '/glossary/' | relative_url }}">Glossary</a></li>
-                        <li><a href="{{ '/pricing/' | relative_url }}">Pricing</a></li>
-                        <li><a href="#">Guides</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Company</h3>
-                    <ul>
-                        <li><a href="{{ '/about/' | relative_url }}">About Us</a></li>
-                        <li><a href="{{ '/contact/' | relative_url }}">Contact Us</a></li>
-                        <li><a href="{{ '/privacy/' | relative_url }}">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                &copy; {{ site.time | date: "%Y" }} JURO Spain. All rights reserved. <span class="small">Not a law firm.</span>
-            </div>
-            
-        </div>
-    </footer>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>JURO Spain</h3>
+                    <p class="small">English-Speaking Legal Guidance for Expats in Spain.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="{{ '/services/' | relative_url }}">Immigration & Residency</a></li>
+                        <li><a href="{{ '/services/' | relative_url }}">Property Transactions</a></li>
+                        <li><a href="{{ '/services/' | relative_url }}">Banking Support</a></li>
+                        <li><a href="{{ '/services/' | relative_url }}">Business Registration</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
+                        <li><a href="{{ '/glossary/' | relative_url }}">Glossary</a></li>
+                        <li><a href="{{ '/pricing/' | relative_url }}">Pricing</a></li>
+                        <li><a href="#">Guides</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="{{ '/about/' | relative_url }}">About Us</a></li>
+                        <li><a href="{{ '/contact/' | relative_url }}">Contact Us</a></li>
+                        <li><a href="{{ '/privacy/' | relative_url }}">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; {{ site.time | date: "%Y" }} JURO Spain. All rights reserved. <span class="small">Not a law firm.</span>
+            </div>
+            
+        </div>
+    </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const siteNav = document.querySelector('.site-nav');
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const siteNav = document.querySelector('.site-nav');
             const siteHeader = document.querySelector('.site-header');
 
-            if (menuToggle && siteNav) {
-                menuToggle.addEventListener('click', function() {
-                    siteHeader.classList.toggle('menu-open');
-                    siteNav.classList.toggle('active');
+            // Mobile Menu Toggle Logic
+            if (menuToggle && siteNav) {
+                menuToggle.addEventListener('click', function() {
+                    siteHeader.classList.toggle('menu-open');
+                    siteNav.classList.toggle('active');
                     const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
                     menuToggle.setAttribute('aria-expanded', !isExpanded);
-                });
-            }
-        });
-    </script>
+                });
+            }
+
+            // Sticky/Shrinking Header Logic
+            if (siteHeader) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 50) { // Apply scrolled class after 50px of scroll
+                        siteHeader.classList.add('scrolled');
+                    } else {
+                        siteHeader.classList.remove('scrolled');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
