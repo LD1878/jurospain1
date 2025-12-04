@@ -1,93 +1,67 @@
 ---
 layout: default
-title: Legal Help for Expats in Spain | JURO Spain
-description: Expert English-speaking legal guidance for expats in Spain. Visas, property, residency, and trusted lawyers for a smooth relocation.
-permalink: /
+title: Home
 ---
 
-<div class="hero center">
-    <h1>Your English-Speaking Legal Guide to Spain</h1>
-    <p class="small">Visas. Residency. Property. Business. We simplify the complexity.</p>
-    
-    <a href="https://calendly.com/hello-jurospain/30min" class="btn" style="font-size: 1.5rem; padding: 1rem 2rem;" target="_blank" rel="noopener noreferrer">
-        Book Your Free 30-Minute Consultation
-    </a>
-    <p class="small" style="margin-top: 10px;">Fixed-Fee Pricing. No Hidden Costs. Start Today.</p>
-</div>
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="container center">
+    <h1>Legal Guidance for Expats in Spain</h1>
+    <p class="small" style="max-width:600px; margin:0 auto 2rem;">
+      Streamlined advice for immigration, property, banking, and business registration.
+    </p>
+    <a href="https://calendly.com/hello-jurospain/30min" class="btn">Book a Call</a>
+  </div>
+</section>
 
-<hr>
+<!-- SERVICES GRID -->
+<section class="services-grid container">
+  <a href="{{ '/services/' | relative_url }}" class="card">
+    <svg><!-- placeholder icon --></svg>
+    <h3>Immigration & Residency</h3>
+    <p class="small">Expert guidance through every legal step.</p>
+  </a>
+  <a href="{{ '/services/' | relative_url }}" class="card">
+    <svg><!-- placeholder icon --></svg>
+    <h3>Property Transactions</h3>
+    <p class="small">Safe and smooth property purchases.</p>
+  </a>
+  <a href="{{ '/services/' | relative_url }}" class="card">
+    <svg><!-- placeholder icon --></svg>
+    <h3>Banking Support</h3>
+    <p class="small">Set up and manage your finances stress-free.</p>
+  </a>
+  <a href="{{ '/services/' | relative_url }}" class="card">
+    <svg><!-- placeholder icon --></svg>
+    <h3>Business Registration</h3>
+    <p class="small">Comprehensive support for your company setup.</p>
+  </a>
+</section>
 
-<h2>Why Expats Choose JURO Spain</h2>
+<!-- FAQ SECTION -->
+<section class="container" style="margin-top:3rem;">
+  <h2>Frequently Asked Questions</h2>
 
-<p class="center">We are more than a legal service. We are your partner for a smooth transition to Spanish life.</p>
+  <div class="service-faq">
+    <summary>How do I apply for a residency visa?</summary>
+    <p>We guide you step-by-step, from documents to submission.</p>
+  </div>
 
-<div class="services-grid">
-    
-    <div class="card">
-        <h3>Expert Guidance in English</h3>
-        <p>Avoid costly mistakes and confusion. We explain every step—visas, contracts, tax—in **plain English**, providing peace of mind.</p>
-    </div>
-    
-    <div class="card">
-        <h3>Fixed-Fee & Transparent</h3>
-        <p>No more hourly billing. All our core services come with a **fixed, predictable fee**, ensuring you know the total cost before we begin.</p>
-    </div>
-    
-    <div class="card">
-        <h3>Local Presence, Nationwide Support</h3>
-        <p>We work with trusted lawyers and specialists in **Barcelona, Valencia, Málaga, and Alicante** to provide in-person support where you need it most.</p>
-    </div>
-</div>
+  <div class="service-faq">
+    <summary>Can you help with property purchases?</summary>
+    <p>Yes — from legal checks to registration, ensuring a smooth purchase.</p>
+  </div>
 
-<hr>
+  <div class="service-faq">
+    <summary>Do you assist with business registration?</summary>
+    <p>We provide end-to-end support for starting your company.</p>
+  </div>
+</section>
 
-<h2 class="center">Our Core Services</h2>
-
-<p class="center">We focus on the legal essentials you need to start your life in Spain quickly and securely.</p>
-
-<div class="services-grid">
-    
-    <a href="{{ '/services/' | relative_url }}" class="card">
-        <h3>🇪🇸 Immigration & Residency</h3>
-        <p>NIE, Digital Nomad, Non-Lucrative Visa (NLV), and renewals. Secure your right to live legally in Spain.</p>
-    </a>
-    
-    <a href="{{ '/services/' | relative_url }}" class="card">
-        <h3>🏠 Property Purchase</h3>
-        <p>End-to-end legal conveyancing, due diligence, and notary representation to protect your property investment.</p>
-    </a>
-
-    <a href="{{ '/services/' | relative_url }}" class="card">
-        <h3>✅ Relocation Essentials</h3>
-        <p>Bank accounts, Empadronamiento, Autónomo (self-employment) registration, and legal compliance.</p>
-    </a>
-</div>
-
-<div class="center" style="margin-bottom: 2rem;">
-    <a href="{{ '/services/' | relative_url }}" class="btn">
-        View All Fixed-Fee Services
-    </a>
-</div>
-
-<hr>
-
-<h2>Common Questions: How JURO Spain Helps (FAQ)</h2>
-
-<details class="service-faq">
-    <summary class="service-sum">Are you a law firm?</summary>
-    <p>No. We coordinate relocation, visas, property, and administrative processes and connect you with vetted specialist lawyers when legal representation is needed.</p>
-</details>
-
-<details class="service-faq">
-    <summary class="service-sum">Do I need a lawyer for my move?</summary>
-    <p>We match you with lawyers only if your case requires legal representation, saving time and avoiding mistakes. Our core service is dedicated case management and legal administration.</p>
-</details>
-
-<details class="service-faq">
-    <summary class="service-sum">Can you handle visas and property together?</summary>
-    <p>Yes! Our team coordinates multiple services seamlessly with specialist lawyers where needed, which is ideal for Golden Visa clients or those buying property during a visa application.</p>
-</details>
-
-<div class="center" style="margin-top:24px;">
-    <a href="https://calendly.com/hello-jurospain/30min" class="btn">Book Your 30-Minute Call</a>
-</div>
+<!-- FOOTER CTA -->
+<section class="hero" style="margin-top:3rem; padding:2rem 0;">
+  <div class="container center">
+    <h2>Ready to get started?</h2>
+    <a href="https://calendly.com/hello-jurospain/30min" class="btn">Book a Call Today</a>
+  </div>
+</section>
