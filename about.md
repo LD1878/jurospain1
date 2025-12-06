@@ -5,94 +5,116 @@ description: Premium concierge service that accelerates visas, residency, and pr
 permalink: /about/
 ---
 
-# About Juro Spain: Your English-Speaking Legal Partner
+{% raw %}{% assign red = "#b31b1b" %}
+{% assign navy = "#003366" %}
+{% assign gray = "#555" %}{% endraw %}
 
-Moving to Spain should be exciting, not stressful. At **JURO Spain**, we specialize in helping **English-speaking expats** navigate Spanish immigration, residency, and property purchases with confidence.
+<article class="page-about" itemscope itemtype="https://schema.org/LocalBusiness">
+  <meta itemprop="name" content="JURO Spain">
+  <meta itemprop="description" content="Premium concierge service that accelerates visas, residency, and property purchases across Spain.">
+  <meta itemprop="url" content="https://jurospain.com/about/">
+  <meta itemprop="telephone" content="+34-XXX-XXX-XXX"> {%-- update if you want --%}
 
-We are your **premium concierge process managers**. We handle all the complex administrative, legal, and financial processes, ensuring your case is perfect before submission. This approach guarantees a **faster, smoother path** for both the client and our legal partners. We are the dedicated guide to starting your new life in Spain—quickly.
+  <div class="about-wrapper">
 
----
+    <header class="about-header">
+      <h1>About JURO Spain: Your English-Speaking Legal Partner</h1>
+      <p class="lead">Moving to Spain should be exciting, not stressful. At <strong>JURO Spain</strong>, we specialize in helping <strong>English-speaking expats</strong> navigate Spanish immigration, residency, and property purchases with confidence.</p>
+      <p class="lead">We are your <strong>premium concierge process managers</strong>. We handle all the complex administrative, legal, and financial processes, ensuring your case is perfect before submission. This approach guarantees a <strong>faster, smoother path</strong> for both the client and our legal partners.</p>
+    </header>
 
-## Why Expats Choose JURO Spain (The Difference)
+    <section class="why-choose">
+      <h2>Why Expats Choose JURO Spain (The Difference)</h2>
+      <ul class="check-list">
+        <li>Fastest Case Approval — perfect pre-vetted files = almost zero rejections</li>
+        <li>Clear Guidance in Plain English</li>
+        <li>Trusted Local Partners — vetted Abogados, notaries & tax advisors</li>
+        <li>Efficient and Stress-Free Process</li>
+        <li>Nationwide Support — in-person help in Madrid, Barcelona, Valencia, Málaga, Alicante & Seville</li>
+      </ul>
+    </section>
 
-- **Fastest Case Approval:** Our unique process management means we deliver the **fastest possible outcome** for your **NIE**, residency application, or property purchase.
-- **Clear Guidance in English.** We explain visas, residency, and property transactions in plain English so you know exactly what to expect.
-- **Trusted Local Partners.** We work only with vetted and specialized lawyers (*Abogados*), notaries, and tax advisors across Spain.
-- **Efficient and Stress-Free Process.** We handle Spanish bureaucracy so your case moves quickly and smoothly.
-- **Nationwide Support.** In-person assistance is available in key hubs including **Madrid**, **Barcelona**, **Valencia**, **Málaga**, **Alicante**, and **Seville** through our trusted partner network.
+    <section class="services">
+      <h2>Our Core Expertise: Services for Expats</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Immigration and Residency</h3>
+          <p>From obtaining your NIE to securing long-term stay.</p>
+          <ul>
+            <li>NIE applications (Fast Track)</li>
+            <li>Golden Visa processing</li>
+            <li>Digital Nomad Visa support</li>
+            <li>Non-lucrative residency & renewals</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <h3>Property Purchase Support</h3>
+          <p>End-to-end protection for your investment.</p>
+          <ul>
+            <li>Contract review & negotiation</li>
+            <li>Notary representation</li>
+            <li>Mortgage guidance</li>
+            <li>Power of attorney services</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <h3>Relocation Essentials</h3>
+          <p>Get set up quickly and legally.</p>
+          <ul>
+            <li>Bank account setup</li>
+            <li>Empadronamiento registration</li>
+            <li>Autónomo registration</li>
+            <li>Ongoing compliance support</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
----
+    <section class="process">
+      <h2>Our Simple Four-Step Process</h2>
+      <ol class="process-list">
+        <li><strong>Initial Consultation</strong> – We assess your situation in plain English</li>
+        <li><strong>Personalized Plan</strong> – Custom roadmap with exact timelines</li>
+        <li><strong>Hands-On Support</strong> – We handle all paperwork & authorities</li>
+        <li><strong>Ongoing Assistance</strong> – Long-term compliance & peace of mind</li>
+      </ol>
+    </section>
 
-## 🇪🇸 Our Core Expertise: Services for Expats
+    <section class="faq" itemscope itemtype="https://schema.org/FAQPage">
+      <h2>Frequently Asked Questions</h2>
+      {% raw %}{% include faq-item.html
+        question="Is JURO Spain a law firm (Abogados)?"
+        answer="No. We are a <strong>premium process management service</strong> and your main point of contact. We partner with specialized Spanish lawyers to handle legal submission and representation, ensuring your case is perfectly prepared for the fastest approval."
+      %}{% endraw %}
 
-<div class="card">
-<p class="small">Click on the services below to view our dedicated service pages and pricing (Requires separate pages to be built: services.html, pricing.html).</p>
-</div>
+      {% raw %}{% include faq-item.html
+        question="What makes your service faster?"
+        answer="The primary cause of delays is incorrect documentation. We create a <strong>perfect, pre-vetted case file</strong> that eliminates rejection risk and back-and-forth, dramatically cutting processing time."
+      %}{% endraw %}
 
-### Immigration and Residency
-<p>From obtaining your **NIE** to securing your long-term right to stay, we handle the complex Spanish bureaucracy for you.</p>
-- **NIE** applications (Fast Track)
-- **Golden Visa** processing
-- **Digital Nomad Visa** support
-- **Non-lucrative residency** and renewals
+      {% raw %}{% include faq-item.html
+        question="Do you offer support outside of the listed cities?"
+        answer="Yes. Core process management is 100% digital and covers <strong>all of Spain</strong>. Physical partner locations exist in Madrid, Barcelona, Valencia, Málaga, Alicante and Seville for in-person needs."
+      %}{% endraw %}
+    </section>
 
-### Property Purchase Support
-<p>Protecting your investment is our priority. We offer end-to-end legal support for buying property in Spain.</p>
-- Contract review and negotiation
-- **Notary** representation
-- Mortgage guidance for international buyers
-- **Power of attorney** services
+    <section class="testimonial">
+      <blockquote itemprop="review" itemscope itemtype="https://schema.org/Review">
+        <p>“Juro Spain made moving to Barcelona effortless. Everything was explained in English and they handled all the tricky bureaucracy.”</p>
+        <footer>— <span itemprop="author">Satisfied Client</span></footer>
+      </blockquote>
+    </section>
 
-### Relocation Essentials
-<p>Get set up quickly and legally. We handle the crucial initial steps needed to start your life in Spain smoothly.</p>
-- Bank account setup
-- **Empadronamiento** registration
-- **Autónomo** business registration (Self-employed)
-- Ongoing compliance and legal support
+    <section class="cta-final" id="booking-form">
+      <h2>Ready to Start Your Spanish Journey?</h2>
+      <p class="cta-subtitle">Take the next step with Juro Spain.</p>
+      <div class="cta-buttons">
+        <a href="https://calendly.com/your-calendly-link" class="btn btn-primary">Book Your Consultation</a>
+        <a href="/pricing/" class="btn btn-secondary">View Pricing</a>
+        <a href="/blog/" class="btn btn-tertiary">Read Blog</a>
+      </div>
+      <p class="small">Consultations available in English, French and Spanish.</p>
+    </section>
 
----
-
-## Our Simple Four-Step Process
-
-This clear, numbered list gives clients confidence in your reliability.
-
-1.  **Initial Consultation** – We assess your unique situation and explain your legal options clearly in English.
-2.  **Personalized Plan** – We create a customized, step-by-step roadmap tailored precisely to your needs and timeline.
-3.  **Hands-On Support** – We handle all the difficult paperwork and liaise directly with authorities on your behalf, minimizing your stress.
-4.  **Ongoing Assistance** – We stay with you after arrival to ensure long-term compliance and complete peace of mind.
-
----
-
-## ❓ Frequently Asked Questions (FAQ)
-
-<details style="margin-bottom: 10px; border: 1px solid #ddd; padding: 10px 15px; border-radius: 5px;">
-    <summary style="font-weight: 700; cursor: pointer; color: #b31b1b;">Is JURO Spain a law firm (Abogados)?</summary>
-    <p style="margin-top: 5px; padding-left: 10px; color: #333;">No. We are a **premium process management service** and your main point of contact. We partner with specialized Spanish lawyers (*Abogados*) to handle the legal submission and representation, ensuring your case is perfectly prepared for the fastest approval.</p>
-</details>
-
-<details style="margin-bottom: 10px; border: 1px solid #ddd; padding: 10px 15px; border-radius: 5px;">
-    <summary style="font-weight: 700; cursor: pointer; color: #b31b1b;">What makes your service faster?</summary>
-    <p style="margin-top: 5px; padding-left: 10px; color: #333;">The primary cause of delays is incorrect documentation. We create a **perfect, pre-vetted case file** that reduces the risk of rejection and eliminates the typical administrative back-and-forth, dramatically cutting down processing time for your visa or **NIE**.</p>
-</details>
-
-<details style="margin-bottom: 10px; border: 1px solid #ddd; padding: 10px 15px; border-radius: 5px;">
-    <summary style="font-weight: 700; cursor: pointer; color: #b31b1b;">Do you offer support outside of the listed cities?</summary>
-    <p style="margin-top: 5px; padding-left: 10px; color: #333;">Yes. Our core process management is handled digitally and covers **all of Spain**. We have physical partner locations in **Madrid**, **Barcelona**, **Valencia**, **Málaga**, **Alicante**, and **Seville** for in-person support where required.</p>
-</details>
-
----
-
-## 🌟 Client Testimonial
-
-> "Juro Spain made moving to Barcelona effortless. Everything was explained in English and they handled all the tricky bureaucracy." – Satisfied Client
-
----
-
-## Ready to Start Your Spanish Journey?
-
-<div class="center">
-    <a href="{{ '/contact.html' | relative_url }}" class="cta btn" style="font-size: 1.25rem;">
-        Get Started: Book Your Free Initial Consultation Today
-    </a>
-    <p class="small">We offer consultations in English, French, and Spanish.</p>
-</div>
+  </div>
+</article>
