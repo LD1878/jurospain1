@@ -1,69 +1,47 @@
 /* ==========================================================
-   JURO Spain: Final Production CSS
-   Light Mode + Spanish Sunset Dark Mode
-   With UX/UI Expert Optimizations
+   JURO Spain: Dynamic Theme CSS
+   (Controlled by JavaScript in _layouts/default.html)
    ========================================================== */
 
 /* ----------------------------------------------------------
-   1. DESIGN TOKEN SYSTEM (LIGHT MODE BASE)
+   1. DYNAMIC & STATIC DESIGN TOKENS
    ---------------------------------------------------------- */
 
 :root {
-  /* Brand Colors */
-  --sp-red: #E30613;
-  --sp-gold: #FFC400;
-
-  /* Neutrals */
-  --sp-char: #232323;
-  --sp-white: #ffffff;
-  --sp-light-bg: #fcfcfc;
-  --sp-card-bg: #ffffff;
-  --sp-muted: #8b8b85;
-
-  /* Borders */
-  --sp-border: #ddd;
-
-  /* Radius */
+  /* STATIC BRAND COLORS (NEVER CHANGE) */
+  --sp-red: #E30613;        /* Main accent red */
+  
+  /* DYNAMIC THEME VARIABLES (SET BY JAVASCRIPT)
+     Defaults below match your original light mode. */
+  --bg-primary: #fcfcfc;    /* Replaces --sp-light-bg (Page Background) */
+  --bg-secondary: #ffffff;  /* Replaces --sp-card-bg (Card/Header Background) */
+  --text-primary: #232323;   /* Replaces --sp-char (Main Text Color) */
+  --text-muted: #8b8b85;     /* Replaces --sp-muted (Muted Text Color) */
+  --border-light: #ddd;      /* Replaces --sp-border (General Borders) */
+  --btn-text: #ffffff;       /* Text color for buttons (needed for dark modes) */
+  --gold-color: #FFC400;     /* Replaces --sp-gold (Dynamic Accent Color) */
+  
+  /* Static Utilities & Spacing (KEEPING OLD NAMES) */
   --sp-radius: 6px;
-
-  /* Typography */
   --sp-font-heavy: 'Oswald', sans-serif;
   --sp-font-body: 'Arial', sans-serif;
   --sp-max-width: 1200px;
-
-  /* Spacing Scale */
   --sp-space-1: 0.25rem;
   --sp-space-2: 0.5rem;
   --sp-space-3: 1rem;
   --sp-space-4: 1.5rem;
   --sp-space-5: 2rem;
   --sp-space-6: 3rem;
-
-  /* Elevations */
   --elev-1: 0 2px 6px rgba(0,0,0,0.06);
   --elev-2: 0 6px 12px rgba(0,0,0,0.12);
   --elev-3: 0 10px 20px rgba(0,0,0,0.18);
 }
 
-/* ----------------------------------------------------------
-   2. DARK MODE (SPANISH SUNSET THEME)
-   ---------------------------------------------------------- */
-
-html.dark-mode {
-  --sp-light-bg: #1e1a17;        /* Twilight earth */
-  --sp-card-bg: #2a2521;         /* Warm stone */
-  --sp-white: #f5f1ed;           /* Soft cream */
-  --sp-char: #f5f1ed;            /* Text */
-  --sp-muted: #b8aea4;           /* Muted text */
-  --sp-border: #3c352f;          /* Warm shadow borders */
-
-  /* Accents softened for dark mode */
-  --sp-red: #ff4d4f;             /* Sunset red */
-  --sp-gold: #e6b25c;            /* Dusk gold */
-}
+/* 💥 REMOVED: The html.dark-mode block is gone, as the script handles all themes. */
 
 /* ----------------------------------------------------------
-   3. BASE STYLES & TYPOGRAPHY
+   2. BASE STYLES & TYPOGRAPHY
+   (All styles now use the dynamic variables)
    ---------------------------------------------------------- */
 
 *, *::before, *::after {
@@ -76,8 +54,11 @@ html {
 }
 
 body {
-  background-color: var(--sp-light-bg);
-  color: var(--sp-char);
+  /* 💥 USE DYNAMIC VARS & ADD TRANSITION */
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.4s ease, color 0.4s ease;
+  
   font-family: var(--sp-font-body);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
@@ -99,7 +80,7 @@ h1 {
 }
 h2 {
   font-size: 2rem;
-  border-bottom: 3px solid var(--sp-gold);
+  border-bottom: 3px solid var(--gold-color); /* 💥 USE DYNAMIC GOLD */
   padding-bottom: var(--sp-space-2);
 }
 h3 {
@@ -109,11 +90,11 @@ h3 {
 }
 
 .center { text-align: center; }
-.small { font-size: 0.9rem; color: var(--sp-muted); }
+.small { font-size: 0.9rem; color: var(--text-muted); } /* 💥 USE DYNAMIC MUTED */
 
 hr {
   border: 0;
-  border-top: 1px solid var(--sp-border);
+  border-top: 1px solid var(--border-light); /* 💥 USE DYNAMIC BORDER */
   margin: var(--sp-space-5) 0;
 }
 
@@ -124,18 +105,19 @@ hr {
 }
 
 /* ----------------------------------------------------------
-   4. HEADER & NAVIGATION
+   3. HEADER & NAVIGATION
    ---------------------------------------------------------- */
 
 .site-header {
-  background-color: var(--sp-card-bg);
-  border-bottom: 4px solid var(--sp-gold);
+  background-color: var(--bg-secondary); /* 💥 USE DYNAMIC SECONDARY */
+  border-bottom: 4px solid var(--gold-color); /* 💥 USE DYNAMIC GOLD */
   box-shadow: var(--elev-1);
   position: sticky;
   top: 0;
   z-index: 1000;
   padding: var(--sp-space-5) 0;
-  transition: padding 0.25s ease, box-shadow 0.25s ease;
+  /* Add transitions for smooth theme change */
+  transition: padding 0.25s ease, box-shadow 0.25s ease, background-color 0.4s ease, border-color 0.4s ease;
 }
 
 .site-header.scrolled {
@@ -162,14 +144,23 @@ hr {
   font-size: 1.5rem;
 }
 
-/* NAV LINKS */
+/* Ensure the gold letters in the logo use the dynamic color */
+.site-title span[style*="var(--sp-gold)"] {
+  color: var(--gold-color) !important;
+}
 
+/* NAV LINKS */
 .site-nav a {
-  color: var(--sp-char);
+  color: var(--text-primary); /* 💥 USE DYNAMIC PRIMARY TEXT */
   text-decoration: none;
   font-weight: 500;
   padding: var(--sp-space-2) var(--sp-space-3);
   transition: color 0.2s, background-color 0.2s;
+  
+  /* Animated Nav Link Underline */
+  position: relative;
+  padding-bottom: 0.25rem;
+  transition: color 0.2s ease;
 }
 
 .site-nav a:hover {
@@ -178,13 +169,29 @@ hr {
   border-radius: var(--sp-radius);
 }
 
+.site-nav a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    background-color: var(--sp-red);
+    transition: width 0.3s ease;
+}
+
+.site-nav a:hover::after {
+    width: 100%;
+}
+
+
 /* ----------------------------------------------------------
-   5. BUTTONS
+   4. BUTTONS
    ---------------------------------------------------------- */
 
 .btn {
   background: var(--sp-red);
-  color: var(--sp-white) !important;
+  color: var(--btn-text) !important; /* 💥 USE DYNAMIC BUTTON TEXT COLOR */
   font-weight: 700;
   padding: var(--sp-space-3) var(--sp-space-4);
   border-radius: var(--sp-radius);
@@ -195,6 +202,7 @@ hr {
   transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
+/* Note: Button hover is kept hard-coded for contrast */
 .btn:hover {
   background: #a8040d;
   transform: translateY(-2px);
@@ -207,36 +215,53 @@ hr {
 }
 
 .btn:focus-visible {
-  outline: 3px solid var(--sp-gold);
+  outline: 3px solid var(--gold-color); /* 💥 USE DYNAMIC GOLD */
   outline-offset: 3px;
 }
 
+/* Optional: Glow effect on focus for inputs and buttons */
+input:focus,
+textarea:focus,
+.btn:focus {
+    box-shadow: 0 0 0 4px rgba(227,6,19,0.2);
+    outline: none;
+}
+
+
 /* ----------------------------------------------------------
-   6. CARDS & HERO
+   5. CARDS & HERO
    ---------------------------------------------------------- */
 
 .card, .post-card {
-  background: var(--sp-card-bg);
-  border: 1px solid var(--sp-border);
+  background: var(--bg-secondary); /* 💥 USE DYNAMIC SECONDARY */
+  border: 1px solid var(--border-light); /* 💥 USE DYNAMIC BORDER */
   border-radius: var(--sp-radius);
   padding: var(--sp-space-5);
   box-shadow: var(--elev-1);
-  transition: box-shadow 0.3s, background-color 0.3s;
+  /* Added transitions */
+  transition: box-shadow 0.3s, background-color 0.4s ease, transform 0.3s ease;
 }
 
+/* Enhanced Card Hover Animation */
+.services-grid a.card:hover,
 .card:hover {
-  box-shadow: var(--elev-2);
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    background-color: var(--bg-secondary); /* Keep background dynamic */
 }
 
 .hero {
-  background: var(--sp-card-bg);
-  border: 1px solid var(--sp-border);
+  background: var(--bg-secondary); /* 💥 USE DYNAMIC SECONDARY */
+  border: 1px solid var(--border-light); /* 💥 USE DYNAMIC BORDER */
   border-radius: var(--sp-radius);
   padding: var(--sp-space-6) var(--sp-space-4);
+  /* Added transition */
+  transition: background 0.4s ease;
 }
 
+
 /* ----------------------------------------------------------
-   7. SERVICES GRID
+   6. SERVICES GRID
    ---------------------------------------------------------- */
 
 .services-grid {
@@ -263,7 +288,7 @@ hr {
 }
 
 /* ----------------------------------------------------------
-   8. FORMS
+   7. FORMS
    ---------------------------------------------------------- */
 
 label {
@@ -278,12 +303,13 @@ input[type="email"],
 textarea {
   width: 100%;
   padding: var(--sp-space-3);
-  border: 1px solid var(--sp-border);
+  border: 1px solid var(--border-light); /* 💥 USE DYNAMIC BORDER */
   border-radius: var(--sp-radius);
   font-family: var(--sp-font-body);
   font-size: 1rem;
-  background: var(--sp-white);
-  transition: border-color 0.2s, box-shadow 0.2s;
+  background: var(--bg-secondary); /* 💥 USE DYNAMIC SECONDARY */
+  color: var(--text-primary); /* 💥 USE DYNAMIC PRIMARY TEXT */
+  transition: border-color 0.2s, box-shadow 0.2s, background-color 0.4s ease, color 0.4s ease;
 }
 
 input:focus,
@@ -299,14 +325,15 @@ textarea:focus {
 }
 
 /* ----------------------------------------------------------
-   9. FAQ ACCORDION
+   8. FAQ ACCORDION
    ---------------------------------------------------------- */
 
 .service-faq {
   margin-bottom: var(--sp-space-1);
-  border: 1px solid var(--sp-border);
+  border: 1px solid var(--border-light); /* 💥 USE DYNAMIC BORDER */
   border-radius: var(--sp-radius);
-  background: var(--sp-card-bg);
+  background: var(--bg-secondary); /* 💥 USE DYNAMIC SECONDARY */
+  transition: background-color 0.4s ease, border-color 0.4s ease;
 }
 
 .service-faq summary {
@@ -316,11 +343,11 @@ textarea:focus {
 }
 
 .service-faq summary:hover {
-  background-color: rgba(0,0,0,0.03);
+  background-color: rgba(0,0,0,0.03); /* Note: Keeping subtle hover fixed for all themes */
 }
 
 .service-faq[open] summary {
-  background: var(--sp-light-bg);
+  background: var(--bg-primary); /* 💥 USE DYNAMIC PRIMARY BG */
   color: var(--sp-red);
 }
 
@@ -330,30 +357,33 @@ textarea:focus {
 }
 
 /* ----------------------------------------------------------
-   10. FOOTER
+   9. FOOTER
    ---------------------------------------------------------- */
 
 .site-footer {
-  background: var(--sp-char);
-  color: #fff;
+  /* Using dynamic variables for all colors */
+  background: var(--text-primary); /* Using primary text color for dark footer */
+  color: var(--bg-primary); /* Using primary background color for light text */
   padding: var(--sp-space-6) 0 var(--sp-space-4);
   margin-top: var(--sp-space-6);
   font-size: 0.9rem;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 .site-footer a {
-  color: #ddd;
+  color: var(--text-muted); /* 💥 USE DYNAMIC MUTED */
+  transition: color 0.4s ease;
 }
 
 .site-footer a:hover {
-  color: var(--sp-gold);
+  color: var(--gold-color); /* 💥 USE DYNAMIC GOLD */
 }
 
 .footer-content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: var(--sp-space-3);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid var(--border-light); /* 💥 USE DYNAMIC BORDER */
   padding-bottom: var(--sp-space-4);
 }
 
@@ -370,25 +400,44 @@ textarea:focus {
     right: -10px;
     height: calc(100% - var(--sp-space-6));
     width: 1px;
-    background: rgba(255,255,255,0.15);
+    background: var(--border-light); /* 💥 USE DYNAMIC BORDER */
   }
 }
 
 .footer-bottom {
   text-align: center;
-  color: #aaa;
+  color: var(--text-muted); /* 💥 USE DYNAMIC MUTED */
   font-size: 0.8rem;
 }
 
 /* ----------------------------------------------------------
-   11. MOBILE NAVIGATION
+   10. MOBILE NAVIGATION
    ---------------------------------------------------------- */
 
 .menu-toggle {
   display: none;
 }
 
+/* 💥 NEW: Theme Toggle Button Style */
+.theme-toggle {
+    display: block; /* Make sure it shows up on mobile/desktop */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 0 10px;
+    /* Aligns it near the other menu toggles */
+    margin-right: 5px; 
+    margin-left: 5px; 
+    order: 3; /* Positioned after the site title and menu toggle */
+}
+
 @media (max-width: 900px) {
+  .site-header .container {
+    /* Ensure the theme toggle, site title, and menu button align properly on mobile */
+    justify-content: space-between;
+  }
+    
   .site-nav {
     display: none;
     flex-direction: column;
@@ -396,15 +445,15 @@ textarea:focus {
     position: absolute;
     top: 100%;
     left: 0;
-    background: var(--sp-card-bg);
-    border-top: 1px solid var(--sp-border);
+    background: var(--bg-secondary); /* 💥 USE DYNAMIC SECONDARY */
+    border-top: 1px solid var(--border-light); /* 💥 USE DYNAMIC BORDER */
     box-shadow: var(--elev-2);
     padding: var(--sp-space-2) 0;
 
     /* Smooth reveal animation */
     opacity: 0;
     transform: translateY(-10px);
-    transition: opacity 0.25s ease, transform 0.25s ease;
+    transition: opacity 0.25s ease, transform 0.25s ease, background-color 0.4s ease;
   }
 
   .site-nav.active {
@@ -415,7 +464,7 @@ textarea:focus {
 
   .site-nav a {
     padding: var(--sp-space-3);
-    border-bottom: 1px solid var(--sp-light-bg);
+    border-bottom: 1px solid var(--bg-primary); /* 💥 USE DYNAMIC PRIMARY BG for light separator */
     text-align: center;
   }
 
@@ -439,89 +488,13 @@ textarea:focus {
 }
 
 /* ----------------------------------------------------------
-   12. REDUCED MOTION SUPPORT
+   11. REDUCED MOTION SUPPORT
    ---------------------------------------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
   * {
-    transition: none !important;
+    /* Critical: This prevents the 'crazy' themes from causing issues for accessibility users */
+    transition: none !important; 
     animation: none !important;
   }
-}
-/* ==========================================================
-   JURO Spain: Premium UX Enhancements
-   ========================================================== */
-
-/* 1. Soft Gradient Backgrounds */
-body {
-    background: linear-gradient(160deg, #fcfcfc 0%, #fff5f0 100%);
-    transition: background-color 0.5s ease, color 0.5s ease;
-}
-
-html.dark-mode body {
-    background: linear-gradient(160deg, #1e1a17 0%, #2a2320 100%);
-    color: var(--sp-white);
-}
-
-/* Hero and Cards Gradient Enhancement */
-.hero {
-    background: linear-gradient(135deg, var(--sp-light-bg), #fff7f3);
-    transition: background 0.5s ease;
-}
-
-html.dark-mode .hero {
-    background: linear-gradient(135deg, var(--sp-card-bg), #2c2420);
-}
-
-.card, .post-card {
-    background: linear-gradient(135deg, var(--sp-card-bg), #fef9f7);
-    transition: background 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-html.dark-mode .card, html.dark-mode .post-card {
-    background: linear-gradient(135deg, var(--sp-card-bg), #2a2320);
-}
-
-/* 2. Animated Nav Link Underline */
-.site-nav a {
-    position: relative;
-    padding-bottom: 0.25rem;
-    transition: color 0.2s ease;
-}
-
-.site-nav a::after {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 2px;
-    left: 0;
-    bottom: 0;
-    background-color: var(--sp-red);
-    transition: width 0.3s ease;
-}
-
-.site-nav a:hover::after {
-    width: 100%;
-}
-
-/* 3. Enhanced Card Hover Animation */
-.services-grid a.card:hover,
-.card:hover {
-    transform: translateY(-6px) scale(1.02);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    background-color: #ffffff;
-}
-
-/* 4. Smooth Transitions for All Elements in Dark Mode */
-html.dark-mode *,
-html * {
-    transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-/* Optional: Glow effect on focus for inputs and buttons */
-input:focus,
-textarea:focus,
-.btn:focus {
-    box-shadow: 0 0 0 4px rgba(227,6,19,0.2);
-    outline: none;
 }
