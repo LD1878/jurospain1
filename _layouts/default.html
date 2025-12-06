@@ -16,6 +16,72 @@ layout: null
     
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
     
+    <script>
+        const THEMES = [
+            { // Theme 1: Spain-ish (Original Light)
+                name: 'spain-light',
+                '--bg-primary': '#fff8f0',
+                '--bg-secondary': '#ffffff',
+                '--text-primary': '#333',
+                '--text-muted': '#8b8b85',
+                '--border-light': 'rgba(124, 31, 31, 0.06)',
+                '--btn-text': '#ffffff',
+                '--gold-color': 'var(--sp-gold)'
+            },
+            { // Theme 2: Deep-Dark (Original Dark)
+                name: 'deep-dark',
+                '--bg-primary': '#121212',
+                '--bg-secondary': '#1f1f1f',
+                '--text-primary': '#e0e0e0',
+                '--text-muted': '#a0a0a0',
+                '--border-light': 'rgba(255, 215, 0, 0.15)',
+                '--btn-text': 'var(--text-primary)',
+                '--gold-color': 'var(--sp-gold)'
+            },
+            { // Theme 3: Cyber-Neon (The Crazy One)
+                name: 'cyber-neon',
+                '--bg-primary': '#050510',
+                '--bg-secondary': '#0f1228',
+                '--text-primary': '#c7ffed', // Neon Text
+                '--text-muted': '#58a09e',
+                '--border-light': '#39FF14', // Neon Green Border
+                '--btn-text': '#050510',
+                '--gold-color': '#39FF14' // Replaces gold with neon green
+            },
+            { // Theme 4: Retro-Sunset (The Other Crazy One)
+                name: 'retro-sunset',
+                '--bg-primary': '#2a0230',
+                '--bg-secondary': '#4d194d',
+                '--text-primary': '#ffc596', // Coral Text
+                '--text-muted': '#e684ae',
+                '--border-light': '#ffc596', // Coral Border
+                '--btn-text': '#2a0230',
+                '--gold-color': '#FF8000' // Replaces gold with bright orange
+            }
+        ];
+
+        function applyTheme(themeName) {
+            const root = document.documentElement;
+            const theme = THEMES.find(t => t.name === themeName);
+            if (!theme) return;
+
+            // Apply all theme variables to the HTML element's style
+            for (const [key, value] of Object.entries(theme)) {
+                if (key !== 'name') {
+                    root.style.setProperty(key, value);
+                }
+            }
+            localStorage.setItem('theme-name', themeName);
+            root.setAttribute('data-theme', themeName);
+        }
+
+        // FOUC Prevention Script: Load stored theme or default
+        (function() {
+            const storedThemeName = localStorage.getItem('theme-name') || 'spain-light';
+            applyTheme(storedThemeName);
+        })();
+    </script>
+    
     {% seo %}
 </head>
 <body>
@@ -23,14 +89,12 @@ layout: null
         <div class="container">
             <a class="site-title" href="{{ '/' | relative_url }}">J<span style="color:var(--sp-gold);">U</span>R<span style="color:var(--sp-gold);">O</span> Spain</a>
             
-            <!-- Mobile Menu Toggle -->
             <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
                 Menu ☰
             </button>
 
-            <!-- Dark Mode Toggle -->
-            <button id="dark-mode-toggle" aria-label="Toggle dark mode" class="menu-toggle">
-                🌞/🌙
+            <button class="theme-toggle" aria-label="Cycle through color themes">
+                ✨
             </button>
             
             <nav class="site-nav">
@@ -98,8 +162,6 @@ layout: null
             const menuToggle = document.querySelector('.menu-toggle');
             const siteNav = document.querySelector('.site-nav');
             const siteHeader = document.querySelector('.site-header');
-            const darkToggle = document.getElementById('dark-mode-toggle');
-            const htmlEl = document.documentElement;
 
             // Mobile Menu Toggle Logic
             if (menuToggle && siteNav) {
@@ -122,27 +184,21 @@ layout: null
                 });
             }
 
-            // Dark Mode Toggle Logic
-            if (darkToggle) {
-                // Load saved mode from localStorage
-                const savedMode = localStorage.getItem('dark-mode');
-                if (savedMode === 'true') htmlEl.classList.add('dark-mode');
+            // 💥 DYNAMIC THEME TOGGLE LOGIC
+            const themeToggle = document.querySelector('.theme-toggle');
+            if (themeToggle) {
+                // Note: The applyTheme and THEMES array are defined in the <head> script.
+                
+                themeToggle.addEventListener('click', function() {
+                    const currentThemeName = localStorage.getItem('theme-name') || THEMES[0].name;
+                    const currentIndex = THEMES.findIndex(t => t.name === currentThemeName);
+                    
+                    // Cycle to the next theme in the array (wraps around)
+                    const nextIndex = (currentIndex + 1) % THEMES.length;
+                    const nextThemeName = THEMES[nextIndex].name;
 
-                // Optionally respect system preference if no saved mode
-                if (!savedMode) {
-                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                    if (prefersDark) htmlEl.classList.add('dark-mode');
-                }
-
-                // Click handler
-                darkToggle.addEventListener('click', () => {
-                    htmlEl.classList.toggle('dark-mode');
-                    localStorage.setItem('dark-mode', htmlEl.classList.contains('dark-mode'));
-                    darkToggle.textContent = htmlEl.classList.contains('dark-mode') ? '🌙' : '🌞';
+                    applyTheme(nextThemeName);
                 });
-
-                // Set initial icon
-                darkToggle.textContent = htmlEl.classList.contains('dark-mode') ? '🌙' : '🌞';
             }
         });
     </script>
