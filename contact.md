@@ -24,7 +24,7 @@ Need help with visas, residency, property or settling in Spain? JURO Spain provi
 </p>
 
 <p class="small">
-    *For best results, we recommend embedding the Calendly widget here instead of just linking out.
+    
 </p>
 
 ---
