@@ -11,14 +11,14 @@ permalink: /about/
 
 <p>Moving to Spain should be exciting, not stressful. At **JURO Spain**, we specialize in helping **English-speaking expats** navigate Spanish immigration, residency, and property purchases with confidence.</p>
 
-<p>We are your **premium concierge process managers**. We handle all the complex administrative, legal, and financial processes, ensuring your case is perfect before submission. This approach guarantees a **faster, smoother path** for both the client and our legal partners. We are the dedicated guide to starting your new life in Spain—quickly.</p>
+<p>We are your **premium concierge process managers**. We handle all the complex administrative, legal, and financial processes, ensuring your case is perfect before submission. This approach guarantees a **faster, smoother path** for both the client and our legal partners. We are the dedicated guide to starting your new life in Spain-quickly.</p>
 
 <hr>
 
 <h2>⚡ Why Expats Choose JURO Spain (The Difference)</h2>
 
 <ul style="list-style-type: disc; padding-left: 20px;">
-    <li>**Fastest Case Approval:** Our unique process management means we deliver the **fastest possible outcome** for your **NIE**, residency application, or property purchase.</li>
+    <li>**Fastest Case Approval** Our unique process management means we deliver the **fastest possible outcome** for your **NIE**, residency application, or property purchase.</li>
     <li>**Clear Guidance in English.** We explain visas, residency, and property transactions in plain English so you know exactly what to expect.</li>
     <li>**Trusted Local Partners.** We work only with vetted and specialized lawyers (*Abogados*), notaries, and tax advisors across Spain.</li>
     <li>**Efficient and Stress-Free Process.** We handle Spanish bureaucracy so your case moves quickly and smoothly.</li>
@@ -62,10 +62,10 @@ permalink: /about/
 <p>This clear, numbered list gives clients confidence in your reliability. </p>
 
 <ol style="padding-left: 20px;">
-    <li>  **Initial Consultation** – We assess your unique situation and explain your legal options clearly in English.</li>
-    <li>  **Personalized Plan** – We create a customized, step-by-step roadmap tailored precisely to your needs and timeline.</li>
-    <li>  **Hands-On Support** – We handle all the difficult paperwork and liaise directly with authorities on your behalf, minimizing your stress.</li>
-    <li>  **Ongoing Assistance** – We stay with you after arrival to ensure long-term compliance and complete peace of mind.</li>
+    <li>  **Initial Consultation** - We assess your unique situation and explain your legal options clearly in English.</li>
+    <li>  **Personalized Plan** - We create a customized, step-by-step roadmap tailored precisely to your needs and timeline.</li>
+    <li>  **Hands-On Support** - We handle all the difficult paperwork and liaise directly with authorities on your behalf, minimizing your stress.</li>
+    <li>  **Ongoing Assistance** - We stay with you after arrival to ensure long-term compliance and complete peace of mind.</li>
 </ol>
 
 <hr>
@@ -91,7 +91,7 @@ permalink: /about/
 
 <div style="margin: 3rem 0; padding: 2.5rem; background-color: #f8f9fa; border-left: 5px solid #b31b1b; border-radius: 0 8px 8px 0;">
     <h2>🌟 Client Testimonial</h2>
-    <blockquote style="margin: 0; font-size: 1.25rem; font-style: italic;">"Juro Spain made moving to Barcelona effortless. Everything was explained in English and they handled all the tricky bureaucracy." – Satisfied Client</blockquote>
+    <blockquote style="margin: 0; font-size: 1.25rem; font-style: italic;">"Juro Spain made moving to Barcelona effortless. Everything was explained in English and they handled all the tricky bureaucracy." - Satisfied Client</blockquote>
 </div>
 
 <hr>
@@ -102,7 +102,7 @@ permalink: /about/
     <p style="font-weight: bold; font-size: 1.2rem; margin-bottom: 20px; color: #333;">Take the next step with Juro Spain.</p>
 
     <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
-        <a href="#booking-form" style="display: inline-block; background-color: #b31b1b; color: white; padding: 15px 30px; text-decoration: none; font-weight: bold; border-radius: 5px; font-size: 1.15rem;">
+        <a href="https://calendly.com/hello-jurospain/30min" style="display: inline-block; background-color: #b31b1b; color: white; padding: 15px 30px; text-decoration: none; font-weight: bold; border-radius: 5px; font-size: 1.15rem;">
             Get Started: Book Your Consultation
         </a>
         
