@@ -1,6 +1,25 @@
-<script>
+
+---
+layout: null
+# The layout that wraps all your pages
+---
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en' }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>{{ page.title | default: site.title }} | {{ site.description }}</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    
+    <script>
         const THEMES = [
-            { // Theme 1: Spain-light (Original Light)
+            { // Theme 1: Spain-ish (Original Light)
                 name: 'spain-light',
                 '--bg-primary': '#fff8f0',
                 '--bg-secondary': '#ffffff',
@@ -10,7 +29,7 @@
                 '--btn-text': '#ffffff',
                 '--gold-color': 'var(--sp-gold)'
             },
-            { // Theme 2: Deep-Dark (Plain Dark Mode - KEPT)
+            { // Theme 2: Deep-Dark (Original Dark)
                 name: 'deep-dark',
                 '--bg-primary': '#121212',
                 '--bg-secondary': '#1f1f1f',
@@ -20,35 +39,32 @@
                 '--btn-text': 'var(--text-primary)',
                 '--gold-color': 'var(--sp-gold)'
             },
-            { // Theme 3: Vibrant Synth (NEW Colorful Dark Mode)
-                name: 'vibrant-synth',
-                '--bg-primary': '#1a0736',      // Deep Indigo/Violet
-                '--bg-secondary': '#300f5c',   // Darker Purple
-                '--text-primary': '#fff0ff',   // Soft White/Pink Text
-                '--text-muted': '#a668ff',     // Vibrant Lavender
-                '--border-light': '#ff66b2',   // Bright Magenta/Pink Border
-                '--btn-text': '#1a0736',       // Text to contrast with red button
-                '--gold-color': '#39FF14'      // Neon Green Accent
+            { // Theme 3: Cyber-Neon (The Crazy One)
+                name: 'cyber-neon',
+                '--bg-primary': '#050510',
+                '--bg-secondary': '#0f1228',
+                '--text-primary': '#c7ffed', // Neon Text
+                '--text-muted': '#58a09e',
+                '--border-light': '#39FF14', // Neon Green Border
+                '--btn-text': '#050510',
+                '--gold-color': '#39FF14' // Replaces gold with neon green
             },
-            { // Theme 4: Retro-Sunset (KEPT)
+            { // Theme 4: Retro-Sunset (The Other Crazy One)
                 name: 'retro-sunset',
                 '--bg-primary': '#2a0230',
                 '--bg-secondary': '#4d194d',
-                '--text-primary': '#ffc596', 
+                '--text-primary': '#ffc596', // Coral Text
                 '--text-muted': '#e684ae',
-                '--border-light': '#ffc596', 
+                '--border-light': '#ffc596', // Coral Border
                 '--btn-text': '#2a0230',
-                '--gold-color': '#FF8000'
+                '--gold-color': '#FF8000' // Replaces gold with bright orange
             }
         ];
 
         function applyTheme(themeName) {
             const root = document.documentElement;
             const theme = THEMES.find(t => t.name === themeName);
-            if (!theme) {
-                // If theme is not found, we stop here, but the FOUC script below handles this case now.
-                return; 
-            }
+            if (!theme) return;
 
             // Apply all theme variables to the HTML element's style
             for (const [key, value] of Object.entries(theme)) {
@@ -62,20 +78,130 @@
 
         // FOUC Prevention Script: Load stored theme or default
         (function() {
-            let currentThemeName = localStorage.getItem('theme-name');
-            const defaultThemeName = THEMES[0].name; // 'spain-light'
-
-            // Check if the stored theme name is valid in the current THEMES array
-            if (!THEMES.some(t => t.name === currentThemeName)) {
-                // If it's invalid (e.g., old 'cyber-neon'), reset to the default theme.
-                currentThemeName = defaultThemeName;
-                localStorage.setItem('theme-name', defaultThemeName);
-            }
-            
-            // Apply the valid theme
-            applyTheme(currentThemeName);
+            const storedThemeName = localStorage.getItem('theme-name') || 'spain-light';
+            applyTheme(storedThemeName);
         })();
     </script>
     
     {% seo %}
 </head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a class="site-title" href="{{ '/' | relative_url }}">J<span style="color:var(--sp-gold);">U</span>R<span style="color:var(--sp-gold);">O</span> Spain</a>
+            
+            <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                Menu ☰
+            </button>
+
+            <button class="theme-toggle" aria-label="Cycle through color themes">
+                ✨
+            </button>
+            
+            <nav class="site-nav">
+                <a href="{{ '/services/' | relative_url }}">Services</a>
+                <a href="{{ '/pricing/' | relative_url }}">Pricing</a>
+                <a href="{{ '/about/' | relative_url }}">About</a>
+                <a href="{{ '/blog/' | relative_url }}">Blog</a>
+                <a href="{{ '/glossary/' | relative_url }}">Glossary</a>
+                <a href="{{ '/contact/' | relative_url }}">Contact</a>
+                <a href="https://calendly.com/hello-jurospain/30min" class="btn" target="_blank" rel="noopener noreferrer">Book a Call</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-wrapper">
+        <main class="container">
+            {{ content }}
+        </main>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>JURO Spain</h3>
+                    <p class="small">English-Speaking Legal Guidance for Expats in Spain.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="{{ '/services/' | relative_url }}">Immigration & Residency</a></li>
+                        <li><a href="{{ '/services/' | relative_url }}">Property Transactions</a></li>
+                        <li><a href="{{ '/services/' | relative_url }}">Banking Support</a></li>
+                        <li><a href="{{ '/services/' | relative_url }}">Business Registration</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
+                        <li><a href="{{ '/glossary/' | relative_url }}">Glossary</a></li>
+                        <li><a href="{{ '/pricing/' | relative_url }}">Pricing</a></li>
+                        <li><a href="#">Guides</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="{{ '/about/' | relative_url }}">About Us</a></li>
+                        <li><a href="{{ '/contact/' | relative_url }}">Contact Us</a></li>
+                        <li><a href="{{ '/privacy/' | relative_url }}">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; {{ site.time | date: "%Y" }} JURO Spain. All rights reserved. <span class="small">Not a law firm.</span>
+            </div>
+            
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const siteNav = document.querySelector('.site-nav');
+            const siteHeader = document.querySelector('.site-header');
+
+            // Mobile Menu Toggle Logic
+            if (menuToggle && siteNav) {
+                menuToggle.addEventListener('click', function() {
+                    siteHeader.classList.toggle('menu-open');
+                    siteNav.classList.toggle('active');
+                    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+                    menuToggle.setAttribute('aria-expanded', !isExpanded);
+                });
+            }
+
+            // Sticky/Shrinking Header Logic
+            if (siteHeader) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 50) { // Apply scrolled class after 50px of scroll
+                        siteHeader.classList.add('scrolled');
+                    } else {
+                        siteHeader.classList.remove('scrolled');
+                    }
+                });
+            }
+
+            // 💥 DYNAMIC THEME TOGGLE LOGIC
+            const themeToggle = document.querySelector('.theme-toggle');
+            if (themeToggle) {
+                // Note: The applyTheme and THEMES array are defined in the <head> script.
+                
+                themeToggle.addEventListener('click', function() {
+                    const currentThemeName = localStorage.getItem('theme-name') || THEMES[0].name;
+                    const currentIndex = THEMES.findIndex(t => t.name === currentThemeName);
+                    
+                    // Cycle to the next theme in the array (wraps around)
+                    const nextIndex = (currentIndex + 1) % THEMES.length;
+                    const nextThemeName = THEMES[nextIndex].name;
+
+                    applyTheme(nextThemeName);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
