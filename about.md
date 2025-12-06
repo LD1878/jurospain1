@@ -5,7 +5,7 @@ description: Premium concierge service that accelerates visas, residency, and pr
 permalink: /about/
 ---
 
-<div style="max-width: 900px; margin: 0 auto; line-height: 1.6;">
+<div style="max-width: 900px; margin: 0 auto;">
 
 # About Juro Spain: Your English-Speaking Legal Partner
 
@@ -15,7 +15,7 @@ We are your **premium concierge process managers**. We handle all the complex ad
 
 ---
 
-## Why Expats Choose JURO Spain (The Difference)
+## ⚡ Why Expats Choose JURO Spain (The Difference)
 
 - **Fastest Case Approval:** Our unique process management means we deliver the **fastest possible outcome** for your **NIE**, residency application, or property purchase.
 - **Clear Guidance in English.** We explain visas, residency, and property transactions in plain English so you know exactly what to expect.
