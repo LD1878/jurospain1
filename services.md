@@ -32,7 +32,7 @@ The path to living legally in Spain is complex. We simplify the entire process, 
         <li>Review and optimization of financial and contractual requirements.</li>
         <li>Dependent family member applications.</li>
     </ul>
-    <a href="{{ '/pricing/' | relative_url }}" class="btn">View Pricing</a> **<-- FIX APPLIED**
+    <a href="{{ '/pricing/' | relative_url }}" class="btn">View Pricing</a> 
 </div>
 
 <div class="post-card">
@@ -43,7 +43,7 @@ The path to living legally in Spain is complex. We simplify the entire process, 
         <li>NIE number application processing.</li>
         <li>Residency card (TIE) fingerprinting appointments.</li>
     </ul>
-    <a href="{{ '/pricing/' | relative_url }}" class="btn">View Pricing</a> **<-- FIX APPLIED**
+    <a href="{{ '/pricing/' | relative_url }}" class="btn">View Pricing</a> 
 </div>
 
 ---
@@ -60,7 +60,7 @@ Buying property in Spain can be complex. We ensure your investment is protected 
         <li>Review and negotiation of the private purchase contract.</li>
         <li>Representation at the Notary on your behalf via Power of Attorney (POA).</li>
     </ul>
-    <a href="{{ '/pricing/' | relative_url }}" class="btn">View Pricing</a> **<-- FIX APPLIED**
+    <a href="{{ '/pricing/' | relative_url }}" class="btn">View Pricing</a> 
 </div>
 
 <div class="post-card">
@@ -70,7 +70,7 @@ Buying property in Spain can be complex. We ensure your investment is protected 
         <li>Fast-track NIE application process.</li>
         <li>Drafting and notarizing POAs for remote signature.</li>
     </ul>
-    <a href="{{ '/pricing/' | relative_url }}" class="btn">View Pricing</a> **<-- FIX APPLIED**
+    <a href="{{ '/pricing/' | relative_url }}" class="btn">View Pricing</a> 
 </div>
 
 ---
@@ -107,5 +107,5 @@ Once your visa and property are secured, we assist with the final, crucial steps
 <div class="center">
     <a href="{{ '/pricing/' | relative_url }}" class="btn" style="font-size: 1.25rem;">
         View Our Fixed-Fee Pricing Guide
-    </a> **<-- FIX APPLIED**
+    </a> 
 </div>
