@@ -525,3 +525,56 @@ textarea:focus,
     box-shadow: 0 0 0 4px rgba(227,6,19,0.2);
     outline: none;
 }
+/* ==================== JURO SPAIN – ABOUT PAGE STYLES ==================== */
+.about-wrapper { max-width: 900px; margin: 0 auto; padding: 2rem 1rem; line-height: 1.7; }
+.about-header .lead { font-size: 1.15rem; margin-bottom: 1.2rem; color: #333; }
+
+h1, h2, h3 { color: #b31b1b; }
+h2 { margin-top: 3rem; margin-bottom: 1.5rem; }
+
+.check-list { list-style: none; padding-left: 0; }
+.check-list li { padding: 0.5rem 0; position: relative; padding-left: 1.8em; }
+.check-list li::before { content: "✓"; color: #b31b1b; font-weight: bold; position: absolute; left: -1.8em; }
+
+.services-grid { display: grid; gap: 2rem; margin: 2.5rem 0; }
+@media (min-width: 768px) { .services-grid { grid-template-columns: repeat(3, 1fr); } }
+.service-card { background: #f9f9f9; padding: 1.8rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+.service-card h3 { margin-top: 0; }
+
+.process-list { counter-reset: step; padding-left: 0; }
+.process-list li { 
+  counter-increment: step; margin: 1.8rem 0; padding-left: 3rem; position: relative; font-size: 1.1rem;
+}
+.process-list li::before {
+  content: counter(step); background: #b31b1b; color: white; width: 2.2rem; height: 2.2rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; position: absolute; left: 0; top: 0;
+}
+
+/* FAQ Accordion */
+.faq-item { margin-bottom: 1rem; border: 1px solid #eee; border-radius: 8px; overflow: hidden; }
+.faq-question { width: 100%; text-align: left; background: #fff; padding: 1.2rem 1.5rem; font-size: 1.1rem; font-weight: 700; color: #b31b1b; border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+.faq-question:hover { background: #fdf5f5; }
+.faq-toggle { font-size: 1.5rem; transition: transform 0.2s; }
+.faq-question[aria-expanded="true"] .faq-toggle { transform: rotate(45deg); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; background: #fcfcfc; }
+.faq-question[aria-expanded="true"] + .faq-answer { max-height: 500px; padding: 1.5rem; }
+
+/* Testimonial */
+.testimonial { background: #f8f9fa; padding: 2.5rem; border-left: 5px solid #b31b1b; margin: 3rem 0; border-radius: 0 8px 8px 0; }
+.testimonial blockquote { margin: 0; font-size: 1.25rem; font-style: italic; }
+
+/* CTA */
+.cta-final { text-align: center; background: #f8f9fa; padding: 3.5rem 2rem; border-radius: 12px; margin: 4rem 0 2rem; }
+.cta-subtitle { font-size: 1.3rem; margin-bottom: 2rem; color: #333; }
+.cta-buttons { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-bottom: 1.5rem; }
+.btn { display: inline-block; padding: 1rem 2rem; font-size: 1.25rem; font-weight: bold; text-decoration: none; border-radius: 8px; transition: transform 0.2s, box-shadow 0.2s; min-width: 240px; }
+.btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
+.btn-primary { background: #b31b1b; color: white; }
+.btn-secondary { background: #003366; color: white; }
+.btn-tertiary { background: #555; color: white; }
+
+/* Simple responsive improvements */
+@media (max-width: 640px) {
+  .about-wrapper { padding: 1.5rem 1rem; }
+  .btn { min-width: 100%; }
+  .services-grid { grid-template-columns: 1fr; }
+}
