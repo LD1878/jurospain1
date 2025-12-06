@@ -45,7 +45,10 @@
         function applyTheme(themeName) {
             const root = document.documentElement;
             const theme = THEMES.find(t => t.name === themeName);
-            if (!theme) return;
+            if (!theme) {
+                // If theme is not found, we stop here, but the FOUC script below handles this case now.
+                return; 
+            }
 
             // Apply all theme variables to the HTML element's style
             for (const [key, value] of Object.entries(theme)) {
@@ -59,8 +62,18 @@
 
         // FOUC Prevention Script: Load stored theme or default
         (function() {
-            const storedThemeName = localStorage.getItem('theme-name') || 'spain-light';
-            applyTheme(storedThemeName);
+            let currentThemeName = localStorage.getItem('theme-name');
+            const defaultThemeName = THEMES[0].name; // 'spain-light'
+
+            // Check if the stored theme name is valid in the current THEMES array
+            if (!THEMES.some(t => t.name === currentThemeName)) {
+                // If it's invalid (e.g., old 'cyber-neon'), reset to the default theme.
+                currentThemeName = defaultThemeName;
+                localStorage.setItem('theme-name', defaultThemeName);
+            }
+            
+            // Apply the valid theme
+            applyTheme(currentThemeName);
         })();
     </script>
     
