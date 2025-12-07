@@ -9,7 +9,7 @@ permalink: /
     <h1>Your English-Speaking Legal Guide to Spain</h1>
     <p class="small">Visas. Residency. Property. Business. We simplify the complexity.</p>
     
-    <a href="https://calendly.com/hello-jurospain/30min" class="btn" style="font-size: 1.5rem; padding: 1rem 2rem;" target="_blank" rel="noopener noreferrer">
+    <a href="https://app.cal.eu/jurospain/30min" class="btn" style="font-size: 1.5rem; padding: 1rem 2rem;" target="_blank" rel="noopener noreferrer">
         Book Your Free 30-Minute Consultation
     </a>
     <p class="small" style="margin-top: 10px;">Fixed-Fee Pricing. No Hidden Costs. Start Today.</p>
@@ -23,17 +23,17 @@ permalink: /
 <div class="services-grid">
     <div class="card">
         <h3>Expert Guidance in English</h3>
-        <p>Avoid costly mistakes and confusion. We explain every step—visas, contracts, tax—in <strong>plain English</strong>, providing peace of mind.</p>
+        <p>Avoid costly mistakes and confusion. We explain every step—visas, contracts, tax—in **plain English**, providing peace of mind.</p>
     </div>
     
     <div class="card">
         <h3>Fixed-Fee & Transparent</h3>
-        <p>No more hourly billing. All our core services come with a <strong>fixed, predictable fee</strong>, ensuring you know the total cost before we begin.</p>
+        <p>No more hourly billing. All our core services come with a **fixed, predictable fee**, ensuring you know the total cost before we begin.</p>
     </div>
     
     <div class="card">
         <h3>Local Presence, Nationwide Support</h3>
-        <p>We work with trusted lawyers and specialists in <strong>Barcelona, Valencia, Málaga, and Alicante</strong> to provide in-person support where you need it most.</p>
+        <p>We work with trusted lawyers and specialists in **Barcelona, Valencia, Málaga, and Alicante** to provide in-person support where you need it most.</p>
     </div>
 </div>
 
@@ -85,5 +85,5 @@ permalink: /
 </details>
 
 <div class="center" style="margin-top:24px;">
-    <a href="https://calendly.com/hello-jurospain/30min" class="btn">Book Your 30-Minute Call</a>
+    <a href="https://app.cal.eu/jurospain/30min" class="btn">Book Your 30-Minute Call</a>
 </div>
