@@ -17,6 +17,7 @@ layout: null
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
     
     <script>
+        // THEMES array and applyTheme function definition
         const THEMES = [
             { // Theme 1: Spain-ish (Original Light)
                 name: 'spain-light',
@@ -185,9 +186,9 @@ layout: null
             }
 
             // 💥 DYNAMIC THEME TOGGLE LOGIC
+            // Ensure this is safe and correctly scoped
             const themeToggle = document.querySelector('.theme-toggle');
-            if (themeToggle) {
-                // Note: The applyTheme and THEMES array are defined in the <head> script.
+            if (themeToggle && typeof THEMES !== 'undefined' && typeof applyTheme !== 'undefined') {
                 
                 themeToggle.addEventListener('click', function() {
                     const currentThemeName = localStorage.getItem('theme-name') || THEMES[0].name;
