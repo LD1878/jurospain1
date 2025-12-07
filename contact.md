@@ -13,23 +13,23 @@ Need expert help with visas, residency, property, or settling in Spain? JURO Spa
 
 ---
 
-<h2>📅 1. Book Your Free Consultation (Recommended)</h2>
+## 📅 1. Book Your Free Consultation (Recommended)
 
-<p>Schedule a short consultation to discuss your situation and receive a clear, fixed-fee estimate. **This is the fastest way to get started.**</p>
+This is the fastest way to get started. Schedule a short consultation to discuss your situation and receive a clear, fixed-fee estimate for your paid service.
 
-<p>
-    <a href="https://app.cal.eu/jurospain/30min" class="btn" style="font-size: 1.5rem; padding: 1rem 2rem;" target="_blank" rel="noopener noreferrer">
-        Book Your 30-Minute Call Now
-    </a>
-</p>
+<div class="center">
+    <a href="https://app.cal.eu/jurospain/30min" class="btn" target="_blank" rel="noopener noreferrer">
+        Book Your 30-Minute Call Now
+    </a>
+</div>
 
 ---
 
-<h2>✉️ 2. Send Us a Detailed Message</h2>
+## ✉️ 2. Send Us a Detailed Message
 
-<p>Use the form below if you prefer to send a detailed inquiry first. This helps us prepare the most accurate response and quote for you.</p>
+Use the form below if you prefer to send a detailed inquiry first. This helps us prepare the most accurate response and quote for you.
 
-<form action="https://formspree.io/f/mwpjpyoj" method="POST" class="card" style="max-width:640px; margin-bottom: 2rem;">
+<form action="https://formspree.io/f/mwpjpyoj" method="POST" class="card" style="max-width:640px;">
 
   <label for="name">Your Name</label>
   <input type="text" id="name" name="name" required>
@@ -50,14 +50,12 @@ Need expert help with visas, residency, property, or settling in Spain? JURO Spa
 
 ---
 
-<h2>📍 Our Geographic Presence</h2>
+## 📍 Our Geographic Presence
 
-<p>
 We offer remote consultations nationwide (covering **all of Spain**). 
-</p>
-<p>
+
 If required, we can arrange **in-person meetings** by appointment with our local partners in major expat hubs, including **Barcelona, Valencia, Málaga, and Alicante**. If an in-person session is necessary, please mention it in your booking or form message and we will propose convenient options.
-</p>
+
 <p class="small">
     *We are **not** based in Madrid as a primary office.
 </p>
