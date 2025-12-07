@@ -13,14 +13,15 @@ Need expert help with visas, residency, property, or settling in Spain? JURO Spa
 
 ---
 
-<div class="card center">
-    <h2>📅 1. Book Your Free Consultation (Recommended)</h2>
-    <p>**This is the fastest way to get started.** Schedule a short call to discuss your situation and receive a clear, fixed-fee estimate for your paid service.</p>
-    
-    <a href="https://app.cal.eu/jurospain/30min" class="btn" style="font-size: 1.25rem; padding: 1rem 2rem; margin-top: 1rem;" target="_blank" rel="noopener noreferrer">
-        Book Your 30-Minute Call Now
-    </a>
-</div>
+<h2>📅 1. Book Your Free Consultation (Recommended)</h2>
+
+<p>Schedule a short consultation to discuss your situation and receive a clear, fixed-fee estimate. **This is the fastest way to get started.**</p>
+
+<p>
+    <a href="https://app.cal.eu/jurospain/30min" class="btn" style="font-size: 1.5rem; padding: 1rem 2rem;" target="_blank" rel="noopener noreferrer">
+        Book Your 30-Minute Call Now
+    </a>
+</p>
 
 ---
 
