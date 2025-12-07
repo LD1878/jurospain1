@@ -18,13 +18,13 @@ Need help with visas, residency, property or settling in Spain? JURO Spain provi
 <p>Schedule a short consultation to discuss your situation and receive a clear, fixed-fee estimate. This is the fastest way to get started.</p>
 
 <p>
-    <a href="https://calendly.com/hello-jurospain/30min" class="btn" target="_blank" rel="noopener noreferrer">
-        Book Your Free 30-Minute Consultation
-    </a>
+    <a href="https://app.cal.eu/jurospain/30min" class="btn" target="_blank" rel="noopener noreferrer">
+        Book Your Free 30-Minute Consultation
+    </a>
 </p>
 
 <p class="small">
-    
+    
 </p>
 
 ---
@@ -33,29 +33,29 @@ Need help with visas, residency, property or settling in Spain? JURO Spain provi
 
 <p>Email us directly with your goals, preferred timeline, and which services you're interested in:</p>
 <p>
-    <a href="mailto:hello@jurospain.com" style="font-weight:bold;">hello@jurospain.com</a>
+    <a href="mailto:hello@jurospain.com" style="font-weight:bold;">hello@jurospain.com</a>
 </p>
 
 ---
 
-<h2>Contact Form</h2>
+<h2>Contact Form </h2>
 
 <form action="https://formspree.io/f/mwpjpyoj" method="POST" class="card" style="max-width:640px;">
 
-  <label for="name">Name</label>
-  <input type="text" id="name" name="name" required>
+  <label for="name">Name</label>
+  <input type="text" id="name" name="name" required>
 
-  <label for="email">Email</label>
-  <input type="email" id="email" name="_replyto" required>
+  <label for="email">Email</label>
+  <input type="email" id="email" name="_replyto" required>
 
-  <label for="message">What is this regarding?</label>
-  <textarea id="message" name="message" required rows="6"></textarea>
+  <label for="message">What is this regarding?</label>
+  <textarea id="message" name="message" required rows="6"></textarea>
 
-  <button type="submit" class="btn">
-    Send Message
-  </button>
+  <button type="submit" class="btn">
+    Send Message
+  </button>
 
-  <p class="small">We respect your privacy. By contacting us you consent to JURO Spain storing your message and contact details for the purpose of responding.</p>
+  <p class="small">We respect your privacy. By contacting us you consent to JURO Spain storing your message and contact details for the purpose of responding.</p>
 </form>
 
 ---
@@ -67,5 +67,5 @@ We offer remote consultations nationwide and can arrange in-person meetings by a
 </p>
 
 <p class="small">
-    *We are **not** based in Madrid as a primary office.
+    *We are **not** based in Madrid as a primary office.
 </p>
