@@ -13,14 +13,13 @@ Need expert help with visas, residency, property, or settling in Spain? JURO Spa
 
 ---
 
-<div class="center" style="margin: 3rem auto; padding: 2rem; background-color: var(--bg-secondary); border: 2px solid var(--sp-red); border-radius: 8px; max-width: 640px;">
+<div class="card center">
     <h2>📅 1. Book Your Free Consultation (Recommended)</h2>
-    <p style="font-size: 1.1rem; font-weight: 500;">**This is the fastest way to get started.** Schedule a short call to discuss your situation and receive a clear, fixed-fee estimate for your paid service.</p>
+    <p>**This is the fastest way to get started.** Schedule a short call to discuss your situation and receive a clear, fixed-fee estimate for your paid service.</p>
     
-    <a href="https://app.cal.eu/jurospain/30min" class="btn" style="font-size: 1.5rem; padding: 1rem 2.5rem; margin-top: 1rem;" target="_blank" rel="noopener noreferrer">
+    <a href="https://app.cal.eu/jurospain/30min" class="btn" style="font-size: 1.25rem; padding: 1rem 2rem; margin-top: 1rem;" target="_blank" rel="noopener noreferrer">
         Book Your 30-Minute Call Now
     </a>
-    <p class="small" style="margin-top: 10px;">For those ready to move forward quickly.</p>
 </div>
 
 ---
@@ -40,7 +39,7 @@ Need expert help with visas, residency, property, or settling in Spain? JURO Spa
   <label for="message">What is this regarding? (Visas, Property, etc.)</label>
   <textarea id="message" name="message" required rows="6"></textarea>
 
-  <button type="submit" class="btn" style="background-color: var(--sp-dark-blue);">
+  <button type="submit" class="btn">
     Send Inquiry
   </button>
 
