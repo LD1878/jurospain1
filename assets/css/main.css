@@ -498,3 +498,75 @@ textarea:focus {
     animation: none !important;
   }
 }
+/* HEADER LAYOUT FIX - Add this to your main.css or as an override */
+
+/* Fix the header container layout */
+.site-header .container {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-space-3);
+  position: relative;
+}
+
+.site-title {
+  margin-right: auto; /* Push everything else to the right */
+}
+
+/* Desktop: Theme toggle and nav inline */
+@media (min-width: 901px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  .theme-toggle {
+    order: 2;
+  }
+
+  .site-nav {
+    display: flex !important;
+    align-items: center;
+    gap: var(--sp-space-2);
+    order: 3;
+    position: static;
+    width: auto;
+    opacity: 1;
+    transform: none;
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .site-nav a {
+    border-bottom: none;
+    padding: var(--sp-space-2) var(--sp-space-3);
+  }
+}
+
+/* Mobile: Stack nav properly */
+@media (max-width: 900px) {
+  .site-header .container {
+    flex-wrap: wrap;
+  }
+
+  .theme-toggle {
+    order: 2;
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  .menu-toggle {
+    order: 3;
+    margin-left: 0;
+  }
+
+  .site-nav {
+    order: 4;
+    width: 100%;
+    margin-top: var(--sp-space-2);
+  }
+
+  .site-nav a {
+    padding: var(--sp-space-3);
+  }
+}
