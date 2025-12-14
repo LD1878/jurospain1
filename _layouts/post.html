@@ -1,0 +1,59 @@
+---
+layout: default
+---
+
+{% comment %} 
+This post layout is optimized for SEO (Schema) and Readability (TOC, Narrow width). 
+It wraps the content within the 'default' layout (for header/footer).
+{% endcomment %}
+
+{% include structured_data.html %}
+
+<article class="post-content">
+
+    <header class="post-header center">
+        <h1>{{ page.title | escape }}</h1>
+
+        <p class="post-meta small">
+            Published on <strong>{{ page.date | date: "%B %d, %Y" }}</strong> 
+            {% if page.author %} | By {{ page.author }} {% endif %}
+            {% if page.last_modified_at and page.last_modified_at != page.date %}
+                <br>Last Updated: {{ page.last_modified_at | date: "%B %d, %Y" }}
+            {% endif %}
+            {% if page.tags %}
+                | <span class="post-tags">Tags: 
+                    {% for tag in page.tags %}
+                        <a href="{{ '/tag/' | append: tag | slugify | relative_url }}">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
+                    {% endfor %}
+                </span>
+            {% endif %}
+        </p>
+    </header>
+
+    <hr>
+    
+    {% if page.toc %}
+    <aside class="card toc-box">
+        <h2 style="margin-top: 0; border-bottom: none; padding-bottom: 0;">Table of Contents</h2>
+        {% comment %} 
+        NOTE: This requires the 'jekyll-toc' gem OR manual TOC links in your post.
+        If using a gem, the filter 'toc_only' will automatically generate the list here.
+        {% endcomment %}
+        {{ content | toc_only }} 
+    </aside>
+    {% endif %}
+
+    <section class="main-post-body">
+        {{ content }}
+    </section>
+    
+    <hr>
+    <div class="card center" style="margin: var(--sp-space-6) 0;">
+        <h2>Ready to take the next step?</h2>
+        <p style="font-size: 1.15rem; color: var(--text-primary);">This guide is a great start, but when you need action—visa submission, property purchase, or business registration—we are your concierge partner.</p>
+        <a href="https://calendly.com/hello-jurospain/30min" class="btn" target="_blank" rel="noopener noreferrer" style="font-size: 1.15rem; margin-top: var(--sp-space-3);">
+            Book Your Free 30-Minute Consultation
+        </a>
+    </div>
+
+</article>
