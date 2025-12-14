@@ -785,3 +785,69 @@ main li a:not(.btn):hover,
     transform: scale(1.02);
     box-shadow: var(--elev-2);
 }
+/* ==========================================================
+   17. ABOUT PAGE STYLES (Testimonial and Process Flow)
+   ========================================================== */
+
+/* Testimonial Block Styling */
+.blockquote-testimonial {
+    margin: var(--sp-space-3) 0;
+    font-size: 1.25rem;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--text-primary);
+    border-left: 5px solid var(--gold-color);
+    padding-left: var(--sp-space-3);
+}
+
+.testimonial-box h2 {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* Four-Step Process Flow Grid */
+.process-flow-grid {
+    display: grid;
+    /* 4 columns on desktop, flowing to 2 or 1 on mobile */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--sp-space-4);
+    margin: var(--sp-space-5) 0;
+    counter-reset: step-counter; /* Initialize counter for steps */
+}
+
+.process-step {
+    text-align: center;
+    padding: var(--sp-space-4) var(--sp-space-3);
+    position: relative;
+    /* Ensure the cards stretch to the same height */
+    height: 100%; 
+}
+
+/* Visual Step Counter (Advanced UX) */
+.process-step h3::before {
+    counter-increment: step-counter;
+    content: counter(step-counter);
+    display: block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    background: var(--sp-red);
+    color: var(--btn-text);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0 auto var(--sp-space-2) auto;
+    border: 3px solid var(--gold-color);
+}
+
+.process-step h3 {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* Media Query for Mobile Stack */
+@media (max-width: 600px) {
+    .process-flow-grid {
+        grid-template-columns: 1fr;
+    }
+}
