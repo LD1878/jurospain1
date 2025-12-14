@@ -4,67 +4,70 @@ title: Blog & Guides | Your Resources for Spanish Residency & Property
 description: Stay up to date with practical guides on immigration, property, and business life in Spain for international families and remote professionals.
 ---
 
-<div class="blog-header">
-    <h1 class="center">{{ page.title | default: "Our Guides and Resources" }}</h1>
-    {% if page.description %}
-        <p class="center small">{{ page.description }}</p>
+<div class="container">
+    <div class="blog-header">
+        <h1 class="center">{{ page.title | default: "Our Guides and Resources" }}</h1>
+        {% if page.description %}
+            <p class="center small">{{ page.description }}</p>
+        {% else %}
+            <p class="center small">Stay up to date with practical guides on immigration, property, and business life in Spain for international families and remote professionals.</p>
+        {% endif %}
+    </div>
+
+    <hr>
+
+    {% assign sorted_posts = site.posts | sort: "date" | reverse %}
+
+    {% if sorted_posts.size > 0 %}
+        
+        <section class="post-list-grid">
+            {% for post in sorted_posts %}
+
+                {% assign post_summary_source = post.seo_summary | default: post.excerpt %}
+
+                {% comment %} Logic to clean up TOC and generic headings from summary {% endcomment %}
+                {% if post_summary_source contains 'Table of contents' or post_summary_source contains 'table of contents' or post_summary_source contains 'Overview:' %}
+                    {% assign cleaned_excerpt_stage_1 = post_summary_source | strip_html | replace: "Table of contents", "" | replace: "table of contents", "" | replace: "Overview:", "" | replace: "-", "" | replace: "*", "" %}
+                    {% assign cleaned_excerpt_stage_2 = cleaned_excerpt_stage_1 | newline_to_br | replace: "<br>", " " | replace: "   ", " " | replace: "  ", " " %}
+                    {% assign final_excerpt = cleaned_excerpt_stage_2 | strip | truncate: 200 %}
+                {% else %}
+                    {% assign final_excerpt = post_summary_source | strip_html | strip | truncate: 200 %}
+                {% endif %}
+
+                <a href="{{ post.url | relative_url }}" class="post-card card"> 
+                    <header>
+                        <h2>{{ post.title | escape }}</h2>
+                        <p class="small">
+                            <span aria-hidden="true">🗓️</span> <strong>{{ post.date | date: "%d/%m/%Y" }}</strong> {% if post.author %} | By: {{ post.author }} {% endif %}
+                        </p>
+                    </header>
+                    
+                    <p>{{ final_excerpt }}...</p>
+                    
+                    <span style="font-size: 0.9rem; font-weight: 700; color: var(--sp-red); margin-top: auto; display: block;">
+                        Read Guide →
+                    </span>
+                </a>
+
+            {% endfor %}
+        </section>
+
     {% else %}
-        <p class="center small">Stay up to date with practical guides on immigration, property, and business life in Spain for international families and remote professionals.</p>
+
+    <div class="card center">
+        <h2>Content Coming Soon!</h2>
+        <p>We are currently writing our first set of comprehensive guides and articles. Please check back soon!</p>
+    </div>
+
     {% endif %}
-</div>
 
-<hr>
+    <hr>
 
-{% assign sorted_posts = site.posts | sort: "date" | reverse %}
-
-{% if sorted_posts.size > 0 %}
-    
-    <section class="post-list-grid">
-        {% for post in sorted_posts %}
-
-            {% assign post_summary_source = post.seo_summary | default: post.excerpt %}
-
-            {% if post_summary_source contains 'Table of contents' or post_summary_source contains 'table of contents' or post_summary_source contains 'Overview:' %}
-                {% assign cleaned_excerpt_stage_1 = post_summary_source | strip_html | replace: "Table of contents", "" | replace: "table of contents", "" | replace: "Overview:", "" | replace: "-", "" | replace: "*", "" %}
-                {% assign cleaned_excerpt_stage_2 = cleaned_excerpt_stage_1 | newline_to_br | replace: "<br>", " " | replace: "   ", " " | replace: "  ", " " %}
-                {% assign final_excerpt = cleaned_excerpt_stage_2 | strip | truncate: 200 %}
-            {% else %}
-                {% assign final_excerpt = post_summary_source | strip_html | strip | truncate: 200 %}
-            {% endif %}
-
-            <a href="{{ post.url | relative_url }}" class="post-card card" style="text-decoration: none;"> 
-                <header>
-                    <h2>{{ post.title | escape }}</h2>
-                    <p class="small" style="margin-bottom: 0.75rem;">
-                        Published: <strong>{{ post.date | date: "%B %d, %Y" }}</strong> {% if post.author %} | By: {{ post.author }} {% endif %}
-                    </p>
-                </header>
-                
-                <p>{{ final_excerpt }}...</p>
-
-                <span class="btn" style="padding: 0.5rem 1rem; margin-top: 1rem; background-color: var(--sp-red); display: inline-block;">
-                    Read Full Guide →
-                </span>
-            </a>
-
-        {% endfor %}
-    </section>
-
-{% else %}
-
-<div class="card center">
-    <h2>Content Coming Soon!</h2>
-    <p>We are currently writing our first set of comprehensive guides and articles. Please check back soon!</p>
-</div>
-
-{% endif %}
-
-<hr>
-
-<div class="hero center" style="margin: var(--sp-space-6) 0;">
-    <h2>Need Legal Advice Now?</h2>
-    <p style="font-size: 1.2rem;">Don't wait for a blog post. If you have an urgent question about a visa, property purchase, or residency, book a free call.</p>
-    <a href="https://calendly.com/hello-jurospain/30min" class="btn" target="_blank" rel="noopener noreferrer" style="font-size: 1.15rem; margin-top: var(--sp-space-4);">
-        Book Your Free Consultation
-    </a>
+    <div class="hero center" style="margin: var(--sp-space-6) 0;">
+        <h2>Need Legal Advice Now?</h2>
+        <p style="font-size: 1.2rem;">Don't wait for a blog post. If you have an urgent question about a visa, property purchase, or residency, book a free call.</p>
+        <a href="https://calendly.com/hello-jurospain/30min" class="btn" target="_blank" rel="noopener noreferrer" style="font-size: 1.15rem; margin-top: var(--sp-space-4);">
+            Book Your Free Consultation
+        </a>
+    </div>
 </div>
