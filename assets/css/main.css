@@ -715,3 +715,73 @@ main li a:not(.btn):hover,
     border-bottom: 3px solid var(--gold-color);
     padding-bottom: var(--sp-space-2);
 }
+/* ==========================================================
+   16. PRICING PAGE: COMPARISON GRID (UX FIX)
+   ========================================================== */
+
+.pricing-group {
+    margin: var(--sp-space-6) 0;
+}
+
+.pricing-grid {
+    display: grid;
+    /* Sets up 3 columns on desktop, flowing to 1 on mobile */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--sp-space-4);
+    align-items: stretch; /* Ensures all cards stretch to the same height */
+    margin-top: var(--sp-space-5);
+}
+
+.pricing-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: var(--sp-space-5);
+    /* Style consistency */
+    border-radius: var(--sp-radius);
+    background: var(--bg-secondary);
+    box-shadow: var(--elev-1);
+    text-align: center;
+}
+
+/* Specific styling for the pricing data */
+.pricing-footer {
+    padding-top: var(--sp-space-4);
+    margin-top: var(--sp-space-4);
+    border-top: 1px solid var(--border-light);
+}
+
+.pricing-card h3 {
+    margin-top: 0;
+}
+
+.pricing-features {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    margin: var(--sp-space-4) 0;
+}
+
+.pricing-features li::before {
+    content: '✓';
+    color: var(--sp-red);
+    font-weight: 700;
+    margin-right: 8px;
+}
+
+/* Price display */
+.price {
+    font-size: 2.5rem;
+    color: var(--sp-red);
+    font-family: var(--sp-font-heavy);
+    font-weight: 800;
+    margin-bottom: var(--sp-space-1);
+    line-height: 1.1;
+}
+
+/* Highlight the featured plan (e.g., Golden Visa) */
+.pricing-card.featured {
+    border: 3px solid var(--gold-color);
+    transform: scale(1.02);
+    box-shadow: var(--elev-2);
+}
