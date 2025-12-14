@@ -851,3 +851,46 @@ main li a:not(.btn):hover,
         grid-template-columns: 1fr;
     }
 }
+/* ==========================================================
+   18. CONTACT PAGE STYLES (Grid Layout)
+   ========================================================== */
+
+.contact-grid {
+    display: grid;
+    /* Two-column layout for the call booking and the form */
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-space-5);
+    margin-top: var(--sp-space-6);
+}
+
+.contact-card {
+    /* Ensures the card maintains its card style and padding */
+    padding: var(--sp-space-5);
+}
+
+.contact-card h2 {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* Specific styling for the Call Booking card to emphasize it */
+.contact-card.book-call {
+    /* Subtle background to make it pop */
+    background-color: var(--bg-primary); 
+    border-left: 5px solid var(--sp-red);
+}
+
+/* Ensure the form itself doesn't have the card styling nested (it's already in the parent div) */
+.contact-card form {
+    padding: 0; 
+    box-shadow: none;
+    border: none;
+    background: transparent;
+}
+
+/* Responsive collapse for mobile */
+@media (max-width: 800px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
