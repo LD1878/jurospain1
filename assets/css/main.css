@@ -1050,3 +1050,54 @@ main li a:not(.btn):hover,
         padding: 15px 10px;
     }
 }
+/* ==========================================================
+   21. SERVICES PAGE: FINAL CLEANUP
+   ========================================================== */
+
+.featured-service-card {
+    /* Uses the basic card style but adds visual prominence */
+    border-left: 4px solid var(--sp-red);
+    padding: var(--sp-space-4);
+    transition: all 0.3s ease;
+    text-align: left; /* Ensure text is left-aligned, not centered */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.featured-service-card:hover {
+    box-shadow: var(--elev-2);
+    transform: translateY(-3px);
+}
+
+.featured-service-card ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: var(--sp-space-3);
+    font-size: 0.95rem;
+}
+
+.featured-service-card li::before {
+    content: '✔️';
+    color: var(--gold-color);
+    margin-right: 8px;
+}
+
+/* Styling for the clean list of remaining services */
+.service-list-block ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.service-list-block li {
+    padding: var(--sp-space-1) 0;
+    border-bottom: 1px dotted var(--border-light);
+}
+
+.service-list-block h3 {
+    color: var(--sp-red);
+    font-size: 1.15rem;
+    border-bottom: 2px solid var(--gold-color);
+    padding-bottom: var(--sp-space-1);
+    margin-top: var(--sp-space-4);
+}
