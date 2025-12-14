@@ -655,3 +655,63 @@ main li a:not(.btn):hover,
     align-self: flex-start;
     text-decoration: none !important; /* Override content link hover styles */
 }
+/* ==========================================================
+   14. POST LAYOUT STYLES (Readability Focus)
+   ========================================================== */
+
+/* Narrowing the content for optimal reading flow (50-75 characters wide) */
+.post-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--sp-space-4) 0;
+}
+
+.post-header {
+    margin-bottom: var(--sp-space-5);
+}
+
+.post-meta a {
+    /* Style for the post tags */
+    color: var(--sp-red);
+    text-decoration: underline;
+    text-decoration-color: var(--gold-color);
+}
+
+/* Table of Contents (TOC) Styles */
+.toc-box {
+    margin: var(--sp-space-6) 0;
+    padding: var(--sp-space-4);
+    border-left: 5px solid var(--sp-red);
+}
+
+.toc-box ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.toc-box li {
+    padding: var(--sp-space-1) 0;
+    border-bottom: 1px dashed var(--border-light);
+}
+.toc-box a:hover {
+    background-color: transparent !important; /* Fix nav hover bleeding */
+    color: var(--sp-red);
+}
+
+/* Ensure images and videos within the post are responsive */
+.main-post-body img,
+.main-post-body video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: var(--sp-space-4) auto;
+    border-radius: var(--sp-radius);
+    box-shadow: var(--elev-1);
+}
+
+/* Ensure post content headers look clean inside the article */
+.main-post-body h2 {
+    /* Revert border style for post content H2s */
+    border-bottom: 3px solid var(--gold-color);
+    padding-bottom: var(--sp-space-2);
+}
