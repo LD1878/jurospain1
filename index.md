@@ -9,10 +9,14 @@ permalink: /
     <h1>Your English-Speaking Legal Guide to Spain</h1>
     <p class="small">Visas. Residency. Property. Business. We simplify the complexity.</p>
     
-    <a href="https://app.cal.eu/jurospain/30min" class="btn" style="font-size: 1.5rem; padding: 1rem 2rem;" target="_blank" rel="noopener noreferrer">
-        Book Your Free 30-Minute Consultation
+    <p style="font-size: 0.9rem; color: var(--gold-color); font-weight: 600; margin-bottom: 1.5rem;">
+        ★ Trusted by Expats in Barcelona, Valencia & Málaga
+    </p>
+
+    <a href="https://app.cal.eu/jurospain/30min" class="btn" style="font-size: 1.25rem; padding: 0.8rem 1.5rem;" target="_blank" rel="noopener noreferrer">
+        Book Free Consultation
     </a>
-    <p class="small" style="margin-top: 10px;">Fixed-Fee Pricing. No Hidden Costs. Start Today.</p>
+    <p class="small" style="margin-top: 10px; opacity: 0.8;">Fixed-Fee Pricing. No Hidden Costs.</p>
 </div>
 
 <hr>
@@ -23,17 +27,17 @@ permalink: /
 <div class="services-grid">
     <div class="card">
         <h3>Expert Guidance in English</h3>
-        <p>Avoid costly mistakes and confusion. We explain every step—visas, contracts, tax—in **plain English**, providing peace of mind.</p>
+        <p>Avoid costly mistakes and confusion. We explain every step—visas, contracts, tax—in <strong>plain English</strong>, providing peace of mind.</p>
     </div>
     
     <div class="card">
         <h3>Fixed-Fee & Transparent</h3>
-        <p>No more hourly billing. All our core services come with a **fixed, predictable fee**, ensuring you know the total cost before we begin.</p>
+        <p>No more hourly billing. All our core services come with a <strong>fixed, predictable fee</strong>, ensuring you know the total cost before we begin.</p>
     </div>
     
     <div class="card">
         <h3>Local Presence, Nationwide Support</h3>
-        <p>We work with trusted lawyers and specialists in **Barcelona, Valencia, Málaga, and Alicante** to provide in-person support where you need it most.</p>
+        <p>We work with trusted lawyers and specialists in <strong>Barcelona, Valencia, Málaga, and Alicante</strong> to provide in-person support where you need it most.</p>
     </div>
 </div>
 
@@ -44,17 +48,17 @@ permalink: /
 
 <div class="services-grid">
     <a href="{{ '/services/' | relative_url }}" class="card">
-        <h3>🇪🇸 Immigration & Residency</h3>
+        <h3><span aria-hidden="true" style="margin-right: 6px;">🇪🇸</span> Immigration & Residency</h3>
         <p>NIE, Digital Nomad, Non-Lucrative Visa (NLV), and renewals. Secure your right to live legally in Spain.</p>
     </a>
     
     <a href="{{ '/services/' | relative_url }}" class="card">
-        <h3>🏠 Property Purchase</h3>
+        <h3><span aria-hidden="true" style="margin-right: 6px;">🏠</span> Property Purchase</h3>
         <p>End-to-end legal conveyancing, due diligence, and notary representation to protect your property investment.</p>
     </a>
 
     <a href="{{ '/services/' | relative_url }}" class="card">
-        <h3>✅ Relocation Essentials</h3>
+        <h3><span aria-hidden="true" style="margin-right: 6px;">✅</span> Relocation Essentials</h3>
         <p>Bank accounts, Empadronamiento, Autónomo (self-employment) registration, and legal compliance.</p>
     </a>
 </div>
