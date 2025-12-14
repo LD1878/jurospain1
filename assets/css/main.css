@@ -894,3 +894,159 @@ main li a:not(.btn):hover,
         grid-template-columns: 1fr;
     }
 }
+/* ==========================================================
+   19. GLOSSARY PAGE STYLES (Search and Accordions)
+   ========================================================== */
+
+.glossary-search {
+    margin: var(--sp-space-5) 0;
+    text-align: center;
+}
+
+.glossary-search input {
+    width: 100%;
+    max-width: 600px;
+    padding: var(--sp-space-3) var(--sp-space-4);
+    font-size: 1rem;
+    border: 2px solid var(--border-light);
+    border-radius: var(--sp-radius);
+    color: var(--text-primary);
+    background-color: var(--bg-secondary);
+    transition: border-color 0.3s ease;
+}
+
+.glossary-search input:focus {
+    outline: none;
+    border-color: var(--sp-red);
+    box-shadow: 0 0 0 3px rgba(227, 6, 19, 0.1);
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: var(--sp-space-6) 0 var(--sp-space-4) 0;
+    padding-bottom: var(--sp-space-3);
+    border-bottom: 2px solid var(--border-light);
+}
+
+.section-icon {
+    font-size: 2rem;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    color: var(--text-primary); /* Use theme color */
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Accordion (Details) Styling */
+.glossary-section details {
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-light);
+    border-left: 5px solid var(--sp-red);
+    padding-left: 15px;
+    background-color: var(--bg-primary);
+    border-radius: var(--sp-radius);
+    transition: all 0.3s ease;
+}
+
+.glossary-section details:hover {
+    box-shadow: var(--elev-1);
+    transform: translateY(-2px);
+}
+
+.glossary-section details[open] {
+    background-color: var(--bg-secondary);
+    box-shadow: var(--elev-2);
+    border-left-color: var(--gold-color);
+}
+
+.glossary-section summary {
+    font-weight: 700;
+    font-size: 1.25rem;
+    cursor: pointer;
+    color: var(--text-primary);
+    padding: 10px 0;
+    list-style: none;
+    user-select: none;
+}
+
+.glossary-section summary:hover {
+    color: var(--sp-red);
+}
+
+/* Custom expand icon */
+.glossary-section summary::before {
+    content: '▶';
+    display: inline-block;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+    color: var(--sp-red);
+    font-size: 0.9em;
+}
+
+.glossary-section details[open] summary::before {
+    transform: rotate(90deg);
+    color: var(--gold-color);
+}
+
+.glossary-section details p {
+    margin-top: 0.5rem;
+    padding-bottom: 10px;
+    color: var(--text-primary);
+}
+
+.def-label {
+    font-weight: 600;
+}
+
+/* Internal Glossary Links */
+.glossary-link {
+    color: var(--sp-red);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid var(--gold-color);
+    transition: border-color 0.2s ease;
+}
+
+.glossary-link:hover {
+    border-bottom-color: var(--sp-red);
+}
+
+.glossary-link[target="_blank"]::after {
+    content: ' ↗';
+    font-size: 0.85em;
+    color: var(--text-muted);
+}
+
+/* No Results Message */
+.no-results {
+    display: none;
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.no-results.show {
+    display: block;
+}
+
+.stats {
+    text-align: center;
+    margin: 20px 0;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.5rem;
+    }
+    .glossary-section summary {
+        font-size: 1.1rem;
+        padding: 15px 10px;
+    }
+}
