@@ -13,10 +13,10 @@ layout: null
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ site.time | date: '%s' }}">
     
     <script>
-        // THEMES array with icons
+        // THEMES: Optimized for Trust, Authority & Readability
         const THEMES = [
             {
                 name: 'spain-light',
@@ -24,43 +24,43 @@ layout: null
                 '--bg-primary': '#fcfcfc',
                 '--bg-secondary': '#ffffff',
                 '--text-primary': '#232323',
-                '--text-muted': '#8b8b85',
+                '--text-muted': '#585858', 
                 '--border-light': '#ddd',
                 '--btn-text': '#ffffff',
-                '--gold-color': '#FFC400'
+                '--gold-color': '#FFC400' 
             },
             {
-                name: 'deep-dark',
-                icon: '🌙',
-                '--bg-primary': '#121212',
-                '--bg-secondary': '#1f1f1f',
-                '--text-primary': '#e0e0e0',
-                '--text-muted': '#a0a0a0',
-                '--border-light': 'rgba(255, 215, 0, 0.15)',
-                '--btn-text': '#e0e0e0',
-                '--gold-color': '#FFC400'
+                name: 'legal-slate',
+                icon: '🌙', 
+                '--bg-primary': '#0f172a', /* Slate 900 - Premium Dark */
+                '--bg-secondary': '#1e293b', /* Slate 800 */
+                '--text-primary': '#f1f5f9', /* Slate 100 */
+                '--text-muted': '#94a3b8',
+                '--border-light': '#334155',
+                '--btn-text': '#ffffff',
+                '--gold-color': '#fbbf24' /* Amber 400 - Warm Gold */
             },
             {
-                name: 'cyber-neon',
-                icon: '⚡',
-                '--bg-primary': '#050510',
-                '--bg-secondary': '#0f1228',
-                '--text-primary': '#c7ffed',
-                '--text-muted': '#58a09e',
-                '--border-light': '#39FF14',
-                '--btn-text': '#050510',
-                '--gold-color': '#39FF14'
+                name: 'navy-trust',
+                icon: '⚖️', 
+                '--bg-primary': '#0a192f', /* Deep Navy */
+                '--bg-secondary': '#112240', /* Lighter Navy */
+                '--text-primary': '#e6f1ff',
+                '--text-muted': '#8892b0',
+                '--border-light': '#233554',
+                '--btn-text': '#0a192f',
+                '--gold-color': '#64ffda' /* Teal/Gold accent for contrast */
             },
             {
-                name: 'retro-sunset',
-                icon: '🌅',
-                '--bg-primary': '#2a0230',
-                '--bg-secondary': '#4d194d',
-                '--text-primary': '#ffc596',
-                '--text-muted': '#e684ae',
-                '--border-light': '#ffc596',
-                '--btn-text': '#2a0230',
-                '--gold-color': '#FF8000'
+                name: 'paper-focus',
+                icon: '📖', 
+                '--bg-primary': '#fdf6e3', /* Solarized Cream */
+                '--bg-secondary': '#eee8d5',
+                '--text-primary': '#2b2b2b',
+                '--text-muted': '#586e75',
+                '--border-light': '#d3cbb7',
+                '--btn-text': '#ffffff',
+                '--gold-color': '#b58900' /* Bronze Gold */
             }
         ];
 
@@ -96,7 +96,9 @@ layout: null
 <body>
     <header class="site-header">
         <div class="container">
-            <a class="site-title" href="{{ '/' | relative_url }}">J<span style="color:var(--gold-color);">U</span>R<span style="color:var(--gold-color);">O</span> Spain</a>
+            <a class="site-title" href="{{ '/' | relative_url }}">
+                J<span class="text-highlight" style="color:var(--gold-color);">U</span>R<span class="text-highlight" style="color:var(--gold-color);">O</span> Spain
+            </a>
             
             <button class="theme-toggle" aria-label="Cycle through color themes">
                 <span class="theme-icon">☀️</span>
@@ -109,12 +111,18 @@ layout: null
             </button>
             
             <nav class="site-nav">
-                <a href="{{ '/services/' | relative_url }}">Services</a>
-                <a href="{{ '/pricing/' | relative_url }}">Pricing</a>
-                <a href="{{ '/about/' | relative_url }}">About</a>
-                <a href="{{ '/blog/' | relative_url }}">Blog</a>
-                <a href="{{ '/glossary/' | relative_url }}">Glossary</a>
-                <a href="{{ '/contact/' | relative_url }}">Contact</a>
+                {% assign nav_pages = "Services|/services/,Pricing|/pricing/,About|/about/,Blog|/blog/,Glossary|/glossary/,Contact|/contact/" | split: "," %}
+                
+                {% for entry in nav_pages %}
+                    {% assign parts = entry | split: "|" %}
+                    {% assign label = parts[0] %}
+                    {% assign url = parts[1] | relative_url %}
+                    <a href="{{ url }}" 
+                       {% if page.url contains parts[1] %}aria-current="page" style="color:var(--sp-red);"{% endif %}>
+                       {{ label }}
+                    </a>
+                {% endfor %}
+                
                 <a href="https://app.cal.eu/jurospain/30min" class="btn" target="_blank" rel="noopener noreferrer">Book a Call</a>
             </nav>
         </div>
@@ -167,49 +175,65 @@ layout: null
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const siteNav = document.querySelector('.site-nav');
-            const siteHeader = document.querySelector('.site-header');
-            const themeToggle = document.querySelector('.theme-toggle');
+            // Cache DOM elements
+            const els = {
+                menuToggle: document.querySelector('.menu-toggle'),
+                siteNav: document.querySelector('.site-nav'),
+                header: document.querySelector('.site-header'),
+                themeToggle: document.querySelector('.theme-toggle')
+            };
 
-            // Mobile Menu Toggle Logic
-            if (menuToggle && siteNav) {
-                menuToggle.addEventListener('click', function() {
-                    menuToggle.classList.toggle('active');
-                    siteNav.classList.toggle('active');
-                    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-                    menuToggle.setAttribute('aria-expanded', !isExpanded);
+            // 1. MOBILE MENU LOGIC (Robust & Accessible)
+            if (els.menuToggle && els.siteNav) {
+                const toggleMenu = (forceClose = false) => {
+                    const isActive = els.menuToggle.classList.contains('active');
+                    const shouldOpen = forceClose ? false : !isActive;
+                    
+                    els.menuToggle.classList.toggle('active', shouldOpen);
+                    els.siteNav.classList.toggle('active', shouldOpen);
+                    els.menuToggle.setAttribute('aria-expanded', shouldOpen);
+                    document.body.style.overflow = shouldOpen ? 'hidden' : ''; 
+                };
+
+                els.menuToggle.addEventListener('click', () => toggleMenu());
+
+                // Close when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (els.siteNav.classList.contains('active') && 
+                        !e.target.closest('.site-nav') && 
+                        !e.target.closest('.menu-toggle')) {
+                        toggleMenu(true);
+                    }
                 });
 
-                // Close menu when clicking outside
-                document.addEventListener('click', function(e) {
-                    if (!e.target.closest('.site-nav') && !e.target.closest('.menu-toggle')) {
-                        menuToggle.classList.remove('active');
-                        siteNav.classList.remove('active');
-                        menuToggle.setAttribute('aria-expanded', 'false');
+                // Close on Escape key
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && els.siteNav.classList.contains('active')) {
+                        toggleMenu(true);
                     }
                 });
             }
 
-            // Sticky/Shrinking Header Logic
-            if (siteHeader) {
-                window.addEventListener('scroll', function() {
-                    if (window.scrollY > 50) {
-                        siteHeader.classList.add('scrolled');
-                    } else {
-                        siteHeader.classList.remove('scrolled');
+            // 2. HIGH-PERFORMANCE SCROLL (60fps Optimized)
+            if (els.header) {
+                let ticking = false;
+                window.addEventListener('scroll', () => {
+                    if (!ticking) {
+                        window.requestAnimationFrame(() => {
+                            els.header.classList.toggle('scrolled', window.scrollY > 20);
+                            ticking = false;
+                        });
+                        ticking = true;
                     }
-                });
+                }, { passive: true });
             }
 
-            // Theme Toggle Logic
-            if (themeToggle && typeof THEMES !== 'undefined' && typeof applyTheme !== 'undefined') {
-                themeToggle.addEventListener('click', function() {
-                    const currentThemeName = localStorage.getItem('theme-name') || THEMES[0].name;
-                    const currentIndex = THEMES.findIndex(t => t.name === currentThemeName);
-                    const nextIndex = (currentIndex + 1) % THEMES.length;
-                    const nextThemeName = THEMES[nextIndex].name;
-                    applyTheme(nextThemeName);
+            // 3. THEME TOGGLE LOGIC
+            if (els.themeToggle && typeof THEMES !== 'undefined' && typeof applyTheme !== 'undefined') {
+                els.themeToggle.addEventListener('click', () => {
+                    const currentTheme = localStorage.getItem('theme-name') || THEMES[0].name;
+                    const nextIndex = (THEMES.findIndex(t => t.name === currentTheme) + 1) % THEMES.length;
+                    applyTheme(THEMES[nextIndex].name);
                 });
             }
         });
