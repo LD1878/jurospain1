@@ -607,3 +607,19 @@ main li a:not(.btn):hover,
   padding: 0 4px;
   margin: 0 -4px; 
 }
+/* Styling for the About page service lists */
+.service-section {
+    list-style: none;
+}
+
+.service-section ul {
+    padding-left: 1.25rem;
+    list-style: disc;
+}
+
+/* Ensure CTA buttons on the About page look good side-by-side on desktop */
+@media (min-width: 600px) {
+    .hero .btn:nth-child(2) { /* Targeting the second button (View Our Pricing) */
+        background-color: var(--text-primary) !important; 
+    }
+}
