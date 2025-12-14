@@ -623,3 +623,35 @@ main li a:not(.btn):hover,
         background-color: var(--text-primary) !important; 
     }
 }
+/* ==========================================================
+   13. BLOG INDEX GRID & READABILITY (UX/Performance)
+   ========================================================== */
+
+.post-list-grid {
+    display: grid;
+    /* Two-column grid that shifts to one column on smaller screens */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--sp-space-5);
+    margin: var(--sp-space-6) 0;
+}
+
+/* Specific styling for the entire clickable post card */
+.post-list-grid .post-card {
+    /* Ensures the card expands vertically to match the tallest content in the row */
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+/* Cleanup: Since the whole card is a link, we remove the border from the H2 */
+.post-list-grid .post-card h2 {
+    border-bottom: none; 
+    padding-bottom: 0;
+}
+
+/* Ensure the button sits at the bottom and doesn't get messed up by link styles */
+.post-list-grid .post-card .btn {
+    align-self: flex-start;
+    text-decoration: none !important; /* Override content link hover styles */
+}
