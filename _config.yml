@@ -1,57 +1,37 @@
 title: JURO Spain
 description: English-speaking legal services for expats in Spain—visas, residency, property purchases, and relocation support.
+theme: minima
 url: "https://jurospain.com"
 baseurl: ""
 lang: en
 timezone: Europe/Madrid
-
-# 1. BUILD SETTINGS
-# Removed theme: minima. Using custom layouts and styles.
 markdown: kramdown
 kramdown:
   input: GFM
   hard_wrap: false
-
-# 2. PERMALINKS (HIGH-QUALITY SEO STRUCTURE)
-# Ensures all blog posts are under /blog/... (Requires 301 redirects if site is established!)
-permalink: /blog/:title/
-
-# 3. PLUGINS
 plugins:
   - jekyll-seo-tag
   - jekyll-feed
-  - jekyll-sitemap # Essential for Google indexing
-  # If you are implementing 301 redirects, you may also need:
-  # - jekyll-redirect-from 
-
-# 4. DEFAULTS (Apply layouts automatically)
+permalink: /:title/
+header_pages:
+  - about.md
+  - services.md
+  - pricing.md
+  - glossary.md
+  - contact.md
+  - blog.md
 defaults:
-  # Default for all Blog Posts
   - scope:
       path: ""
       type: posts
     values:
       layout: post
       author: Juro Spain Team
-      # Placeholder for a default sharing image
-      image: /assets/images/juro-default-share.jpg 
-
-  # Force the blog index to use the correct layout
+      categories: guides
+  # 🎯 NEW BLOCK: Force blog.md to use the clean layout
   - scope:
-      path: "blog.md" 
+      path: "blog.md"
     values:
       layout: blog-index
-
-# 5. EXCLUDE (Keep your build clean)
-exclude:
-  - Gemfile
-  - Gemfile.lock
-  - node_modules
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
-
-# 6. SASS/CSS COMPRESSION
 sass:
   style: compressed
