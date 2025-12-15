@@ -75,8 +75,8 @@ permalink: /about/
         </div>
     </div>
 
-    <section class="card" style="margin-top: var(--sp-space-6); border: none; box-shadow: none; background: transparent; padding: 0;">
-        <h2 class="center" style="margin-bottom: var(--sp-space-4);">Frequently Asked Questions</h2>
+    <section style="margin-top: var(--sp-space-6);">
+        <h2 class="center" style="margin-bottom: var(--sp-space-4);">Common Questions About Us</h2>
         
         <details class="service-faq">
             <summary>Are you a law firm?</summary>
@@ -92,17 +92,76 @@ permalink: /about/
             <summary>Why are your prices lower than traditional firms?</summary>
             <p>Because we are efficient. Traditional firms bill by the hour and use antiquated processes. We use fixed fees and modern technology to streamline applications, passing the savings directly to you.</p>
         </details>
-
-        <details class="service-faq">
-            <summary>Where are you based?</summary>
-            <p>Our headquarters are in Málaga, Andalusia, but we operate nationwide. Whether you are moving to Barcelona, Madrid, Valencia, or the Canary Islands, we can manage your residency and property needs.</p>
-        </details>
     </section>
+
+    <hr>
+
+    <div style="text-align: center; max-width: 700px; margin: var(--sp-space-6) auto;">
+        <div style="font-size: 2rem; color: var(--gold-color); margin-bottom: 1rem;">★★★★★</div>
+        <p style="font-size: 1.25rem; font-style: italic; line-height: 1.6;">
+            "Juro Spain made moving to Barcelona effortless. Everything was explained in English and they handled all the tricky bureaucracy."
+        </p>
+        <p class="small" style="color: var(--text-muted); margin-top: 1rem;">— Verified Client</p>
+    </div>
     
-    <div class="card center post-cta-hero" style="background-color: var(--bg-primary); border: 2px solid var(--border-light); margin-top: var(--sp-space-6);">
-        <h2>Start Your Journey on the Right Foot</h2>
-        <p style="font-size: 1.15rem; margin-bottom: var(--sp-space-3);">
-            Whether you are planning a move to Málaga, Barcelona, or Madrid, our team is ready to guide you.
+    <div class="center" style="margin-bottom: var(--sp-space-6);">
+        <h2>Start Your Spanish Journey</h2>
+        <p style="font-size: 1.15rem; margin-bottom: var(--sp-space-4); color: var(--text-muted);">
+            Ready to stop researching and start moving?
         </p>
         
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="https://app.cal.eu/jurospain/30min" class="btn" target="_blank" rel="noopener noreferrer">
+                Book Your Consultation
+            </a>
+            <a href="{{ '/pricing/' | relative_url }}" class="btn" style="background-color: transparent; border: 2px solid var(--text-primary); color: var(--text-primary);">
+                View Pricing
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "LegalService",
+    "name": "JURO Spain",
+    "url": "{{ site.url }}{{ page.url }}",
+    "logo": "{{ '/assets/img/logo.png' | absolute_url }}",
+    "description": "Concierge legal and relocation services for expats in Spain. Specialists in Digital Nomad Visas, Beckham Law, and Property Conveyancing.",
+    "foundingLocation": {
+      "@type": "Place",
+      "name": "Málaga, Spain"
+    },
+    "knowsAbout": ["Immigration Law", "Spanish Property Law", "Expat Tax Residency"]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [{
+      "@type": "Question",
+      "name": "Are you a law firm?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JURO Spain is a legal concierge and relocation consultancy. For reserved legal activities, we rely on our vetted network of licensed Spanish attorneys (*Abogados*)."
+      }
+    }, {
+      "@type": "Question",
+      "name": "Do I need to be in Spain to start?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. 90% of our clients start their process from abroad. We handle everything digitally and via Power of Attorney (POA)."
+      }
+    }, {
+      "@type": "Question",
+      "name": "Why are your prices lower than traditional firms?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We are efficient. We use fixed fees and modern technology to streamline applications, passing the savings directly to you."
+      }
+    }]
+  }
+]
+</script>
