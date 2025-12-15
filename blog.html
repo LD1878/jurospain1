@@ -1,0 +1,169 @@
+---
+layout: default
+title: Blog & Guides | Your Resources for Spanish Residency & Property
+description: Stay up to date with practical guides on immigration, property, and business life in Spain for international families and remote professionals.
+permalink: /blog/
+---
+
+<style>
+    /* SEARCH BAR STYLES */
+    .search-wrapper {
+        position: relative;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    #search-input {
+        width: 100%;
+        padding: 1rem 1.5rem;
+        font-size: 1.1rem;
+        border: 2px solid var(--border-light);
+        border-radius: 50px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        transition: all 0.2s ease;
+        outline: none;
+    }
+
+    #search-input:focus {
+        border-color: var(--gold-color);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .search-icon {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.2rem;
+        opacity: 0.5;
+        pointer-events: none;
+    }
+
+    /* CARD LINK FIXES */
+    .post-card {
+        display: block; 
+        text-decoration: none !important;
+        color: inherit !important; 
+        height: 100%;
+        transition: opacity 0.3s ease, transform 0.2s ease;
+        cursor: pointer;
+    }
+
+    .post-card:hover {
+        transform: translateY(-5px); 
+    }
+
+    .hidden {
+        display: none !important;
+    }
+</style>
+
+<div class="container">
+    
+    <div class="blog-header center" style="margin-bottom: var(--sp-space-6);">
+        <h1 style="margin-bottom: 0.5rem;">Guides & Resources</h1>
+        <p class="small" style="color: var(--text-muted); margin-bottom: var(--sp-space-4);">
+            Everything you need to know about moving to, living in, and buying property in Spain.
+        </p>
+
+        <div class="search-wrapper">
+            <input type="text" id="search-input" placeholder="Search guides (e.g., 'Digital Nomad', 'Taxes', 'Property')..." onkeyup="filterPosts()">
+            <span class="search-icon">🔍</span>
+        </div>
+    </div>
+
+    <hr>
+
+    {% assign sorted_posts = site.posts | sort: "date" | reverse %}
+
+    {% if sorted_posts.size > 0 %}
+        
+        <section id="post-grid" class="post-list-grid">
+            {% for post in sorted_posts %}
+
+                {% assign post_summary_source = post.seo_summary | default: post.excerpt %}
+
+                {% comment %} CLEAN UP LOGIC {% endcomment %}
+                {% if post_summary_source contains 'Table of contents' or post_summary_source contains 'table of contents' or post_summary_source contains 'Overview:' %}
+                    {% assign cleaned_excerpt_stage_1 = post_summary_source | strip_html | replace: "Table of contents", "" | replace: "table of contents", "" | replace: "Overview:", "" | replace: "-", "" | replace: "*", "" %}
+                    {% assign cleaned_excerpt_stage_2 = cleaned_excerpt_stage_1 | newline_to_br | replace: "<br>", " " | replace: "    ", " " | replace: "  ", " " %}
+                    {% assign final_excerpt = cleaned_excerpt_stage_2 | strip | truncate: 200 %}
+                {% else %}
+                    {% assign final_excerpt = post_summary_source | strip_html | strip | truncate: 200 %}
+                {% endif %}
+
+                <a href="{{ post.url | relative_url }}" class="post-card card" data-search="{{ post.title | downcase }} {{ final_excerpt | downcase }} {{ post.tags | join: ' ' | downcase }}"> 
+                    <header>
+                        <h2>{{ post.title | escape }}</h2>
+                        <p class="small" style="color: var(--text-muted);">
+                            <span aria-hidden="true">🗓️</span> {{ post.date | date: "%d/%m/%Y" }}
+                        </p>
+                    </header>
+                    
+                    <p>{{ final_excerpt }}...</p>
+                    
+                    <span style="font-size: 0.9rem; font-weight: 700; color: var(--sp-red); margin-top: auto; display: block;">
+                        Read Guide →
+                    </span>
+                </a>
+
+            {% endfor %}
+        </section>
+
+        <div id="no-results" class="center hidden" style="padding: var(--sp-space-6) 0;">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">🤔</div>
+            <h3>No guides found matching that search.</h3>
+            <p>Try a different keyword or browse our latest posts above.</p>
+            <button onclick="document.getElementById('search-input').value = ''; filterPosts();" class="btn" style="margin-top: 1rem;">Clear Search</button>
+        </div>
+
+    {% else %}
+
+    <div class="card center">
+        <h2>Content Coming Soon!</h2>
+        <p>We are currently writing our first set of comprehensive guides and articles. Please check back soon!</p>
+    </div>
+
+    {% endif %}
+
+    <hr>
+
+    <div class="hero center" style="margin: var(--sp-space-6) 0;">
+        <h2>Need Specific Advice?</h2>
+        <p style="font-size: 1.2rem; margin-bottom: var(--sp-space-4);">
+            Can't find the answer in our guides? Book a consultation with a specialist.
+        </p>
+        <a href="https://app.cal.eu/jurospain/30min" class="btn" target="_blank" rel="noopener noreferrer">
+            Book Your Free Consultation
+        </a>
+    </div>
+</div>
+
+<script>
+    function filterPosts() {
+        var input = document.getElementById('search-input');
+        var filter = input.value.toLowerCase();
+        var grid = document.getElementById('post-grid');
+        var cards = grid.getElementsByClassName('post-card');
+        var noResults = document.getElementById('no-results');
+        var visibleCount = 0;
+
+        for (var i = 0; i < cards.length; i++) {
+            var searchData = cards[i].getAttribute('data-search');
+            if (searchData.indexOf(filter) > -1) {
+                cards[i].classList.remove('hidden');
+                visibleCount++;
+            } else {
+                cards[i].classList.add('hidden');
+            }
+        }
+
+        if (visibleCount === 0) {
+            noResults.classList.remove('hidden');
+            grid.classList.add('hidden');
+        } else {
+            noResults.classList.add('hidden');
+            grid.classList.remove('hidden');
+        }
+    }
+</script>
