@@ -2,8 +2,8 @@
 layout: post
 title: "Spain Digital Nomad Visa: Requirements, Income Thresholds & Taxes"
 description: "Eligibility, documents, remote work evidence, health insurance, timing, and tax considerations for Spain’s digital nomad visa."
-seo_title: "Spain Digital Nomad Visa: Requirements, Income Thresholds & Taxes"
-permalink: /guides/digital-nomad-visa-spain/
+# REMOVED 'seo_title' because it was redundant
+# REMOVED 'permalink' - let _config.yml handle /blog/digital-nomad-visa-spain/
 date: 2024-05-15
 tags: [digital nomad visa, remote work]
 image: /assets/img/logo.svg
@@ -18,19 +18,17 @@ faqs:
     answer: "You can opt into the special impatriate tax regime (Beckham Law) to pay a flat 24% on Spanish income up to €600,000 for five years, provided you meet the eligibility criteria."
 ---
 
-## Table of contents
-- [Why Spain launched the digital nomad visa](#why-spain-launched-the-digital-nomad-visa)
-- [Who is eligible in 2025](#who-is-eligible-in-2025)
-- [Income thresholds and financial evidence](#income-thresholds-and-financial-evidence)
-- [Documents checklist](#documents-checklist)
-- [How to apply from abroad](#how-to-apply-from-abroad)
-- [How to apply from within Spain](#how-to-apply-from-within-spain)
-- [Processing timelines and fees](#processing-timelines-and-fees)
-- [Tax considerations and the Beckham Law](#tax-considerations-and-the-beckham-law)
-- [Healthcare, social security, and dependants](#healthcare-social-security-and-dependants)
-- [Renewals and pathway to permanent residency](#renewals-and-pathway-to-permanent-residency)
-- [Common mistakes to avoid](#common-mistakes-to-avoid)
-- [FAQs](#faqs)
+{% comment %} 
+    CRITICAL FIX: Removed the manual TOC list. It will now be generated automatically. 
+    NOTE: You must ensure 'jekyll-toc' gem is installed if you haven't already.
+{% endcomment %}
+
+{% if page.toc %}
+    <aside class="card toc-box">
+        <h2 class="toc-title">Table of Contents</h2>
+        {{ content | toc_only }} 
+    </aside>
+{% endif %}
 
 ## Why Spain launched the digital nomad visa
 
@@ -132,7 +130,20 @@ After five years of residence, you can request long-term EU residence, granting 
 - **Overlooking tax planning.** Decide early whether to apply for the Beckham Law and coordinate payroll accordingly.
 - **Working with Spanish clients beyond the limit.** Track revenue sources to stay under the 20% cap.
 
-## FAQs
+{% comment %} 
+    CRITICAL FIX: Use a Liquid loop to render the YAML FAQS in the content
+    This ensures that the on-page FAQs always match your high-value Schema data.
+{% endcomment %}
+## Frequently Asked Questions
+
+{% for item in page.faqs %}
+<details class="service-faq">
+    <summary>{{ item.question }}</summary>
+    <p>{{ item.answer }}</p>
+</details>
+{% endfor %}
+
+### Additional Questions
 
 ### Can I switch from the digital nomad visa to another permit?
 
