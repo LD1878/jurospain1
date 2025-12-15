@@ -1,70 +1,115 @@
 ---
 layout: default
-title: Contact JURO Spain - Book a Call or Send a Message
-description: Book a call, send us a message, or arrange an appointment. JURO Spain offers English-speaking legal help across Spain with clear guidance.
+title: Contact JURO Spain - Book a Free Consultation
+description: Ready to move to Spain? Book a free 30-minute consultation or send us a message. English-speaking legal guidance.
 permalink: /contact/
 ---
 
+<section class="hero center" style="padding: var(--sp-space-6) 0;">
+    <h1>Let's Start Your Spanish Journey</h1>
+    <p style="font-size: 1.25rem; max-width: 700px; margin: 0 auto; color: var(--text-muted);">
+        Whether you have a specific legal question or just a dream of moving to Spain, we are here to make it happen.
+    </p>
+</section>
+
 <div class="container"> 
-    
-    <h1>Contact JURO Spain</h1>
 
-    <p>Need help with visas, residency, property or settling in Spain? JURO Spain provides English-first legal guidance across the country. **Choose the option below that suits you best.**</p>
+    <section class="contact-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--sp-space-5); margin-bottom: var(--sp-space-6);">
 
-    <hr>
-
-    <section class="contact-grid">
-
-        <div class="card contact-card book-call center">
-            <h2>📅 1. Book a Call (Recommended)</h2>
-            <p style="font-size: 1.1rem;">Schedule a short consultation to discuss your situation and receive a clear, fixed-fee estimate. **This is the fastest way to get started.**</p>
+        <div class="card contact-card center" style="border-top: 4px solid var(--gold-color); display: flex; flex-direction: column;">
+            <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">📅</div>
+            <h2>Book a Free Consultation</h2>
+            <p style="font-size: 1.1rem; color: var(--text-primary); margin-bottom: 1rem;">
+                <strong>Recommended.</strong> The fastest way to get clarity. Speak directly with a consultant to discuss your eligibility and get a fixed-fee quote.
+            </p>
             
-            <a href="https://app.cal.eu/jurospain/30min" class="btn" target="_blank" rel="noopener noreferrer" style="font-size: 1.15rem; margin-top: var(--sp-space-3);">
-                Book Your Free 30-Minute Consultation
+            <ul style="text-align: left; list-style: none; padding: 0; color: var(--text-muted); margin-bottom: var(--sp-space-4); flex-grow: 1;">
+                <li style="margin-bottom: 0.5rem;">✅ No obligation</li>
+                <li style="margin-bottom: 0.5rem;">✅ Clear, English guidance</li>
+                <li style="margin-bottom: 0.5rem;">✅ actionable next steps</li>
+            </ul>
+
+            <a href="https://app.cal.eu/jurospain/30min" class="btn" target="_blank" rel="noopener noreferrer" style="width: 100%; font-size: 1.15rem;">
+                Book 30-Min Call
             </a>
-            <p class="small" style="margin-top: var(--sp-space-4);">We offer consultations in English, French, and Spanish.</p>
+            <p class="small" style="margin-top: 1rem; opacity: 0.7;">Available in English, French, & Spanish.</p>
         </div>
 
-        <div class="card contact-card send-message">
-            <h2>📧 2. Send a Message</h2>
-            <p>Use the form below if you prefer to send a detailed inquiry first. This helps us prepare the most accurate response and quote for you.</p>
+        <div class="card contact-card" style="border-top: 4px solid var(--text-primary);">
+            <div style="text-align: center;">
+                <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">📧</div>
+                <h2>Send a Message</h2>
+                <p style="margin-bottom: var(--sp-space-3);">Prefer to write? Tell us about your situation and we will get back to you within 24 hours.</p>
+            </div>
 
             <form action="https://formspree.io/f/mwpjpyoj" method="POST">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
+                
+                <label for="name" style="font-weight: 600; display: block; margin-bottom: 0.5rem;">Name</label>
+                <input type="text" id="name" name="name" required style="width: 100%; padding: 0.8rem; margin-bottom: 1rem; border: 1px solid var(--border-light); border-radius: var(--sp-radius);">
 
-                <label for="email">Email</label>
-                <input type="email" id="email" name="_replyto" required>
+                <label for="email" style="font-weight: 600; display: block; margin-bottom: 0.5rem;">Email</label>
+                <input type="email" id="email" name="_replyto" required style="width: 100%; padding: 0.8rem; margin-bottom: 1rem; border: 1px solid var(--border-light); border-radius: var(--sp-radius);">
 
-                <label for="message">What is this regarding?</label>
-                <textarea id="message" name="message" required rows="6"></textarea>
+                <label for="service" style="font-weight: 600; display: block; margin-bottom: 0.5rem;">I'm interested in...</label>
+                <select id="service" name="service" style="width: 100%; padding: 0.8rem; margin-bottom: 1rem; border: 1px solid var(--border-light); border-radius: var(--sp-radius); background-color: var(--bg-primary);">
+                    <option value="General Inquiry">General Inquiry</option>
+                    <option value="Digital Nomad Visa">Digital Nomad Visa</option>
+                    <option value="Property Purchase">Property Purchase</option>
+                    <option value="Non-Lucrative Visa">Non-Lucrative Visa</option>
+                    <option value="Beckham Law">Beckham Law / Tax</option>
+                </select>
 
-                <button type="submit" class="btn" style="margin-top: var(--sp-space-3); width: 100%;">
+                <label for="message" style="font-weight: 600; display: block; margin-bottom: 0.5rem;">How can we help?</label>
+                <textarea id="message" name="message" required rows="5" style="width: 100%; padding: 0.8rem; margin-bottom: 1rem; border: 1px solid var(--border-light); border-radius: var(--sp-radius);"></textarea>
+
+                <button type="submit" class="btn" style="width: 100%; background-color: var(--text-primary); border: none; color: var(--bg-primary);">
                     Send Message
                 </button>
 
-                <p class="small" style="margin-top: var(--sp-space-3);">
-                    **Alternative:** You can email us directly at <a href="mailto:hello@jurospain.com"><strong>hello@jurospain.com</strong></a>
+                <p class="small" style="margin-top: 1rem; text-align: center;">
+                    Or email: <a href="mailto:hello@jurospain.com" style="color: var(--sp-red); font-weight: bold;">hello@jurospain.com</a>
                 </p>
-                <p class="small">We respect your privacy. By contacting us you consent to JURO Spain storing your message and contact details for the purpose of responding.</p>
             </form>
         </div>
     </section>
 
     <hr>
 
-    <div class="card center contact-location-info">
-        <h2>📍 Our Geographic Presence</h2>
-        
-        <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto var(--sp-space-4);">
-        We offer remote consultations nationwide and can arrange in-person meetings by appointment in selected cities, including: **Barcelona, Valencia, Málaga, and Alicante** (or at lawyers' local offices). 
+    <section class="center" style="margin: var(--sp-space-6) 0;">
+        <h2>Where We Work</h2>
+        <p style="font-size: 1.15rem; max-width: 700px; margin: 0 auto var(--sp-space-5) auto;">
+            We are a digital-first company, allowing us to serve clients worldwide. However, our network of partners provides on-the-ground support in Spain's major expat hubs.
         </p>
 
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: var(--sp-space-3);">
+            <div class="card" style="padding: 1rem 2rem; background-color: var(--bg-secondary);">📍 Málaga (HQ)</div>
+            <div class="card" style="padding: 1rem 2rem; background-color: var(--bg-secondary);">📍 Madrid</div>
+            <div class="card" style="padding: 1rem 2rem; background-color: var(--bg-secondary);">📍 Barcelona</div>
+            <div class="card" style="padding: 1rem 2rem; background-color: var(--bg-secondary);">📍 Valencia</div>
+            <div class="card" style="padding: 1rem 2rem; background-color: var(--bg-secondary);">📍 Alicante</div>
+        </div>
         
-
-        <p class="small" style="margin-top: var(--sp-space-3); opacity: 0.7;">
-            *Note: We are primarily a remote service; in-person sessions are by prior arrangement only.*
+        <p class="small" style="margin-top: var(--sp-space-4); opacity: 0.7; font-style: italic;">
+            *In-person meetings are by appointment only. Most processes are handled 100% remotely.*
         </p>
-    </div>
+    </section>
 
 </div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact JURO Spain",
+  "description": "Book a free consultation or contact JURO Spain for legal and relocation assistance.",
+  "url": "{{ site.url }}/contact/",
+  "mainEntity": {
+    "@type": "LegalService",
+    "name": "JURO Spain",
+    "telephone": "+34-555-0199",
+    "email": "hello@jurospain.com",
+    "areaServed": "Spain",
+    "availableLanguage": ["English", "Spanish", "French"]
+  }
+}
+</script>
