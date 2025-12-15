@@ -5,6 +5,70 @@ description: Expert legal help for moving to Spain. Fixed-fee support for Digita
 permalink: /
 ---
 
+<style>
+    /* Make the video scale perfectly on all devices */
+    .video-responsive {
+        overflow: hidden;
+        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+        position: relative;
+        height: 0;
+        border-radius: var(--sp-radius);
+        box-shadow: var(--sp-shadow);
+        background: #000;
+    }
+    .video-responsive iframe {
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+    }
+
+    /* MOBILE OPTIMIZATIONS (Max width 768px) */
+    @media (max-width: 768px) {
+        /* 1. Shrink Hero Text */
+        .hero h1 {
+            font-size: 2rem !important;
+            line-height: 1.2;
+        }
+        .hero p {
+            font-size: 1rem !important;
+        }
+
+        /* 2. Force Trust Bar to stay in one row (Horizontal) */
+        .trust-bar-grid {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr 1fr !important;
+            gap: 0.5rem !important;
+        }
+        .trust-bar-grid div {
+            padding: 0 !important;
+        }
+        .trust-bar-grid .stat-number {
+            font-size: 1.5rem !important;
+        }
+        .trust-bar-grid p.small {
+            font-size: 0.75rem !important;
+            line-height: 1.1;
+        }
+
+        /* 3. Tighten Spacing */
+        .container {
+            padding-left: 1rem !important;
+            padding-right: 1rem !important;
+        }
+        section, .hero {
+            padding-top: 2rem !important;
+            padding-bottom: 2rem !important;
+        }
+        
+        /* 4. Compact Service Cards */
+        .featured-service-card {
+            margin-bottom: 1rem !important;
+        }
+    }
+</style>
+
 <div class="hero center" style="padding-bottom: var(--sp-space-4);">
     <p class="small" style="color: var(--gold-color); font-weight: 700; letter-spacing: 1px; margin-bottom: var(--sp-space-2);">
         ★ YOUR BOOTS ON THE GROUND IN SPAIN
@@ -20,8 +84,6 @@ permalink: /
 
     <div class="video-responsive" style="max-width: 800px; margin: 0 auto var(--sp-space-5) auto;">
         <iframe 
-            width="560" 
-            height="315" 
             src="https://www.youtube.com/embed/9WScByhEVms?rel=0&showinfo=0&modestbranding=1" 
             title="How JURO Spain Makes Relocation Easy" 
             frameborder="0" 
@@ -42,18 +104,18 @@ permalink: /
 </div>
 
 <section style="background-color: var(--bg-secondary); padding: var(--sp-space-4) 0; border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
-    <div class="container services-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--sp-space-4); text-align: center;">
+    <div class="container services-grid trust-bar-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--sp-space-4); text-align: center;">
         <div>
-            <div style="font-size: 2rem; font-weight: 700; color: var(--gold-color);">100%</div>
-            <p class="small">Success Rate on DNV</p>
+            <div class="stat-number" style="font-size: 2rem; font-weight: 700; color: var(--gold-color);">100%</div>
+            <p class="small">Success Rate</p>
         </div>
         <div>
-            <div style="font-size: 2rem; font-weight: 700; color: var(--sp-red);">English</div>
-            <p class="small">Native Support Team</p>
+            <div class="stat-number" style="font-size: 2rem; font-weight: 700; color: var(--sp-red);">English</div>
+            <p class="small">Native Team</p>
         </div>
         <div>
-            <div style="font-size: 2rem; font-weight: 700; color: var(--text-primary);">Fixed</div>
-            <p class="small">Transparent Pricing</p>
+            <div class="stat-number" style="font-size: 2rem; font-weight: 700; color: var(--text-primary);">Fixed</div>
+            <p class="small">Flat Fees</p>
         </div>
     </div>
 </section>
@@ -68,7 +130,7 @@ permalink: /
     <div class="services-grid">
         <div class="card" style="border-left: 4px solid var(--text-primary);">
             <h3>🇬🇧 We Speak Your Language</h3>
-            <p>We don't just translate words; we translate concepts. We explain the "why" behind every document so you never feel lost in the process.</p>
+            <p>We don't just translate words; we translate concepts. We explain the "why" behind every document so you never feel lost.</p>
         </div>
         
         <div class="card" style="border-left: 4px solid var(--gold-color);">
@@ -78,7 +140,7 @@ permalink: /
         
         <div class="card" style="border-left: 4px solid var(--sp-red);">
             <h3>📍 We Are Everywhere</h3>
-            <p>From <strong>Barcelona to Málaga</strong>, our network of vetted partners ensures you have local representation for specific appointments.</p>
+            <p>From <strong>Barcelona to Málaga</strong>, our network of vetted partners ensures you have local representation for appointments.</p>
         </div>
     </div>
 
