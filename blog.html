@@ -39,18 +39,41 @@ permalink: /blog/
         pointer-events: none;
     }
 
-    /* CARD LINK FIXES */
+    /* CARD STYLES */
     .post-card {
-        display: block; 
-        text-decoration: none !important;
-        color: inherit !important; 
+        position: relative; /* Essential for the stretched link to work */
         height: 100%;
-        transition: opacity 0.3s ease, transform 0.2s ease;
-        cursor: pointer;
+        transition: transform 0.2s ease;
+        display: flex;
+        flex-direction: column;
     }
 
     .post-card:hover {
-        transform: translateY(-5px); 
+        transform: translateY(-5px);
+        box-shadow: var(--sp-shadow);
+    }
+
+    /* THE MAGIC FIX: "Stretched Link" */
+    /* This takes the link inside the title and stretches it to cover the whole card */
+    .card-link::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 1;
+        cursor: pointer;
+    }
+
+    /* Ensure text colors look right (not blue links) */
+    .card-link {
+        text-decoration: none;
+        color: inherit;
+    }
+    
+    .post-card h2 {
+        color: var(--text-primary);
     }
 
     .hidden {
@@ -92,9 +115,13 @@ permalink: /blog/
                     {% assign final_excerpt = post_summary_source | strip_html | strip | truncate: 200 %}
                 {% endif %}
 
-                <a href="{{ post.url | relative_url }}" class="post-card card" data-search="{{ post.title | downcase }} {{ final_excerpt | downcase }} {{ post.tags | join: ' ' | downcase }}"> 
+                <div class="post-card card" data-search="{{ post.title | downcase }} {{ final_excerpt | downcase }} {{ post.tags | join: ' ' | downcase }}"> 
                     <header>
-                        <h2>{{ post.title | escape }}</h2>
+                        <h2>
+                            <a href="{{ post.url | relative_url }}" class="card-link">
+                                {{ post.title | escape }}
+                            </a>
+                        </h2>
                         <p class="small" style="color: var(--text-muted);">
                             <span aria-hidden="true">🗓️</span> {{ post.date | date: "%d/%m/%Y" }}
                         </p>
@@ -105,7 +132,7 @@ permalink: /blog/
                     <span style="font-size: 0.9rem; font-weight: 700; color: var(--sp-red); margin-top: auto; display: block;">
                         Read Guide →
                     </span>
-                </a>
+                </div>
 
             {% endfor %}
         </section>
