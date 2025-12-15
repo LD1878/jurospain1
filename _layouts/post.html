@@ -1,59 +1,167 @@
 ---
 layout: default
+title: Blog & Guides | Your Resources for Spanish Residency & Property
+description: Stay up to date with practical guides on immigration, property, and business life in Spain for international families and remote professionals.
+permalink: /blog/
 ---
 
-{% comment %} 
-This post layout is optimized for SEO (Schema) and Readability (TOC, Narrow width). 
-It wraps the content within the 'default' layout (for header/footer).
-{% endcomment %}
+<style>
+    .search-wrapper {
+        position: relative;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    #search-input {
+        width: 100%;
+        padding: 1rem 1.5rem;
+        font-size: 1.1rem;
+        border: 2px solid var(--border-light);
+        border-radius: 50px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        transition: all 0.2s ease;
+        outline: none;
+    }
 
-{% include structured_data.html %}
+    #search-input:focus {
+        border-color: var(--gold-color);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
 
-<article class="post-content">
+    .search-icon {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.2rem;
+        opacity: 0.5;
+        pointer-events: none;
+    }
 
-    <header class="post-header center">
-        <h1>{{ page.title | escape }}</h1>
+    /* Animation for filtering */
+    .post-card {
+        transition: opacity 0.3s ease;
+    }
+    .hidden {
+        display: none !important;
+    }
+</style>
 
-        <p class="post-meta small">
-            Published on <strong>{{ page.date | date: "%B %d, %Y" }}</strong> 
-            {% if page.author %} | By {{ page.author }} {% endif %}
-            {% if page.last_modified_at and page.last_modified_at != page.date %}
-                <br>Last Updated: {{ page.last_modified_at | date: "%B %d, %Y" }}
-            {% endif %}
-            {% if page.tags %}
-                | <span class="post-tags">Tags: 
-                    {% for tag in page.tags %}
-                        <a href="{{ '/tag/' | append: tag | slugify | relative_url }}">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
-                    {% endfor %}
-                </span>
-            {% endif %}
+<div class="container">
+    
+    <div class="blog-header center" style="margin-bottom: var(--sp-space-6);">
+        <h1 style="margin-bottom: 0.5rem;">Guides & Resources</h1>
+        <p class="small" style="color: var(--text-muted); margin-bottom: var(--sp-space-4);">
+            Everything you need to know about moving to, living in, and buying property in Spain.
         </p>
-    </header>
 
-    <hr>
-    
-    {% if page.toc %}
-    <aside class="card toc-box">
-        <h2 style="margin-top: 0; border-bottom: none; padding-bottom: 0;">Table of Contents</h2>
-        {% comment %} 
-        NOTE: This requires the 'jekyll-toc' gem OR manual TOC links in your post.
-        If using a gem, the filter 'toc_only' will automatically generate the list here.
-        {% endcomment %}
-        {{ content | toc_only }} 
-    </aside>
-    {% endif %}
-
-    <section class="main-post-body">
-        {{ content }}
-    </section>
-    
-    <hr>
-    <div class="card center" style="margin: var(--sp-space-6) 0;">
-        <h2>Ready to take the next step?</h2>
-        <p style="font-size: 1.15rem; color: var(--text-primary);">This guide is a great start, but when you need action—visa submission, property purchase, or business registration—we are your concierge partner.</p>
-        <a href="https://calendly.com/hello-jurospain/30min" class="btn" target="_blank" rel="noopener noreferrer" style="font-size: 1.15rem; margin-top: var(--sp-space-3);">
-            Book Your Free 30-Minute Consultation
-        </a>
+        <div class="search-wrapper">
+            <input type="text" id="search-input" placeholder="Search guides (e.g., 'Digital Nomad', 'Taxes', 'Property')..." onkeyup="filterPosts()">
+            <span class="search-icon">🔍</span>
+        </div>
     </div>
 
-</article>
+    <hr>
+
+    {% assign sorted_posts = site.posts | sort: "date" | reverse %}
+
+    {% if sorted_posts.size > 0 %}
+        
+        <section id="post-grid" class="post-list-grid">
+            {% for post in sorted_posts %}
+
+                {% assign post_summary_source = post.seo_summary | default: post.excerpt %}
+
+                {% comment %} CLEAN UP LOGIC (Same as before, kept intact) {% endcomment %}
+                {% if post_summary_source contains 'Table of contents' or post_summary_source contains 'table of contents' or post_summary_source contains 'Overview:' %}
+                    {% assign cleaned_excerpt_stage_1 = post_summary_source | strip_html | replace: "Table of contents", "" | replace: "table of contents", "" | replace: "Overview:", "" | replace: "-", "" | replace: "*", "" %}
+                    {% assign cleaned_excerpt_stage_2 = cleaned_excerpt_stage_1 | newline_to_br | replace: "<br>", " " | replace: "    ", " " | replace: "  ", " " %}
+                    {% assign final_excerpt = cleaned_excerpt_stage_2 | strip | truncate: 200 %}
+                {% else %}
+                    {% assign final_excerpt = post_summary_source | strip_html | strip | truncate: 200 %}
+                {% endif %}
+
+                <a href="{{ post.url | relative_url }}" class="post-card card" data-search="{{ post.title | downcase }} {{ final_excerpt | downcase }} {{ post.tags | join: ' ' | downcase }}"> 
+                    <header>
+                        <h2>{{ post.title | escape }}</h2>
+                        <p class="small" style="color: var(--text-muted);">
+                            <span aria-hidden="true">🗓️</span> {{ post.date | date: "%d/%m/%Y" }}
+                        </p>
+                    </header>
+                    
+                    <p>{{ final_excerpt }}...</p>
+                    
+                    <span style="font-size: 0.9rem; font-weight: 700; color: var(--sp-red); margin-top: auto; display: block;">
+                        Read Guide →
+                    </span>
+                </a>
+
+            {% endfor %}
+        </section>
+
+        <div id="no-results" class="center hidden" style="padding: var(--sp-space-6) 0;">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">🤔</div>
+            <h3>No guides found matching that search.</h3>
+            <p>Try a different keyword or browse our latest posts above.</p>
+            <button onclick="document.getElementById('search-input').value = ''; filterPosts();" class="btn" style="margin-top: 1rem;">Clear Search</button>
+        </div>
+
+    {% else %}
+
+    <div class="card center">
+        <h2>Content Coming Soon!</h2>
+        <p>We are currently writing our first set of comprehensive guides and articles. Please check back soon!</p>
+    </div>
+
+    {% endif %}
+
+    <hr>
+
+    <div class="hero center" style="margin: var(--sp-space-6) 0;">
+        <h2>Need Specific Advice?</h2>
+        <p style="font-size: 1.2rem; margin-bottom: var(--sp-space-4);">
+            Can't find the answer in our guides? Book a consultation with a specialist.
+        </p>
+        <a href="https://app.cal.eu/jurospain/30min" class="btn" target="_blank" rel="noopener noreferrer">
+            Book Your Free Consultation
+        </a>
+    </div>
+</div>
+
+<script>
+    function filterPosts() {
+        // 1. Get the search query
+        var input = document.getElementById('search-input');
+        var filter = input.value.toLowerCase();
+        
+        // 2. Get all posts
+        var grid = document.getElementById('post-grid');
+        var cards = grid.getElementsByClassName('post-card');
+        var noResults = document.getElementById('no-results');
+        
+        var visibleCount = 0;
+
+        // 3. Loop through all cards
+        for (var i = 0; i < cards.length; i++) {
+            // Get the data-search attribute we added to the HTML
+            var searchData = cards[i].getAttribute('data-search');
+            
+            // Check if query exists in the data
+            if (searchData.indexOf(filter) > -1) {
+                cards[i].classList.remove('hidden'); // Show
+                visibleCount++;
+            } else {
+                cards[i].classList.add('hidden'); // Hide
+            }
+        }
+
+        // 4. Toggle "No Results" message
+        if (visibleCount === 0) {
+            noResults.classList.remove('hidden');
+            grid.classList.add('hidden'); // Hide the grid container to close gaps
+        } else {
+            noResults.classList.add('hidden');
+            grid.classList.remove('hidden');
+        }
+    }
+</script>
