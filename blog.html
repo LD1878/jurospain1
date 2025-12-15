@@ -41,12 +41,17 @@ permalink: /blog/
 
     /* CARD LINK STYLES: GUARANTEED CLICKABLE AREA */
     .post-card-link {
-        display: flex; /* Force it to take up container space */
-        flex-direction: column;
+        display: flex !important; /* Force display properties */
+        flex-direction: column !important;
         text-decoration: none !important; /* Remove blue underline */
         color: inherit !important; /* Keep your existing text color */
-        height: 100%;
+        height: 100% !important;
         transition: transform 0.2s ease;
+        
+        /* THE AGGRESSIVE FIXES */
+        z-index: 10 !important; /* Ensure it's above everything else */
+        cursor: pointer !important; /* Force the pointer icon */
+        position: relative !important; /* Ensure z-index works */
     }
 
     .post-card-link:hover {
@@ -147,7 +152,7 @@ permalink: /blog/
         var input = document.getElementById('search-input');
         var filter = input.value.toLowerCase();
         var grid = document.getElementById('post-grid');
-        var cards = grid.getElementsByClassName('post-card-link'); // Targeting the new class
+        var cards = grid.getElementsByClassName('post-card-link');
         var noResults = document.getElementById('no-results');
         var visibleCount = 0;
 
