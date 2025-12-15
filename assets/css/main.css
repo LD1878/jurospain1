@@ -1,97 +1,65 @@
+
 /* ==========================================================
-   JURO Spain: Master Theme CSS (Complete Gold Standard)
+   JURO Spain: Dynamic Theme CSS
+   (Controlled by JavaScript in _layouts/default.html)
    ========================================================== */
 
 /* ----------------------------------------------------------
    1. DYNAMIC & STATIC DESIGN TOKENS
    ---------------------------------------------------------- */
+
 :root {
-  /* STATIC BRAND COLORS */
+  /* STATIC BRAND COLORS (NEVER CHANGE) */
   --sp-red: #E30613;
   
-  /* DYNAMIC THEME VARIABLES (Default: Light) */
+  /* DYNAMIC THEME VARIABLES (SET BY JAVASCRIPT) */
   --bg-primary: #fcfcfc;
   --bg-secondary: #ffffff;
   --text-primary: #232323;
-  --text-muted: #666666;
-  --border-light: #e0e0e0;
+  --text-muted: #8b8b85;
+  --border-light: #ddd;
   --btn-text: #ffffff;
-  --gold-color: #FFC400;
+  --gold-color: #FFC400; /* This is the DYNAMIC variable */
   
-  /* Spacing & Layout */
-  --sp-radius: 8px;
+  /* Static Utilities & Spacing */
+  --sp-radius: 6px;
   --sp-font-heavy: 'Oswald', sans-serif;
   --sp-font-body: 'Arial', sans-serif;
   --sp-max-width: 1200px;
-  
-  /* Spacing Scale */
   --sp-space-1: 0.25rem;
   --sp-space-2: 0.5rem;
   --sp-space-3: 1rem;
   --sp-space-4: 1.5rem;
   --sp-space-5: 2rem;
   --sp-space-6: 3rem;
-  
-  /* Elevation (Shadows) */
   --elev-1: 0 2px 6px rgba(0,0,0,0.06);
-  --elev-2: 0 8px 16px rgba(0,0,0,0.10);
-  --elev-3: 0 12px 24px rgba(0,0,0,0.15);
+  --elev-2: 0 6px 12px rgba(0,0,0,0.12);
+  --elev-3: 0 10px 20px rgba(0,0,0,0.18);
 }
 
 /* ----------------------------------------------------------
-   2. DARK MODE THEME (THE COLOR CHANGER LOGIC)
+   2. BASE STYLES & TYPOGRAPHY
    ---------------------------------------------------------- */
-[data-theme="dark"] {
-  --bg-primary: #121212;     /* Deep dark background */
-  --bg-secondary: #1e1e1e;   /* Slightly lighter for cards */
-  --text-primary: #ffffff;   /* White text */
-  --text-muted: #aaaaaa;     /* Light gray for muted text */
-  --border-light: #333333;   /* Dark borders */
-  --btn-text: #ffffff;
-  --elev-1: 0 2px 6px rgba(0,0,0,0.4); /* Stronger shadows for dark mode */
-  --elev-2: 0 8px 16px rgba(0,0,0,0.5);
+
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-/* ----------------------------------------------------------
-   3. HIGH-END POLISH (SCROLL & SELECTION)
-   ---------------------------------------------------------- */
 html {
   font-size: 16px;
-  scroll-behavior: smooth;
+  font-feature-settings: "liga" 1, "kern" 1;
 }
 
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
+  transition: background-color 0.4s ease, color 0.4s ease;
   font-family: var(--sp-font-body);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   margin: 0;
-  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-/* Custom Scrollbar */
-body::-webkit-scrollbar {
-    width: 10px;
-}
-body::-webkit-scrollbar-thumb {
-    background-color: var(--sp-red);
-    border-radius: 10px;
-    border: 3px solid var(--bg-primary);
-}
-body::-webkit-scrollbar-track {
-    background: var(--bg-secondary);
-}
-
-/* Premium Text Selection */
-::selection {
-    background: var(--gold-color);
-    color: #000;
-}
-
-/* ----------------------------------------------------------
-   4. TYPOGRAPHY & LINKS (With Gold Highlighter)
-   ---------------------------------------------------------- */
 h1, h2, h3 {
   font-family: var(--sp-font-heavy);
   font-weight: 700;
@@ -105,15 +73,11 @@ h1 {
   color: var(--sp-red);
   letter-spacing: -0.02em;
 }
-
 h2 {
   font-size: 2rem;
   border-bottom: 3px solid var(--gold-color);
   padding-bottom: var(--sp-space-2);
-  display: inline-block;
-  margin-bottom: var(--sp-space-4);
 }
-
 h3 {
   font-size: 1.25rem;
   font-weight: 600;
@@ -126,7 +90,7 @@ h3 {
 hr {
   border: 0;
   border-top: 1px solid var(--border-light);
-  margin: var(--sp-space-6) 0;
+  margin: var(--sp-space-5) 0;
 }
 
 .container {
@@ -135,31 +99,10 @@ hr {
   padding: 0 var(--sp-space-4);
 }
 
-/* GOLD HIGHLIGHTER LINK EFFECT */
-main p a:not(.btn), 
-main li a:not(.btn),
-.card p a:not(.btn) {
-  color: var(--sp-red);
-  text-decoration: underline;
-  text-decoration-color: rgba(227, 6, 19, 0.3);
-  text-underline-offset: 3px;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-  font-weight: 600;
-}
-
-main p a:not(.btn):hover, 
-main li a:not(.btn):hover,
-.card p a:not(.btn):hover {
-  text-decoration-color: var(--gold-color);
-  background-color: rgba(255, 196, 0, 0.15);
-  padding: 0 4px;
-  margin: 0 -4px;
-}
-
 /* ----------------------------------------------------------
-   5. HEADER & NAVIGATION (With Mobile Logic)
+   3. HEADER & NAVIGATION - FIXED & CLEAN
    ---------------------------------------------------------- */
+
 .site-header {
   background-color: var(--bg-secondary);
   border-bottom: 3px solid var(--gold-color);
@@ -167,20 +110,20 @@ main li a:not(.btn):hover,
   position: sticky;
   top: 0;
   z-index: 1000;
-  padding: 1rem 0;
-  transition: all 0.3s ease;
+  /* PERFORMANCE: Removed transition on padding to prevent CLS */
+  padding: 1.25rem 0;
+  transition: background-color 0.4s ease, box-shadow 0.25s ease, border-color 0.4s ease; 
 }
 
 .site-header.scrolled {
-  padding: 0.5rem 0;
+  padding: 0.75rem 0;
   box-shadow: var(--elev-2);
 }
 
 .site-header .container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap; 
+  gap: 1rem;
 }
 
 .site-title {
@@ -189,13 +132,27 @@ main li a:not(.btn):hover,
   font-weight: 800;
   color: var(--sp-red);
   text-decoration: none;
+  margin-right: auto;
   letter-spacing: 0.5px;
+  /* PERFORMANCE: Use transform: scale() instead of font-size transition */
+  transform-origin: left center;
+  transition: transform 0.3s ease;
 }
 
+.site-header.scrolled .site-title {
+  transform: scale(0.9);
+}
+
+/* FIX: Added utility class to replace brittle inline styles on logo */
+.site-title .text-highlight {
+  color: var(--gold-color) !important;
+}
+
+/* NAVIGATION */
 .site-nav {
   display: flex;
-  gap: 0.5rem;
   align-items: center;
+  gap: 0.25rem;
 }
 
 .site-nav a {
@@ -203,18 +160,38 @@ main li a:not(.btn):hover,
   color: var(--text-primary);
   text-decoration: none;
   font-weight: 500;
-  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
+  padding: 0.6rem 1rem;
   border-radius: var(--sp-radius);
+  position: relative;
   transition: all 0.2s ease;
 }
 
 .site-nav a:hover,
-.site-nav a[aria-current="page"] {
-  background-color: rgba(227,6,19,0.05);
+.site-nav a[aria-current="page"] { /* ADDED: Style for active link */
   color: var(--sp-red);
+  background-color: rgba(227,6,19,0.05);
 }
 
-/* THEME TOGGLE BUTTON */
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 50%;
+  bottom: 4px;
+  transform: translateX(-50%);
+  background-color: var(--sp-red);
+  transition: width 0.3s ease;
+}
+
+.site-nav a:hover::after,
+.site-nav a[aria-current="page"]::after { /* ADDED: Active state style */
+  width: 70%;
+}
+
+/* THEME TOGGLE - CIRCULAR WITH ICON */
 .theme-toggle {
   background: transparent;
   border: 2px solid var(--border-light);
@@ -229,16 +206,17 @@ main li a:not(.btn):hover,
   padding: 0;
   margin-left: 0.5rem;
   transition: all 0.3s ease;
-  color: var(--text-primary); /* Ensure icon color changes */
 }
+
 .theme-toggle:hover {
   border-color: var(--gold-color);
+  background: rgba(255, 196, 0, 0.1);
   transform: rotate(180deg);
 }
 
-/* MOBILE MENU HAMBURGER */
+/* MOBILE MENU TOGGLE - ANIMATED HAMBURGER */
 .menu-toggle {
-  display: none; 
+  display: none;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -246,7 +224,6 @@ main li a:not(.btn):hover,
   position: relative;
   width: 32px;
   height: 32px;
-  margin-left: 1rem;
 }
 
 .menu-toggle span {
@@ -255,14 +232,822 @@ main li a:not(.btn):hover,
   height: 3px;
   background: var(--text-primary);
   border-radius: 2px;
-  transition: all 0.3s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: absolute;
   left: 2px;
 }
+
 .menu-toggle span:nth-child(1) { top: 6px; }
 .menu-toggle span:nth-child(2) { top: 14px; }
 .menu-toggle span:nth-child(3) { top: 22px; }
 
-.menu-toggle.active span:nth-child(1) { top: 14px; transform: rotate(45deg); }
-.menu-toggle.active span:nth-child(2) { opacity: 0; }
-.menu-toggle.active span:nth-child(3) { top: 14px; transform: rotate(-
+.menu-toggle.active span:nth-child(1) {
+  top: 14px;
+  transform: rotate(45deg);
+}
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+  top: 14px;
+  transform: rotate(-45deg);
+}
+
+/* ----------------------------------------------------------
+   4. BUTTONS
+   ---------------------------------------------------------- */
+
+.btn {
+  background: var(--sp-red);
+  /* FIX: Removed !important here if possible, but keeping it simple for now */
+  color: var(--btn-text) !important; 
+  font-weight: 700;
+  padding: 0.65rem 1.25rem;
+  border-radius: var(--sp-radius);
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  border: none;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 2px 8px rgba(227, 6, 19, 0.2);
+}
+
+.btn:hover {
+  background: #a8040d;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(227, 6, 19, 0.3);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: var(--elev-1);
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--gold-color);
+  outline-offset: 3px;
+}
+
+.site-nav .btn::after {
+  display: none;
+}
+
+input:focus,
+textarea:focus,
+.btn:focus {
+  box-shadow: 0 0 0 4px rgba(227,6,19,0.2);
+  outline: none;
+}
+
+/* ----------------------------------------------------------
+   5. CARDS & HERO
+   ---------------------------------------------------------- */
+
+.card, .post-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--sp-radius);
+  padding: var(--sp-space-5);
+  box-shadow: var(--elev-1);
+  transition: box-shadow 0.3s, background-color 0.4s ease, transform 0.3s ease;
+}
+
+.services-grid a.card:hover,
+.card:hover {
+  /* PERFORMANCE FIX: Use translateY(-4px) instead of -6px for less jump */
+  transform: translateY(-4px) scale(1.01); 
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  background-color: var(--bg-secondary);
+}
+
+.hero {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--sp-radius);
+  padding: var(--sp-space-6) var(--sp-space-4);
+  transition: background 0.4s ease;
+}
+
+/* ----------------------------------------------------------
+   6. SERVICES GRID
+   ---------------------------------------------------------- */
+
+.services-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-space-4);
+  margin: var(--sp-space-5) 0;
+  justify-content: center;
+}
+
+.services-grid .card {
+  flex: 1 1 300px;
+  height: auto;
+  transition: transform 0.3s;
+}
+
+.services-grid .card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--elev-2);
+}
+
+.services-grid h3 {
+  color: var(--sp-red);
+}
+
+/* ----------------------------------------------------------
+   7. FORMS
+   ---------------------------------------------------------- */
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-top: var(--sp-space-4);
+  margin-bottom: var(--sp-space-1);
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: var(--sp-space-3);
+  border: 1px solid var(--border-light);
+  border-radius: var(--sp-radius);
+  font-family: var(--sp-font-body);
+  font-size: 1rem;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  transition: border-color 0.2s, box-shadow 0.2s, background-color 0.4s ease, color 0.4s ease;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--sp-red);
+  box-shadow: 0 0 0 4px rgba(227,6,19,0.15);
+  outline: none;
+}
+
+.card button[type="submit"] {
+  margin-top: var(--sp-space-5);
+  width: 100%;
+}
+
+/* ----------------------------------------------------------
+   8. FAQ ACCORDION
+   ---------------------------------------------------------- */
+
+.service-faq {
+  margin-bottom: var(--sp-space-1);
+  border: 1px solid var(--border-light);
+  border-radius: var(--sp-radius);
+  background: var(--bg-secondary);
+  transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+.service-faq summary {
+  padding: var(--sp-space-4);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.service-faq summary:hover {
+  background-color: rgba(0,0,0,0.03);
+}
+
+.service-faq[open] summary {
+  background: var(--bg-primary);
+  color: var(--sp-red);
+}
+
+.service-faq p {
+  padding: var(--sp-space-3) var(--sp-space-4);
+  margin: 0;
+}
+
+/* ----------------------------------------------------------
+   9. FOOTER
+   ---------------------------------------------------------- */
+
+.site-footer {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  padding: var(--sp-space-6) 0 var(--sp-space-4);
+  margin-top: var(--sp-space-6);
+  font-size: 0.9rem;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.site-footer a {
+  color: var(--text-muted);
+  transition: color 0.4s ease;
+  /* FIX: Ensure footer links don't have the ugly default underline */
+  text-decoration: none; 
+}
+
+.site-footer a:hover {
+  color: var(--gold-color);
+  text-decoration: underline; /* Add simple underline back on hover */
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--sp-space-3);
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: var(--sp-space-4);
+}
+
+.footer-section {
+  position: relative;
+}
+
+@media (min-width: 901px) {
+  .footer-section:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: var(--sp-space-3);
+    right: -10px;
+    height: calc(100% - var(--sp-space-6));
+    width: 1px;
+    background: var(--border-light);
+  }
+}
+
+.footer-bottom {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+/* ----------------------------------------------------------
+   10. RESPONSIVE NAVIGATION
+   ---------------------------------------------------------- */
+
+@media (min-width: 901px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  .site-nav {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .site-header .container {
+    flex-wrap: wrap;
+  }
+
+  .theme-toggle {
+    order: 2;
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  .menu-toggle {
+    display: block;
+    order: 3;
+    margin-left: 0;
+    z-index: 1001;
+  }
+
+  .site-nav {
+    position: fixed;
+    top: 0;
+    right: 0; 
+    width: 300px;
+    max-width: 85vw;
+    height: 100vh;
+    background: var(--bg-secondary);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 5rem 2rem 2rem;
+    box-shadow: -5px 0 25px rgba(0,0,0,0.2);
+    /* PERFORMANCE: Switched to GPU-accelerated transform for smooth menu slide */
+    transform: translateX(100%); 
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.4s ease;
+    z-index: 999;
+    order: 4;
+  }
+
+  .site-nav.active {
+    transform: translateX(0); /* Slide in */
+  }
+
+  .site-nav a {
+    font-size: 1.1rem;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border-light);
+    border-radius: 0;
+    text-align: left;
+  }
+
+  .site-nav a::after {
+    display: none;
+  }
+
+  .site-nav .btn {
+    margin: 1rem 0 0 0;
+    text-align: center;
+    border: none;
+  }
+
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+}
+
+@media (max-width: 700px) {
+  .services-grid {
+    flex-direction: column;
+  }
+}
+
+/* ----------------------------------------------------------
+   11. REDUCED MOTION SUPPORT
+   ---------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important; 
+    animation: none !important;
+  }
+}
+
+/* ==========================================================
+   12. 180 IQ UPDATE: "Highlighter" Link Style (Accessibility Fix)
+   ========================================================== */
+
+/* 1. Base State for Content Links */
+/* Targets links in main content, cards, and lists (excludes Buttons & Nav) */
+main p a,
+main li a:not(.btn),
+.card p a {
+  color: var(--sp-red);          /* Keep text High Contrast RED */
+  text-decoration: underline;    
+  text-decoration-color: rgba(227, 6, 19, 0.3); /* Faint red line */
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;    /* nicer typography */
+  border-radius: 4px;            /* Smooth corners for the hover effect */
+  transition: all 0.2s ease;
+  font-weight: 600; /* Subtle emphasis on the link text */
+}
+
+/* 2. Hover State: The "Gold Highlighter" */
+main p a:hover,
+main li a:not(.btn):hover,
+.card p a:hover {
+  color: var(--sp-red) !important;       /* DO NOT CHANGE TEXT COLOR (Contrast Fix) */
+  text-decoration-color: var(--gold-color); /* Change underline to gold */
+  background-color: rgba(255, 196, 0, 0.15); /* Add faint gold background wash */
+  
+  /* UX Trick: Add padding so the highlighter doesn't look cramped */
+  padding: 0 4px;
+  margin: 0 -4px; 
+}
+/* Styling for the About page service lists */
+.service-section {
+    list-style: none;
+}
+
+.service-section ul {
+    padding-left: 1.25rem;
+    list-style: disc;
+}
+
+/* Ensure CTA buttons on the About page look good side-by-side on desktop */
+@media (min-width: 600px) {
+    .hero .btn:nth-child(2) { /* Targeting the second button (View Our Pricing) */
+        background-color: var(--text-primary) !important; 
+    }
+}
+/* ==========================================================
+   13. BLOG INDEX GRID & READABILITY (UX/Performance)
+   ========================================================== */
+
+.post-list-grid {
+    display: grid;
+    /* Two-column grid that shifts to one column on smaller screens */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--sp-space-5);
+    margin: var(--sp-space-6) 0;
+}
+
+/* Specific styling for the entire clickable post card */
+.post-list-grid .post-card {
+    /* Ensures the card expands vertically to match the tallest content in the row */
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+/* Cleanup: Since the whole card is a link, we remove the border from the H2 */
+.post-list-grid .post-card h2 {
+    border-bottom: none; 
+    padding-bottom: 0;
+}
+
+/* Ensure the button sits at the bottom and doesn't get messed up by link styles */
+.post-list-grid .post-card .btn {
+    align-self: flex-start;
+    text-decoration: none !important; /* Override content link hover styles */
+}
+/* ==========================================================
+   14. POST LAYOUT STYLES (Readability Focus)
+   ========================================================== */
+
+/* Narrowing the content for optimal reading flow (50-75 characters wide) */
+.post-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--sp-space-4) 0;
+}
+
+.post-header {
+    margin-bottom: var(--sp-space-5);
+}
+
+.post-meta a {
+    /* Style for the post tags */
+    color: var(--sp-red);
+    text-decoration: underline;
+    text-decoration-color: var(--gold-color);
+}
+
+/* Table of Contents (TOC) Styles */
+.toc-box {
+    margin: var(--sp-space-6) 0;
+    padding: var(--sp-space-4);
+    border-left: 5px solid var(--sp-red);
+}
+
+.toc-box ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.toc-box li {
+    padding: var(--sp-space-1) 0;
+    border-bottom: 1px dashed var(--border-light);
+}
+.toc-box a:hover {
+    background-color: transparent !important; /* Fix nav hover bleeding */
+    color: var(--sp-red);
+}
+
+/* Ensure images and videos within the post are responsive */
+.main-post-body img,
+.main-post-body video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: var(--sp-space-4) auto;
+    border-radius: var(--sp-radius);
+    box-shadow: var(--elev-1);
+}
+
+/* Ensure post content headers look clean inside the article */
+.main-post-body h2 {
+    /* Revert border style for post content H2s */
+    border-bottom: 3px solid var(--gold-color);
+    padding-bottom: var(--sp-space-2);
+}
+/* ==========================================================
+   16. PRICING PAGE: COMPARISON GRID (UX FIX)
+   ========================================================== */
+
+.pricing-group {
+    margin: var(--sp-space-6) 0;
+}
+
+.pricing-grid {
+    display: grid;
+    /* Sets up 3 columns on desktop, flowing to 1 on mobile */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--sp-space-4);
+    align-items: stretch; /* Ensures all cards stretch to the same height */
+    margin-top: var(--sp-space-5);
+}
+
+.pricing-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: var(--sp-space-5);
+    /* Style consistency */
+    border-radius: var(--sp-radius);
+    background: var(--bg-secondary);
+    box-shadow: var(--elev-1);
+    text-align: center;
+}
+
+/* Specific styling for the pricing data */
+.pricing-footer {
+    padding-top: var(--sp-space-4);
+    margin-top: var(--sp-space-4);
+    border-top: 1px solid var(--border-light);
+}
+
+.pricing-card h3 {
+    margin-top: 0;
+}
+
+.pricing-features {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    margin: var(--sp-space-4) 0;
+}
+
+.pricing-features li::before {
+    content: '✓';
+    color: var(--sp-red);
+    font-weight: 700;
+    margin-right: 8px;
+}
+
+/* Price display */
+.price {
+    font-size: 2.5rem;
+    color: var(--sp-red);
+    font-family: var(--sp-font-heavy);
+    font-weight: 800;
+    margin-bottom: var(--sp-space-1);
+    line-height: 1.1;
+}
+
+/* Highlight the featured plan (e.g., Golden Visa) */
+.pricing-card.featured {
+    border: 3px solid var(--gold-color);
+    transform: scale(1.02);
+    box-shadow: var(--elev-2);
+}
+/* ==========================================================
+   17. ABOUT PAGE STYLES (Testimonial and Process Flow)
+   ========================================================== */
+
+/* Testimonial Block Styling */
+.blockquote-testimonial {
+    margin: var(--sp-space-3) 0;
+    font-size: 1.25rem;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--text-primary);
+    border-left: 5px solid var(--gold-color);
+    padding-left: var(--sp-space-3);
+}
+
+.testimonial-box h2 {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* Four-Step Process Flow Grid */
+.process-flow-grid {
+    display: grid;
+    /* 4 columns on desktop, flowing to 2 or 1 on mobile */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--sp-space-4);
+    margin: var(--sp-space-5) 0;
+    counter-reset: step-counter; /* Initialize counter for steps */
+}
+
+.process-step {
+    text-align: center;
+    padding: var(--sp-space-4) var(--sp-space-3);
+    position: relative;
+    /* Ensure the cards stretch to the same height */
+    height: 100%; 
+}
+
+/* Visual Step Counter (Advanced UX) */
+.process-step h3::before {
+    counter-increment: step-counter;
+    content: counter(step-counter);
+    display: block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    background: var(--sp-red);
+    color: var(--btn-text);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0 auto var(--sp-space-2) auto;
+    border: 3px solid var(--gold-color);
+}
+
+.process-step h3 {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* Media Query for Mobile Stack */
+@media (max-width: 600px) {
+    .process-flow-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* ==========================================================
+   18. CONTACT PAGE STYLES (Grid Layout)
+   ========================================================== */
+
+.contact-grid {
+    display: grid;
+    /* Two-column layout for the call booking and the form */
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-space-5);
+    margin-top: var(--sp-space-6);
+}
+
+.contact-card {
+    /* Ensures the card maintains its card style and padding */
+    padding: var(--sp-space-5);
+}
+
+.contact-card h2 {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* Specific styling for the Call Booking card to emphasize it */
+.contact-card.book-call {
+    /* Subtle background to make it pop */
+    background-color: var(--bg-primary); 
+    border-left: 5px solid var(--sp-red);
+}
+
+/* Ensure the form itself doesn't have the card styling nested (it's already in the parent div) */
+.contact-card form {
+    padding: 0; 
+    box-shadow: none;
+    border: none;
+    background: transparent;
+}
+
+/* Responsive collapse for mobile */
+@media (max-width: 800px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* ==========================================================
+   19. GLOSSARY PAGE STYLES (Search and Accordions)
+   ========================================================== */
+
+.glossary-search {
+    margin: var(--sp-space-5) 0;
+    text-align: center;
+}
+
+.glossary-search input {
+    width: 100%;
+    max-width: 600px;
+    padding: var(--sp-space-3) var(--sp-space-4);
+    font-size: 1rem;
+    border: 2px solid var(--border-light);
+    border-radius: var(--sp-radius);
+    color: var(--text-primary);
+    background-color: var(--bg-secondary);
+    transition: border-color 0.3s ease;
+}
+
+.glossary-search input:focus {
+    outline: none;
+    border-color: var(--sp-red);
+    box-shadow: 0 0 0 3px rgba(227, 6, 19, 0.1);
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: var(--sp-space-6) 0 var(--sp-space-4) 0;
+    padding-bottom: var(--sp-space-3);
+    border-bottom: 2px solid var(--border-light);
+}
+
+.section-icon {
+    font-size: 2rem;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    color: var(--text-primary); /* Use theme color */
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Accordion (Details) Styling */
+.glossary-section details {
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-light);
+    border-left: 5px solid var(--sp-red);
+    padding-left: 15px;
+    background-color: var(--bg-primary);
+    border-radius: var(--sp-radius);
+    transition: all 0.3s ease;
+}
+
+.glossary-section details:hover {
+    box-shadow: var(--elev-1);
+    transform: translateY(-2px);
+}
+
+.glossary-section details[open] {
+    background-color: var(--bg-secondary);
+    box-shadow: var(--elev-2);
+    border-left-color: var(--gold-color);
+}
+
+.glossary-section summary {
+    font-weight: 700;
+    font-size: 1.25rem;
+    cursor: pointer;
+    color: var(--text-primary);
+    padding: 10px 0;
+    list-style: none;
+    user-select: none;
+}
+
+.glossary-section summary:hover {
+    color: var(--sp-red);
+}
+
+/* Custom expand icon */
+.glossary-section summary::before {
+    content: '▶';
+    display: inline-block;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+    color: var(--sp-red);
+    font-size: 0.9em;
+}
+
+.glossary-section details[open] summary::before {
+    transform: rotate(90deg);
+    color: var(--gold-color);
+}
+
+.glossary-section details p {
+    margin-top: 0.5rem;
+    padding-bottom: 10px;
+    color: var(--text-primary);
+}
+
+.def-label {
+    font-weight: 600;
+}
+
+/* Internal Glossary Links */
+.glossary-link {
+    color: var(--sp-red);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid var(--gold-color);
+    transition: border-color 0.2s ease;
+}
+
+.glossary-link:hover {
+    border-bottom-color: var(--sp-red);
+}
+
+.glossary-link[target="_blank"]::after {
+    content: ' ↗';
+    font-size: 0.85em;
+    color: var(--text-muted);
+}
+
+/* No Results Message */
+.no-results {
+    display: none;
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.no-results.show {
+    display: block;
+}
+
+.stats {
+    text-align: center;
+    margin: 20px 0;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.5rem;
+    }
+    .glossary-section summary {
+        font-size: 1.1rem;
+        padding: 15px 10px;
+    }
+}
