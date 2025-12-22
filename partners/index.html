@@ -6,12 +6,12 @@ permalink: /partners/
 ---
 
 <style>
-    /* 1. B2B HERO - RED AUTHORITY */
+    /* 1. B2B HERO - REMAINS BRAND RED FOR AUTHORITY */
     .partner-hero {
         padding: 6rem 0 4rem;
-        background: #E30613; /* Official Red */
+        background: var(--sp-red); /* Keeps the strong B2B "Official" feel */
         color: white;
-        border-bottom: 8px solid #FFC400; /* Official Gold */
+        border-bottom: 8px solid var(--gold-color);
         text-align: center;
     }
 
@@ -30,7 +30,7 @@ permalink: /partners/
         font-weight: 300;
     }
 
-    /* 2. THE "WHO DOES WHAT" SPLIT */
+    /* 2. THE WORKFLOW SPLIT - THEME SYNCED */
     .workflow-container {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -39,19 +39,22 @@ permalink: /partners/
         border-radius: 20px;
         overflow: hidden;
         box-shadow: var(--elev-3);
+        border: 1px solid var(--border-light);
     }
 
     .workflow-side {
         padding: 4rem 3rem;
     }
 
+    /* Side JURO: Slightly darker/muted background */
     .side-juro {
-        background: #f8fafc;
+        background: var(--bg-primary); 
         border-right: 1px solid var(--border-light);
     }
 
+    /* Side Partner: Clean secondary background */
     .side-partner {
-        background: white;
+        background: var(--bg-secondary);
     }
 
     .workflow-list {
@@ -66,21 +69,26 @@ permalink: /partners/
         align-items: flex-start;
         gap: 12px;
         font-weight: 500;
+        color: var(--text-primary);
     }
 
     .check-icon {
-        color: #25d366;
+        color: #25d366; /* Success green stays green */
         font-weight: bold;
     }
 
-    /* 3. WHOLESALE CARDS */
+    /* 3. B2B CARDS - THEME SYNCED */
     .b2b-card {
-        border-top: 5px solid #E30613;
+        background: var(--bg-secondary);
+        color: var(--text-primary);
+        border-top: 5px solid var(--sp-red);
         transition: all 0.3s ease;
     }
+    
     .b2b-card:hover {
         transform: translateY(-5px);
         box-shadow: var(--elev-2);
+        border-top-color: var(--gold-color);
     }
 
     /* MOBILE FIXES */
@@ -93,7 +101,7 @@ permalink: /partners/
 
 <div class="partner-hero">
     <div class="container">
-        <p style="text-transform: uppercase; letter-spacing: 3px; font-weight: 700; color: #FFC400; margin-bottom: 1rem;">
+        <p style="text-transform: uppercase; letter-spacing: 3px; font-weight: 700; color: var(--gold-color); margin-bottom: 1rem;">
             Propuesta de Colaboración B2B
         </p>
         <h1>Usted gestione el Derecho. <br> Nosotros gestionamos todo lo demás.</h1>
@@ -106,7 +114,7 @@ permalink: /partners/
 <div class="container" style="padding: 6rem 0;">
 
     <div class="center" style="margin-bottom: 4rem;">
-        <h2 style="border: none; font-size: 2.8rem; margin-bottom: 1rem;">Eficiencia Operativa para Abogados.</h2>
+        <h2 style="border: none; font-size: 2.8rem; margin-bottom: 1rem; color: var(--text-primary);">Eficiencia Operativa para Abogados.</h2>
         <p style="max-width: 700px; margin: 0 auto; color: var(--text-muted); font-size: 1.15rem;">
             Elimine las horas perdidas en consultas básicas y captación de clientes internacionales.
         </p>
@@ -114,7 +122,7 @@ permalink: /partners/
 
     <div class="workflow-container">
         <div class="workflow-side side-juro">
-            <h3 style="color: #E30613; text-transform: uppercase; font-size: 1rem; letter-spacing: 1px;">Gestión de JURO Spain</h3>
+            <h3 style="color: var(--sp-red); text-transform: uppercase; font-size: 1rem; letter-spacing: 1px;">Gestión de JURO Spain</h3>
             <ul class="workflow-list">
                 <li><span class="check-icon">✓</span> Captación de clientes (USA, UK, Canada, EAU).</li>
                 <li><span class="check-icon">✓</span> Consultas iniciales en inglés nativo.</li>
@@ -124,7 +132,7 @@ permalink: /partners/
             </ul>
         </div>
         <div class="workflow-side side-partner">
-            <h3 style="color: #475569; text-transform: uppercase; font-size: 1rem; letter-spacing: 1px;">Su Responsabilidad Jurídica</h3>
+            <h3 style="color: var(--text-muted); text-transform: uppercase; font-size: 1rem; letter-spacing: 1px;">Su Responsabilidad Jurídica</h3>
             <ul class="workflow-list">
                 <li><span class="check-icon">⚖️</span> Revisión final de la viabilidad del expediente.</li>
                 <li><span class="check-icon">⚖️</span> Presentación vía Mercurio / Red Abogacía / UGE.</li>
@@ -134,10 +142,8 @@ permalink: /partners/
         </div>
     </div>
 
-    
-
     <div class="center" style="margin: 6rem 0 4rem;">
-        <h2 style="border: none; font-size: 2.5rem;">Un Modelo de "Wholesale" Real.</h2>
+        <h2 style="border: none; font-size: 2.5rem; color: var(--text-primary);">Un Modelo de "Wholesale" Real.</h2>
     </div>
 
     <div class="services-grid">
@@ -145,7 +151,7 @@ permalink: /partners/
             <h3>📈 Volumen Recurrente</h3>
             <p>No enviamos "leads" sueltos. Enviamos <b>expedientes cerrados</b>. Buscamos partners que puedan absorber entre 5 y 15 casos mensuales con una tarifa fija.</p>
         </div>
-        <div class="card b2b-card" style="border-top-color: #FFC400;">
+        <div class="card b2b-card" style="border-top-color: var(--gold-color);">
             <h3>⚡ Cero Administración</h3>
             <p>Recibirá un archivo digital (PDF) perfectamente organizado, con tasas pagadas y formularios rellenos. Su tiempo de revisión será inferior a 15 minutos.</p>
         </div>
@@ -155,25 +161,25 @@ permalink: /partners/
         </div>
     </div>
 
-    <div class="card" style="background: #f1f5f9; border: none; margin-top: 5rem; padding: 3rem;">
+    <div class="card" style="background: var(--bg-primary); border: none; margin-top: 5rem; padding: 3rem;">
         <h3 style="color: var(--text-primary); margin-top: 0; border: none;">Colaboración en Derecho de Extranjería y Compraventa</h3>
-        <p style="font-size: 0.95rem; color: #475569;">
+        <p style="font-size: 0.95rem; color: var(--text-muted);">
             En JURO Spain entendemos que la <strong>externalización comercial</strong> es clave para el crecimiento de un despacho moderno. Especializados en clientes anglosajones, preparamos expedientes de <strong>Nómada Digital</strong>, <strong>Residencia No Lucrativa</strong> y <strong>Golden Visa</strong>. 
         </p>
-        <p style="font-size: 0.95rem; color: #475569;">
+        <p style="font-size: 0.95rem; color: var(--text-muted);">
             Actualmente buscamos ampliar nuestra red en <b>Madrid, Barcelona, Valencia, Alicante y Málaga</b> para procesos de extranjería y <b>conveyancing</b> inmobiliario.
         </p>
     </div>
 
     <div class="center" style="margin-top: 6rem;">
-        <h2>¿Hablamos de tarifas?</h2>
+        <h2 style="color: var(--text-primary);">¿Hablamos de tarifas?</h2>
         <p style="margin-bottom: 3rem; color: var(--text-muted);">Solicite nuestro dossier para colaboradores y envíenos su "Rate Card".</p>
         
         <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-            <a href="mailto:partners@jurospain.com?subject=Propuesta%20de%20Colaboracion%20Juridica" class="btn" style="background: #E30613; padding: 1.2rem 3rem;">
+            <a href="mailto:partners@jurospain.com?subject=Propuesta%20de%20Colaboracion%20Juridica" class="btn" style="background: var(--sp-red); padding: 1.2rem 3rem;">
                 Enviar Email a Dirección
             </a>
-            <a href="https://wa.me/34682050945?text=Hola,%20soy%20abogado%20y%20me%20gustaría%20colaborar%20con%20JURO" class="btn btn-outline" style="padding: 1.2rem 3rem;">
+            <a href="https://wa.me/34682050945?text=Hola,%20soy%20abogado%20y%20me%20gustaría%20colaborar%20con%20JURO" class="btn btn-outline" style="padding: 1.2rem 3rem; border: 2px solid var(--text-primary); color: var(--text-primary) !important;">
                 Contactar por WhatsApp
             </a>
         </div>
