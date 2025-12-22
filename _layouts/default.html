@@ -11,144 +11,11 @@ layout: null
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Arial&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ site.time | date: '%s' }}">
     
-    <style>
-        /* --- NAVIGATION STYLES (UNIFIED) --- */
-        /* This forces links and the "Resources" text to look identical */
-        .site-nav {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .site-nav a, 
-        .dropdown-trigger {
-            font-family: 'Oswald', sans-serif !important; /* Force Oswald Font */
-            font-size: 1rem !important; /* Force same size */
-            font-weight: 400; /* Match weight */
-            text-transform: uppercase; /* Match capitalization */
-            letter-spacing: 0.5px;
-            color: var(--text-primary);
-            text-decoration: none;
-            cursor: pointer;
-            transition: color 0.2s;
-        }
-
-        .site-nav a:hover, 
-        .dropdown-trigger:hover {
-            color: var(--sp-red); /* Hover color */
-        }
-
-        /* --- DROPDOWN MENU STYLES --- */
-        .dropdown-container {
-            position: relative;
-            display: inline-block;
-            height: 100%;
-            display: flex;
-            align-items: center;
-        }
-
-        .dropdown-trigger {
-            padding-right: 5px;
-            display: flex;
-            align-items: center;
-            gap: 4px; /* Space between text and arrow */
-        }
-
-        /* Small arrow correction */
-        .dropdown-trigger::after {
-            content: '▾';
-            font-size: 0.8em;
-            position: relative;
-            top: -1px;
-        }
-
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%; /* Sits directly below */
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: var(--bg-secondary);
-            min-width: 220px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            border-radius: 8px;
-            border: 1px solid var(--border-light);
-            z-index: 1000;
-            padding: 0.5rem 0;
-            text-align: left;
-            margin-top: 10px; /* Gap correction */
-        }
-
-        /* Invisible bridge to prevent menu closing when moving mouse */
-        .dropdown-container::after {
-            content: '';
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            height: 15px; 
-        }
-
-        .dropdown-menu a {
-            color: var(--text-primary) !important;
-            padding: 12px 20px;
-            text-decoration: none;
-            display: block;
-            font-size: 0.95rem !important; /* Smaller font inside dropdown */
-            text-transform: none !important; /* Normal case inside dropdown */
-            font-family: sans-serif !important; /* Cleaner font for reading list */
-            transition: background 0.2s;
-        }
-
-        .dropdown-menu a:hover {
-            background-color: #f0f0f0;
-            color: var(--sp-red) !important;
-        }
-
-        /* Show on Hover (Desktop) */
-        .dropdown-container:hover .dropdown-menu {
-            display: block;
-        }
-
-        /* Mobile Adjustments */
-        @media (max-width: 768px) {
-            .site-nav {
-                display: block; /* Stack links vertically on mobile */
-            }
-            .site-nav a, .dropdown-trigger {
-                display: block;
-                padding: 10px 0;
-                font-size: 1.2rem !important;
-            }
-            .dropdown-menu {
-                position: static;
-                transform: none;
-                box-shadow: none;
-                border: none;
-                background: rgba(0,0,0,0.03); /* Slight background for nested items */
-                padding-left: 1rem;
-                display: block; /* Always show in mobile menu */
-                margin-top: 0;
-                width: 100%;
-            }
-            .dropdown-trigger {
-                pointer-events: none; /* Make label non-clickable on mobile */
-                color: var(--text-muted);
-                border-bottom: 1px solid var(--border-light);
-                margin-top: 10px;
-            }
-            .dropdown-trigger::after {
-                display: none; /* Hide arrow on mobile */
-            }
-        }
-    </style>
-
     <script>
-        // THEMES: Optimized for Trust, Authority & Readability
         const THEMES = [
             {
                 name: 'spain-light',
@@ -156,43 +23,32 @@ layout: null
                 '--bg-primary': '#fcfcfc',
                 '--bg-secondary': '#ffffff',
                 '--text-primary': '#232323',
-                '--text-muted': '#585858', 
-                '--border-light': '#ddd',
+                '--text-muted': '#64748b', 
+                '--border-light': '#e2e8f0',
                 '--btn-text': '#ffffff',
                 '--gold-color': '#FFC400' 
             },
             {
                 name: 'legal-slate',
                 icon: '🌙', 
-                '--bg-primary': '#0f172a', /* Slate 900 - Premium Dark */
-                '--bg-secondary': '#1e293b', /* Slate 800 */
-                '--text-primary': '#f1f5f9', /* Slate 100 */
+                '--bg-primary': '#0f172a',
+                '--bg-secondary': '#1e293b',
+                '--text-primary': '#f1f5f9',
                 '--text-muted': '#94a3b8',
                 '--border-light': '#334155',
                 '--btn-text': '#ffffff',
-                '--gold-color': '#fbbf24' /* Amber 400 - Warm Gold */
+                '--gold-color': '#fbbf24'
             },
             {
                 name: 'navy-trust',
                 icon: '⚖️', 
-                '--bg-primary': '#0a192f', /* Deep Navy */
-                '--bg-secondary': '#112240', /* Lighter Navy */
+                '--bg-primary': '#0a192f',
+                '--bg-secondary': '#112240',
                 '--text-primary': '#e6f1ff',
                 '--text-muted': '#8892b0',
                 '--border-light': '#233554',
                 '--btn-text': '#0a192f',
-                '--gold-color': '#64ffda' /* Teal/Gold accent for contrast */
-            },
-            {
-                name: 'paper-focus',
-                icon: '📖', 
-                '--bg-primary': '#fdf6e3', /* Solarized Cream */
-                '--bg-secondary': '#eee8d5',
-                '--text-primary': '#2b2b2b',
-                '--text-muted': '#586e75',
-                '--border-light': '#d3cbb7',
-                '--btn-text': '#ffffff',
-                '--gold-color': '#b58900' /* Bronze Gold */
+                '--gold-color': '#64ffda'
             }
         ];
 
@@ -207,16 +63,11 @@ layout: null
                 }
             }
             localStorage.setItem('theme-name', themeName);
-            root.setAttribute('data-theme', themeName);
             
-            // Update icon if element exists
             const iconEl = document.querySelector('.theme-icon');
-            if (iconEl) {
-                iconEl.textContent = theme.icon;
-            }
+            if (iconEl) iconEl.textContent = theme.icon;
         }
 
-        // FOUC Prevention - Load stored theme
         (function() {
             const storedThemeName = localStorage.getItem('theme-name') || 'spain-light';
             applyTheme(storedThemeName);
@@ -226,17 +77,18 @@ layout: null
     {% seo %}
 </head>
 <body>
+
     <header class="site-header">
         <div class="container">
             <a class="site-title" href="{{ '/' | relative_url }}">
-                J<span class="text-highlight" style="color:var(--gold-color);">U</span>R<span class="text-highlight" style="color:var(--gold-color);">O</span> Spain
+                J<span class="text-highlight">U</span>R<span class="text-highlight">O</span> Spain
             </a>
             
-            <button class="theme-toggle" aria-label="Cycle through color themes">
+            <button class="theme-toggle" aria-label="Cycle themes">
                 <span class="theme-icon">☀️</span>
             </button>
 
-            <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <button class="menu-toggle" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -247,23 +99,23 @@ layout: null
                 <a href="{{ '/pricing/' | relative_url }}">Pricing</a>
                 
                 <div class="dropdown-container">
-                    <span class="dropdown-trigger">Resources</span>
+                    <div class="dropdown-trigger">Resources</div>
                     <div class="dropdown-menu">
                         <a href="{{ '/blog/' | relative_url }}">Blog & Guides</a>
                         <a href="{{ '/glossary/' | relative_url }}">Legal Glossary</a>
                         <a href="{{ '/about/' | relative_url }}">About Us</a>
-                        <a href="{{ '/partners/' | relative_url }}" style="color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border-light); margin-top: 5px;">🤝 Partner Program</a>
+                        <a href="{{ '/partners/' | relative_url }}" style="border-top: 1px solid var(--border-light); margin-top:5px; color: var(--text-muted); font-size: 0.85rem;">🤝 Partner Program</a>
                     </div>
                 </div>
 
                 <a href="{{ '/contact/' | relative_url }}">Contact</a>
                 
-                <a href="https://app.cal.eu/jurospain/30min" class="btn" target="_blank" rel="noopener noreferrer">Book a Call</a>
+                <a href="https://app.cal.eu/jurospain/30min" class="btn" target="_blank">Book a Call</a>
             </nav>
         </div>
     </header>
 
-    <main class="container">
+    <main>
         {{ content }}
     </main>
 
@@ -290,7 +142,7 @@ layout: null
                     <ul>
                         <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
                         <li><a href="{{ '/glossary/' | relative_url }}">Glossary</a></li>
-                        <li><a href="{{ '/partners/' | relative_url }}">Partner Program</a></li>
+                        <li><a href="{{ '/partners/' | relative_url }}">For Lawyers (B2B)</a></li>
                     </ul>
                 </div>
 
@@ -300,7 +152,6 @@ layout: null
                         <li><a href="{{ '/best-relocation-services-spain/' | relative_url }}">Top 10 Reviews</a></li>
                         <li><a href="{{ '/roots-global-alternative/' | relative_url }}">vs. Roots Global</a></li>
                         <li><a href="{{ '/balcells-group-alternative/' | relative_url }}">vs. Balcells Group</a></li>
-                        <li><a href="{{ '/lexidy-alternative/' | relative_url }}">vs. Lexidy Law</a></li>
                     </ul>
                 </div>
 
@@ -322,62 +173,21 @@ layout: null
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Cache DOM elements
-            const els = {
-                menuToggle: document.querySelector('.menu-toggle'),
-                siteNav: document.querySelector('.site-nav'),
-                header: document.querySelector('.site-header'),
-                themeToggle: document.querySelector('.theme-toggle')
-            };
+            const menuToggle = document.querySelector('.menu-toggle');
+            const siteNav = document.querySelector('.site-nav');
+            const themeToggle = document.querySelector('.theme-toggle');
 
-            // 1. MOBILE MENU LOGIC
-            if (els.menuToggle && els.siteNav) {
-                const toggleMenu = (forceClose = false) => {
-                    const isActive = els.menuToggle.classList.contains('active');
-                    const shouldOpen = forceClose ? false : !isActive;
-                    
-                    els.menuToggle.classList.toggle('active', shouldOpen);
-                    els.siteNav.classList.toggle('active', shouldOpen);
-                    els.menuToggle.setAttribute('aria-expanded', shouldOpen);
-                    document.body.style.overflow = shouldOpen ? 'hidden' : ''; 
-                };
-
-                els.menuToggle.addEventListener('click', () => toggleMenu());
-
-                // Close when clicking outside
-                document.addEventListener('click', (e) => {
-                    if (els.siteNav.classList.contains('active') && 
-                        !e.target.closest('.site-nav') && 
-                        !e.target.closest('.menu-toggle')) {
-                        toggleMenu(true);
-                    }
-                });
-
-                // Close on Escape key
-                document.addEventListener('keydown', (e) => {
-                    if (e.key === 'Escape' && els.siteNav.classList.contains('active')) {
-                        toggleMenu(true);
-                    }
+            // Toggle Mobile Menu
+            if (menuToggle && siteNav) {
+                menuToggle.addEventListener('click', () => {
+                    menuToggle.classList.toggle('active');
+                    siteNav.classList.toggle('active');
                 });
             }
 
-            // 2. HIGH-PERFORMANCE SCROLL
-            if (els.header) {
-                let ticking = false;
-                window.addEventListener('scroll', () => {
-                    if (!ticking) {
-                        window.requestAnimationFrame(() => {
-                            els.header.classList.toggle('scrolled', window.scrollY > 20);
-                            ticking = false;
-                        });
-                        ticking = true;
-                    }
-                }, { passive: true });
-            }
-
-            // 3. THEME TOGGLE LOGIC
-            if (els.themeToggle && typeof THEMES !== 'undefined' && typeof applyTheme !== 'undefined') {
-                els.themeToggle.addEventListener('click', () => {
+            // Theme Toggle Logic
+            if (themeToggle && typeof THEMES !== 'undefined') {
+                themeToggle.addEventListener('click', () => {
                     const currentTheme = localStorage.getItem('theme-name') || THEMES[0].name;
                     const nextIndex = (THEMES.findIndex(t => t.name === currentTheme) + 1) % THEMES.length;
                     applyTheme(THEMES[nextIndex].name);
@@ -385,8 +195,6 @@ layout: null
             }
         });
     </script>
-    
-    <script src='https://www.noupe.com/embed/019b223563af77be9e781ab2a18a21a0741f.js'></script>
 
     <a href="https://wa.me/34682050945?text=Hi%20JURO%20Spain,%20I%20need%20help%20with..." 
        target="_blank" 
