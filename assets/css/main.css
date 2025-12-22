@@ -1051,3 +1051,211 @@ main li a:not(.btn):hover,
         padding: 15px 10px;
     }
 }
+/* ==========================================================
+   20. ADD-ONS (PARTNERS, DROPDOWN, & BUTTON VARIANTS)
+   ========================================================== */
+
+/* --- A. BUTTON VARIANTS (Fixes "White on White" issues) --- */
+
+/* White Button (Use on Dark Backgrounds or Red Hero sections) */
+.btn-white {
+    background-color: #ffffff !important;
+    color: var(--sp-red) !important;
+    border: 2px solid #ffffff !important;
+}
+.btn-white:hover {
+    background-color: #f0f0f0 !important;
+    color: #000000 !important;
+    transform: translateY(-2px);
+}
+
+/* Outline Button (Use for secondary actions on White Backgrounds) */
+.btn-outline {
+    background-color: transparent !important;
+    color: var(--sp-red) !important;
+    border: 2px solid var(--sp-red) !important;
+    box-shadow: none !important;
+}
+.btn-outline:hover {
+    background-color: var(--sp-red) !important;
+    color: #ffffff !important;
+}
+
+/* --- B. NAVIGATION DROPDOWN (Resources Menu) --- */
+
+.dropdown-container {
+    position: relative;
+    display: inline-block;
+    height: 100%;
+}
+
+.dropdown-trigger {
+    font-family: var(--sp-font-heavy);
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.dropdown-trigger:hover {
+    color: var(--sp-red);
+}
+
+.dropdown-trigger::after {
+    content: '▾';
+    font-size: 0.8em;
+    margin-top: -2px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--bg-secondary);
+    min-width: 220px;
+    box-shadow: var(--elev-2);
+    border-radius: var(--sp-radius);
+    border: 1px solid var(--border-light);
+    z-index: 1000;
+    padding: 0.5rem 0;
+    text-align: left;
+    margin-top: 5px;
+}
+
+/* Bridge to keep menu open */
+.dropdown-container:hover .dropdown-menu,
+.dropdown-menu:hover {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: block;
+    width: 100%;
+    border-radius: 0;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.dropdown-menu a:last-child {
+    border-bottom: none;
+}
+
+.dropdown-menu a::after {
+    display: none; /* Remove underline animation inside dropdown */
+}
+
+/* Mobile Dropdown Fixes */
+@media (max-width: 900px) {
+    .dropdown-container {
+        width: 100%;
+        display: block;
+    }
+    .dropdown-trigger {
+        width: 100%;
+        border-bottom: 1px solid var(--border-light);
+        padding: 1rem 1.25rem;
+        font-size: 1.1rem;
+    }
+    .dropdown-menu {
+        position: static;
+        display: block; /* Always open on mobile */
+        transform: none;
+        width: 100%;
+        box-shadow: none;
+        border: none;
+        background: rgba(0,0,0,0.02);
+        padding-left: 1rem;
+    }
+    .dropdown-trigger::after { display: none; }
+}
+
+
+/* --- C. PARTNERS PAGE LAYOUT (B2B Styling) --- */
+
+.partner-page-wrapper {
+    /* Scoped variables for the Partner Page only */
+    --p-navy: #1e293b;
+    --p-gold: var(--gold-color);
+}
+
+.partner-hero {
+    background-color: var(--p-navy);
+    color: white;
+    padding: 5rem 0;
+    text-align: center;
+    border-bottom: 5px solid var(--sp-red);
+}
+
+.partner-hero h1 {
+    color: white !important; /* Override global red H1 */
+    margin-bottom: 1rem;
+}
+
+.partner-hero p {
+    color: #94a3b8;
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Split Layout for "Problem vs Solution" */
+.partner-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+    margin: 5rem 0;
+}
+
+.partner-text h2 {
+    text-align: left;
+    border-bottom: none;
+}
+
+/* The "Team Structure" Box */
+.structure-box {
+    background: white;
+    border: 2px solid var(--border-light);
+    border-radius: var(--sp-radius);
+    padding: 2rem;
+    box-shadow: var(--elev-2);
+}
+
+.role-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+.badge-commercial { background: #dbeafe; color: #1e40af; }
+.badge-legal { background: #fef3c7; color: #92400e; }
+
+/* Apply Form Box */
+.apply-box {
+    background: #f8fafc;
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    padding: 3rem;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 4rem auto;
+}
+
+@media (max-width: 768px) {
+    .partner-split {
+        grid-template-columns: 1fr;
+    }
+    .partner-hero {
+        padding: 3rem 0;
+    }
+}
