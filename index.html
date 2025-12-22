@@ -6,10 +6,11 @@ permalink: /
 ---
 
 <style>
-    /* 1. HERO - CLEAN & PROFESSIONAL */
+    /* 1. HERO - THEME SYNCED */
     .hero-authority {
         padding: 6rem 0 4rem;
-        background: linear-gradient(to bottom, #fff 0%, #f1f5f9 100%);
+        /* Gradient now flips with the theme */
+        background: linear-gradient(to bottom, var(--bg-secondary) 0%, var(--bg-primary) 100%);
         border-top: 8px solid var(--sp-red); 
         position: relative;
     }
@@ -29,14 +30,14 @@ permalink: /
         font-size: 1.4rem;
         max-width: 800px;
         margin: 0 auto 3.5rem;
-        color: #475569;
+        color: var(--text-muted); /* Synced */
         font-family: 'Inter', sans-serif;
         line-height: 1.6;
     }
 
-    /* 2. SPANISH COLORS TRUST STRIP (FIXED DESKTOP SPLIT) */
+    /* 2. TRUST STRIP (REMAINS BRAND RED) */
     .trust-stripe-spanish {
-        background: #E30613; /* Official Spanish Red */
+        background: var(--sp-red); /* Always brand red */
         padding: 3.5rem 0;
         box-shadow: 0 15px 40px rgba(227, 6, 19, 0.25);
         color: white;
@@ -44,7 +45,7 @@ permalink: /
 
     .trust-stripe-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr; /* Force 3 columns on desktop */
+        grid-template-columns: 1fr 1fr 1fr;
         gap: 2rem;
         text-align: center;
     }
@@ -54,15 +55,13 @@ permalink: /
         border-right: 1px solid rgba(255, 255, 255, 0.2);
     }
 
-    .trust-stripe-grid .stat-box:last-child {
-        border-right: none;
-    }
+    .trust-stripe-grid .stat-box:last-child { border-right: none; }
 
     .trust-stripe-grid .stat-number {
         font-family: 'Oswald', sans-serif;
         font-size: 3.5rem !important;
         font-weight: 700;
-        color: #FFC400 !important; /* Official Spanish Gold */
+        color: var(--gold-color) !important; /* Brand Gold */
         line-height: 1;
         margin-bottom: 0.5rem;
     }
@@ -76,27 +75,21 @@ permalink: /
         color: #fff;
     }
 
-    /* 3. PROCESS STEPS */
+    /* 3. PROCESS STEPS - THEME SYNCED */
     .process-step {
-        background: white;
+        background: var(--bg-secondary); /* Flips with theme */
         padding: 3rem 2rem;
         border-radius: 16px;
         border: 1px solid var(--border-light);
-        transition: transform 0.3s ease;
+        transition: transform 0.3s ease, border-color 0.3s ease;
+        color: var(--text-primary);
     }
-    .process-step:hover { transform: translateY(-5px); }
+    .process-step:hover { transform: translateY(-5px); border-color: var(--sp-red); }
 
     /* MOBILE OVERRIDES */
     @media (max-width: 900px) {
-        .trust-stripe-grid {
-            grid-template-columns: 1fr; /* Stack on mobile */
-            gap: 3rem;
-        }
-        .trust-stripe-grid .stat-box {
-            border-right: none;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 2rem;
-        }
+        .trust-stripe-grid { grid-template-columns: 1fr; gap: 3rem; }
+        .trust-stripe-grid .stat-box { border-right: none; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 2rem; }
         .trust-stripe-grid .stat-box:last-child { border-bottom: none; }
         .seo-h1 { font-size: 2.5rem !important; }
     }
@@ -104,13 +97,13 @@ permalink: /
 
 <div class="hero-authority center">
     <div class="container">
-        <p style="font-weight: 800; color: #E30613; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem;">
+        <p style="font-weight: 800; color: var(--sp-red); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem;">
             Your Professional Link to Spanish Residency
         </p>
         
         <h1 class="seo-h1">
             English-Speaking <br> 
-            <span style="color: #E30613;">Relocation & Legal</span> <br>
+            <span style="color: var(--sp-red);">Relocation & Legal</span> <br>
             Services in Spain
         </h1>
         
@@ -118,17 +111,17 @@ permalink: /
             The modern alternative to traditional firms. We combine <b>Native English Support</b> with a <b>Vetted Network of Spanish Attorneys</b> to handle your Digital Nomad Visa, Property Purchase, and Tax Residency.
         </p>
 
-        <div style="max-width: 950px; margin: 0 auto 4rem; border-radius: 24px; border: 12px solid white; box-shadow: var(--elev-3); overflow: hidden;">
+        <div style="max-width: 950px; margin: 0 auto 4rem; border-radius: 24px; border: 12px solid var(--bg-secondary); box-shadow: var(--elev-3); overflow: hidden;">
             <div style="padding:56.25% 0 0 0;position:relative;">
                 <iframe src="https://www.youtube.com/embed/9WScByhEVms?autoplay=0&rel=0&modestbranding=1" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
 
         <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-            <a href="https://app.cal.eu/jurospain/30min" class="btn" style="padding: 1.4rem 3.5rem; font-size: 1.2rem; background: #E30613; border: none;">
+            <a href="https://app.cal.eu/jurospain/30min" class="btn" style="padding: 1.4rem 3.5rem; font-size: 1.2rem;">
                 Get a Free Consultation
             </a>
-            <a href="{{ '/pricing/' | relative_url }}" class="btn btn-outline" style="padding: 1.4rem 3.5rem; font-size: 1.2rem; border: 2px solid var(--text-primary);">
+            <a href="{{ '/pricing/' | relative_url }}" class="btn btn-outline" style="padding: 1.4rem 3.5rem; font-size: 1.2rem; border: 2px solid var(--text-primary); color: var(--text-primary) !important;">
                 View Fixed Pricing
             </a>
         </div>
@@ -155,45 +148,43 @@ permalink: /
 </section>
 
 <div class="container" style="padding: 7rem 0;">
-    <h2 class="center" style="border: none; font-size: 3rem; margin-bottom: 1rem;">Why Expats Choose JURO.</h2>
+    <h2 class="center" style="border: none; font-size: 3rem; margin-bottom: 1rem; color: var(--text-primary);">Why Expats Choose JURO.</h2>
     <p class="center" style="max-width: 700px; margin: 0 auto 5rem; font-size: 1.2rem; color: var(--text-muted);">
         We bridge the gap between complex Spanish law and your peace of mind.
     </p>
 
-    
-
     <div class="services-grid" style="margin-top: 4rem;">
         <div class="process-step">
-            <h3 style="color: #E30613;">Digital Nomad Visa (DNV)</h3>
+            <h3 style="color: var(--sp-red);">Digital Nomad Visa (DNV)</h3>
             <p>From initial eligibility audits to the <b>UGE-CE submission</b>, we manage the entire 3-year residency process for remote workers and freelancers.</p>
-            <a href="/pricing/" style="font-weight: 800; color: var(--text-primary);">Learn More →</a>
+            <a href="/pricing/" style="font-weight: 800; color: var(--text-primary); text-decoration: none;">Learn More →</a>
         </div>
 
         <div class="process-step">
-            <h3 style="color: #E30613;">Property Conveyancing</h3>
+            <h3 style="color: var(--sp-red);">Property Conveyancing</h3>
             <p>Don't risk your deposit. Our legal network performs exhaustive <b>Due Diligence</b> and debt checks to ensure your Spanish home is a safe investment.</p>
-            <a href="/pricing/" style="font-weight: 800; color: var(--text-primary);">Learn More →</a>
+            <a href="/pricing/" style="font-weight: 800; color: var(--text-primary); text-decoration: none;">Learn More →</a>
         </div>
 
         <div class="process-step">
-            <h3 style="color: #E30613;">Residency Essentials</h3>
+            <h3 style="color: var(--sp-red);">Residency Essentials</h3>
             <p>Fast-track <b>NIE Numbers</b>, Bank Accounts, and Digital Certificates. We clear the bureaucratic hurdles so you can start living on day one.</p>
-            <a href="/services/" style="font-weight: 800; color: var(--text-primary);">Learn More →</a>
+            <a href="/services/" style="font-weight: 800; color: var(--text-primary); text-decoration: none;">Learn More →</a>
         </div>
     </div>
 </div>
 
-<section style="background: #f8fafc; padding: 7rem 0; border-top: 1px solid var(--border-light);">
+<section style="background: var(--bg-primary); padding: 7rem 0; border-top: 1px solid var(--border-light);">
     <div class="container">
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;">
             <div>
-                <h2 style="border: none; margin-top: 0; font-size: 2.5rem;">Your Legal Network in Spain.</h2>
-                <p>Applying for residency is a high-stakes legal transition. Whether you are seeking a <b>Non-Lucrative Visa</b> or tax optimization under the <b>Beckham Law</b>, precision is mandatory.</p>
-                <p>JURO Spain provides the administrative backbone for your move. We partner with registered attorneys in <b>Madrid, Barcelona, Valencia, Málaga, and Alicante</b> to deliver law-firm results with a modern, digital-first experience.</p>
+                <h2 style="border: none; margin-top: 0; font-size: 2.5rem; color: var(--text-primary);">Your Legal Network in Spain.</h2>
+                <p style="color: var(--text-primary);">Applying for residency is a high-stakes legal transition. Whether you are seeking a <b>Non-Lucrative Visa</b> or tax optimization under the <b>Beckham Law</b>, precision is mandatory.</p>
+                <p style="color: var(--text-primary);">JURO Spain provides the administrative backbone for your move. We partner with registered attorneys in <b>Madrid, Barcelona, Valencia, Málaga, and Alicante</b> to deliver law-firm results with a modern, digital-first experience.</p>
             </div>
-            <div class="card" style="padding: 3rem; background: white; border-left: 10px solid #FFC400; box-shadow: var(--elev-2);">
-                <h4 style="margin-top: 0; font-size: 1.3rem;">Strategic Coverage:</h4>
-                <ul style="list-style: none; padding: 0; font-weight: 600; line-height: 2;">
+            <div class="card" style="padding: 3rem; background: var(--bg-secondary); border-left: 10px solid var(--gold-color); box-shadow: var(--elev-2);">
+                <h4 style="margin-top: 0; font-size: 1.3rem; color: var(--text-primary);">Strategic Coverage:</h4>
+                <ul style="list-style: none; padding: 0; font-weight: 600; line-height: 2; color: var(--text-primary);">
                     <li>✅ Registered Attorney Network</li>
                     <li>✅ Official UGE-CE Filings</li>
                     <li>✅ Sworn Translation Coordination</li>
@@ -205,19 +196,19 @@ permalink: /
 </section>
 
 <div class="container" style="padding: 7rem 0;">
-    <h2 class="center" style="border: none; margin-bottom: 4rem;">Essential Expat Guides</h2>
+    <h2 class="center" style="border: none; margin-bottom: 4rem; color: var(--text-primary);">Essential Expat Guides</h2>
     <div class="services-grid">
         {% for post in site.posts limit:3 %}
-        <a href="{{ post.url | relative_url }}" class="card" style="text-decoration: none; color: inherit; border-bottom: 5px solid #E30613; padding: 2.5rem;">
-            <span class="small" style="color: #E30613; font-weight: bold; text-transform: uppercase;">{{ post.date | date: "%B %d, %Y" }}</span>
+        <a href="{{ post.url | relative_url }}" class="card" style="text-decoration: none; color: inherit; border-bottom: 5px solid var(--sp-red); padding: 2.5rem; background: var(--bg-secondary);">
+            <span class="small" style="color: var(--sp-red); font-weight: bold; text-transform: uppercase;">{{ post.date | date: "%B %d, %Y" }}</span>
             <h3 style="margin: 1rem 0 0.5rem; border: none; color: var(--text-primary);">{{ post.title }}</h3>
-            <p class="small" style="margin-bottom: 0;">{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
+            <p class="small" style="margin-bottom: 0; color: var(--text-muted);">{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
         </a>
         {% endfor %}
     </div>
     
     <div class="center" style="margin-top: 6rem;">
-        <h2 style="border: none;">Ready to start your move?</h2>
+        <h2 style="border: none; color: var(--text-primary);">Ready to start your move?</h2>
         <p style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 3rem;">
             Book a call with a relocation specialist to discuss your case.
         </p>
