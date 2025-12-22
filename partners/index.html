@@ -1,171 +1,230 @@
 ---
 layout: default
-title: Colaboración para Abogados de Extranjería e Inmobiliario | JURO Spain
-description: Externalización de expedientes de extranjería. Reciba casos de Nómadas Digitales y No Lucrativas listos para su presentación inmediata en España.
+title: Colaboración B2B para Despachos | JURO Spain
+description: Externalización administrativa y comercial de expedientes de extranjería. Servicio exclusivo para abogados y gestores.
 permalink: /partners/
 lang: es
 ---
 
-<link rel="alternate" hreflang="es-es" href="https://jurospain.com/partners/" />
-
 <style>
-    /* Mantenemos tu "Magic Touch" CSS original pero refinamos la autoridad visual */
-    .partner-hero {
-        padding: 6rem 0 4rem;
-        background: var(--sp-red); 
+    /* 1. LUXURY B2B HERO */
+    .partner-hero-lux {
+        padding: 8rem 0 6rem;
+        background: var(--text-primary); 
         color: white;
-        border-bottom: 8px solid var(--gold-color);
         text-align: center;
+        position: relative;
     }
 
-    .partner-hero h1 {
+    .partner-hero-lux h1 {
+        font-family: 'Oswald', sans-serif !important;
+        font-size: clamp(2.5rem, 6vw, 4.5rem) !important;
         color: white !important;
-        font-size: clamp(2.2rem, 5vw, 3.8rem) !important;
-        letter-spacing: -1px !important;
-        margin-bottom: 1.5rem;
+        line-height: 1;
+        margin-bottom: 2rem;
+    }
+
+    .partner-hero-lux .sub-lead {
+        font-size: 1.4rem;
+        color: var(--gold-color);
         text-transform: uppercase;
-        font-family: 'Oswald', sans-serif;
+        letter-spacing: 4px;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        display: block;
     }
 
-    .partner-hero p {
-        color: rgba(255,255,255,0.9);
-        font-size: 1.3rem;
-        max-width: 850px;
-        margin: 0 auto;
-        font-weight: 300;
-        line-height: 1.6;
-    }
-
-    .workflow-container {
+    /* 2. THE LUX GRID */
+    .lux-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 0;
-        margin: 4rem 0;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2px;
+        background: var(--border-light);
+        border: 1px solid var(--border-light);
+        margin-top: -4rem;
         border-radius: 20px;
         overflow: hidden;
         box-shadow: var(--elev-3);
-        border: 1px solid var(--border-light);
     }
 
-    .workflow-side { padding: 4rem 3rem; }
-    .side-juro { background: var(--bg-primary); border-right: 1px solid var(--border-light); }
-    .side-partner { background: var(--bg-secondary); }
-
-    .workflow-list { list-style: none; padding: 0; margin-top: 2rem; }
-    .workflow-list li {
-        margin-bottom: 1.2rem;
-        display: flex;
-        align-items: flex-start;
-        gap: 12px;
-        font-weight: 500;
-        color: var(--text-primary);
-    }
-
-    .check-icon { color: #25d366; font-weight: bold; }
-
-    .b2b-card {
+    .lux-card {
         background: var(--bg-secondary);
-        color: var(--text-primary);
-        border-top: 5px solid var(--sp-red);
-        transition: all 0.3s ease;
+        padding: 4rem 3rem;
+        text-align: center;
     }
-    
-    .b2b-card:hover {
-        transform: translateY(-5px);
+
+    .lux-card h3 { font-size: 1.4rem; color: var(--text-primary); margin-bottom: 1.5rem; border: none; }
+    .lux-card p { color: var(--text-muted); font-size: 1rem; line-height: 1.7; }
+
+    /* 3. B2B FAQ - THE CLOSER */
+    .partner-faq-section {
+        padding: 8rem 0;
+        background: var(--bg-primary);
+    }
+
+    .partner-faq-item {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-light);
+        margin-bottom: 1.5rem;
+        border-radius: 15px;
+        transition: 0.3s;
+    }
+
+    .partner-faq-item[open] {
+        border-color: var(--sp-red);
         box-shadow: var(--elev-2);
-        border-top-color: var(--gold-color);
+    }
+
+    .partner-faq-item summary {
+        padding: 1.8rem;
+        font-weight: 700;
+        cursor: pointer;
+        color: var(--text-primary);
+        font-family: 'Oswald', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .partner-faq-item summary::after {
+        content: '+';
+        color: var(--sp-red);
+        font-size: 1.5rem;
+    }
+
+    .partner-faq-item[open] summary::after { content: '−'; }
+
+    .faq-answer {
+        padding: 0 1.8rem 1.8rem;
+        color: var(--text-muted);
+        line-height: 1.8;
+        font-size: 1.1rem;
+    }
+
+    /* DASHBOARD BOX */
+    .dashboard-box {
+        background: var(--bg-secondary);
+        border-radius: 30px;
+        padding: 4rem;
+        border: 1px solid var(--border-light);
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        gap: 4rem;
+        align-items: center;
+        margin-top: 4rem;
     }
 
     @media (max-width: 900px) {
-        .workflow-container { grid-template-columns: 1fr; }
-        .side-juro { border-right: none; border-bottom: 1px solid var(--border-light); }
+        .lux-grid { grid-template-columns: 1fr; margin-top: 2rem; }
+        .dashboard-box { grid-template-columns: 1fr; padding: 2rem; }
     }
 </style>
 
-<div class="partner-hero">
+<div class="partner-hero-lux">
     <div class="container">
-        <p style="text-transform: uppercase; letter-spacing: 3px; font-weight: 700; color: var(--gold-color); margin-bottom: 1rem;">
-            Externalización de Expedientes de Extranjería
-        </p>
-        <h1>Usted gestione el Derecho. <br> Nosotros la burocracia.</h1>
-        <p>
-            JURO Spain actúa como el <strong>departamento administrativo y comercial externo</strong> para despachos de abogados. Filtramos el ruido inicial, preparamos el expediente técnico y usted realiza la presentación jurídica.
+        <span class="sub-lead">Propuesta de Colaboración</span>
+        <h1>Rentabilidad <br> Sin Burocracia.</h1>
+        <p style="max-width: 750px; margin: 0 auto; opacity: 0.8; font-size: 1.25rem;">
+            JURO Spain es el brazo operativo para despachos de abogados que buscan eficiencia. Preparamos el 100% del expediente; usted solo aporta la firma jurídica.
         </p>
     </div>
 </div>
 
-<div class="container" style="padding: 6rem 0;">
-
-    <div class="center" style="margin-bottom: 4rem;">
-        <h2 style="border: none; font-size: 2.8rem; margin-bottom: 1rem; color: var(--text-primary);">Colaboración Estratégica para Despachos.</h2>
-        <p style="max-width: 700px; margin: 0 auto; color: var(--text-muted); font-size: 1.15rem;">
-            Maximice su rentabilidad eliminando las horas perdidas en consultas básicas y gestión de documentos de clientes internacionales.
-        </p>
-    </div>
-
-    <div class="workflow-container">
-        <div class="workflow-side side-juro">
-            <h3 style="color: var(--sp-red); text-transform: uppercase; font-size: 1rem; letter-spacing: 1px;">Soporte de JURO Spain</h3>
-            <ul class="workflow-list">
-                <li><span class="check-icon">✓</span> <strong>Captación Internacional:</strong> Clientes de USA, UK y Canadá.</li>
-                <li><span class="check-icon">✓</span> <strong>Cualificación:</strong> Consultas iniciales en inglés nativo.</li>
-                <li><span class="check-icon">✓</span> <strong>Auditoría Documental:</strong> Revisión de antecedentes, pasaportes y fondos.</li>
-                <li><span class="check-icon">✓</span> <strong>Gestión Logística:</strong> Coordinación de traducciones juradas y apostillas.</li>
-                <li><span class="check-icon">✓</span> <strong>Expediente Listo:</strong> Entrega de archivo preparado para plataforma Mercurio o UGE.</li>
-            </ul>
+<div class="container">
+    <div class="lux-grid">
+        <div class="lux-card">
+            <div style="font-size: 2.5rem; margin-bottom: 1rem;">📦</div>
+            <h3>Expedientes "Ready-to-File"</h3>
+            <p>Entregamos archivos PDF organizados, foliados y listos. Auditoría documental completa realizada antes de que llegue a su mesa.</p>
         </div>
-        <div class="workflow-side side-partner">
-            <h3 style="color: var(--text-muted); text-transform: uppercase; font-size: 1rem; letter-spacing: 1px;">Representación Jurídica</h3>
-            <ul class="workflow-list">
-                <li><span class="check-icon">⚖️</span> <strong>Validación:</strong> Revisión final de viabilidad jurídica.</li>
-                <li><span class="check-icon">⚖️</span> <strong>Presentación:</strong> Registro vía RedAbogacía o sede electrónica.</li>
-                <li><span class="check-icon">⚖️</span> <strong>Seguimiento:</strong> Contestación a requerimientos administrativos.</li>
-                <li><span class="check-icon">⚖️</span> <strong>Resolución:</strong> Notificación final al cliente.</li>
-            </ul>
+        <div class="lux-card">
+            <div style="font-size: 2.5rem; margin-bottom: 1rem;">🇬🇧</div>
+            <h3>Filtro de Idioma Nativo</h3>
+            <p>Filtramos todas las consultas en inglés. Su despacho recibe clientes ya cualificados con expectativas gestionadas.</p>
+        </div>
+        <div class="lux-card">
+            <div style="font-size: 2.5rem; margin-bottom: 1rem;">💶</div>
+            <h3>Honorarios Garantizados</h3>
+            <p>Liquidación inmediata tras la entrega. Sin facturas pendientes ni gestión comercial de su parte.</p>
         </div>
     </div>
+</div>
 
-    <div class="center" style="margin: 6rem 0 4rem;">
-        <h2 style="border: none; font-size: 2.5rem; color: var(--text-primary);">Especialistas en Ley de Emprendedores y Compraventa.</h2>
-    </div>
-
-    <div class="services-grid">
-        <div class="card b2b-card">
-            <h3>📈 Volumen Recurrente</h3>
-            <p>No enviamos "leads" fríos. Entregamos <strong>expedientes cerrados y pagados</strong>. Buscamos colaboradores capaces de absorber flujo mensual bajo tarifa fija preferente.</p>
+<div class="partner-faq-section">
+    <div class="container">
+        <div class="center" style="margin-bottom: 5rem;">
+            <h2 style="border: none; font-size: 3rem; color: var(--text-primary);">Resolviendo Dudas</h2>
+            <p style="font-size: 1.2rem; color: var(--text-muted);">Hablemos claro: por qué somos su mejor aliado estratégico, no su competencia.</p>
         </div>
-        <div class="card b2b-card" style="border-top-color: var(--gold-color);">
-            <h3>⚡ Eficiencia Operativa</h3>
-            <p>Recibirá un archivo digital organizado, con formularios rellenos y tasas pagadas. El tiempo de revisión del abogado es inferior a 15 minutos por caso.</p>
+
+        <div style="max-width: 900px; margin: 0 auto;">
+            
+            <details class="partner-faq-item">
+                <summary>¿JURO Spain es un despacho de abogados?</summary>
+                <div class="faq-answer">
+                    No. Somos una <strong>agencia de servicios de reubicación y gestión administrativa</strong>. No ejercemos el derecho ni ofrecemos asesoramiento legal directo. Nuestro papel es el de "Project Managers": captamos al cliente internacional, auditamos sus documentos y preparamos el dossier técnico. Necesitamos abogados colegiados para la validación y presentación final. Somos su departamento de operaciones externo.
+                </div>
+            </details>
+
+            <details class="partner-faq-item">
+                <summary>¿Me van a quitar mis clientes en el futuro?</summary>
+                <div class="faq-answer">
+                    Al contrario. Nosotros le traemos clientes que usted probablemente nunca habría captado debido a la barrera idiomática o la inversión en marketing internacional (USA, UK, Emiratos). Usted mantiene la relación jurídica con el cliente para la presentación. Nosotros somos "partners", no competidores. Nuestro éxito depende de que su despacho sea eficiente.
+                </div>
+            </details>
+
+            <details class="partner-faq-item">
+                <summary>¿Cuánto trabajo me va a quitar realmente?</summary>
+                <div class="faq-answer">
+                    Estimamos que <strong>reducimos su carga de trabajo en un 80%</strong>. Olvídese de explicar qué es un certificado de antecedentes penales o de perseguir traducciones juradas. Le entregamos un archivo digital perfecto. Su tiempo se limita a la revisión de viabilidad técnica y el clic de presentación en la plataforma (UGE/Mercurio).
+                </div>
+            </details>
+
+            <details class="partner-faq-item">
+                <summary>¿Es este un servicio gratuito para el despacho?</summary>
+                <div class="faq-answer">
+                    Totalmente. Usted no paga nada a JURO. Nosotros cobramos al cliente por la gestión del proyecto y la auditoría. Usted recibe sus honorarios profesionales íntegros por la parte jurídica. Es una vía de ingresos "neta" sin costes de adquisición de cliente ni costes de administración.
+                </div>
+            </details>
+
+            <details class="partner-faq-item">
+                <summary>¿Qué volumen de expedientes pueden enviarme?</summary>
+                <div class="faq-answer">
+                    Buscamos partners que puedan absorber un flujo recurrente de entre <strong>5 y 15 expedientes mensuales</strong>. Preferimos trabajar con pocos despachos muy ágiles que con muchos despachos lentos. Si su despacho tiene capacidad de respuesta rápida, le garantizamos volumen.
+                </div>
+            </details>
+
+            <details class="partner-faq-item">
+                <summary>¿Cómo se gestionan los pagos?</summary>
+                <div class="faq-answer">
+                    Somos extremadamente rigurosos con esto. Liquidamos sus honorarios profesionales de forma inmediata tras la validación del expediente o confirmación de envío. Queremos que el abogado esté motivado y centrado en lo que mejor sabe hacer: el Derecho.
+                </div>
+            </details>
+
         </div>
-        <div class="card b2b-card" style="border-top-color: var(--text-primary);">
-            <h3>💶 Transparencia Financiera</h3>
-            <p>Sin demoras. Los honorarios profesionales se liquidan en el momento de la entrega del expediente o tras la confirmación de presentación.</p>
+
+        <div class="dashboard-box">
+            <div>
+                <h2 style="border: none; margin-top: 0; font-size: 2.5rem;">Crezca con nosotros.</h2>
+                <p>Si su despacho tiene capacidad para procesar expedientes de Nómada Digital o No Lucrativa con agilidad, hablemos de tarifas.</p>
+                <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                    <span style="background: var(--sp-red); color: white; padding: 5px 15px; border-radius: 50px; font-size: 0.8rem; font-weight: 700;">DNV</span>
+                    <span style="background: var(--text-primary); color: white; padding: 5px 15px; border-radius: 50px; font-size: 0.8rem; font-weight: 700;">PAC</span>
+                    <span style="background: var(--gold-color); color: var(--text-primary); padding: 5px 15px; border-radius: 50px; font-size: 0.8rem; font-weight: 700;">LEY BECKHAM</span>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <p style="font-family: 'Oswald'; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px;">¿Hablamos?</p>
+                <a href="mailto:partners@jurospain.com" class="btn" style="width: 100%; margin-bottom: 1rem;">Solicitar Dossier B2B</a>
+                <a href="https://wa.me/34682050945" class="btn btn-outline" style="width: 100%; border-color: var(--text-primary); color: var(--text-primary) !important;">WhatsApp para Abogados</a>
+            </div>
         </div>
     </div>
+</div>
 
-    <div class="card" style="background: var(--bg-primary); border: none; margin-top: 5rem; padding: 3rem;">
-        <h3 style="color: var(--text-primary); margin-top: 0; border: none;">Expertos en Clientes Anglosajones para Abogados en España</h3>
-        <p style="font-size: 0.95rem; color: var(--text-muted);">
-            En JURO Spain facilitamos la <strong>externalización comercial</strong> para despachos modernos. Preparamos expedientes de alta complejidad: <strong>Visa de Nómada Digital (DNV)</strong>, <strong>Residencia No Lucrativa</strong>, <strong>Ley Beckham</strong> y <strong>Profesionales Altamente Cualificados (PAC)</strong>.
-        </p>
-        <p style="font-size: 0.95rem; color: var(--text-muted);">
-            Ampliamos nuestra red de confianza en <b>Madrid, Barcelona, Valencia, Alicante y Málaga</b> para procesos de extranjería y <strong>conveyancing inmobiliario</strong>.
-        </p>
-    </div>
-
-    <div class="center" style="margin-top: 6rem;">
-        <h2 style="color: var(--text-primary);">¿Desea colaborar con nosotros?</h2>
-        <p style="margin-bottom: 3rem; color: var(--text-muted);">Solicite nuestro dossier para despachos y envíenos su tabla de honorarios (Rate Card).</p>
-        
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-            <a href="mailto:partners@jurospain.com?subject=Propuesta%20de%20Colaboracion%20Juridica" class="btn" style="background: var(--sp-red); padding: 1.2rem 3rem;">
-                Enviar Dossier al Despacho
-            </a>
-            <a href="https://wa.me/34682050945?text=Hola,%20soy%20abogado%20y%20me%20gustaría%20colaborar%20con%20JURO" class="btn btn-outline" style="padding: 1.2rem 3rem; border: 2px solid var(--text-primary); color: var(--text-primary) !important;">
-                Contactar por WhatsApp
-            </a>
-        </div>
-    </div>
-
+<div style="padding: 4rem 0; text-align: center; opacity: 0.6;">
+    <p>JURO Spain — Partnering with legal professionals nationwide.</p>
 </div>
