@@ -2,121 +2,33 @@
 layout: null
 ---
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: 'en' }}">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>{{ page.title | default: site.title }} | {{ site.description }}</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ site.time | date: '%s' }}">
-    
-    <style>
-        /* --- PREMIUM THEME SWITCHER (GLASSMORPHISM) --- */
-        .theme-toggle {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 2px solid var(--gold-color);
-            width: 42px;
-            height: 42px;
-            border-radius: 10px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            padding: 0;
-            margin-left: 1rem;
-        }
-
-        .theme-toggle:hover {
-            transform: rotate(12deg) scale(1.1);
-            background: var(--gold-color);
-            border-color: var(--gold-color);
-        }
-
-        .theme-icon { font-size: 1.2rem; }
-
-        /* --- NAVIGATION REFINEMENTS --- */
-        .site-nav {
-            display: flex;
-            align-items: center;
-            gap: 1.8rem;
-        }
-
-        .site-nav a, .dropdown-trigger {
-            font-family: 'Oswald', sans-serif !important;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-size: 0.95rem;
-            color: var(--text-primary);
-            transition: color 0.2s ease;
-        }
-
-        .site-nav a:hover, .dropdown-trigger:hover {
-            color: var(--sp-red);
-        }
-
-        /* --- MOBILE MENU ANIMATION --- */
-        @media (max-width: 900px) {
-            .site-nav {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 300px;
-                height: 100vh;
-                background: var(--bg-secondary);
-                flex-direction: column;
-                padding: 6rem 2rem;
-                transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-                box-shadow: -10px 0 30px rgba(0,0,0,0.1);
-                z-index: 999;
-                align-items: flex-start;
-            }
-            .site-nav.active { right: 0; }
-        }
-    </style>
+    <title>{{ page.title }} | JURO Spain</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 
     <script>
         const THEMES = [
             {
-                name: 'spain-light',
+                name: 'original-light',
                 icon: '☀️',
                 '--bg-primary': '#fcfcfc',
                 '--bg-secondary': '#ffffff',
-                '--text-primary': '#1e293b',
-                '--text-muted': '#64748b', 
-                '--border-light': '#e2e8f0',
-                '--btn-text': '#ffffff',
-                '--gold-color': '#FFC400' 
+                '--text-primary': '#232323',
+                '--text-muted': '#64748b',
+                '--border-light': '#e2e8f0'
             },
             {
-                name: 'legal-slate',
-                icon: '🌙', 
-                '--bg-primary': '#0f172a',
-                '--bg-secondary': '#1e293b',
-                '--text-primary': '#f1f5f9',
-                '--text-muted': '#94a3b8',
-                '--border-light': '#334155',
-                '--btn-text': '#ffffff',
-                '--gold-color': '#fbbf24'
-            },
-            {
-                name: 'navy-trust',
-                icon: '⚖️', 
-                '--bg-primary': '#0a192f',
-                '--bg-secondary': '#112240',
-                '--text-primary': '#e6f1ff',
+                name: 'midnight-navy',
+                icon: '🌙',
+                '--bg-primary': '#0a192f',  /* Deep Navy */
+                '--bg-secondary': '#112240', /* Card Navy */
+                '--text-primary': '#e6f1ff', /* Off-white text */
                 '--text-muted': '#8892b0',
-                '--border-light': '#233554',
-                '--btn-text': '#0a192f',
-                '--gold-color': '#64ffda'
+                '--border-light': '#233554'
             }
         ];
 
@@ -124,163 +36,85 @@ layout: null
             const root = document.documentElement;
             const theme = THEMES.find(t => t.name === themeName);
             if (!theme) return;
-
-            for (const [key, value] of Object.entries(theme)) {
-                root.style.setProperty(key, value);
-            }
-            localStorage.setItem('theme-name', themeName);
+            Object.keys(theme).forEach(key => {
+                if (key.startsWith('--')) root.style.setProperty(key, theme[key]);
+            });
+            localStorage.setItem('juro-theme', themeName);
             const iconEl = document.querySelector('.theme-icon');
             if (iconEl) iconEl.textContent = theme.icon;
         }
 
         (function() {
-            const storedThemeName = localStorage.getItem('theme-name') || 'spain-light';
-            applyTheme(storedThemeName);
+            const stored = localStorage.getItem('juro-theme') || 'original-light';
+            applyTheme(stored);
         })();
     </script>
-    
-    {% seo %}
 </head>
 <body>
 
     <header class="site-header">
         <div class="container">
-            <a class="site-title" href="{{ '/' | relative_url }}">
-                J<span class="text-highlight">U</span>R<span class="text-highlight">O</span> Spain
-            </a>
+            <a class="site-title" href="/">J<span style="color:var(--gold-color)">U</span>R<span style="color:var(--gold-color)">O</span> Spain</a>
             
-            <div style="display: flex; align-items: center; gap: 0.5rem;">
-                <button class="theme-toggle" id="themeToggle" aria-label="Switch Theme">
-                    <span class="theme-icon">☀️</span>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <button id="themeToggle" style="background: rgba(128,128,128,0.1); border: 2px solid var(--gold-color); border-radius: 8px; width: 40px; height: 40px; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                    <span class="theme-icon" style="font-size: 1.2rem;">☀️</span>
                 </button>
-
-                <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+                <div class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></div>
             </div>
-            
+
             <nav class="site-nav" id="siteNav">
-                <a href="{{ '/services/' | relative_url }}">Services</a>
-                <a href="{{ '/pricing/' | relative_url }}">Pricing</a>
-                
+                <a href="/services/">Services</a>
+                <a href="/pricing/">Pricing</a>
                 <div class="dropdown-container">
-                    <div class="dropdown-trigger">Resources</div>
+                    <span class="dropdown-trigger">Resources</span>
                     <div class="dropdown-menu">
-                        <a href="{{ '/blog/' | relative_url }}">Blog & Guides</a>
-                        <a href="{{ '/glossary/' | relative_url }}">Expat Glossary</a>
-                        <a href="{{ '/about/' | relative_url }}">About JURO</a>
-                        <a href="{{ '/partners/' | relative_url }}" style="border-top: 1px solid var(--border-light); margin-top:5px; padding-top:12px; color: var(--text-muted);">🤝 Partner Program</a>
+                        <a href="/blog/">Blog & Guides</a>
+                        <a href="/glossary/">Glossary</a>
+                        <a href="/about/">About Us</a>
+                        <a href="/partners/">Partner Program</a>
                     </div>
                 </div>
-
-                <a href="{{ '/contact/' | relative_url }}">Contact</a>
-                
-                <a href="https://app.cal.eu/jurospain/30min" class="btn btn-hero-small" target="_blank" style="margin-left: 0.5rem; font-size: 0.85rem; padding: 0.6rem 1.2rem;">Book a Call</a>
+                <a href="/contact/" class="btn">Book Call</a>
             </nav>
         </div>
     </header>
 
-    <main>
-        {{ content }}
-    </main>
+    <main>{{ content }}</main>
 
     <footer class="site-footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3 style="color: white; margin-bottom: 1rem;">JURO Spain</h3>
-                    <p style="font-size: 0.9rem; line-height: 1.6;">The modern alternative to traditional law firms. English-speaking expertise for your move to Spain.</p>
+                    <h3>JURO Spain</h3>
+                    <p>English-Speaking Relocation Experts.</p>
                 </div>
-                
                 <div class="footer-section">
-                    <h3>Legal Services</h3>
+                    <h3>Links</h3>
                     <ul>
-                        <li><a href="{{ '/services/' | relative_url }}">Residency & Visas</a></li>
-                        <li><a href="{{ '/services/' | relative_url }}">Property Law</a></li>
-                        <li><a href="{{ '/services/' | relative_url }}">Tax (Beckham Law)</a></li>
+                        <li><a href="/services/">Services</a></li>
+                        <li><a href="/pricing/">Pricing</a></li>
+                        <li><a href="/partners/">Lawyers</a></li>
                     </ul>
                 </div>
-                
                 <div class="footer-section">
-                    <h3>Resources</h3>
-                    <ul>
-                        <li><a href="{{ '/blog/' | relative_url }}">Guides</a></li>
-                        <li><a href="{{ '/glossary/' | relative_url }}">Glossary</a></li>
-                        <li><a href="{{ '/partners/' | relative_url }}">For Lawyers</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Company</h3>
-                    <ul>
-                        <li><a href="{{ '/about/' | relative_url }}">About Us</a></li>
-                        <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
-                        <li><a href="{{ '/privacy/' | relative_url }}">Privacy</a></li>
-                    </ul>
+                    <h3>Contact</h3>
+                    <p>hello@jurospain.com</p>
                 </div>
             </div>
-            
-            <div class="footer-bottom">
-                &copy; {{ site.time | date: "%Y" }} JURO Spain. All rights reserved. <span class="small">JURO is a relocation agency, not a law firm.</span>
-            </div>
+            <div class="center small" style="margin-top: 3rem; opacity: 0.6;">© 2026 JURO Spain.</div>
         </div>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.getElementById('menuToggle');
-            const siteNav = document.getElementById('siteNav');
-            const themeToggle = document.getElementById('themeToggle');
-
-            // Mobile Menu
-            menuToggle.addEventListener('click', () => {
-                menuToggle.classList.toggle('active');
-                siteNav.classList.toggle('active');
-                document.body.style.overflow = siteNav.classList.contains('active') ? 'hidden' : '';
-            });
-
-            // Theme Switcher
-            themeToggle.addEventListener('click', () => {
-                const currentTheme = localStorage.getItem('theme-name') || THEMES[0].name;
-                const nextIndex = (THEMES.findIndex(t => t.name === currentTheme) + 1) % THEMES.length;
-                applyTheme(THEMES[nextIndex].name);
-            });
+        document.getElementById('menuToggle').addEventListener('click', () => {
+            document.getElementById('siteNav').classList.toggle('active');
+        });
+        document.getElementById('themeToggle').addEventListener('click', () => {
+            const current = localStorage.getItem('juro-theme') || 'original-light';
+            const next = current === 'original-light' ? 'midnight-navy' : 'original-light';
+            applyTheme(next);
         });
     </script>
-
-    <a href="https://wa.me/34682050945?text=Hi%20JURO%20Spain,%20I%20need%20help%20with..." 
-       target="_blank" 
-       class="whatsapp-float">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
-    </a>
-
-    <style>
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 25px;
-            left: 25px; 
-            background-color: #25d366;
-            border-radius: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 2px 2px 15px rgba(0,0,0,0.2);
-            z-index: 9999;
-            transition: all 0.3s ease;
-            animation: pulse-green 2s infinite;
-        }
-        .whatsapp-float:hover { transform: scale(1.1); background-color: #128c7e; }
-        .whatsapp-float img { width: 32px; height: 32px; }
-        @keyframes pulse-green {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
-    </style>
-
 </body>
 </html>
