@@ -1,174 +1,233 @@
 ---
 layout: default
-title: Contact JURO Spain | Book Your Consultation
-description: Get in touch with JURO Spain for Digital Nomad Visa support, property conveyancing, and relocation project management.
+title: Contact JURO Spain | Concierge Booking
+description: Speak to a relocation specialist. Instant booking for Digital Nomad Visa and Property Conveyancing inquiries.
 permalink: /contact/
 ---
 
+<script src="//cal.com/embed.js"></script>
+
 <style>
-    /* 1. CONTACT HERO */
-    .contact-hero {
+    /* 1. HERO SECTION */
+    .concierge-hero {
         padding: 6rem 0 4rem;
-        background: linear-gradient(to bottom, var(--bg-secondary) 0%, var(--bg-primary) 100%);
-        border-top: 8px solid var(--sp-red);
         text-align: center;
+        background: radial-gradient(circle at center, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+        border-bottom: 1px solid var(--border-light);
     }
 
-    /* 2. CONTACT LAYOUT */
-    .contact-grid {
-        display: grid;
-        grid-template-columns: 1fr 1.2fr;
-        gap: 5rem;
-        margin: 4rem 0 8rem;
-        align-items: start;
-    }
-
-    /* 3. INFO SIDE */
-    .contact-info-card {
+    /* 2. THE CONCIERGE CARD (The "Ferrari" Engine) */
+    .concierge-wrapper {
+        max-width: 900px;
+        margin: -3rem auto 8rem; /* Overlaps hero */
         background: var(--bg-secondary);
-        padding: 3rem;
         border-radius: 24px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.15); /* Deep shadow */
         border: 1px solid var(--border-light);
-        box-shadow: var(--elev-2);
+        overflow: hidden;
+        position: relative;
+        z-index: 10;
+        display: grid;
+        grid-template-columns: 1fr 1.5fr; /* Info Left, Form Right */
+        min-height: 600px;
     }
 
-    .contact-method {
+    /* LEFT SIDE: THE "AGENT" */
+    .concierge-sidebar {
+        background: var(--text-primary); /* Navy/Black */
+        color: white;
+        padding: 3rem;
         display: flex;
-        align-items: center;
-        gap: 20px;
-        margin-bottom: 2.5rem;
-        text-decoration: none;
-        transition: 0.3s;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        overflow: hidden;
     }
 
-    .contact-method:hover { transform: translateX(10px); }
+    /* Animated background noise for sidebar */
+    .concierge-sidebar::before {
+        content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+        background-size: 30px 30px; opacity: 0.3;
+    }
 
-    .icon-box {
+    .sidebar-content { position: relative; z-index: 2; }
+
+    .agent-avatar {
         width: 60px; height: 60px;
-        background: var(--bg-primary);
-        border-radius: 12px;
+        background: var(--sp-red);
+        border-radius: 50%;
         display: flex; align-items: center; justify-content: center;
         font-size: 1.5rem;
-        border: 1px solid var(--border-light);
+        border: 2px solid var(--gold-color);
+        margin-bottom: 1.5rem;
     }
 
-    /* 4. FORM SIDE (Theme-Aware) */
-    .contact-form-wrapper {
-        background: var(--bg-secondary);
-        padding: 3.5rem;
-        border-radius: 24px;
-        border: 1px solid var(--border-light);
-        box-shadow: var(--elev-3);
+    /* RIGHT SIDE: THE SMART FORM */
+    .concierge-form-area {
+        padding: 3rem;
+        position: relative;
     }
 
-    .form-group { margin-bottom: 1.5rem; }
-
-    label {
-        display: block;
-        font-family: 'Oswald', sans-serif;
-        text-transform: uppercase;
-        font-size: 0.85rem;
-        letter-spacing: 1px;
-        margin-bottom: 8px;
-        color: var(--text-primary);
-    }
-
-    input, textarea, select {
+    /* FORM STYLING */
+    .smart-input {
         width: 100%;
-        padding: 1rem;
+        padding: 1.2rem;
+        margin-bottom: 1.5rem;
         background: var(--bg-primary);
         border: 1px solid var(--border-light);
-        border-radius: 10px;
+        border-radius: 12px;
+        font-size: 1rem;
         color: var(--text-primary);
-        font-family: 'Inter', sans-serif;
         transition: 0.3s;
+        font-family: 'Inter', sans-serif;
     }
-
-    input:focus, textarea:focus {
-        outline: none;
+    .smart-input:focus {
         border-color: var(--sp-red);
         box-shadow: 0 0 0 4px rgba(227, 6, 19, 0.1);
+        outline: none;
     }
 
+    .smart-label {
+        font-family: 'Oswald', sans-serif;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+        color: var(--text-muted);
+        margin-bottom: 0.5rem;
+        display: block;
+    }
+
+    /* THE MAGIC SWITCHER */
+    .form-step { display: block; animation: fadeIn 0.5s ease; }
+    .form-step.hidden { display: none; }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* CALENDAR CONTAINER */
+    #calendar-container {
+        width: 100%;
+        height: 100%;
+        min-height: 500px;
+        border: none;
+        border-radius: 12px;
+        display: none; /* Hidden by default */
+    }
+
+    /* MOBILE OVERRIDES */
     @media (max-width: 900px) {
-        .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
-        .contact-form-wrapper { padding: 2rem; }
+        .concierge-wrapper { grid-template-columns: 1fr; margin-top: 2rem; }
+        .concierge-sidebar { padding: 2rem; flex-direction: row; align-items: center; gap: 1rem; }
+        .agent-avatar { margin-bottom: 0; width: 50px; height: 50px; }
+        .concierge-form-area { padding: 2rem; }
     }
 </style>
 
-<div class="contact-hero">
+<div class="concierge-hero">
     <div class="container">
-        <h1 style="font-family: 'Oswald'; font-size: clamp(2.5rem, 6vw, 4rem); text-transform: uppercase; color: var(--sp-red); margin: 0;">Let's Start Your Journey</h1>
-        <p style="font-size: 1.25rem; color: var(--text-muted); max-width: 600px; margin: 1rem auto;">
-            Choose your preferred way to connect. Our specialists are ready to review your case.
+        <h1 style="font-family: 'Oswald'; font-size: 3.5rem; color: var(--sp-red); text-transform: uppercase;">
+            Talk to an Expert
+        </h1>
+        <p style="color: var(--text-muted); font-size: 1.2rem;">
+            Tell us about your plans. Our system will route you to the right specialist immediately.
         </p>
     </div>
 </div>
 
 <div class="container">
-    <div class="contact-grid">
+    <div class="concierge-wrapper">
         
-        <div>
-            <div class="contact-info-card">
-                <h2 style="border: none; margin-top: 0; font-family: 'Oswald'; font-size: 2rem;">Fast Contact</h2>
-                <p style="color: var(--text-muted); margin-bottom: 3rem;">Average response time: &lt; 4 hours.</p>
-
-                <a href="https://wa.me/34682050945" class="contact-method">
-                    <div class="icon-box">🟢</div>
-                    <div>
-                        <span style="display: block; font-weight: 700; color: var(--text-primary);">WhatsApp Messenger</span>
-                        <span style="color: var(--text-muted); font-size: 0.9rem;">Instant chat with a specialist</span>
-                    </div>
-                </a>
-
-                <a href="mailto:hello@jurospain.com" class="contact-method">
-                    <div class="icon-box">✉️</div>
-                    <div>
-                        <span style="display: block; font-weight: 700; color: var(--text-primary);">Email Support</span>
-                        <span style="color: var(--text-muted); font-size: 0.9rem;">hello@jurospain.com</span>
-                    </div>
-                </a>
-
-                <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border-light);">
-                    <h4 style="font-family: 'Oswald'; text-transform: uppercase; letter-spacing: 1px;">Office Hours</h4>
-                    <p style="color: var(--text-muted);">Mon — Fri: 09:00 - 18:00 (CET)</p>
-                    <p style="color: var(--text-muted);">Serving clients globally across all time zones.</p>
+        <div class="concierge-sidebar">
+            <div class="sidebar-content">
+                <div class="agent-avatar">J</div>
+                <h3 style="color: white; margin: 0; font-family: 'Oswald';">JURO Concierge</h3>
+                <p style="color: #94a3b8; font-size: 0.9rem; margin-top: 0.5rem;">Online Now</p>
+            </div>
+            
+            <div class="sidebar-content" style="margin-top: auto;">
+                <div style="margin-bottom: 2rem;">
+                    <strong style="display: block; color: var(--gold-color); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;">Fast Track</strong>
+                    <span style="display: block; font-size: 0.9rem; color: #cbd5e1;">Booking DNV Audit...</span>
+                </div>
+                <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 10px;">
+                    <p style="margin: 0; font-size: 0.85rem; color: white;">"The fastest response I've had in Spain. Booked a call in 30 seconds."</p>
+                    <p style="margin: 0.5rem 0 0; font-size: 0.75rem; color: #94a3b8;">- Sarah Jenkins, NYC</p>
                 </div>
             </div>
         </div>
 
-        <div class="contact-form-wrapper">
-            <h2 style="border: none; margin-top: 0; font-family: 'Oswald'; font-size: 2rem;">Send a Message</h2>
+        <div class="concierge-form-area">
             
-            <form action="https://formspree.io/f/your-id" method="POST"> <div class="form-group">
-                    <label>Your Full Name</label>
-                    <input type="text" name="name" placeholder="John Doe" required>
-                </div>
+            <div id="step-1" class="form-step">
+                <h2 style="border: none; margin-top: 0; font-size: 1.8rem; color: var(--text-primary);">How can we help?</h2>
+                
+                <label class="smart-label">I am interested in...</label>
+                <select id="service-select" class="smart-input" onchange="checkService()">
+                    <option value="" disabled selected>Select an option...</option>
+                    <option value="dnv">Digital Nomad Visa (Audit)</option>
+                    <option value="property">Buying Property / Conveyancing</option>
+                    <option value="beckham">Beckham Law Tax Regime</option>
+                    <option value="other">General Inquiry / Partnership</option>
+                </select>
 
-                <div class="form-group">
-                    <label>Email Address</label>
-                    <input type="email" name="email" placeholder="john@example.com" required>
+                <div id="loading-spinner" style="display:none; text-align: center; color: var(--sp-red); font-weight: bold; margin-top: 2rem;">
+                    Analyzing eligibility...
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <label>Service Required</label>
-                    <select name="service">
-                        <option>Digital Nomad Visa</option>
-                        <option>Non-Lucrative Visa</option>
-                        <option>Property Conveyancing</option>
-                        <option>Beckham Law / Tax</option>
-                        <option>Other / General Inquiry</option>
-                    </select>
+            <div id="step-vip" class="form-step hidden">
+                <h2 style="border: none; margin-top: 0; font-size: 1.8rem; color: var(--text-primary);">You qualify for a <span style="color: var(--sp-red);">Priority Call</span>.</h2>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">Based on your selection, we can skip the email tag. Please select a time on our calendar below for your Case Audit.</p>
+                
+                <div style="width:100%; height:500px; overflow:scroll;">
+                    <iframe src="https://app.cal.eu/jurospain/30min?embed=true" frameborder="0" style="width: 100%; height: 100%;"></iframe>
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <label>Your Message</label>
-                    <textarea name="message" rows="5" placeholder="Tell us about your plans..." required></textarea>
-                </div>
+            <div id="step-standard" class="form-step hidden">
+                <h2 style="border: none; margin-top: 0; font-size: 1.8rem; color: var(--text-primary);">Send us a message.</h2>
+                <p style="color: var(--text-muted);">Tell us a bit more and our team will email you back shortly.</p>
+                
+                <form action="https://formspree.io/f/YOUR_ID_HERE" method="POST">
+                    <label class="smart-label">Your Email</label>
+                    <input type="email" name="email" class="smart-input" placeholder="john@example.com" required>
+                    
+                    <label class="smart-label">Message</label>
+                    <textarea name="message" class="smart-input" rows="4" placeholder="How can we help?" required></textarea>
+                    
+                    <button type="submit" class="btn" style="width: 100%;">Send Request</button>
+                </form>
+            </div>
 
-                <button type="submit" class="btn" style="width: 100%; padding: 1.2rem; font-size: 1rem;">Send Inquiry</button>
-            </form>
         </div>
-
     </div>
 </div>
+
+<script>
+    function checkService() {
+        const select = document.getElementById('service-select');
+        const value = select.value;
+        const spinner = document.getElementById('loading-spinner');
+        const step1 = document.getElementById('step-1');
+        const stepVIP = document.getElementById('step-vip');
+        const stepStandard = document.getElementById('step-standard');
+
+        // Show "Thinking" animation
+        spinner.style.display = 'block';
+        
+        // 1.5 second artificial delay to feel like "AI Processing"
+        setTimeout(() => {
+            step1.style.display = 'none'; // Hide Q1
+            
+            if (value === 'dnv' || value === 'property' || value === 'beckham') {
+                // HIGH VALUE -> SHOW CALENDAR
+                stepVIP.classList.remove('hidden');
+                stepVIP.style.display = 'block';
+            } else {
+                // GENERAL -> SHOW EMAIL FORM
+                stepStandard.classList.remove('hidden');
+                stepStandard.style.display = 'block';
+            }
+        }, 800);
+    }
+</script>
