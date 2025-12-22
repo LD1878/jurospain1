@@ -195,7 +195,7 @@ layout: null
                 themeToggle: document.querySelector('.theme-toggle')
             };
 
-            // 1. MOBILE MENU LOGIC (Robust & Accessible)
+            // 1. MOBILE MENU LOGIC
             if (els.menuToggle && els.siteNav) {
                 const toggleMenu = (forceClose = false) => {
                     const isActive = els.menuToggle.classList.contains('active');
@@ -226,7 +226,7 @@ layout: null
                 });
             }
 
-            // 2. HIGH-PERFORMANCE SCROLL (60fps Optimized)
+            // 2. HIGH-PERFORMANCE SCROLL
             if (els.header) {
                 let ticking = false;
                 window.addEventListener('scroll', () => {
@@ -266,7 +266,7 @@ layout: null
             width: 60px;
             height: 60px;
             bottom: 25px;
-            right: 25px;
+            left: 25px; /* Sits on the LEFT to avoid Chatbot conflict */
             background-color: #25d366;
             color: #FFF;
             border-radius: 50px;
