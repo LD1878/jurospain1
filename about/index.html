@@ -1,221 +1,165 @@
 ---
 layout: default
-title: About JURO Spain | Premium Relocation & Legal Concierge
-description: Founded by expats for expats. We combine modern project management with a vetted network of Spanish lawyers to make your move to Spain effortless.
+title: About JURO Spain | Your Legal Concierge in Spain
+description: Learn about the mission behind JURO Spain. We provide English-speaking project management for Spanish residency and property law.
 permalink: /about/
 ---
 
 <style>
-    /* 1. ABOUT HERO - THEME SYNCED */
+    /* 1. ABOUT HERO */
     .about-hero {
-        padding: 6rem 0 4rem;
-        /* Gradient flips based on theme variables */
-        background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-        border-top: 8px solid var(--sp-red);
-        position: relative;
+        padding: 7rem 0 5rem;
+        background: var(--bg-secondary);
+        border-bottom: 1px solid var(--border-light);
+        text-align: center;
     }
 
     .about-h1 {
         font-family: 'Oswald', sans-serif !important;
-        font-size: clamp(2.2rem, 5vw, 4rem) !important;
-        line-height: 1.1;
-        margin-bottom: 2rem;
+        font-size: clamp(2.5rem, 6vw, 4.5rem) !important;
+        color: var(--sp-red);
         text-transform: uppercase;
-        color: var(--text-primary);
+        margin-bottom: 1.5rem;
     }
 
-    /* 2. THE STORY SECTION - THEME SYNCED */
-    .story-card {
-        background: var(--bg-secondary); /* Replaced white */
-        border-radius: 24px;
-        padding: 4rem;
-        box-shadow: var(--elev-3);
-        margin-top: -4rem;
-        position: relative;
-        z-index: 10;
-        border: 1px solid var(--border-light);
-        color: var(--text-primary);
-    }
-
-    .accent-quote {
-        font-size: 1.5rem;
-        font-weight: 300;
-        font-style: italic;
-        color: var(--text-muted); /* Replaced hardcoded gray */
-        border-left: 5px solid var(--gold-color);
-        padding-left: 2rem;
-        margin: 2.5rem 0;
-    }
-
-    /* 3. THE HYBRID MODEL (UX SPLIT) - THEME SYNCED */
-    .hybrid-grid {
+    /* 2. THE STORY SECTION */
+    .story-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 3rem;
-        margin: 5rem 0;
-    }
-
-    .model-box {
-        padding: 3rem;
-        border-radius: 20px;
-        height: 100%;
-        transition: all 0.3s ease;
-    }
-
-    /* JURO BOX: Inverts colors for contrast */
-    .model-box.juro {
-        background: var(--text-primary);
-        color: var(--bg-primary);
-    }
-
-    /* LEGAL BOX: Uses standard theme card style */
-    .model-box.legal {
-        background: var(--bg-secondary);
-        border: 2px solid var(--sp-red);
-        color: var(--text-primary);
-    }
-
-    /* 4. FAQ REFINEMENT - THEME SYNCED */
-    .about-faq {
-        margin-bottom: 1rem;
-        border: 1px solid var(--border-light);
-        border-radius: 12px;
-        overflow: hidden;
-        background: var(--bg-secondary);
-    }
-
-    .about-faq summary {
-        padding: 1.5rem;
-        font-weight: 700;
-        background: var(--bg-primary); /* Subtle contrast */
-        cursor: pointer;
-        list-style: none;
-        display: flex;
-        justify-content: space-between;
+        gap: 5rem;
         align-items: center;
-        color: var(--text-primary);
+        margin: 6rem 0;
     }
 
-    .about-faq summary::after { content: '+'; font-size: 1.5rem; color: var(--sp-red); }
-    .about-faq[open] summary::after { content: '−'; }
+    .mission-statement {
+        font-size: 1.4rem;
+        line-height: 1.6;
+        color: var(--text-primary);
+        font-family: 'Oswald', sans-serif;
+        border-left: 5px solid var(--gold-color);
+        padding-left: 2rem;
+        margin: 3rem 0;
+    }
 
-    .about-faq p { padding: 1.5rem; margin: 0; background: var(--bg-secondary); color: var(--text-muted); }
+    /* 3. CORE VALUES - THEME SYNCED CARDS */
+    .values-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-bottom: 6rem;
+    }
 
-    /* MOBILE FIXES */
-    @media (max-width: 800px) {
-        .hybrid-grid { grid-template-columns: 1fr; }
-        .story-card { padding: 2rem; margin-top: 0; }
-        .about-h1 { font-size: 2.2rem !important; }
+    .value-card {
+        background: var(--bg-secondary);
+        padding: 3rem 2rem;
+        border-radius: 20px;
+        border: 1px solid var(--border-light);
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .value-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--sp-red);
+    }
+
+    .value-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        display: block;
+    }
+
+    /* 4. THE "NOT A LAW FIRM" DISCLAIMER (Transparent Authority) */
+    .legal-disclaimer-box {
+        background: var(--bg-primary);
+        border: 2px dashed var(--border-light);
+        padding: 3rem;
+        border-radius: 24px;
+        margin: 6rem 0;
+    }
+
+    @media (max-width: 900px) {
+        .story-grid { grid-template-columns: 1fr; gap: 3rem; }
+        .about-hero { padding: 4rem 1.5rem; }
     }
 </style>
 
-<div class="about-hero center">
+<div class="about-hero">
     <div class="container">
-        <p style="text-transform: uppercase; letter-spacing: 3px; font-weight: 700; color: var(--sp-red); margin-bottom: 1rem;">
-            The JURO Spain Story
+        <p style="font-weight: 800; color: var(--gold-color); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem;">
+            Relocation Without Friction
         </p>
-        <h1 class="about-h1">We Built the Service <br> We Wish We Had.</h1>
-        <p style="font-size: 1.3rem; max-width: 800px; margin: 0 auto 5rem; color: var(--text-muted);">
-            Moving to Spain should be the adventure of a lifetime, not a paperwork nightmare. <br><br>
-            We are the bridge between your relocation goals and Spanish bureaucracy.
+        <h1 class="about-h1">The JURO Mission</h1>
+        <p style="font-size: 1.3rem; max-width: 800px; margin: 0 auto; color: var(--text-muted);">
+            Bridging the gap between international professionals and the Spanish administrative system.
         </p>
     </div>
 </div>
 
 <div class="container">
-    
-    <div class="story-card">
-        <h2 style="border: none; margin-top: 0; font-size: 2.5rem; color: var(--text-primary);">Born from Frustration.</h2>
-        <p style="font-size: 1.2rem; line-height: 1.8;">
-            JURO Spain was launched after our founding team experienced the chaos of Spanish immigration firsthand. We saw the inconsistent information from government offices, the lawyers who wouldn't reply for weeks, and the hidden "Gestoría" fees that appeared at the last minute.
-        </p>
-        
-        <div class="accent-quote">
-            "Great legal outcomes require great project management. Traditional law firms focus on the code; we focus on the client."
+
+    <div class="story-grid">
+        <div>
+            <h2 style="border: none; margin-top: 0; font-size: 2.5rem; color: var(--text-primary);">Why we exist.</h2>
+            <p>Spain is a world-class destination, but its administrative system (Extranjería) was not built for the digital age. Most expats find themselves stuck between slow-moving traditional law firms and unreliable DIY advice.</p>
+            <p><strong>JURO Spain was founded to solve this.</strong> We combined modern project management with a vetted network of the country’s best legal minds to create a "Concierge" experience.</p>
+            
+            <div class="mission-statement">
+                We ensure that your move to Spain is defined by your future lifestyle, not your paperwork.
+            </div>
         </div>
-
-        <p style="font-size: 1.1rem; color: var(--text-muted);">
-            We realized that while Spanish attorneys are experts at the law, the <b>logistics</b> of moving—sworn translations, bank accounts, TIE appointments, and constant communication—often fall through the cracks. We built JURO to fix the process.
-        </p>
-    </div>
-
-    <div style="margin-top: 7rem;">
-        <h2 class="center" style="border: none; font-size: 3rem; margin-bottom: 1rem; color: var(--text-primary);">The Hybrid Model</h2>
-        <p class="center" style="max-width: 700px; margin: 0 auto; color: var(--text-muted); font-size: 1.15rem;">
-            We combine the white-glove service of a concierge with the safety of regulated legal professionals.
-        </p>
-
-        <div class="hybrid-grid">
-            <div class="model-box juro">
-                <h3 style="color: var(--gold-color); font-size: 1.5rem; text-transform: uppercase; letter-spacing: 1px;">1. JURO Concierge</h3>
-                <p style="opacity: 0.9; margin-bottom: 2rem;">As your primary point of contact, we handle the friction of your relocation.</p>
-                <ul style="list-style: none; padding: 0; line-height: 2;">
-                    <li>✅ Multilingual Project Management</li>
-                    <li>✅ Document Audit & File Preparation</li>
-                    <li>✅ Sworn Translation Coordination</li>
-                    <li>✅ Bank & Social Security Setup</li>
-                    <li>✅ Appointment Logistics (TIE/NIE)</li>
-                </ul>
+        <div style="position: relative;">
+            <div style="background: var(--sp-red); width: 100%; height: 400px; border-radius: 30px; display: flex; align-items: center; justify-content: center; color: white; font-family: 'Oswald'; font-size: 5rem; opacity: 0.1;">
+                JURO
             </div>
-            <div class="model-box legal">
-                <h3 style="color: var(--sp-red); font-size: 1.5rem; text-transform: uppercase; letter-spacing: 1px;">2. Legal Network</h3>
-                <p style="color: var(--text-muted); margin-bottom: 2rem;">Our vetted network of registered Spanish attorneys handles the formal representation.</p>
-                <ul style="list-style: none; padding: 0; line-height: 2; color: var(--text-primary); font-weight: 500;">
-                    <li>⚖️ Official Legal Reviews</li>
-                    <li>⚖️ UGE-CE & Immigration Filings</li>
-                    <li>⚖️ Power of Attorney (POA)</li>
-                    <li>⚖️ Notary Representation</li>
-                    <li>⚖️ Administrative Appeals</li>
-                </ul>
-            </div>
+            <div style="position: absolute; top: 20px; left: 20px; right: 20px; bottom: 20px; border: 2px solid var(--gold-color); border-radius: 20px;"></div>
         </div>
     </div>
 
-    <section style="padding: 5rem 0;">
-        <h2 class="center" style="border: none; font-size: 2.5rem; margin-bottom: 4rem; color: var(--text-primary);">Common Questions</h2>
-        
-        <details class="about-faq">
-            <summary>Are you a law firm?</summary>
-            <p>JURO Spain is a legal concierge and relocation consultancy. For reserved legal activities (such as formal representation in court or specialized legal opinions), we work exclusively with our vetted network of registered Spanish attorneys (Abogados). This ensures you get dedicated support and regulated legal safety.</p>
-        </details>
+    <h2 class="center" style="border: none; margin-bottom: 4rem; color: var(--text-primary);">Our Core Principles</h2>
 
-        <details class="about-faq">
-            <summary>Why use JURO instead of a direct lawyer?</summary>
-            <p>Speed and communication. Most lawyers are busy in court and don't have the resources to guide you through everyday logistics like bank accounts or finding a translator. We provide a 100% English-speaking interface and project manage the lawyer for you, ensuring your file is processed as fast as possible.</p>
-        </details>
-
-        <details class="about-faq">
-            <summary>How do you verify your partner lawyers?</summary>
-            <p>Every attorney in our network is fully insured, registered with their local <em>Colegio de Abogados</em>, and has a proven track record of successful expat residency applications. We only work with professionals who share our commitment to fixed fees and digital efficiency.</p>
-        </details>
-    </section>
-
-    <div class="center" style="background: var(--sp-red); border-radius: 30px; padding: 5rem 2rem; color: white; margin-bottom: 6rem;">
-        <h2 style="color: white !important; border: none; font-size: 2.5rem; margin-top: 0;">Ready for a better way to move?</h2>
-        <p style="font-size: 1.2rem; opacity: 0.9; margin-bottom: 3rem;">Experience the modern alternative to Spanish bureaucracy.</p>
-        
-        <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-            <a href="https://app.cal.eu/jurospain/30min" class="btn btn-white" style="padding: 1.3rem 3rem; font-size: 1.1rem;">
-                Consult with the Team
-            </a>
-            <a href="{{ '/pricing/' | relative_url }}" class="btn" style="padding: 1.3rem 3rem; font-size: 1.1rem; background: transparent; border: 2px solid white; color: white !important;">
-                Check Our Rates
-            </a>
+    <div class="values-grid">
+        <div class="value-card">
+            <span class="value-icon">🇬🇧</span>
+            <h3>Native Interface</h3>
+            <p style="color: var(--text-muted);">We speak your language. No "Legalese," no translation errors, just clear English communication via WhatsApp and Email.</p>
         </div>
+        <div class="value-card">
+            <h3>Fixed-Fee Integrity</h3>
+            <p style="color: var(--text-muted);">We hate billable hours as much as you do. You will always know the total cost of your relocation before we start.</p>
+        </div>
+        <div class="value-card">
+            <h3>Agile Execution</h3>
+            <p style="color: var(--text-muted);">Traditional firms take weeks; we take days. We use digital signatures and cloud auditing to keep your file moving 24/7.</p>
+        </div>
+    </div>
+
+    <div class="legal-disclaimer-box">
+        <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 300px;">
+                <h3 style="color: var(--text-primary); border: none; margin-top: 0;">Operational Transparency</h3>
+                <p style="font-size: 1.1rem; color: var(--text-muted);">
+                    JURO Spain is a <strong>Relocation Concierge & Project Management firm</strong>. We are not a law firm, and we do not provide legal advice directly. 
+                </p>
+                <p style="font-size: 1.1rem; color: var(--text-muted);">
+                    Instead, we act as your professional interface. We prepare, audit, and translate your files, which are then formally reviewed and submitted by **Colegiado Attorneys** (Registered Spanish Lawyers) within our vetted partner network.
+                </p>
+            </div>
+            <div style="flex: 1; min-width: 300px; background: var(--bg-secondary); padding: 2rem; border-radius: 15px; border: 1px solid var(--border-light);">
+                <h4 style="margin-top: 0; font-family: 'Oswald'; color: var(--sp-red);">WHAT THIS MEANS FOR YOU:</h4>
+                <ul style="padding-left: 1.2rem; line-height: 1.8; color: var(--text-primary);">
+                    <li>The speed of a tech startup.</li>
+                    <li>The security of a registered lawyer.</li>
+                    <li>The communication of a native speaker.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="center" style="margin-bottom: 8rem;">
+        <h2 style="border: none; font-size: 2.5rem; color: var(--text-primary);">Ready to meet the team?</h2>
+        <p style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 3rem;">We’re ready to manage your move to Spain.</p>
+        <a href="/contact/" class="btn" style="padding: 1.5rem 4rem; font-size: 1.2rem;">Contact JURO Spain</a>
     </div>
 
 </div>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "AboutPage",
-  "mainEntity": {
-    "@type": "Organization",
-    "name": "JURO Spain",
-    "description": "Relocation and legal concierge services in Spain. Specializing in English-speaking support for immigration and property law.",
-    "areaServed": "Spain",
-    "knowsAbout": ["Immigration", "Property Law", "Relocation", "Tax Residency"]
-  }
-}
-</script>
