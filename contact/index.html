@@ -6,11 +6,11 @@ permalink: /contact/
 ---
 
 <style>
-    /* 1. CONTACT HERO */
+    /* 1. CONTACT HERO - THEME SYNCED */
     .contact-hero {
         padding: 5rem 0 3rem;
-        background: linear-gradient(to bottom, #fff 0%, #f8fafc 100%);
-        border-top: 8px solid #E30613;
+        background: linear-gradient(to bottom, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+        border-top: 8px solid var(--sp-red);
         text-align: center;
     }
 
@@ -20,6 +20,7 @@ permalink: /contact/
         font-weight: 700 !important;
         text-transform: uppercase;
         letter-spacing: -1px !important;
+        color: var(--text-primary);
     }
 
     /* 2. CONTACT GRID */
@@ -31,25 +32,29 @@ permalink: /contact/
         align-items: start;
     }
 
-    /* 3. BOOKING CARD (Left) */
+    /* 3. BOOKING CARD (Left) - THEME SYNCED HIGHLIGHT */
     .booking-card-premium {
-        background: var(--text-primary);
-        color: white;
+        background: var(--text-primary); /* Dark in Light mode, Light in Night mode */
+        color: var(--bg-primary); /* Forced contrast */
         padding: 4rem 3rem;
         border-radius: 24px;
         box-shadow: var(--elev-3);
     }
 
     .booking-card-premium h2 {
-        color: #FFC400 !important;
+        color: var(--gold-color) !important;
         border: none;
         margin-top: 0;
         font-size: 2rem;
     }
 
-    /* 4. FORM STYLING (Right) */
+    .booking-card-premium p, .booking-card-premium li {
+        color: var(--bg-primary) !important; /* Ensures readability in all modes */
+    }
+
+    /* 4. FORM STYLING (Right) - THEME SYNCED */
     .contact-form-wrapper {
-        background: white;
+        background: var(--bg-secondary);
         padding: 3rem;
         border-radius: 24px;
         border: 1px solid var(--border-light);
@@ -74,7 +79,9 @@ permalink: /contact/
     .form-group textarea {
         width: 100%;
         padding: 1rem;
-        border: 2px solid #f1f5f9;
+        background: var(--bg-primary); /* Darker than the card in light mode, vice-versa in dark */
+        color: var(--text-primary);
+        border: 2px solid var(--border-light);
         border-radius: 12px;
         font-family: 'Inter', sans-serif;
         font-size: 1rem;
@@ -84,7 +91,7 @@ permalink: /contact/
     .form-group input:focus, 
     .form-group textarea:focus {
         outline: none;
-        border-color: #E30613;
+        border-color: var(--sp-red);
     }
 
     /* MOBILE ADJUSTMENTS */
@@ -96,11 +103,11 @@ permalink: /contact/
 
 <div class="contact-hero">
     <div class="container">
-        <p style="font-weight: 800; color: #E30613; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem;">
+        <p style="font-weight: 800; color: var(--sp-red); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem;">
             We're Here to Help
         </p>
         <h1 class="contact-h1">Let's Discuss Your Move</h1>
-        <p style="font-size: 1.2rem; max-width: 650px; margin: 0 auto; color: #64748b;">
+        <p style="font-size: 1.2rem; max-width: 650px; margin: 0 auto; color: var(--text-muted);">
             Professional, English-speaking guidance for your Spanish residency or property purchase. Choose your preferred way to connect.
         </p>
     </div>
@@ -119,12 +126,12 @@ permalink: /contact/
                 <li>✅ 100% English Native Expert</li>
                 <li>✅ No-Obligation Fixed Quote</li>
             </ul>
-            <a href="https://app.cal.eu/jurospain/30min" class="btn" style="width: 100%; background: #E30613; padding: 1.3rem; font-size: 1.1rem;">
+            <a href="https://app.cal.eu/jurospain/30min" class="btn" style="width: 100%; background: var(--sp-red); padding: 1.3rem; font-size: 1.1rem;">
                 Open Calendar →
             </a>
             
             <div style="margin-top: 4rem; padding-top: 3rem; border-top: 1px solid rgba(255,255,255,0.1);">
-                <h4 style="color: #FFC400; margin-bottom: 1rem;">Direct Contact</h4>
+                <h4 style="color: var(--gold-color); margin-bottom: 1rem;">Direct Contact</h4>
                 <p style="margin-bottom: 0.5rem;">📧 <b>Email:</b> hello@jurospain.com</p>
                 <p style="margin-bottom: 0.5rem;">📱 <b>WhatsApp:</b> +34 682 050 945</p>
                 <p>📍 <b>Office:</b> Málaga, Spain (By Appointment Only)</p>
@@ -132,9 +139,10 @@ permalink: /contact/
         </div>
 
         <div class="contact-form-wrapper">
-            <h3 style="margin-top: 0; border: none; font-size: 1.5rem; margin-bottom: 2rem;">Send us a message</h3>
+            <h3 style="margin-top: 0; border: none; font-size: 1.5rem; margin-bottom: 2rem; color: var(--text-primary);">Send us a message</h3>
             
-            <form action="https://formspree.io/f/your-id" method="POST"> <div class="form-group">
+            <form action="https://formspree.io/f/your-id" method="POST">
+                <div class="form-group">
                     <label>Full Name</label>
                     <input type="text" name="name" placeholder="John Doe" required>
                 </div>
@@ -168,11 +176,11 @@ permalink: /contact/
     </div>
 </div>
 
-<section style="background: #f8fafc; padding: 5rem 0; border-top: 1px solid var(--border-light);">
+<section style="background: var(--bg-primary); padding: 5rem 0; border-top: 1px solid var(--border-light);">
     <div class="container center">
-        <h2 style="border: none; margin-top: 0;">Trusted by Expats Worldwide.</h2>
-        <div style="font-size: 2rem; color: #FFC400; margin: 1.5rem 0;">★★★★★</div>
-        <p style="max-width: 600px; margin: 0 auto; font-style: italic; color: #64748b;">
+        <h2 style="border: none; margin-top: 0; color: var(--text-primary);">Trusted by Expats Worldwide.</h2>
+        <div style="font-size: 2rem; color: var(--gold-color); margin: 1.5rem 0;">★★★★★</div>
+        <p style="max-width: 600px; margin: 0 auto; font-style: italic; color: var(--text-muted);">
             "JURO was the only agency that actually explained the taxes clearly. Their fixed fee saved us over €400 compared to the firm in Madrid."
         </p>
     </div>
