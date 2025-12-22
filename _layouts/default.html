@@ -7,8 +7,133 @@ layout: null
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }} | JURO Spain</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+
+    <style>
+        /* --- 1. HEADER & NAV SPACING --- */
+        .site-header {
+            background-color: var(--bg-secondary);
+            border-bottom: 3px solid var(--gold-color);
+            box-shadow: var(--elev-1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: 80px; /* Fixed height for perfect alignment */
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .site-nav {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem; /* Spaced out for premium feel */
+        }
+
+        .site-nav a, .dropdown-trigger {
+            font-family: 'Oswald', sans-serif !important;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+            cursor: pointer;
+        }
+
+        .site-nav a:hover, .dropdown-trigger:hover {
+            color: var(--sp-red);
+        }
+
+        /* --- 2. THE DROPDOWN BRIDGE (The Fix) --- */
+        .dropdown-container {
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            /* This padding acts as the bridge so the menu doesn't close */
+            padding-bottom: 20px; 
+            margin-bottom: -20px;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--bg-secondary);
+            min-width: 220px;
+            box-shadow: var(--elev-3);
+            border-radius: 12px;
+            border: 1px solid var(--border-light);
+            padding: 0.8rem 0;
+            z-index: 1000;
+            margin-top: -5px; /* Pulls it up slightly to meet the bridge */
+        }
+
+        /* The "Invisible Bridge" pseudo-element */
+        .dropdown-container::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 20px;
+        }
+
+        .dropdown-container:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.8rem 1.5rem !important;
+            margin: 0 !important;
+            text-transform: none !important;
+            font-family: 'Inter', sans-serif !important;
+            font-size: 0.95rem;
+            color: var(--text-primary) !important;
+            border-bottom: 1px solid var(--border-light);
+            width: 100%;
+        }
+
+        .dropdown-menu a:last-child { border-bottom: none; }
+        .dropdown-menu a:hover { background-color: var(--bg-primary); color: var(--sp-red) !important; }
+
+        /* --- 3. MOBILE MENU --- */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+        .menu-toggle span { width: 25px; height: 3px; background: var(--text-primary); border-radius: 2px; }
+
+        @media (max-width: 1024px) {
+            .site-nav { gap: 1.5rem; }
+        }
+
+        @media (max-width: 900px) {
+            .menu-toggle { display: flex; }
+            .site-nav {
+                display: none;
+                position: fixed; top: 80px; left: 0; width: 100%;
+                background: var(--bg-secondary);
+                flex-direction: column; padding: 2rem;
+                border-bottom: 4px solid var(--sp-red);
+                gap: 1.5rem;
+                box-shadow: var(--elev-2);
+            }
+            .site-nav.active { display: flex; }
+            .dropdown-menu { position: static; transform: none; box-shadow: none; border: none; width: 100%; display: block; text-align: center; }
+            .dropdown-trigger::after { content: " (View Below)"; font-size: 0.7rem; opacity: 0.5; }
+        }
+    </style>
 
     <script>
         const THEMES = [
@@ -24,9 +149,9 @@ layout: null
             {
                 name: 'midnight-navy',
                 icon: '🌙',
-                '--bg-primary': '#0a192f',  /* Deep Navy */
-                '--bg-secondary': '#112240', /* Card Navy */
-                '--text-primary': '#e6f1ff', /* Off-white text */
+                '--bg-primary': '#0a192f',
+                '--bg-secondary': '#112240',
+                '--text-primary': '#e6f1ff',
                 '--text-muted': '#8892b0',
                 '--border-light': '#233554'
             }
@@ -53,63 +178,73 @@ layout: null
 <body>
 
     <header class="site-header">
-        <div class="container">
-            <a class="site-title" href="/">J<span style="color:var(--gold-color)">U</span>R<span style="color:var(--gold-color)">O</span> Spain</a>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <a class="site-title" href="/" style="font-size: 1.8rem; text-decoration: none; font-weight: 800; color: var(--sp-red);">
+                J<span style="color:var(--gold-color)">U</span>R<span style="color:var(--gold-color)">O</span> Spain
+            </a>
             
-            <div style="display: flex; align-items: center; gap: 1rem;">
-                <button id="themeToggle" style="background: rgba(128,128,128,0.1); border: 2px solid var(--gold-color); border-radius: 8px; width: 40px; height: 40px; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+            <div style="display: flex; align-items: center; gap: 2.5rem;">
+                <nav class="site-nav" id="siteNav">
+                    <a href="/services/">Services</a>
+                    <a href="/pricing/">Pricing</a>
+                    
+                    <div class="dropdown-container">
+                        <span class="dropdown-trigger">Resources ▾</span>
+                        <div class="dropdown-menu">
+                            <a href="/blog/">Blog & Guides</a>
+                            <a href="/glossary/">Expat Glossary</a>
+                            <a href="/about/">About Us</a>
+                            <a href="/partners/">Partner Program</a>
+                        </div>
+                    </div>
+
+                    <a href="/contact/">Contact</a>
+                </nav>
+
+                <button id="themeToggle" style="background: rgba(128,128,128,0.1); border: 2px solid var(--gold-color); border-radius: 8px; width: 40px; height: 40px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.3s;">
                     <span class="theme-icon" style="font-size: 1.2rem;">☀️</span>
                 </button>
+
+                <a href="https://app.cal.eu/jurospain/30min" class="btn" style="padding: 0.7rem 1.5rem; font-size: 0.85rem;">Book Call</a>
+                
                 <div class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></div>
             </div>
-
-            <nav class="site-nav" id="siteNav">
-                <a href="/services/">Services</a>
-                <a href="/pricing/">Pricing</a>
-                <div class="dropdown-container">
-                    <span class="dropdown-trigger">Resources</span>
-                    <div class="dropdown-menu">
-                        <a href="/blog/">Blog & Guides</a>
-                        <a href="/glossary/">Glossary</a>
-                        <a href="/about/">About Us</a>
-                        <a href="/partners/">Partner Program</a>
-                    </div>
-                </div>
-                <a href="/contact/" class="btn">Book Call</a>
-            </nav>
         </div>
     </header>
 
     <main>{{ content }}</main>
 
-    <footer class="site-footer">
+    <footer class="site-footer" style="padding: 5rem 0; background: var(--bg-secondary); border-top: 1px solid var(--border-light);">
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-content" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem;">
                 <div class="footer-section">
-                    <h3>JURO Spain</h3>
-                    <p>English-Speaking Relocation Experts.</p>
+                    <h3 style="color: var(--sp-red);">JURO Spain</h3>
+                    <p style="color: var(--text-muted);">Expert English-speaking relocation support.</p>
                 </div>
                 <div class="footer-section">
-                    <h3>Links</h3>
-                    <ul>
-                        <li><a href="/services/">Services</a></li>
-                        <li><a href="/pricing/">Pricing</a></li>
-                        <li><a href="/partners/">Lawyers</a></li>
+                    <h3 style="color: var(--text-primary); font-family: 'Oswald';">Quick Links</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li><a href="/services/" style="text-decoration: none; color: var(--text-muted);">Services</a></li>
+                        <li><a href="/pricing/" style="text-decoration: none; color: var(--text-muted);">Pricing</a></li>
+                        <li><a href="/partners/" style="text-decoration: none; color: var(--text-muted);">Lawyers</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h3>Contact</h3>
-                    <p>hello@jurospain.com</p>
+                    <h3 style="color: var(--text-primary); font-family: 'Oswald';">Contact</h3>
+                    <p style="color: var(--text-muted);">hello@jurospain.com</p>
                 </div>
             </div>
-            <div class="center small" style="margin-top: 3rem; opacity: 0.6;">© 2026 JURO Spain.</div>
+            <div class="center small" style="margin-top: 3rem; opacity: 0.6; color: var(--text-muted);">© 2026 JURO Spain. Concierge agency, not a law firm.</div>
         </div>
     </footer>
 
     <script>
+        // Toggle Mobile Menu
         document.getElementById('menuToggle').addEventListener('click', () => {
             document.getElementById('siteNav').classList.toggle('active');
         });
+
+        // Toggle Theme
         document.getElementById('themeToggle').addEventListener('click', () => {
             const current = localStorage.getItem('juro-theme') || 'original-light';
             const next = current === 'original-light' ? 'midnight-navy' : 'original-light';
