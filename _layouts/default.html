@@ -11,10 +11,78 @@ layout: null
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Arial&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ site.time | date: '%s' }}">
     
+    <style>
+        /* --- PREMIUM THEME SWITCHER (GLASSMORPHISM) --- */
+        .theme-toggle {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--gold-color);
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            padding: 0;
+            margin-left: 1rem;
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(12deg) scale(1.1);
+            background: var(--gold-color);
+            border-color: var(--gold-color);
+        }
+
+        .theme-icon { font-size: 1.2rem; }
+
+        /* --- NAVIGATION REFINEMENTS --- */
+        .site-nav {
+            display: flex;
+            align-items: center;
+            gap: 1.8rem;
+        }
+
+        .site-nav a, .dropdown-trigger {
+            font-family: 'Oswald', sans-serif !important;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            transition: color 0.2s ease;
+        }
+
+        .site-nav a:hover, .dropdown-trigger:hover {
+            color: var(--sp-red);
+        }
+
+        /* --- MOBILE MENU ANIMATION --- */
+        @media (max-width: 900px) {
+            .site-nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 300px;
+                height: 100vh;
+                background: var(--bg-secondary);
+                flex-direction: column;
+                padding: 6rem 2rem;
+                transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+                z-index: 999;
+                align-items: flex-start;
+            }
+            .site-nav.active { right: 0; }
+        }
+    </style>
+
     <script>
         const THEMES = [
             {
@@ -22,7 +90,7 @@ layout: null
                 icon: '☀️',
                 '--bg-primary': '#fcfcfc',
                 '--bg-secondary': '#ffffff',
-                '--text-primary': '#232323',
+                '--text-primary': '#1e293b',
                 '--text-muted': '#64748b', 
                 '--border-light': '#e2e8f0',
                 '--btn-text': '#ffffff',
@@ -58,12 +126,9 @@ layout: null
             if (!theme) return;
 
             for (const [key, value] of Object.entries(theme)) {
-                if (key !== 'name' && key !== 'icon') {
-                    root.style.setProperty(key, value);
-                }
+                root.style.setProperty(key, value);
             }
             localStorage.setItem('theme-name', themeName);
-            
             const iconEl = document.querySelector('.theme-icon');
             if (iconEl) iconEl.textContent = theme.icon;
         }
@@ -84,17 +149,19 @@ layout: null
                 J<span class="text-highlight">U</span>R<span class="text-highlight">O</span> Spain
             </a>
             
-            <button class="theme-toggle" aria-label="Cycle themes">
-                <span class="theme-icon">☀️</span>
-            </button>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <button class="theme-toggle" id="themeToggle" aria-label="Switch Theme">
+                    <span class="theme-icon">☀️</span>
+                </button>
 
-            <button class="menu-toggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
             
-            <nav class="site-nav">
+            <nav class="site-nav" id="siteNav">
                 <a href="{{ '/services/' | relative_url }}">Services</a>
                 <a href="{{ '/pricing/' | relative_url }}">Pricing</a>
                 
@@ -102,15 +169,15 @@ layout: null
                     <div class="dropdown-trigger">Resources</div>
                     <div class="dropdown-menu">
                         <a href="{{ '/blog/' | relative_url }}">Blog & Guides</a>
-                        <a href="{{ '/glossary/' | relative_url }}">Legal Glossary</a>
-                        <a href="{{ '/about/' | relative_url }}">About Us</a>
-                        <a href="{{ '/partners/' | relative_url }}" style="border-top: 1px solid var(--border-light); margin-top:5px; color: var(--text-muted); font-size: 0.85rem;">🤝 Partner Program</a>
+                        <a href="{{ '/glossary/' | relative_url }}">Expat Glossary</a>
+                        <a href="{{ '/about/' | relative_url }}">About JURO</a>
+                        <a href="{{ '/partners/' | relative_url }}" style="border-top: 1px solid var(--border-light); margin-top:5px; padding-top:12px; color: var(--text-muted);">🤝 Partner Program</a>
                     </div>
                 </div>
 
                 <a href="{{ '/contact/' | relative_url }}">Contact</a>
                 
-                <a href="https://app.cal.eu/jurospain/30min" class="btn" target="_blank">Book a Call</a>
+                <a href="https://app.cal.eu/jurospain/30min" class="btn btn-hero-small" target="_blank" style="margin-left: 0.5rem; font-size: 0.85rem; padding: 0.6rem 1.2rem;">Book a Call</a>
             </nav>
         </div>
     </header>
@@ -123,35 +190,25 @@ layout: null
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>JURO Spain</h3>
-                    <p class="small">English-Speaking Legal Guidance for Expats in Spain.</p>
+                    <h3 style="color: white; margin-bottom: 1rem;">JURO Spain</h3>
+                    <p style="font-size: 0.9rem; line-height: 1.6;">The modern alternative to traditional law firms. English-speaking expertise for your move to Spain.</p>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>Services</h3>
+                    <h3>Legal Services</h3>
                     <ul>
-                        <li><a href="{{ '/services/' | relative_url }}">Immigration & Residency</a></li>
-                        <li><a href="{{ '/services/' | relative_url }}">Property Transactions</a></li>
-                        <li><a href="{{ '/services/' | relative_url }}">Banking Support</a></li>
-                        <li><a href="{{ '/services/' | relative_url }}">Business Registration</a></li>
+                        <li><a href="{{ '/services/' | relative_url }}">Residency & Visas</a></li>
+                        <li><a href="{{ '/services/' | relative_url }}">Property Law</a></li>
+                        <li><a href="{{ '/services/' | relative_url }}">Tax (Beckham Law)</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
                     <h3>Resources</h3>
                     <ul>
-                        <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
+                        <li><a href="{{ '/blog/' | relative_url }}">Guides</a></li>
                         <li><a href="{{ '/glossary/' | relative_url }}">Glossary</a></li>
-                        <li><a href="{{ '/partners/' | relative_url }}">For Lawyers (B2B)</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Compare Us</h3>
-                    <ul>
-                        <li><a href="{{ '/best-relocation-services-spain/' | relative_url }}">Top 10 Reviews</a></li>
-                        <li><a href="{{ '/roots-global-alternative/' | relative_url }}">vs. Roots Global</a></li>
-                        <li><a href="{{ '/balcells-group-alternative/' | relative_url }}">vs. Balcells Group</a></li>
+                        <li><a href="{{ '/partners/' | relative_url }}">For Lawyers</a></li>
                     </ul>
                 </div>
 
@@ -159,47 +216,43 @@ layout: null
                     <h3>Company</h3>
                     <ul>
                         <li><a href="{{ '/about/' | relative_url }}">About Us</a></li>
-                        <li><a href="{{ '/contact/' | relative_url }}">Contact Us</a></li>
-                        <li><a href="{{ '/privacy/' | relative_url }}">Privacy Policy</a></li>
+                        <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
+                        <li><a href="{{ '/privacy/' | relative_url }}">Privacy</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                &copy; {{ site.time | date: "%Y" }} JURO Spain. All rights reserved. <span class="small">Not a law firm.</span>
+                &copy; {{ site.time | date: "%Y" }} JURO Spain. All rights reserved. <span class="small">JURO is a relocation agency, not a law firm.</span>
             </div>
         </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const siteNav = document.querySelector('.site-nav');
-            const themeToggle = document.querySelector('.theme-toggle');
+            const menuToggle = document.getElementById('menuToggle');
+            const siteNav = document.getElementById('siteNav');
+            const themeToggle = document.getElementById('themeToggle');
 
-            // Toggle Mobile Menu
-            if (menuToggle && siteNav) {
-                menuToggle.addEventListener('click', () => {
-                    menuToggle.classList.toggle('active');
-                    siteNav.classList.toggle('active');
-                });
-            }
+            // Mobile Menu
+            menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('active');
+                siteNav.classList.toggle('active');
+                document.body.style.overflow = siteNav.classList.contains('active') ? 'hidden' : '';
+            });
 
-            // Theme Toggle Logic
-            if (themeToggle && typeof THEMES !== 'undefined') {
-                themeToggle.addEventListener('click', () => {
-                    const currentTheme = localStorage.getItem('theme-name') || THEMES[0].name;
-                    const nextIndex = (THEMES.findIndex(t => t.name === currentTheme) + 1) % THEMES.length;
-                    applyTheme(THEMES[nextIndex].name);
-                });
-            }
+            // Theme Switcher
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = localStorage.getItem('theme-name') || THEMES[0].name;
+                const nextIndex = (THEMES.findIndex(t => t.name === currentTheme) + 1) % THEMES.length;
+                applyTheme(THEMES[nextIndex].name);
+            });
         });
     </script>
 
     <a href="https://wa.me/34682050945?text=Hi%20JURO%20Spain,%20I%20need%20help%20with..." 
        target="_blank" 
-       class="whatsapp-float"
-       aria-label="Chat on WhatsApp">
+       class="whatsapp-float">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
     </a>
 
@@ -211,38 +264,21 @@ layout: null
             bottom: 25px;
             left: 25px; 
             background-color: #25d366;
-            color: #FFF;
             border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 3px #999;
-            z-index: 9999;
-            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            background-color: #128c7e;
-            box-shadow: 2px 2px 10px #666;
-        }
-
-        .whatsapp-float img {
-            width: 35px;
-            height: 35px;
-            pointer-events: none;
-        }
-
-        @keyframes pulse-green {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
-        
-        .whatsapp-float {
+            box-shadow: 2px 2px 15px rgba(0,0,0,0.2);
+            z-index: 9999;
+            transition: all 0.3s ease;
             animation: pulse-green 2s infinite;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); background-color: #128c7e; }
+        .whatsapp-float img { width: 32px; height: 32px; }
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
     </style>
 
