@@ -6,11 +6,11 @@ permalink: /blog/
 ---
 
 <style>
-    /* 1. BLOG HERO - SPANISH AUTHORITY */
+    /* 1. BLOG HERO - THEME SYNCED */
     .blog-hero {
         padding: 5rem 0 3rem;
-        background: linear-gradient(to bottom, #fff 0%, #f8fafc 100%);
-        border-top: 8px solid var(--sp-red); /* Spanish Red Accent */
+        background: linear-gradient(to bottom, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+        border-top: 8px solid var(--sp-red); 
         position: relative;
     }
 
@@ -21,9 +21,10 @@ permalink: /blog/
         text-transform: uppercase;
         letter-spacing: -2px !important;
         margin-bottom: 1rem;
+        color: var(--text-primary);
     }
 
-    /* 2. PREMIUM SEARCH BAR */
+    /* 2. PREMIUM SEARCH BAR - THEME SYNCED */
     .search-wrapper {
         position: relative;
         max-width: 700px;
@@ -35,9 +36,11 @@ permalink: /blog/
         width: 100%;
         padding: 1.2rem 1.8rem;
         font-size: 1.1rem;
+        background: var(--bg-secondary);
+        color: var(--text-primary);
         border: 2px solid var(--border-light);
         border-radius: 50px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        box-shadow: var(--elev-1);
         transition: all 0.3s ease;
         outline: none;
         font-family: 'Inter', sans-serif;
@@ -58,7 +61,7 @@ permalink: /blog/
         pointer-events: none;
     }
 
-    /* 3. CLICKABLE CARD RE-ENGINEERING */
+    /* 3. CLICKABLE CARD RE-ENGINEERING - THEME SYNCED */
     .post-list-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -70,7 +73,7 @@ permalink: /blog/
         display: flex !important;
         flex-direction: column !important;
         text-decoration: none !important;
-        background: white;
+        background: var(--bg-secondary);
         border: 1px solid var(--border-light);
         border-radius: 20px;
         padding: 2.5rem;
@@ -131,7 +134,7 @@ permalink: /blog/
         </p>
 
         <div class="search-wrapper">
-            <input type="text" id="search-input" placeholder="Search by topic (e.g. 'Beckham Law', 'NIE', 'DNV')..." onkeyup="filterPosts()">
+            <input type="text" id="search-input" placeholder="Search by topic (e.g. 'Beckham Law', 'NIE')..." onkeyup="filterPosts()">
             <span class="search-icon">🔍</span>
         </div>
     </div>
@@ -148,7 +151,7 @@ permalink: /blog/
 
                 {% assign post_summary_source = post.seo_summary | default: post.excerpt %}
 
-                {% comment %} CLEAN UP LOGIC - ENSURES PREMIUM CARD TEXT {% endcomment %}
+                {% comment %} CLEAN UP LOGIC {% endcomment %}
                 {% if post_summary_source contains 'Table of contents' or post_summary_source contains 'table of contents' %}
                     {% assign cleaned_excerpt = post_summary_source | strip_html | replace: "Table of contents", "" | replace: "Overview:", "" | strip | truncate: 160 %}
                 {% else %}
@@ -175,25 +178,25 @@ permalink: /blog/
 
         <div id="no-results" class="center hidden" style="padding: 6rem 0;">
             <div style="font-size: 3.5rem; margin-bottom: 1rem;">🔎</div>
-            <h3 style="border: none;">No results found.</h3>
-            <p>Try searching for a broader term like 'Visa' or 'Tax'.</p>
+            <h3 style="border: none; color: var(--text-primary);">No results found.</h3>
+            <p style="color: var(--text-muted);">Try searching for a broader term like 'Visa' or 'Tax'.</p>
             <button onclick="document.getElementById('search-input').value = ''; filterPosts();" class="btn" style="margin-top: 1.5rem;">Clear Search</button>
         </div>
 
     {% else %}
 
-        <div class="card center" style="margin: 5rem 0;">
+        <div class="card center" style="margin: 5rem 0; background: var(--bg-secondary); color: var(--text-primary);">
             <h2>Knowledge Base Loading...</h2>
             <p>We are currently finalizing our 2026 guides. Check back in a few days.</p>
         </div>
 
     {% endif %}
 
-    <hr>
+    <hr style="border-top: 1px solid var(--border-light);">
 
-    <div class="center" style="background: var(--text-primary); color: white; padding: 5rem 2rem; border-radius: 30px; margin-bottom: 6rem;">
-        <h2 style="color: white !important; border: none; font-size: 2.5rem; margin-top: 0;">Need specific legal advice?</h2>
-        <p style="font-size: 1.2rem; opacity: 0.8; margin-bottom: 3rem;">Our specialists can help you navigate your specific case via a private call.</p>
+    <div class="center" style="background: var(--text-primary); color: var(--bg-primary); padding: 5rem 2rem; border-radius: 30px; margin-bottom: 6rem;">
+        <h2 style="color: var(--bg-primary) !important; border: none; font-size: 2.5rem; margin-top: 0;">Need specific legal advice?</h2>
+        <p style="font-size: 1.2rem; opacity: 0.8; margin-bottom: 3rem; color: var(--bg-primary) !important;">Our specialists can help you navigate your specific case via a private call.</p>
         <a href="https://app.cal.eu/jurospain/30min" class="btn" style="background: var(--sp-red); border: none; padding: 1.2rem 3.5rem; font-size: 1.1rem;">
             Book Your Consultation
         </a>
@@ -227,7 +230,5 @@ permalink: /blog/
             grid.style.display = 'grid';
         }
     }
-
-    // Run on load to handle any pre-filled text
     document.addEventListener('DOMContentLoaded', filterPosts);
 </script>
