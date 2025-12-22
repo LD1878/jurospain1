@@ -1,0 +1,131 @@
+---
+layout: default
+title: DNV Eligibility Quiz for Americans | Move to Spain
+description: Are you a US citizen or resident? Take the 60-second quiz to see if you qualify for the Spain Digital Nomad Visa and the Beckham Law flat tax.
+permalink: /dnv-eligibility-usa/
+---
+
+<style>
+    .quiz-container {
+        max-width: 700px;
+        margin: 4rem auto;
+        background: var(--bg-secondary);
+        padding: 3rem;
+        border-radius: 24px;
+        border: 1px solid var(--border-light);
+        box-shadow: var(--elev-3);
+    }
+
+    .quiz-step { display: none; }
+    .quiz-step.active { display: block; animation: fadeIn 0.4s ease; }
+
+    .option-btn {
+        display: block;
+        width: 100%;
+        padding: 1.2rem;
+        margin-bottom: 1rem;
+        background: var(--bg-primary);
+        border: 2px solid var(--border-light);
+        border-radius: 12px;
+        color: var(--text-primary);
+        font-family: 'Inter', sans-serif;
+        font-weight: 600;
+        cursor: pointer;
+        text-align: left;
+        transition: all 0.2s;
+    }
+
+    .option-btn:hover { border-color: var(--sp-red); background: var(--bg-secondary); }
+
+    .progress-bar {
+        height: 6px;
+        background: var(--border-light);
+        border-radius: 10px;
+        margin-bottom: 3rem;
+        overflow: hidden;
+    }
+
+    .progress-fill {
+        height: 100%;
+        background: var(--sp-red);
+        width: 0%;
+        transition: width 0.3s;
+    }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+
+<div class="container">
+    <div class="quiz-container">
+        <div class="progress-bar"><div class="progress-fill" id="bar"></div></div>
+
+        <div class="quiz-step active" id="step1">
+            <h2 style="border:none; margin-top:0;">1. What is your employment status?</h2>
+            <p style="color: var(--text-muted); margin-bottom: 2rem;">The DNV requires you to work remotely for companies outside of Spain.</p>
+            <button class="option-btn" onclick="nextStep(2)">W2 Employee (Remote Contract)</button>
+            <button class="option-btn" onclick="nextStep(2)">Self-Employed / 1099 Contractor</button>
+            <button class="option-btn" onclick="nextStep(2)">Business Owner (LLC/Corp)</button>
+        </div>
+
+        <div class="quiz-step" id="step2">
+            <h2 style="border:none; margin-top:0;">2. How long has your company existed?</h2>
+            <p style="color: var(--text-muted); margin-bottom: 2rem;">The company must have been active for at least 1 year.</p>
+            <button class="option-btn" onclick="nextStep(3)">More than 1 year</button>
+            <button class="option-btn" onclick="nextStep('fail')">Less than 1 year</button>
+        </div>
+
+        <div class="quiz-step" id="step3">
+            <h2 style="border:none; margin-top:0;">3. Monthly Gross Income?</h2>
+            <p style="color: var(--text-muted); margin-bottom: 2rem;">For 2026, the threshold is approximately $3,000/mo for a single applicant.</p>
+            <button class="option-btn" onclick="nextStep(4)">Above $3,200/mo</button>
+            <button class="option-btn" onclick="nextStep('fail')">Below $3,200/mo</button>
+        </div>
+
+        <div class="quiz-step" id="step4">
+            <h2 style="border:none; margin-top:0;">4. Do you have a degree or 3+ years experience?</h2>
+            <button class="option-btn" onclick="nextStep('success')">Yes, I have a Bachelor's/Master's</button>
+            <button class="option-btn" onclick="nextStep('success')">Yes, I have 3+ years work history</button>
+            <button class="option-btn" onclick="nextStep('fail')">No to both</button>
+        </div>
+
+        <div class="quiz-step" id="success">
+            <div style="text-align: center;">
+                <span style="font-size: 4rem;">🎉</span>
+                <h2 style="border:none; color: var(--sp-red);">You are likely Eligible!</h2>
+                <p style="font-size: 1.1rem;">Great news! Based on your answers, you meet the primary criteria for the Spain Digital Nomad Visa.</p>
+                <div style="background: var(--bg-primary); padding: 1.5rem; border-radius: 12px; margin: 2rem 0; border: 1px dashed var(--sp-red);">
+                    <p style="margin:0; font-weight:700;">Bonus: You likely qualify for the 24% Beckham Law tax rate.</p>
+                </div>
+                <a href="https://app.cal.eu/jurospain/30min" class="btn" style="width:100%;">Book Final Eligibility Audit</a>
+            </div>
+        </div>
+
+        <div class="quiz-step" id="fail">
+            <div style="text-align: center;">
+                <span style="font-size: 4rem;">⚖️</span>
+                <h2 style="border:none;">Manual Review Needed</h2>
+                <p>You may still qualify, but your case requires a specialized review (e.g., lower income but high savings, or recent business setup).</p>
+                <a href="/contact/" class="btn btn-outline" style="width:100%; border-color: var(--text-primary);">Request Manual Review</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function nextStep(step) {
+        // Hide all
+        document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
+        
+        // Show target
+        const targetId = isNaN(step) ? step : 'step' + step;
+        document.getElementById(targetId).classList.add('active');
+
+        // Progress bar logic
+        let progress = 0;
+        if(step == 2) progress = 25;
+        if(step == 3) progress = 50;
+        if(step == 4) progress = 75;
+        if(step == 'success' || step == 'fail') progress = 100;
+        document.getElementById('bar').style.width = progress + '%';
+    }
+</script>
