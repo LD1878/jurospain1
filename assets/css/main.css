@@ -1,46 +1,35 @@
 /* ==========================================================
-   JURO Spain: Master "Concierge" CSS
+   JURO Spain: Final Master CSS (Sync Edition)
    ========================================================== */
 
-/* ----------------------------------------------------------
-   1. VARIABLES & SETUP
-   ---------------------------------------------------------- */
 :root {
-  /* BRAND COLORS (Madrid Modern Default) */
+  /* INITIAL DEFAULTS (Madrid Modern) */
   --sp-red: #E30613;
-  --sp-red-hover: #b90510;
   --gold-color: #FFC400; 
-  --navy-deep: #0f172a;
-  
-  /* THEME VARIABLES (Controlled by Layout Script) */
   --bg-primary: #fcfcfc;
   --bg-secondary: #ffffff;
-  --text-primary: #1e293b; /* Sophisticated Navy Slate */
-  --text-muted: #64748b; 
+  --text-primary: #0f172a;
+  --text-muted: #475569; 
   --border-light: #e2e8f0;
-  --btn-text: #ffffff;
   
   /* UX DESIGN TOKENS */
-  --btn-radius: 8px; /* The "Goldilocks" Radius */
+  --btn-radius: 8px;
   --sp-radius: 12px;
   --sp-font-heavy: 'Oswald', sans-serif;
-  --sp-font-body: 'Inter', 'Arial', sans-serif;
+  --sp-font-body: 'Inter', sans-serif;
   --sp-max-width: 1200px;
   
-  /* SHADOWS (The "Wow" Factor) */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 12px -1px rgb(0 0 0 / 0.08);
-  --shadow-lg: 0 15px 30px -5px rgba(227, 6, 19, 0.25); /* Red CTA Glow */
+  /* SHADOWS */
+  --shadow-md: 0 4px 12px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 15px 30px -5px rgba(227, 6, 19, 0.25);
   --elev-1: 0 2px 6px rgba(0,0,0,0.06);
   --elev-2: 0 10px 25px rgba(0,0,0,0.08);
 }
 
 /* ----------------------------------------------------------
-   2. BASE STYLES
+   BASE STYLES
    ---------------------------------------------------------- */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
+*, *::before, *::after { box-sizing: border-box; }
 
 body {
   background-color: var(--bg-primary);
@@ -48,110 +37,63 @@ body {
   font-family: var(--sp-font-body);
   line-height: 1.7;
   margin: 0;
-  font-size: 16px;
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
   font-family: var(--sp-font-heavy);
   font-weight: 700;
-  margin-bottom: 1rem;
-  line-height: 1.1;
   text-transform: uppercase;
-}
-
-h1 {
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  text-align: center;
+  margin-bottom: 1rem;
   color: var(--text-primary);
-  letter-spacing: -1.5px;
 }
 
-h2 {
-  font-size: 2.2rem;
-  border-bottom: 4px solid var(--gold-color);
-  padding-bottom: 0.5rem;
-  margin-top: 4rem;
-  display: inline-block;
-}
+h1 { font-size: clamp(2.5rem, 6vw, 4rem); text-align: center; letter-spacing: -1.5px; }
+h2 { font-size: 2.2rem; border-bottom: 4px solid var(--gold-color); padding-bottom: 0.5rem; margin-top: 4rem; display: inline-block; }
+h3 { font-size: 1.5rem; color: var(--sp-red); }
 
-h3 {
-  font-size: 1.5rem;
-  color: var(--sp-red);
-  margin-top: 0;
-}
-
-p { margin-bottom: 1.25rem; }
+.container { max-width: var(--sp-max-width); margin: 0 auto; padding: 0 1.5rem; }
 .center { text-align: center; }
 .small { font-size: 0.9rem; color: var(--text-muted); }
-.container { max-width: var(--sp-max-width); margin: 0 auto; padding: 0 1.5rem; }
-
-hr {
-  border: 0;
-  border-top: 1px solid var(--border-light);
-  margin: 4rem 0;
-}
 
 /* ----------------------------------------------------------
-   3. THE "AMAZING" BUTTONS
+   THE "FERRARI" BUTTONS
    ---------------------------------------------------------- */
 .btn {
-  /* Layout */
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 0.9rem 2.2rem;
-  cursor: pointer;
-  text-decoration: none;
-  
-  /* Typography */
   font-family: var(--sp-font-heavy);
   font-weight: 700;
   text-transform: uppercase;
   font-size: 1rem;
   letter-spacing: 1px;
-  
-  /* Aesthetics */
   background: linear-gradient(180deg, var(--sp-red) 0%, #c40410 100%);
-  color: #ffffff !important;
+  color: white !important;
   border-radius: var(--btn-radius);
   border: none;
+  cursor: pointer;
+  text-decoration: none;
   box-shadow: var(--shadow-md);
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .btn:hover {
   transform: translateY(-3px) scale(1.02);
-  background: linear-gradient(180deg, #f00715 0%, var(--sp-red) 100%);
   box-shadow: var(--shadow-lg);
+  filter: brightness(1.1);
 }
 
-.btn:active {
-  transform: translateY(-1px);
-  filter: brightness(0.9);
-}
-
-/* VARIANT: OUTLINE (For Secondary Actions) */
+.btn-white { background: #ffffff !important; color: #0f172a !important; }
 .btn-outline {
     background: transparent !important;
     color: var(--text-primary) !important;
     border: 2px solid var(--text-primary) !important;
-    box-shadow: none !important;
-}
-
-.btn-outline:hover {
-    background: var(--text-primary) !important;
-    color: var(--bg-primary) !important;
-}
-
-/* VARIANT: WHITE (For Dark Backgrounds) */
-.btn-white {
-    background: #ffffff !important;
-    color: var(--navy-deep) !important;
 }
 
 /* ----------------------------------------------------------
-   4. HEADER & NAVIGATION
+   HEADER & NAVIGATION
    ---------------------------------------------------------- */
 .site-header {
   background-color: var(--bg-secondary);
@@ -160,7 +102,7 @@ hr {
   position: sticky;
   top: 0;
   z-index: 1000;
-  padding: 1rem 0;
+  padding: 0.8rem 0;
 }
 
 .site-title {
@@ -174,51 +116,34 @@ hr {
 .site-title .text-highlight { color: var(--gold-color); }
 
 .site-nav { display: flex; align-items: center; gap: 2rem; }
-
 .site-nav a, .dropdown-trigger {
   font-family: var(--sp-font-heavy);
   color: var(--text-primary);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
   font-size: 0.95rem;
-  transition: color 0.2s;
 }
 
-.site-nav a:hover, .dropdown-trigger:hover { color: var(--sp-red); }
-
-/* DROPDOWN */
-.dropdown-container { position: relative; display: flex; align-items: center; }
-.dropdown-trigger::after { content: '▾'; font-size: 0.8em; margin-left: 4px; }
-
+.dropdown-container { position: relative; }
 .dropdown-menu {
     display: none;
     position: absolute;
-    top: 100%;
-    left: 50%;
+    top: 100%; left: 50%;
     transform: translateX(-50%);
-    background-color: var(--bg-secondary);
+    background: var(--bg-secondary);
     min-width: 220px;
     box-shadow: var(--elev-2);
     border-radius: var(--sp-radius);
     border: 1px solid var(--border-light);
     padding: 0.5rem 0;
     margin-top: 15px;
-    z-index: 1000;
 }
-
 .dropdown-container:hover .dropdown-menu { display: block; }
-
-.dropdown-menu a {
-    display: block;
-    padding: 12px 24px;
-    border-bottom: 1px solid #f8fafc;
-    text-transform: none;
-    font-family: var(--sp-font-body);
-}
+.dropdown-menu a { display: block; padding: 12px 24px; border-bottom: 1px solid var(--border-light); text-transform: none; }
 
 /* ----------------------------------------------------------
-   5. CARDS & GRIDS
+   CARDS & UTILITIES
    ---------------------------------------------------------- */
 .services-grid {
   display: grid;
@@ -232,44 +157,16 @@ hr {
   border: 1px solid var(--border-light);
   border-radius: var(--sp-radius);
   padding: 2.5rem;
-  box-shadow: var(--shadow-md);
-  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: var(--elev-1);
+  transition: all 0.4s ease;
   height: 100%;
   display: flex;
   flex-direction: column;
 }
-
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--elev-2);
-  border-color: var(--gold-color);
-}
+.card:hover { transform: translateY(-8px); border-color: var(--gold-color); box-shadow: var(--elev-2); }
 
 /* ----------------------------------------------------------
-   6. PARTNERS & B2B
-   ---------------------------------------------------------- */
-.partner-hero {
-    background-color: var(--text-primary);
-    color: white;
-    padding: 6rem 0;
-    text-align: center;
-    border-bottom: 8px solid var(--sp-red);
-}
-
-.partner-hero h1 { color: white !important; }
-
-.workflow-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    background: white;
-    border-radius: var(--sp-radius);
-    overflow: hidden;
-    box-shadow: var(--elev-2);
-    margin: 4rem 0;
-}
-
-/* ----------------------------------------------------------
-   7. FOOTER
+   FOOTER
    ---------------------------------------------------------- */
 .site-footer {
   background: var(--text-primary);
@@ -277,37 +174,15 @@ hr {
   padding: 5rem 0 2.5rem;
   margin-top: 6rem;
 }
-
-.footer-section a { color: #94a3b8; text-decoration: none; transition: 0.3s; }
+.footer-section h3 { color: white; border: none; font-size: 1.1rem; }
+.footer-section ul { list-style: none; padding: 0; }
+.footer-section a { color: #94a3b8; text-decoration: none; font-size: 0.9rem; }
 .footer-section a:hover { color: var(--gold-color); }
-.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; margin-top: 3rem; text-align: center; opacity: 0.6; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; text-align: center; font-size: 0.8rem; margin-top: 3rem; opacity: 0.7; }
 
 /* ----------------------------------------------------------
-   8. MOBILE RESPONSIVE
+   BLOG & POSTS (Whitepaper Look)
    ---------------------------------------------------------- */
-@media (max-width: 900px) {
-    .site-nav {
-        position: fixed;
-        top: 0; right: -100%;
-        width: 300px; height: 100vh;
-        background: var(--bg-secondary);
-        flex-direction: column;
-        padding: 5rem 2rem;
-        transition: 0.4s;
-        box-shadow: -10px 0 30px rgba(0,0,0,0.1);
-    }
-    .site-nav.active { right: 0; }
-    
-    .menu-toggle {
-        display: block;
-        padding: 10px;
-        cursor: pointer;
-    }
-    .menu-toggle span {
-        display: block;
-        width: 25px; height: 3px;
-        background: var(--text-primary);
-        margin: 5px 0;
-        border-radius: 2px;
-    }
-}
+.post-header-premium { padding: 4rem 0; background: var(--bg-secondary); border-top: 8px solid var(--sp-red); }
+.post-main-grid { display: grid; grid-template-columns: 1fr 320px; gap: 4rem; margin-top: 3rem; }
+.post-body-content { font-size: 1.15rem; line-height: 1.8; color: var(--text-primary); }
