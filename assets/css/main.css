@@ -1,5 +1,5 @@
 /* ==========================================================
-   JURO Spain: Master CSS (Merged)
+   JURO Spain: Master "Ferrari" CSS (Full Content)
    ========================================================== */
 
 /* ----------------------------------------------------------
@@ -10,11 +10,11 @@
   --sp-red: #E30613;
   --gold-color: #FFC400; 
   
-  /* THEME VARIABLES */
+  /* DEFAULT THEME (Original Light) */
   --bg-primary: #fcfcfc;
   --bg-secondary: #ffffff;
   --text-primary: #232323;
-  --text-muted: #64748b; /* Updated to a cleaner slate grey */
+  --text-muted: #64748b;
   --border-light: #e2e8f0;
   --btn-text: #ffffff;
   
@@ -50,6 +50,7 @@ body {
   line-height: 1.6;
   margin: 0;
   font-size: 16px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1, h2, h3 {
@@ -71,6 +72,7 @@ h2 {
   border-bottom: 3px solid var(--gold-color);
   padding-bottom: 0.5rem;
   margin-top: 3rem;
+  color: var(--text-primary);
 }
 
 h3 {
@@ -79,7 +81,7 @@ h3 {
   margin-top: 0;
 }
 
-p { margin-bottom: 1rem; }
+p { margin-bottom: 1rem; color: inherit; }
 .center { text-align: center; }
 .small { font-size: 0.9rem; color: var(--text-muted); }
 .container { max-width: var(--sp-max-width); margin: 0 auto; padding: 0 1.5rem; }
@@ -103,7 +105,7 @@ hr {
   text-transform: uppercase;
   font-size: 0.9rem;
   letter-spacing: 0.5px;
-  border: 2px solid transparent; /* Prepare for variants */
+  border: 2px solid transparent;
   cursor: pointer;
   text-decoration: none;
   transition: all 0.2s ease;
@@ -117,18 +119,12 @@ hr {
   box-shadow: 0 5px 15px rgba(227, 6, 19, 0.3);
 }
 
-/* VARIANT: WHITE BUTTON (For Dark Backgrounds) */
 .btn-white {
     background-color: #ffffff !important;
-    color: #1e293b !important; /* Dark text */
+    color: #1e293b !important;
     border-color: #ffffff !important;
 }
-.btn-white:hover {
-    background-color: #f1f5f9 !important;
-    color: #000000 !important;
-}
 
-/* VARIANT: OUTLINE BUTTON (For Secondary Actions) */
 .btn-outline {
     background-color: transparent !important;
     color: var(--sp-red) !important;
@@ -141,7 +137,7 @@ hr {
 }
 
 /* ----------------------------------------------------------
-   4. HEADER & NAVIGATION (With Dropdown Support)
+   4. HEADER & NAVIGATION
    ---------------------------------------------------------- */
 .site-header {
   background-color: var(--bg-secondary);
@@ -151,6 +147,7 @@ hr {
   top: 0;
   z-index: 1000;
   padding: 1rem 0;
+  transition: background-color 0.3s ease;
 }
 
 .site-header .container {
@@ -169,7 +166,6 @@ hr {
 }
 .site-title .text-highlight { color: var(--gold-color); }
 
-/* MAIN NAVIGATION */
 .site-nav {
   display: flex;
   align-items: center;
@@ -186,9 +182,7 @@ hr {
   transition: color 0.2s;
 }
 
-.site-nav a:hover {
-  color: var(--sp-red);
-}
+.site-nav a:hover { color: var(--sp-red); }
 
 /* DROPDOWN MENU */
 .dropdown-container {
@@ -225,18 +219,8 @@ hr {
     border-radius: var(--sp-radius);
     border: 1px solid var(--border-light);
     padding: 0.5rem 0;
-    margin-top: 10px; /* Gap from header */
+    margin-top: 10px;
     z-index: 1000;
-}
-
-/* Keep menu open when hovering the gap */
-.dropdown-container::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 20px;
-    top: 100%;
-    left: 0;
 }
 
 .dropdown-container:hover .dropdown-menu { display: block; }
@@ -244,32 +228,28 @@ hr {
 .dropdown-menu a {
     display: block;
     padding: 10px 20px;
-    border-bottom: 1px solid #f0f0f0;
-    text-transform: none; /* Normal case inside dropdown */
+    border-bottom: 1px solid var(--border-light);
+    text-transform: none;
     font-size: 0.9rem;
     font-family: sans-serif;
+    color: var(--text-primary);
 }
-.dropdown-menu a:hover { background-color: #f9f9f9; color: var(--sp-red); }
-.dropdown-menu a:last-child { border-bottom: none; }
-
+.dropdown-menu a:hover { background-color: rgba(128,128,128,0.05); color: var(--sp-red); }
 
 /* ----------------------------------------------------------
-   5. PARTNERS PAGE LAYOUT (B2B Styling)
+   5. PARTNERS PAGE (Full Restoration)
    ---------------------------------------------------------- */
-.partner-page-wrapper {
-    --p-navy: #1e293b;
-}
+.partner-page-wrapper { --p-navy: #1e293b; }
 
 .partner-hero {
-    background-color: var(--p-navy);
-    color: white;
+    background-color: var(--text-primary); /* Syncs with theme */
+    color: var(--bg-primary);
     padding: 5rem 0;
     text-align: center;
     border-bottom: 5px solid var(--sp-red);
 }
 
-.partner-hero h1 { color: white !important; margin-bottom: 1rem; }
-.partner-hero p { color: #94a3b8; font-size: 1.2rem; max-width: 700px; margin: 0 auto; }
+.partner-hero h1 { color: inherit !important; margin-bottom: 1rem; }
 
 .partner-split {
     display: grid;
@@ -278,10 +258,9 @@ hr {
     align-items: start;
     margin: 5rem 0;
 }
-.partner-text h2 { text-align: left; border-bottom: none; }
 
 .structure-box {
-    background: white;
+    background: var(--bg-secondary);
     border: 2px solid var(--border-light);
     border-radius: var(--sp-radius);
     padding: 2rem;
@@ -300,18 +279,8 @@ hr {
 .badge-commercial { background: #dbeafe; color: #1e40af; }
 .badge-legal { background: #fef3c7; color: #92400e; }
 
-.apply-box {
-    background: #f8fafc;
-    border: 1px solid var(--border-light);
-    border-radius: 16px;
-    padding: 3rem;
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto 4rem auto;
-}
-
 /* ----------------------------------------------------------
-   6. CARDS & GRIDS
+   6. GRIDS & GLOSSARY
    ---------------------------------------------------------- */
 .services-grid {
   display: grid;
@@ -330,17 +299,11 @@ hr {
   height: 100%;
   display: flex;
   flex-direction: column;
+  color: var(--text-primary);
 }
 
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--elev-2);
-  border-color: var(--gold-color);
-}
+.card:hover { transform: translateY(-4px); border-color: var(--gold-color); }
 
-/* ----------------------------------------------------------
-   7. GLOSSARY STYLES
-   ---------------------------------------------------------- */
 .glossary-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -348,26 +311,23 @@ hr {
 }
 
 .term-card {
-    background: white;
+    background: var(--bg-secondary);
     border: 1px solid var(--border-light);
     padding: 1.5rem;
     border-radius: var(--sp-radius);
     transition: transform 0.2s;
     border-left: 4px solid var(--gold-color);
+    color: var(--text-primary);
 }
-.term-card:hover { transform: translateY(-3px); box-shadow: var(--elev-1); }
-.term-card h3 { font-size: 1.2rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; }
-.term-card p { font-size: 0.95rem; color: var(--text-muted); }
 
 /* ----------------------------------------------------------
-   8. FOOTER
+   7. FOOTER & MOBILE (Full Restoration)
    ---------------------------------------------------------- */
 .site-footer {
   background: var(--text-primary);
-  color: #fff;
+  color: var(--bg-primary);
   padding: 4rem 0 2rem;
   margin-top: 5rem;
-  font-size: 0.9rem;
 }
 
 .footer-content {
@@ -377,69 +337,20 @@ hr {
   margin-bottom: 2rem;
 }
 
-.footer-section h3 { color: #fff; border-bottom: none; font-size: 1.1rem; }
-.footer-section ul { list-style: none; padding: 0; }
-.footer-section li { margin-bottom: 0.8rem; }
-.footer-section a { color: #94a3b8; text-decoration: none; }
-.footer-section a:hover { color: var(--gold-color); }
-.footer-bottom { border-top: 1px solid #333; padding-top: 2rem; text-align: center; color: #666; }
-
-/* ----------------------------------------------------------
-   9. MOBILE RESPONSIVE
-   ---------------------------------------------------------- */
-.menu-toggle { display: none; } /* Hidden on desktop */
+.footer-section h3 { color: inherit; border-bottom: none; }
+.footer-section a { color: inherit; opacity: 0.8; text-decoration: none; }
 
 @media (max-width: 900px) {
-    /* STACK PARTNERS LAYOUT */
-    .partner-split { grid-template-columns: 1fr; gap: 2rem; }
-    
-    /* HEADER ADJUSTMENTS */
+    .partner-split { grid-template-columns: 1fr; }
     .site-header .container { flex-wrap: wrap; }
+    .menu-toggle { display: block; background: none; border: none; cursor: pointer; }
+    .menu-toggle span { display: block; width: 25px; height: 3px; background: var(--text-primary); margin: 5px 0; }
     
-    .menu-toggle {
-        display: block;
-        background: none;
-        border: none;
-        cursor: pointer;
-        font-size: 1.5rem;
-    }
-    .menu-toggle span {
-        display: block;
-        width: 25px;
-        height: 3px;
-        background: var(--text-primary);
-        margin: 5px 0;
-    }
-
-    /* MOBILE NAV DRAWER */
     .site-nav {
-        display: none; /* Hide initially */
-        width: 100%;
-        flex-direction: column;
-        align-items: flex-start;
-        padding-top: 1rem;
+        display: none; width: 100%; flex-direction: column; padding-top: 1rem;
     }
-    .site-nav.active { display: flex; } /* Show when active */
+    .site-nav.active { display: flex; }
+    .site-nav a, .dropdown-trigger { width: 100%; padding: 1rem 0; border-bottom: 1px solid var(--border-light); }
     
-    .site-nav a, 
-    .dropdown-trigger {
-        width: 100%;
-        padding: 1rem 0;
-        border-bottom: 1px solid #eee;
-        font-size: 1.1rem;
-    }
-
-    /* MOBILE DROPDOWN - ALWAYS OPEN */
-    .dropdown-container { display: block; width: 100%; }
-    .dropdown-menu {
-        position: static;
-        display: block;
-        transform: none;
-        width: 100%;
-        box-shadow: none;
-        border: none;
-        background: #f9f9f9;
-        padding-left: 1rem;
-    }
-    .dropdown-trigger::after { display: none; }
+    .dropdown-menu { position: static; display: block; transform: none; box-shadow: none; border: none; background: rgba(0,0,0,0.03); }
 }
