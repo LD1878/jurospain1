@@ -12,7 +12,45 @@ layout: null
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 
     <style>
-        /* --- 1. HEADER CORE --- */
+        /* --- 1. THE AMERICAN PROMO BANNER --- */
+        .usa-promo-banner {
+            background: #002868; /* US Flag Blue */
+            color: white;
+            padding: 12px 0;
+            overflow: hidden;
+            position: relative;
+            border-bottom: 4px solid #bf0a30; /* US Flag Red */
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1.5px;
+            z-index: 10001;
+        }
+
+        .banner-track {
+            display: flex;
+            width: 200%;
+            animation: scrollBanner 25s linear infinite;
+        }
+
+        .banner-item {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            white-space: nowrap;
+        }
+
+        @keyframes scrollBanner {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .usa-flag-icon { width: 24px; height: auto; border-radius: 2px; }
+
+        /* --- 2. HEADER CORE --- */
         .site-header {
             background-color: var(--bg-secondary);
             border-bottom: 3px solid var(--gold-color);
@@ -35,11 +73,11 @@ layout: null
             padding: 0 1.5rem;
         }
 
-        /* --- 2. DESKTOP NAVIGATION --- */
+        /* --- 3. DESKTOP NAVIGATION --- */
         .site-nav {
             display: flex;
             align-items: center;
-            gap: 2.5rem; /* Spacious premium feel */
+            gap: 2.5rem;
         }
 
         .site-nav a, .dropdown-trigger {
@@ -58,13 +96,12 @@ layout: null
 
         .site-nav a:hover, .dropdown-trigger:hover { color: var(--sp-red); }
 
-        /* --- 3. DROPDOWN FIX (NO DOUBLE ARROWS) --- */
+        /* --- 4. DROPDOWN & BRIDGE FIX --- */
         .dropdown-container {
             position: relative;
-            padding: 10px 0; /* Vertical padding to bridge the hover gap */
+            padding: 10px 0;
         }
 
-        /* Pure CSS Arrow - Removes the double arrow bug */
         .dropdown-trigger::after {
             content: '';
             display: inline-block;
@@ -89,7 +126,6 @@ layout: null
             border: 1px solid var(--border-light);
             padding: 0.5rem 0;
             z-index: 10000;
-            margin-top: 0;
         }
 
         .dropdown-container:hover .dropdown-menu { display: block; }
@@ -107,7 +143,7 @@ layout: null
         .dropdown-menu a:last-child { border-bottom: none; }
         .dropdown-menu a:hover { background-color: var(--bg-primary); color: var(--sp-red) !important; }
 
-        /* --- 4. ACTION BUTTONS --- */
+        /* --- 5. ACTION BUTTONS --- */
         .header-actions {
             display: flex;
             align-items: center;
@@ -124,17 +160,10 @@ layout: null
             transition: 0.3s;
         }
 
-        /* --- 5. MOBILE OVERHAUL --- */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 6px;
-            cursor: pointer;
-            z-index: 10001;
-        }
+        /* --- 6. MOBILE OVERHAUL --- */
+        .menu-toggle { display: none; flex-direction: column; gap: 6px; cursor: pointer; z-index: 10001; }
         .menu-toggle span { width: 30px; height: 3px; background: var(--text-primary); border-radius: 2px; transition: 0.3s; }
 
-        /* Hamburger to X Animation */
         .menu-toggle.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
         .menu-toggle.active span:nth-child(2) { opacity: 0; }
         .menu-toggle.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
@@ -155,10 +184,10 @@ layout: null
             .site-nav.active { display: flex; }
             .dropdown-menu { position: static; transform: none; box-shadow: none; border: none; width: 100%; display: block; text-align: center; }
             .dropdown-trigger::after { display: none; }
-            .header-actions .btn { display: none; } /* Hide big button on mobile to save space */
+            .header-actions .btn { display: none; }
         }
 
-        /* --- 6. WHATSAPP --- */
+        /* --- 7. WHATSAPP --- */
         .whatsapp-float {
             position: fixed; width: 62px; height: 62px; bottom: 30px; left: 30px;
             background-color: #25d366; border-radius: 50px; display: flex;
@@ -209,6 +238,27 @@ layout: null
     </script>
 </head>
 <body>
+
+    <div class="usa-promo-banner">
+        <div class="banner-track">
+            <div class="banner-item">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" class="usa-flag-icon">
+                US Citizens: Check Your 2026 DNV Eligibility
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" class="usa-flag-icon">
+                Exclusive 24% Beckham Law Tax Audit
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" class="usa-flag-icon">
+                Move to Spain Effortlessly
+            </div>
+            <div class="banner-item">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" class="usa-flag-icon">
+                US Citizens: Check Your 2026 DNV Eligibility
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" class="usa-flag-icon">
+                Exclusive 24% Beckham Law Tax Audit
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" class="usa-flag-icon">
+                Move to Spain Effortlessly
+            </div>
+        </div>
+    </div>
 
     <header class="site-header">
         <div class="header-container">
