@@ -1,39 +1,38 @@
 /* ==========================================================
-   JURO Spain: Master CSS (Merged)
+   JURO Spain: Master "Concierge" CSS
    ========================================================== */
 
 /* ----------------------------------------------------------
    1. VARIABLES & SETUP
    ---------------------------------------------------------- */
 :root {
-  /* BRAND COLORS */
+  /* BRAND COLORS (Madrid Modern Default) */
   --sp-red: #E30613;
+  --sp-red-hover: #b90510;
   --gold-color: #FFC400; 
+  --navy-deep: #0f172a;
   
-  /* THEME VARIABLES */
+  /* THEME VARIABLES (Controlled by Layout Script) */
   --bg-primary: #fcfcfc;
   --bg-secondary: #ffffff;
-  --text-primary: #232323;
-  --text-muted: #64748b; /* Updated to a cleaner slate grey */
+  --text-primary: #1e293b; /* Sophisticated Navy Slate */
+  --text-muted: #64748b; 
   --border-light: #e2e8f0;
   --btn-text: #ffffff;
   
-  /* SPACING & UTILS */
-  --sp-radius: 6px;
+  /* UX DESIGN TOKENS */
+  --btn-radius: 8px; /* The "Goldilocks" Radius */
+  --sp-radius: 12px;
   --sp-font-heavy: 'Oswald', sans-serif;
-  --sp-font-body: 'Arial', sans-serif;
+  --sp-font-body: 'Inter', 'Arial', sans-serif;
   --sp-max-width: 1200px;
-  --sp-space-1: 0.25rem;
-  --sp-space-2: 0.5rem;
-  --sp-space-3: 1rem;
-  --sp-space-4: 1.5rem;
-  --sp-space-5: 2rem;
-  --sp-space-6: 3rem;
   
-  /* SHADOWS */
+  /* SHADOWS (The "Wow" Factor) */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 12px -1px rgb(0 0 0 / 0.08);
+  --shadow-lg: 0 15px 30px -5px rgba(227, 6, 19, 0.25); /* Red CTA Glow */
   --elev-1: 0 2px 6px rgba(0,0,0,0.06);
-  --elev-2: 0 6px 12px rgba(0,0,0,0.12);
-  --elev-3: 0 10px 20px rgba(0,0,0,0.15);
+  --elev-2: 0 10px 25px rgba(0,0,0,0.08);
 }
 
 /* ----------------------------------------------------------
@@ -47,39 +46,42 @@ body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
   font-family: var(--sp-font-body);
-  line-height: 1.6;
+  line-height: 1.7;
   margin: 0;
   font-size: 16px;
+  -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3 {
   font-family: var(--sp-font-heavy);
   font-weight: 700;
   margin-bottom: 1rem;
-  line-height: 1.2;
+  line-height: 1.1;
+  text-transform: uppercase;
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: clamp(2.5rem, 6vw, 4rem);
   text-align: center;
-  color: var(--sp-red);
-  letter-spacing: -1px;
+  color: var(--text-primary);
+  letter-spacing: -1.5px;
 }
 
 h2 {
-  font-size: 2rem;
-  border-bottom: 3px solid var(--gold-color);
+  font-size: 2.2rem;
+  border-bottom: 4px solid var(--gold-color);
   padding-bottom: 0.5rem;
-  margin-top: 3rem;
+  margin-top: 4rem;
+  display: inline-block;
 }
 
 h3 {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   color: var(--sp-red);
   margin-top: 0;
 }
 
-p { margin-bottom: 1rem; }
+p { margin-bottom: 1.25rem; }
 .center { text-align: center; }
 .small { font-size: 0.9rem; color: var(--text-muted); }
 .container { max-width: var(--sp-max-width); margin: 0 auto; padding: 0 1.5rem; }
@@ -87,76 +89,78 @@ p { margin-bottom: 1rem; }
 hr {
   border: 0;
   border-top: 1px solid var(--border-light);
-  margin: 3rem 0;
+  margin: 4rem 0;
 }
 
 /* ----------------------------------------------------------
-   3. BUTTONS (Standard & Variants)
+   3. THE "AMAZING" BUTTONS
    ---------------------------------------------------------- */
 .btn {
-  background: var(--sp-red);
-  color: #ffffff !important;
-  font-weight: 700;
-  padding: 0.75rem 1.5rem;
-  border-radius: var(--sp-radius);
-  display: inline-block;
-  text-transform: uppercase;
-  font-size: 0.9rem;
-  letter-spacing: 0.5px;
-  border: 2px solid transparent; /* Prepare for variants */
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 2.2rem;
   cursor: pointer;
   text-decoration: none;
-  transition: all 0.2s ease;
+  
+  /* Typography */
   font-family: var(--sp-font-heavy);
-  box-shadow: 0 2px 5px rgba(227, 6, 19, 0.2);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  
+  /* Aesthetics */
+  background: linear-gradient(180deg, var(--sp-red) 0%, #c40410 100%);
+  color: #ffffff !important;
+  border-radius: var(--btn-radius);
+  border: none;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .btn:hover {
-  background: #c40410;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(227, 6, 19, 0.3);
+  transform: translateY(-3px) scale(1.02);
+  background: linear-gradient(180deg, #f00715 0%, var(--sp-red) 100%);
+  box-shadow: var(--shadow-lg);
 }
 
-/* VARIANT: WHITE BUTTON (For Dark Backgrounds) */
-.btn-white {
-    background-color: #ffffff !important;
-    color: #1e293b !important; /* Dark text */
-    border-color: #ffffff !important;
-}
-.btn-white:hover {
-    background-color: #f1f5f9 !important;
-    color: #000000 !important;
+.btn:active {
+  transform: translateY(-1px);
+  filter: brightness(0.9);
 }
 
-/* VARIANT: OUTLINE BUTTON (For Secondary Actions) */
+/* VARIANT: OUTLINE (For Secondary Actions) */
 .btn-outline {
-    background-color: transparent !important;
-    color: var(--sp-red) !important;
-    border: 2px solid var(--sp-red) !important;
+    background: transparent !important;
+    color: var(--text-primary) !important;
+    border: 2px solid var(--text-primary) !important;
     box-shadow: none !important;
 }
+
 .btn-outline:hover {
-    background-color: var(--sp-red) !important;
-    color: #ffffff !important;
+    background: var(--text-primary) !important;
+    color: var(--bg-primary) !important;
+}
+
+/* VARIANT: WHITE (For Dark Backgrounds) */
+.btn-white {
+    background: #ffffff !important;
+    color: var(--navy-deep) !important;
 }
 
 /* ----------------------------------------------------------
-   4. HEADER & NAVIGATION (With Dropdown Support)
+   4. HEADER & NAVIGATION
    ---------------------------------------------------------- */
 .site-header {
   background-color: var(--bg-secondary);
-  border-bottom: 3px solid var(--gold-color);
+  border-bottom: 4px solid var(--gold-color);
   box-shadow: var(--elev-1);
   position: sticky;
   top: 0;
   z-index: 1000;
   padding: 1rem 0;
-}
-
-.site-header .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 .site-title {
@@ -169,14 +173,9 @@ hr {
 }
 .site-title .text-highlight { color: var(--gold-color); }
 
-/* MAIN NAVIGATION */
-.site-nav {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-}
+.site-nav { display: flex; align-items: center; gap: 2rem; }
 
-.site-nav a {
+.site-nav a, .dropdown-trigger {
   font-family: var(--sp-font-heavy);
   color: var(--text-primary);
   text-decoration: none;
@@ -186,32 +185,11 @@ hr {
   transition: color 0.2s;
 }
 
-.site-nav a:hover {
-  color: var(--sp-red);
-}
+.site-nav a:hover, .dropdown-trigger:hover { color: var(--sp-red); }
 
-/* DROPDOWN MENU */
-.dropdown-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    height: 100%;
-}
-
-.dropdown-trigger {
-    font-family: var(--sp-font-heavy);
-    color: var(--text-primary);
-    text-transform: uppercase;
-    font-weight: 500;
-    font-size: 0.95rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.dropdown-trigger:hover { color: var(--sp-red); }
-.dropdown-trigger::after { content: '▾'; font-size: 0.8em; margin-top: -2px; }
+/* DROPDOWN */
+.dropdown-container { position: relative; display: flex; align-items: center; }
+.dropdown-trigger::after { content: '▾'; font-size: 0.8em; margin-left: 4px; }
 
 .dropdown-menu {
     display: none;
@@ -220,226 +198,116 @@ hr {
     left: 50%;
     transform: translateX(-50%);
     background-color: var(--bg-secondary);
-    min-width: 200px;
+    min-width: 220px;
     box-shadow: var(--elev-2);
     border-radius: var(--sp-radius);
     border: 1px solid var(--border-light);
     padding: 0.5rem 0;
-    margin-top: 10px; /* Gap from header */
+    margin-top: 15px;
     z-index: 1000;
-}
-
-/* Keep menu open when hovering the gap */
-.dropdown-container::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 20px;
-    top: 100%;
-    left: 0;
 }
 
 .dropdown-container:hover .dropdown-menu { display: block; }
 
 .dropdown-menu a {
     display: block;
-    padding: 10px 20px;
-    border-bottom: 1px solid #f0f0f0;
-    text-transform: none; /* Normal case inside dropdown */
-    font-size: 0.9rem;
-    font-family: sans-serif;
-}
-.dropdown-menu a:hover { background-color: #f9f9f9; color: var(--sp-red); }
-.dropdown-menu a:last-child { border-bottom: none; }
-
-
-/* ----------------------------------------------------------
-   5. PARTNERS PAGE LAYOUT (B2B Styling)
-   ---------------------------------------------------------- */
-.partner-page-wrapper {
-    --p-navy: #1e293b;
-}
-
-.partner-hero {
-    background-color: var(--p-navy);
-    color: white;
-    padding: 5rem 0;
-    text-align: center;
-    border-bottom: 5px solid var(--sp-red);
-}
-
-.partner-hero h1 { color: white !important; margin-bottom: 1rem; }
-.partner-hero p { color: #94a3b8; font-size: 1.2rem; max-width: 700px; margin: 0 auto; }
-
-.partner-split {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: start;
-    margin: 5rem 0;
-}
-.partner-text h2 { text-align: left; border-bottom: none; }
-
-.structure-box {
-    background: white;
-    border: 2px solid var(--border-light);
-    border-radius: var(--sp-radius);
-    padding: 2rem;
-    box-shadow: var(--elev-2);
-}
-
-.role-badge {
-    display: inline-block;
-    padding: 4px 12px;
-    border-radius: 50px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-}
-.badge-commercial { background: #dbeafe; color: #1e40af; }
-.badge-legal { background: #fef3c7; color: #92400e; }
-
-.apply-box {
-    background: #f8fafc;
-    border: 1px solid var(--border-light);
-    border-radius: 16px;
-    padding: 3rem;
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto 4rem auto;
+    padding: 12px 24px;
+    border-bottom: 1px solid #f8fafc;
+    text-transform: none;
+    font-family: var(--sp-font-body);
 }
 
 /* ----------------------------------------------------------
-   6. CARDS & GRIDS
+   5. CARDS & GRIDS
    ---------------------------------------------------------- */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin: 3rem 0;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  margin: 4rem 0;
 }
 
 .card {
   background: var(--bg-secondary);
   border: 1px solid var(--border-light);
   border-radius: var(--sp-radius);
-  padding: 2rem;
-  box-shadow: var(--elev-1);
-  transition: transform 0.3s, box-shadow 0.3s;
+  padding: 2.5rem;
+  box-shadow: var(--shadow-md);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   height: 100%;
   display: flex;
   flex-direction: column;
 }
 
 .card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-8px);
   box-shadow: var(--elev-2);
   border-color: var(--gold-color);
 }
 
 /* ----------------------------------------------------------
-   7. GLOSSARY STYLES
+   6. PARTNERS & B2B
    ---------------------------------------------------------- */
-.glossary-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 1.5rem;
+.partner-hero {
+    background-color: var(--text-primary);
+    color: white;
+    padding: 6rem 0;
+    text-align: center;
+    border-bottom: 8px solid var(--sp-red);
 }
 
-.term-card {
+.partner-hero h1 { color: white !important; }
+
+.workflow-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     background: white;
-    border: 1px solid var(--border-light);
-    padding: 1.5rem;
     border-radius: var(--sp-radius);
-    transition: transform 0.2s;
-    border-left: 4px solid var(--gold-color);
+    overflow: hidden;
+    box-shadow: var(--elev-2);
+    margin: 4rem 0;
 }
-.term-card:hover { transform: translateY(-3px); box-shadow: var(--elev-1); }
-.term-card h3 { font-size: 1.2rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; }
-.term-card p { font-size: 0.95rem; color: var(--text-muted); }
 
 /* ----------------------------------------------------------
-   8. FOOTER
+   7. FOOTER
    ---------------------------------------------------------- */
 .site-footer {
   background: var(--text-primary);
-  color: #fff;
-  padding: 4rem 0 2rem;
-  margin-top: 5rem;
-  font-size: 0.9rem;
+  color: #f8fafc;
+  padding: 5rem 0 2.5rem;
+  margin-top: 6rem;
 }
 
-.footer-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
-  margin-bottom: 2rem;
-}
-
-.footer-section h3 { color: #fff; border-bottom: none; font-size: 1.1rem; }
-.footer-section ul { list-style: none; padding: 0; }
-.footer-section li { margin-bottom: 0.8rem; }
-.footer-section a { color: #94a3b8; text-decoration: none; }
+.footer-section a { color: #94a3b8; text-decoration: none; transition: 0.3s; }
 .footer-section a:hover { color: var(--gold-color); }
-.footer-bottom { border-top: 1px solid #333; padding-top: 2rem; text-align: center; color: #666; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; margin-top: 3rem; text-align: center; opacity: 0.6; }
 
 /* ----------------------------------------------------------
-   9. MOBILE RESPONSIVE
+   8. MOBILE RESPONSIVE
    ---------------------------------------------------------- */
-.menu-toggle { display: none; } /* Hidden on desktop */
-
 @media (max-width: 900px) {
-    /* STACK PARTNERS LAYOUT */
-    .partner-split { grid-template-columns: 1fr; gap: 2rem; }
-    
-    /* HEADER ADJUSTMENTS */
-    .site-header .container { flex-wrap: wrap; }
+    .site-nav {
+        position: fixed;
+        top: 0; right: -100%;
+        width: 300px; height: 100vh;
+        background: var(--bg-secondary);
+        flex-direction: column;
+        padding: 5rem 2rem;
+        transition: 0.4s;
+        box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+    }
+    .site-nav.active { right: 0; }
     
     .menu-toggle {
         display: block;
-        background: none;
-        border: none;
+        padding: 10px;
         cursor: pointer;
-        font-size: 1.5rem;
     }
     .menu-toggle span {
         display: block;
-        width: 25px;
-        height: 3px;
+        width: 25px; height: 3px;
         background: var(--text-primary);
         margin: 5px 0;
+        border-radius: 2px;
     }
-
-    /* MOBILE NAV DRAWER */
-    .site-nav {
-        display: none; /* Hide initially */
-        width: 100%;
-        flex-direction: column;
-        align-items: flex-start;
-        padding-top: 1rem;
-    }
-    .site-nav.active { display: flex; } /* Show when active */
-    
-    .site-nav a, 
-    .dropdown-trigger {
-        width: 100%;
-        padding: 1rem 0;
-        border-bottom: 1px solid #eee;
-        font-size: 1.1rem;
-    }
-
-    /* MOBILE DROPDOWN - ALWAYS OPEN */
-    .dropdown-container { display: block; width: 100%; }
-    .dropdown-menu {
-        position: static;
-        display: block;
-        transform: none;
-        width: 100%;
-        box-shadow: none;
-        border: none;
-        background: #f9f9f9;
-        padding-left: 1rem;
-    }
-    .dropdown-trigger::after { display: none; }
 }
