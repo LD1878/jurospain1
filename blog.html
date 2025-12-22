@@ -6,80 +6,139 @@ permalink: /blog/
 ---
 
 <style>
-    /* SEARCH BAR STYLES */
+    /* 1. BLOG HERO - SPANISH AUTHORITY */
+    .blog-hero {
+        padding: 5rem 0 3rem;
+        background: linear-gradient(to bottom, #fff 0%, #f8fafc 100%);
+        border-top: 8px solid var(--sp-red); /* Spanish Red Accent */
+        position: relative;
+    }
+
+    .blog-h1 {
+        font-family: 'Oswald', sans-serif !important;
+        font-size: clamp(2.5rem, 6vw, 4rem) !important;
+        font-weight: 700 !important;
+        text-transform: uppercase;
+        letter-spacing: -2px !important;
+        margin-bottom: 1rem;
+    }
+
+    /* 2. PREMIUM SEARCH BAR */
     .search-wrapper {
         position: relative;
-        max-width: 600px;
-        margin: 0 auto;
+        max-width: 700px;
+        margin: 2rem auto 0;
+        z-index: 10;
     }
     
     #search-input {
         width: 100%;
-        padding: 1rem 1.5rem;
+        padding: 1.2rem 1.8rem;
         font-size: 1.1rem;
         border: 2px solid var(--border-light);
         border-radius: 50px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        transition: all 0.2s ease;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        transition: all 0.3s ease;
         outline: none;
+        font-family: 'Inter', sans-serif;
     }
 
     #search-input:focus {
-        border-color: var(--gold-color);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        border-color: var(--sp-red);
+        box-shadow: 0 15px 35px rgba(227, 6, 19, 0.1);
     }
 
     .search-icon {
         position: absolute;
-        right: 20px;
+        right: 25px;
         top: 50%;
         transform: translateY(-50%);
-        font-size: 1.2rem;
-        opacity: 0.5;
+        font-size: 1.4rem;
+        color: var(--sp-red);
         pointer-events: none;
     }
 
-    /* CARD LINK STYLES: GUARANTEED CLICKABLE AREA */
+    /* 3. CLICKABLE CARD RE-ENGINEERING */
+    .post-list-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 2.5rem;
+        margin: 5rem 0;
+    }
+
     .post-card-link {
-        display: flex !important; /* Force display properties */
+        display: flex !important;
         flex-direction: column !important;
-        text-decoration: none !important; /* Remove blue underline */
-        color: inherit !important; /* Keep your existing text color */
+        text-decoration: none !important;
+        background: white;
+        border: 1px solid var(--border-light);
+        border-radius: 20px;
+        padding: 2.5rem;
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
         height: 100% !important;
-        transition: transform 0.2s ease;
-        
-        /* THE AGGRESSIVE FIXES */
-        z-index: 10 !important; /* Ensure it's above everything else */
-        cursor: pointer !important; /* Force the pointer icon */
-        position: relative !important; /* Ensure z-index works */
+        box-shadow: var(--elev-1);
+        position: relative;
+        border-bottom: 5px solid transparent;
     }
 
     .post-card-link:hover {
-        transform: translateY(-5px);
-        box-shadow: var(--sp-shadow);
+        transform: translateY(-10px);
+        box-shadow: 0 30px 60px -12px rgba(0,0,0,0.12) !important;
+        border-bottom-color: var(--sp-red);
     }
 
-    .hidden {
-        display: none !important;
+    .post-card-link h2 {
+        font-family: 'Oswald', sans-serif !important;
+        font-size: 1.6rem !important;
+        color: var(--text-primary) !important;
+        border: none !important;
+        padding: 0 !important;
+        margin: 1rem 0;
+        line-height: 1.2;
+    }
+
+    .post-card-link p {
+        color: var(--text-muted) !important;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+    }
+
+    .read-more-label {
+        margin-top: auto;
+        font-weight: 800;
+        color: var(--sp-red);
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+    }
+
+    /* MOBILE ADJUSTMENTS */
+    @media (max-width: 768px) {
+        .blog-h1 { font-size: 2.2rem !important; }
+        .post-card-link { padding: 1.8rem; }
     }
 </style>
 
-<div class="container">
-    
-    <div class="blog-header center" style="margin-bottom: var(--sp-space-6);">
-        <h1 style="margin-bottom: 0.5rem;">Guides & Resources</h1>
-        <p class="small" style="color: var(--text-muted); margin-bottom: var(--sp-space-4);">
-            Everything you need to know about moving to, living in, and buying property in Spain.
+<div class="blog-hero center">
+    <div class="container">
+        <p style="font-weight: 800; color: var(--sp-red); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem;">
+            Expat Knowledge Base
+        </p>
+        <h1 class="blog-h1">Spanish Residency & <br><span style="color: var(--sp-red);">Property Guides</span></h1>
+        <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto; color: var(--text-muted); font-family: 'Inter', sans-serif;">
+            Practical advice on immigration, tax, and life in Spain, written by experts and updated for 2026.
         </p>
 
         <div class="search-wrapper">
-            <input type="text" id="search-input" placeholder="Search guides (e.g., 'Digital Nomad', 'Taxes', 'Property')..." onkeyup="filterPosts()">
+            <input type="text" id="search-input" placeholder="Search by topic (e.g. 'Beckham Law', 'NIE', 'DNV')..." onkeyup="filterPosts()">
             <span class="search-icon">🔍</span>
         </div>
     </div>
+</div>
 
-    <hr>
-
+<div class="container">
+    
     {% assign sorted_posts = site.posts | sort: "date" | reverse %}
 
     {% if sorted_posts.size > 0 %}
@@ -89,60 +148,54 @@ permalink: /blog/
 
                 {% assign post_summary_source = post.seo_summary | default: post.excerpt %}
 
-                {% comment %} CLEAN UP LOGIC {% endcomment %}
-                {% if post_summary_source contains 'Table of contents' or post_summary_source contains 'table of contents' or post_summary_source contains 'Overview:' %}
-                    {% assign cleaned_excerpt_stage_1 = post_summary_source | strip_html | replace: "Table of contents", "" | replace: "table of contents", "" | replace: "Overview:", "" | replace: "-", "" | replace: "*", "" %}
-                    {% assign cleaned_excerpt_stage_2 = cleaned_excerpt_stage_1 | newline_to_br | replace: "<br>", " " | replace: "    ", " " | replace: "  ", " " %}
-                    {% assign final_excerpt = cleaned_excerpt_stage_2 | strip | truncate: 200 %}
+                {% comment %} CLEAN UP LOGIC - ENSURES PREMIUM CARD TEXT {% endcomment %}
+                {% if post_summary_source contains 'Table of contents' or post_summary_source contains 'table of contents' %}
+                    {% assign cleaned_excerpt = post_summary_source | strip_html | replace: "Table of contents", "" | replace: "Overview:", "" | strip | truncate: 160 %}
                 {% else %}
-                    {% assign final_excerpt = post_summary_source | strip_html | strip | truncate: 200 %}
+                    {% assign cleaned_excerpt = post_summary_source | strip_html | strip | truncate: 160 %}
                 {% endif %}
 
                 <a href="{{ post.url | relative_url }}" 
-                   class="post-card-link card" 
-                   data-search="{{ post.title | downcase }} {{ final_excerpt | downcase }} {{ post.tags | join: ' ' | downcase }}"> 
-                    <header>
-                        <h2>{{ post.title | escape }}</h2>
-                        <p class="small" style="color: var(--text-muted);">
-                            <span aria-hidden="true">🗓️</span> {{ post.date | date: "%d/%m/%Y" }}
-                        </p>
-                    </header>
+                   class="post-card-link" 
+                   data-search="{{ post.title | downcase }} {{ cleaned_excerpt | downcase }} {{ post.tags | join: ' ' | downcase }}"> 
                     
-                    <p>{{ final_excerpt }}...</p>
-                    
-                    <span style="font-size: 0.9rem; font-weight: 700; color: var(--sp-red); margin-top: auto; display: block;">
-                        Read Guide →
+                    <span style="font-size: 0.75rem; font-weight: 800; color: var(--gold-color); text-transform: uppercase; letter-spacing: 1px;">
+                        {{ post.date | date: "%B %Y" }}
                     </span>
+
+                    <h2>{{ post.title | escape }}</h2>
+                    
+                    <p>{{ cleaned_excerpt }}</p>
+                    
+                    <span class="read-more-label">Read Full Guide →</span>
                 </a>
 
             {% endfor %}
         </section>
 
-        <div id="no-results" class="center hidden" style="padding: var(--sp-space-6) 0;">
-            <div style="font-size: 3rem; margin-bottom: 1rem;">🤔</div>
-            <h3>No guides found matching that search.</h3>
-            <p>Try a different keyword or browse our latest posts above.</p>
-            <button onclick="document.getElementById('search-input').value = ''; filterPosts();" class="btn" style="margin-top: 1rem;">Clear Search</button>
+        <div id="no-results" class="center hidden" style="padding: 6rem 0;">
+            <div style="font-size: 3.5rem; margin-bottom: 1rem;">🔎</div>
+            <h3 style="border: none;">No results found.</h3>
+            <p>Try searching for a broader term like 'Visa' or 'Tax'.</p>
+            <button onclick="document.getElementById('search-input').value = ''; filterPosts();" class="btn" style="margin-top: 1.5rem;">Clear Search</button>
         </div>
 
     {% else %}
 
-    <div class="card center">
-        <h2>Content Coming Soon!</h2>
-        <p>We are currently writing our first set of comprehensive guides and articles. Please check back soon!</p>
-    </div>
+        <div class="card center" style="margin: 5rem 0;">
+            <h2>Knowledge Base Loading...</h2>
+            <p>We are currently finalizing our 2026 guides. Check back in a few days.</p>
+        </div>
 
     {% endif %}
 
     <hr>
 
-    <div class="hero center" style="margin: var(--sp-space-6) 0;">
-        <h2>Need Specific Advice?</h2>
-        <p style="font-size: 1.2rem; margin-bottom: var(--sp-space-4);">
-            Can't find the answer in our guides? Book a consultation with a specialist.
-        </p>
-        <a href="https://app.cal.eu/jurospain/30min" class="btn" target="_blank" rel="noopener noreferrer">
-            Book Your Free Consultation
+    <div class="center" style="background: var(--text-primary); color: white; padding: 5rem 2rem; border-radius: 30px; margin-bottom: 6rem;">
+        <h2 style="color: white !important; border: none; font-size: 2.5rem; margin-top: 0;">Need specific legal advice?</h2>
+        <p style="font-size: 1.2rem; opacity: 0.8; margin-bottom: 3rem;">Our specialists can help you navigate your specific case via a private call.</p>
+        <a href="https://app.cal.eu/jurospain/30min" class="btn" style="background: var(--sp-red); border: none; padding: 1.2rem 3.5rem; font-size: 1.1rem;">
+            Book Your Consultation
         </a>
     </div>
 </div>
@@ -150,7 +203,7 @@ permalink: /blog/
 <script>
     function filterPosts() {
         var input = document.getElementById('search-input');
-        var filter = input.value.toLowerCase();
+        var filter = input.value.toLowerCase().trim();
         var grid = document.getElementById('post-grid');
         var cards = grid.getElementsByClassName('post-card-link');
         var noResults = document.getElementById('no-results');
@@ -159,22 +212,22 @@ permalink: /blog/
         for (var i = 0; i < cards.length; i++) {
             var searchData = cards[i].getAttribute('data-search');
             if (searchData.indexOf(filter) > -1) {
-                cards[i].classList.remove('hidden');
+                cards[i].style.display = 'flex';
                 visibleCount++;
             } else {
-                cards[i].classList.add('hidden');
+                cards[i].style.display = 'none';
             }
         }
 
         if (visibleCount === 0) {
-            noResults.classList.remove('hidden');
-            grid.classList.add('hidden');
+            noResults.style.display = 'block';
+            grid.style.display = 'none';
         } else {
-            noResults.classList.add('hidden');
-            grid.classList.remove('hidden');
+            noResults.style.display = 'none';
+            grid.style.display = 'grid';
         }
     }
 
-    // Initialize search on load
+    // Run on load to handle any pre-filled text
     document.addEventListener('DOMContentLoaded', filterPosts);
 </script>
