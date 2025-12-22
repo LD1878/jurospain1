@@ -3,18 +3,18 @@ layout: default
 ---
 
 <style>
-    /* 1. POST HEADER - THE AUTHORITY LOOK */
+    /* 1. POST HEADER - THEME SYNCED */
     .post-header-premium {
         padding: 4rem 0 3rem;
-        background: #f8fafc;
-        border-top: 8px solid var(--sp-red); /* High Authority Red */
+        background: var(--bg-secondary); /* Flips with theme */
+        border-top: 8px solid var(--sp-red);
         border-bottom: 1px solid var(--border-light);
     }
 
     .post-category-tag {
         display: inline-block;
         background: var(--gold-color);
-        color: var(--text-primary);
+        color: #232323; /* Keep high contrast on gold */
         padding: 5px 15px;
         border-radius: 4px;
         font-weight: 800;
@@ -34,7 +34,7 @@ layout: default
         letter-spacing: -1px !important;
     }
 
-    /* 2. THE WHITE PAPER GRID (Desktop Split) */
+    /* 2. THE WHITE PAPER GRID */
     .post-main-grid {
         display: grid;
         grid-template-columns: 1fr 320px;
@@ -43,12 +43,12 @@ layout: default
         align-items: start;
     }
 
-    /* 3. BODY TYPOGRAPHY (Inter for Readability) */
+    /* 3. BODY TYPOGRAPHY - THEME SYNCED */
     .post-body-content {
         font-family: 'Inter', sans-serif;
-        font-size: 1.2rem; /* Larger for authority feel */
+        font-size: 1.2rem;
         line-height: 1.85;
-        color: #334155;
+        color: var(--text-primary); /* Replaced hardcoded slate */
     }
 
     .post-body-content h2 {
@@ -65,10 +65,10 @@ layout: default
         color: var(--sp-red);
     }
 
-    /* 4. THE TRANSPARENCY BOX */
+    /* 4. THE TRANSPARENCY BOX - THEME SYNCED */
     .transparency-notice {
-        background: #fff9db;
-        border-left: 6px solid #FFC400;
+        background: var(--bg-primary);
+        border-left: 6px solid var(--gold-color);
         padding: 1.5rem 2rem;
         border-radius: 8px;
         margin: 3rem 0;
@@ -76,22 +76,32 @@ layout: default
         display: flex;
         gap: 20px;
         align-items: center;
-        color: #856404;
+        color: var(--text-primary);
+        border: 1px solid var(--border-light);
+        border-left: 6px solid var(--gold-color);
     }
 
-    /* 5. STICKY SIDEBAR CTA */
+    /* 5. STICKY SIDEBAR CTA - INVERSE SYNC */
     .post-sidebar {
         position: sticky;
         top: 120px;
     }
 
     .sidebar-card {
-        background: var(--text-primary);
-        color: white;
+        background: var(--text-primary); /* Dark in light mode, Light in dark mode */
+        color: var(--bg-primary); /* High contrast toggle */
         padding: 2.5rem 2rem;
         border-radius: 20px;
         text-align: center;
         box-shadow: var(--elev-3);
+    }
+
+    .sidebar-card h4 {
+        color: var(--gold-color) !important;
+    }
+
+    .sidebar-card p {
+        color: var(--bg-primary) !important;
     }
 
     /* MOBILE ADJUSTMENTS */
@@ -129,24 +139,24 @@ layout: default
 
                 {{ content }}
 
-                <div style="margin-top: 6rem; padding: 4rem; background: #f8fafc; border-radius: 24px; text-align: center; border: 1px solid var(--border-light);">
-                    <h2 style="border: none; margin-top: 0;">Ready to start your application?</h2>
-                    <p style="margin-bottom: 2.5rem;">Don't let bureaucracy slow you down. Book a priority call to discuss your residency or property purchase with our team.</p>
+                <div style="margin-top: 6rem; padding: 4rem; background: var(--bg-secondary); border-radius: 24px; text-align: center; border: 1px solid var(--border-light);">
+                    <h2 style="border: none; margin-top: 0; color: var(--text-primary);">Ready to start your application?</h2>
+                    <p style="margin-bottom: 2.5rem; color: var(--text-muted);">Don't let bureaucracy slow you down. Book a priority call to discuss your residency or property purchase with our team.</p>
                     <a href="https://app.cal.eu/jurospain/30min" class="btn" style="padding: 1.2rem 3rem; font-size: 1.1rem;">Book Priority Consultation</a>
                 </div>
             </div>
 
             <aside class="post-sidebar">
                 <div class="sidebar-card">
-                    <h4 style="color: var(--gold-color); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem;">Free Case Review</h4>
-                    <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 2rem;">Speak with a relocation specialist about your specific situation in Spain.</p>
+                    <h4 style="text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem;">Free Case Review</h4>
+                    <p style="font-size: 0.9rem; opacity: 0.9; margin-bottom: 2rem;">Speak with a relocation specialist about your specific situation in Spain.</p>
                     <a href="https://app.cal.eu/jurospain/30min" class="btn btn-white" style="width: 100%; border-radius: 50px;">Book Call</a>
                 </div>
 
-                <div style="margin-top: 3rem; padding: 2rem; border: 1px solid var(--border-light); border-radius: 16px;">
-                    <h4 style="margin-top: 0; font-family: 'Oswald', sans-serif; text-transform: uppercase;">Related Resources</h4>
+                <div style="margin-top: 3rem; padding: 2rem; border: 1px solid var(--border-light); border-radius: 16px; background: var(--bg-secondary);">
+                    <h4 style="margin-top: 0; font-family: 'Oswald', sans-serif; text-transform: uppercase; color: var(--text-primary);">Related Resources</h4>
                     <ul style="list-style: none; padding: 0; margin-top: 1.5rem;">
-                        {% for post in site.posts limit:3 %}
+                        {% for post in site.posts limit:4 %}
                         {% unless post.url == page.url %}
                         <li style="margin-bottom: 1.2rem;">
                             <a href="{{ post.url | relative_url }}" style="font-weight: 600; font-size: 0.95rem; color: var(--text-primary); text-decoration: none; border-bottom: 1px solid transparent; transition: border 0.2s;">
