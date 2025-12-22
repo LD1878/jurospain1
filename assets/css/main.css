@@ -1,5 +1,5 @@
 /* ==========================================================
-   JURO Spain: Master "Ferrari" CSS (Full Content)
+   JURO Spain: Master "Ferrari" CSS (Final Version)
    ========================================================== */
 
 /* ----------------------------------------------------------
@@ -23,12 +23,6 @@
   --sp-font-heavy: 'Oswald', sans-serif;
   --sp-font-body: 'Arial', sans-serif;
   --sp-max-width: 1200px;
-  --sp-space-1: 0.25rem;
-  --sp-space-2: 0.5rem;
-  --sp-space-3: 1rem;
-  --sp-space-4: 1.5rem;
-  --sp-space-5: 2rem;
-  --sp-space-6: 3rem;
   
   /* SHADOWS */
   --elev-1: 0 2px 6px rgba(0,0,0,0.06);
@@ -37,7 +31,7 @@
 }
 
 /* ----------------------------------------------------------
-   2. BASE STYLES
+   2. BASE STYLES & TEXTURE
    ---------------------------------------------------------- */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -51,6 +45,13 @@ body {
   margin: 0;
   font-size: 16px;
   transition: background-color 0.3s ease, color 0.3s ease;
+
+  /* TWEAK: THE TECH-GRID TEXTURE */
+  background-image: 
+      linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: center top;
 }
 
 h1, h2, h3 {
@@ -137,16 +138,24 @@ hr {
 }
 
 /* ----------------------------------------------------------
-   4. HEADER & NAVIGATION
+   4. HEADER & NAVIGATION (Glassmorphism Added)
    ---------------------------------------------------------- */
 .site-header {
   background-color: var(--bg-secondary);
+  /* TWEAK: Glass Effect */
+  backdrop-filter: blur(12px); 
+  -webkit-backdrop-filter: blur(12px);
+  opacity: 0.98; /* Allows slight see-through for the blur */
+  
   border-bottom: 3px solid var(--gold-color);
   box-shadow: var(--elev-1);
   position: sticky;
   top: 0;
   z-index: 1000;
-  padding: 1rem 0;
+  padding: 0; /* Adjusted for fixed height in layout */
+  height: 90px;
+  display: flex;
+  align-items: center;
   transition: background-color 0.3s ease;
 }
 
@@ -154,6 +163,7 @@ hr {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
 }
 
 .site-title {
@@ -164,22 +174,22 @@ hr {
   text-decoration: none;
   letter-spacing: -0.5px;
 }
-.site-title .text-highlight { color: var(--gold-color); }
 
 .site-nav {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 2.5rem; /* Increased spacing for premium feel */
 }
 
 .site-nav a {
   font-family: var(--sp-font-heavy);
   color: var(--text-primary);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
   font-size: 0.95rem;
   transition: color 0.2s;
+  letter-spacing: 0.5px;
 }
 
 .site-nav a:hover { color: var(--sp-red); }
@@ -190,22 +200,33 @@ hr {
     display: flex;
     align-items: center;
     height: 100%;
+    padding: 10px 0; /* Bridge fix */
 }
 
 .dropdown-trigger {
     font-family: var(--sp-font-heavy);
     color: var(--text-primary);
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 0.95rem;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 5px;
 }
 
 .dropdown-trigger:hover { color: var(--sp-red); }
-.dropdown-trigger::after { content: '▾'; font-size: 0.8em; margin-top: -2px; }
+
+/* Clean Arrow */
+.dropdown-trigger::after {
+    content: '';
+    display: inline-block;
+    margin-left: 8px;
+    width: 0; height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid currentColor;
+    vertical-align: middle;
+}
 
 .dropdown-menu {
     display: none;
@@ -214,73 +235,74 @@ hr {
     left: 50%;
     transform: translateX(-50%);
     background-color: var(--bg-secondary);
-    min-width: 200px;
-    box-shadow: var(--elev-2);
+    min-width: 220px;
+    box-shadow: var(--elev-3);
     border-radius: var(--sp-radius);
     border: 1px solid var(--border-light);
     padding: 0.5rem 0;
-    margin-top: 10px;
-    z-index: 1000;
+    z-index: 10000;
 }
 
 .dropdown-container:hover .dropdown-menu { display: block; }
 
 .dropdown-menu a {
     display: block;
-    padding: 10px 20px;
+    padding: 12px 24px;
     border-bottom: 1px solid var(--border-light);
     text-transform: none;
-    font-size: 0.9rem;
-    font-family: sans-serif;
+    font-size: 0.95rem;
+    font-family: 'Inter', sans-serif;
     color: var(--text-primary);
 }
-.dropdown-menu a:hover { background-color: rgba(128,128,128,0.05); color: var(--sp-red); }
+.dropdown-menu a:hover { background-color: var(--bg-primary); color: var(--sp-red); }
 
 /* ----------------------------------------------------------
-   5. PARTNERS PAGE (Full Restoration)
+   5. USA BANNER (Global Styles)
    ---------------------------------------------------------- */
-.partner-page-wrapper { --p-navy: #1e293b; }
-
-.partner-hero {
-    background-color: var(--text-primary); /* Syncs with theme */
-    color: var(--bg-primary);
-    padding: 5rem 0;
-    text-align: center;
-    border-bottom: 5px solid var(--sp-red);
-}
-
-.partner-hero h1 { color: inherit !important; margin-bottom: 1rem; }
-
-.partner-split {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: start;
-    margin: 5rem 0;
-}
-
-.structure-box {
-    background: var(--bg-secondary);
-    border: 2px solid var(--border-light);
-    border-radius: var(--sp-radius);
-    padding: 2rem;
-    box-shadow: var(--elev-2);
-}
-
-.role-badge {
-    display: inline-block;
-    padding: 4px 12px;
-    border-radius: 50px;
-    font-size: 0.8rem;
+.usa-promo-banner {
+    background: #002868; /* US Flag Blue */
+    color: white !important;
+    padding: 12px 0;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 4px solid #bf0a30; /* US Flag Red */
+    font-family: 'Oswald', sans-serif;
     font-weight: 700;
     text-transform: uppercase;
-    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    letter-spacing: 1.5px;
+    z-index: 10001;
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
 }
-.badge-commercial { background: #dbeafe; color: #1e40af; }
-.badge-legal { background: #fef3c7; color: #92400e; }
+
+.usa-promo-banner:hover { background: #001f54; }
+
+.banner-track {
+    display: flex;
+    width: 200%;
+    animation: scrollBanner 25s linear infinite;
+}
+
+.banner-item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    white-space: nowrap;
+}
+
+@keyframes scrollBanner {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.usa-flag-icon { width: 24px; height: auto; border-radius: 2px; }
 
 /* ----------------------------------------------------------
-   6. GRIDS & GLOSSARY
+   6. CARDS & GRIDS
    ---------------------------------------------------------- */
 .services-grid {
   display: grid;
@@ -304,30 +326,15 @@ hr {
 
 .card:hover { transform: translateY(-4px); border-color: var(--gold-color); }
 
-.glossary-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 1.5rem;
-}
-
-.term-card {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-light);
-    padding: 1.5rem;
-    border-radius: var(--sp-radius);
-    transition: transform 0.2s;
-    border-left: 4px solid var(--gold-color);
-    color: var(--text-primary);
-}
-
 /* ----------------------------------------------------------
-   7. FOOTER & MOBILE (Full Restoration)
+   7. FOOTER & MOBILE
    ---------------------------------------------------------- */
 .site-footer {
-  background: var(--text-primary);
-  color: var(--bg-primary);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
   padding: 4rem 0 2rem;
   margin-top: 5rem;
+  border-top: 1px solid var(--border-light);
 }
 
 .footer-content {
@@ -340,17 +347,28 @@ hr {
 .footer-section h3 { color: inherit; border-bottom: none; }
 .footer-section a { color: inherit; opacity: 0.8; text-decoration: none; }
 
+/* WHATSAPP FLOAT */
+.whatsapp-float {
+    position: fixed; width: 62px; height: 62px; bottom: 30px; left: 30px;
+    background-color: #25d366; border-radius: 50px; display: flex;
+    align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+    z-index: 999; text-decoration: none; transition: 0.3s;
+}
+.whatsapp-float:hover { transform: scale(1.1); background-color: #128c7e; }
+
 @media (max-width: 900px) {
-    .partner-split { grid-template-columns: 1fr; }
     .site-header .container { flex-wrap: wrap; }
-    .menu-toggle { display: block; background: none; border: none; cursor: pointer; }
-    .menu-toggle span { display: block; width: 25px; height: 3px; background: var(--text-primary); margin: 5px 0; }
-    
     .site-nav {
-        display: none; width: 100%; flex-direction: column; padding-top: 1rem;
+        display: none; width: 100%; flex-direction: column; 
+        position: fixed; top: 90px; left: 0; background: var(--bg-secondary);
+        padding: 2rem; border-bottom: 5px solid var(--sp-red);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
     }
     .site-nav.active { display: flex; }
-    .site-nav a, .dropdown-trigger { width: 100%; padding: 1rem 0; border-bottom: 1px solid var(--border-light); }
+    .site-nav a, .dropdown-trigger { width: 100%; padding: 1rem 0; border-bottom: 1px solid var(--border-light); justify-content: center; }
     
-    .dropdown-menu { position: static; display: block; transform: none; box-shadow: none; border: none; background: rgba(0,0,0,0.03); }
+    .dropdown-menu { position: static; display: block; transform: none; box-shadow: none; border: none; background: rgba(0,0,0,0.03); text-align: center; }
+    .dropdown-trigger::after { display: none; }
+    
+    .header-actions .btn { display: none; }
 }
