@@ -1,93 +1,250 @@
 ---
 layout: default
-title: Pricing
-description: Transparent, flat-fee pricing for Spain visas, tax residency, and business registration.
+title: Transparent Fixed-Fee Pricing | JURO Spain
+description: No billable hours. No hidden costs. Fixed-fee legal and relocation support for Digital Nomad Visas, Property, and Tax in Spain.
+permalink: /pricing/
 ---
 
-<section class="hero center" style="padding: var(--sp-space-6) 0;">
-    <h1>Transparent, Flat-Fee Pricing</h1>
-    <p style="font-size: 1.25rem; max-width: 700px; margin: 0 auto; color: var(--text-muted);">
-        No hidden retainer fees. No hourly billing. Just clear, competitive prices for the services you need to start your life in Spain.
-    </p>
-</section>
+<style>
+    /* 1. PRICING HERO */
+    .pricing-hero {
+        padding: 5rem 0 3rem;
+        background: linear-gradient(to bottom, #fff 0%, #f8fafc 100%);
+        border-top: 8px solid #E30613;
+        text-align: center;
+    }
+
+    .pricing-h1 {
+        font-family: 'Oswald', sans-serif !important;
+        font-size: clamp(2.5rem, 6vw, 4rem) !important;
+        font-weight: 700 !important;
+        text-transform: uppercase;
+        letter-spacing: -1px !important;
+        margin-bottom: 1.5rem;
+    }
+
+    /* 2. THE PRICING GRID */
+    .pricing-flex-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2.5rem;
+        margin: 4rem 0;
+        align-items: stretch;
+    }
+
+    .pricing-card-premium {
+        background: white;
+        border: 1px solid var(--border-light);
+        border-radius: 24px;
+        padding: 3.5rem 2.5rem;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        position: relative;
+    }
+
+    /* Featured/Most Popular Styling */
+    .pricing-card-premium.featured {
+        border: 3px solid #E30613;
+        transform: scale(1.03);
+        z-index: 10;
+        box-shadow: 0 30px 60px -12px rgba(227, 6, 19, 0.15);
+    }
+
+    .popular-tag {
+        position: absolute;
+        top: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #E30613;
+        color: #FFC400;
+        padding: 6px 20px;
+        border-radius: 50px;
+        font-weight: 800;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .price-display {
+        margin: 2rem 0;
+        font-family: 'Oswald', sans-serif;
+    }
+
+    .price-display .currency { font-size: 2rem; vertical-align: top; color: var(--text-primary); }
+    .price-display .amount { font-size: 4rem; font-weight: 700; color: var(--text-primary); }
+    .price-display .tax { font-size: 1rem; color: var(--text-muted); font-weight: 400; }
+
+    .pricing-features {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 3rem 0;
+        flex-grow: 1;
+    }
+
+    .pricing-features li {
+        padding: 12px 0;
+        border-bottom: 1px solid #f1f5f9;
+        font-size: 1rem;
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+    }
+
+    .pricing-features li::before {
+        content: '✓';
+        color: #E30613;
+        font-weight: 900;
+    }
+
+    /* 3. COMPARISON TABLE (SEO & UX) */
+    .comparison-section {
+        background: #f8fafc;
+        border-radius: 30px;
+        padding: 5rem 3rem;
+        margin: 6rem 0;
+    }
+
+    .comparison-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+    }
+
+    /* MOBILE OVERRIDES */
+    @media (max-width: 900px) {
+        .pricing-card-premium.featured { transform: scale(1); }
+        .comparison-grid { grid-template-columns: 1fr; gap: 2rem; }
+        .pricing-h1 { font-size: 2.2rem !important; }
+    }
+</style>
+
+<div class="pricing-hero">
+    <div class="container">
+        <p style="font-weight: 800; color: #E30613; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem;">
+            No Hidden Fees. No Surprise Invoices.
+        </p>
+        <h1 class="pricing-h1">Transparent Fixed Rates</h1>
+        <p style="font-size: 1.3rem; max-width: 750px; margin: 0 auto; color: #64748b;">
+            We charge for the results we deliver, not the hours we spend. Professional legal & relocation support optimized for your budget.
+        </p>
+    </div>
+</div>
 
 <div class="container">
-    
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--sp-space-4); margin-bottom: var(--sp-space-6);">
+
+    <div class="pricing-flex-grid">
         
-        <div class="card" style="display: flex; flex-direction: column; border-top: 4px solid var(--gold-color);">
-            <header style="margin-bottom: var(--sp-space-3);">
-                <h2 style="margin-bottom: 0.5rem;">Digital Nomad Visa</h2>
-                <p class="small">Full Concierge Application</p>
-            </header>
-            <div style="font-size: 2.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--sp-space-3);">
-                €950 <span style="font-size: 1rem; color: var(--text-muted); font-weight: 400;">+ VAT</span>
+        <div class="pricing-card-premium" id="essentials">
+            <h3 style="margin-top:0; border:none; font-size: 1.6rem;">Relocation Essentials</h3>
+            <p class="small">Administrative setup for your new life in Spain.</p>
+            
+            <div class="price-display">
+                <span class="currency">€</span><span class="amount">250</span><span class="tax">+IVA</span>
             </div>
-            <p>Complete management of your residency application from within Spain or abroad.</p>
-            <ul style="list-style: none; padding: 0; margin: var(--sp-space-3) 0; flex-grow: 1;">
-                <li style="margin-bottom: 0.5rem;">✅ <strong>Document Review:</strong> Comprehensive audit of your contracts and income.</li>
-                <li style="margin-bottom: 0.5rem;">✅ <strong>Sworn Translations:</strong> Coordination of all required Spanish translations.</li>
-                <li style="margin-bottom: 0.5rem;">✅ <strong>Submission:</strong> Electronic filing via the UGE-CE platform.</li>
-                <li style="margin-bottom: 0.5rem;">✅ <strong>TIE Support:</strong> Guidance for fingerprinting and card collection.</li>
+
+            <ul class="pricing-features">
+                <li>NIE Number Processing</li>
+                <li>Digital Certificate Installation</li>
+                <li>Spanish Bank Account Setup</li>
+                <li>Social Security Registration</li>
+                <li>Empadronamiento Guidance</li>
             </ul>
-            <a href="https://app.cal.eu/jurospain/30min" class="btn" target="_blank" style="width: 100%; text-align: center;">Get Started</a>
+
+            <a href="https://app.cal.eu/jurospain/30min" class="btn btn-outline" style="width: 100%;">Start Essentials</a>
         </div>
 
-        <div class="card" style="display: flex; flex-direction: column; border-top: 4px solid var(--sp-red);">
-            <header style="margin-bottom: var(--sp-space-3);">
-                <h2 style="margin-bottom: 0.5rem;">Beckham Law</h2>
-                <p class="small">Special Tax Regime Application</p>
-            </header>
-            <div style="font-size: 2.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--sp-space-3);">
-                €295 <span style="font-size: 1rem; color: var(--text-muted); font-weight: 400;">+ VAT</span>
+        <div class="pricing-card-premium featured" id="dnv">
+            <span class="popular-tag">Most Requested</span>
+            <h3 style="margin-top:0; border:none; font-size: 1.6rem;">Digital Nomad Visa</h3>
+            <p class="small">The full 3-year residency package for remote workers.</p>
+            
+            <div class="price-display">
+                <span class="currency" style="color:#E30613;">€</span><span class="amount" style="color:#E30613;">950</span><span class="tax">+IVA</span>
             </div>
-            <p>Save thousands in taxes by securing the flat 24% tax rate for up to 6 years.</p>
-            <ul style="list-style: none; padding: 0; margin: var(--sp-space-3) 0; flex-grow: 1;">
-                <li style="margin-bottom: 0.5rem;">✅ <strong>Eligibility Check:</strong> Confirm you meet the 5-year non-residency rule.</li>
-                <li style="margin-bottom: 0.5rem;">✅ <strong>Model 149:</strong> Preparation and filing of the official application.</li>
-                <li style="margin-bottom: 0.5rem;">✅ <strong>Tax Office Setup:</strong> Registration with Hacienda (Agencia Tributaria).</li>
-                <li style="margin-bottom: 0.5rem;">✅ <strong>Resolution:</strong> Monitoring until final approval.</li>
+
+            <ul class="pricing-features">
+                <li><b>Full UGE-CE Submission</b></li>
+                <li>Document Audit & Verification</li>
+                <li>Sworn Translation Coordination</li>
+                <li>Social Security & Tax ID Setup</li>
+                <li>Post-Approval TIE Support</li>
+                <li>Vetted Legal Review Included</li>
             </ul>
-            <a href="https://app.cal.eu/jurospain/30min" class="btn" target="_blank" style="width: 100%; text-align: center;">Apply Now</a>
+
+            <a href="https://app.cal.eu/jurospain/30min" class="btn" style="width: 100%; background: #E30613;">Book Free Eligibility Call</a>
         </div>
 
-        <div class="card" style="display: flex; flex-direction: column; border-top: 4px solid var(--text-primary);">
-            <header style="margin-bottom: var(--sp-space-3);">
-                <h2 style="margin-bottom: 0.5rem;">The Essentials</h2>
-                <p class="small">NIE, Autónomo & Admin</p>
-            </header>
-            <div style="font-size: 2.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--sp-space-3);">
-                From €90 <span style="font-size: 1rem; color: var(--text-muted); font-weight: 400;">+ VAT</span>
+        <div class="pricing-card-premium" id="property">
+            <h3 style="margin-top:0; border:none; font-size: 1.6rem;">Property Conveyancing</h3>
+            <p class="small">Exhaustive due diligence for home buyers.</p>
+            
+            <div class="price-display">
+                <span class="currency">€</span><span class="amount">1.2k</span><span class="tax"> (Fixed)</span>
             </div>
-            <p>Quick, efficient handling of the bureaucratic hurdles you can't avoid.</p>
-            <ul style="list-style: none; padding: 0; margin: var(--sp-space-3) 0; flex-grow: 1;">
-                <li style="margin-bottom: 0.5rem;">🔹 <strong>Autónomo Registration:</strong> €90. Setup with Social Security & Tax Office.</li>
-                <li style="margin-bottom: 0.5rem;">🔹 <strong>NIE Number:</strong> €95. Obtaining your foreigner ID number.</li>
-                <li style="margin-bottom: 0.5rem;">🔹 <strong>Digital Certificate:</strong> €45. Essential for all online government interactions.</li>
-                <li style="margin-bottom: 0.5rem;">🔹 <strong>Bank Opening:</strong> €50. Assistance opening a resident bank account.</li>
+
+            <ul class="pricing-features">
+                <li>Deep Due Diligence (Nota Simple)</li>
+                <li>Habitation & Debt Verification</li>
+                <li>Arras Contract Drafting & Review</li>
+                <li>Power of Attorney Management</li>
+                <li>Notary Representation</li>
+                <li>Tax Filing (ITP/AJD) Management</li>
             </ul>
-            <a href="https://app.cal.eu/jurospain/30min" class="btn" target="_blank" style="width: 100%; text-align: center;">Book a Service</a>
+
+            <a href="https://app.cal.eu/jurospain/30min" class="btn btn-outline" style="width: 100%;">Secure My Investment</a>
         </div>
 
     </div>
 
-    <section class="card" style="margin-top: var(--sp-space-6); background-color: var(--bg-secondary);">
-        <div style="display: flex; flex-wrap: wrap; gap: var(--sp-space-4); align-items: center;">
-            <div style="flex: 1 1 400px;">
-                <h2>Need a Custom Solution?</h2>
-                <p>Have a complex case, dependants, or buying a property? We offer tailored packages for:</p>
-                <ul style="margin-top: 1rem;">
-                    <li><strong>Golden Visa (Property Investment)</strong></li>
-                    <li><strong>Property Conveyancing (Buying/Selling)</strong></li>
-                    <li><strong>Company Formation (S.L.)</strong></li>
-                    <li><strong>Family Reunification</strong></li>
-                </ul>
-            </div>
-            <div style="flex: 1 1 300px; text-align: center; padding: var(--sp-space-4); background: var(--bg-primary); border-radius: var(--sp-radius); border: 1px solid var(--border-light);">
-                <p class="small" style="margin-bottom: 1rem;">TELL US ABOUT YOUR CASE</p>
-                <a href="https://app.cal.eu/jurospain/30min" class="btn" target="_blank">Request Custom Quote</a>
+    <section class="comparison-section">
+        <div class="container">
+            <div class="comparison-grid">
+                <div>
+                    <h2 style="border: none; margin-top: 0; font-size: 2.5rem;">The JURO Advantage.</h2>
+                    <p style="font-size: 1.1rem; line-height: 1.8;">
+                        Traditional Spanish law firms charge based on <b>hourly rates</b> or <b>property values</b>. This means you are penalized for being successful or having a complex case. 
+                    </p>
+                    <p style="font-size: 1.1rem; line-height: 1.8;">
+                        We believe in **Value Pricing**. You pay for the expertise and the result, not the time it takes us to file the paperwork.
+                    </p>
+                </div>
+                <div style="background: white; border-radius: 20px; padding: 2.5rem; border-left: 10px solid #FFC400; box-shadow: var(--elev-2);">
+                    <h4 style="margin-top: 0; font-size: 1.2rem;">Our Pricing Commitment:</h4>
+                    <ul style="list-style: none; padding: 0; margin-top: 1.5rem; line-height: 2.5; font-weight: 600;">
+                        <li>✅ <b>No Retainers:</b> Pay per project stage.</li>
+                        <li>✅ <b>Transparent IVA:</b> All quotes clearly stated.</li>
+                        <li>✅ <b>Integrated Costs:</b> We bundle admin fees.</li>
+                        <li>✅ <b>Refund Policy:</b> Fair terms if eligibility fails.</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
+
+    <div style="max-width: 800px; margin: 0 auto 6rem;">
+        <h2 class="center" style="border: none; margin-bottom: 3rem;">Pricing Questions</h2>
+        
+        <details class="service-faq" style="border: 1px solid var(--border-light); margin-bottom: 1rem; border-radius: 12px; padding: 1rem;">
+            <summary style="font-weight: 700; cursor: pointer;">Are there extra lawyer fees on top of these prices?</summary>
+            <p style="padding-top: 1rem; color: #64748b;">No. Our fixed fees <b>include</b> the professional fees for the registered attorneys in our legal network who handle your formal submission. The only extras you pay are government taxes (Tasas) and external sworn translations.</p>
+        </details>
+
+        <details class="service-faq" style="border: 1px solid var(--border-light); margin-bottom: 1rem; border-radius: 12px; padding: 1rem;">
+            <summary style="font-weight: 700; cursor: pointer;">When do I pay?</summary>
+            <p style="padding-top: 1rem; color: #64748b;">We typically work on a 50/50 split: 50% upfront to start the document audit and 50% upon successful submission of your file to the Spanish authorities.</p>
+        </details>
+
+        <details class="service-faq" style="border: 1px solid var(--border-light); margin-bottom: 1rem; border-radius: 12px; padding: 1rem;">
+            <summary style="font-weight: 700; cursor: pointer;">Do you offer discounts for families?</summary>
+            <p style="padding-top: 1rem; color: #64748b;">Yes. For family applications (spouses and children), we offer significantly reduced rates for additional dependents. Contact us for a custom family relocation quote.</p>
+        </details>
+    </div>
+
+    <div class="center" style="margin-bottom: 8rem;">
+        <h2 style="border: none; font-size: 2.5rem;">Need a Custom Quote?</h2>
+        <p style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 3rem;">For Golden Visas or complex company relocations, let's talk.</p>
+        <a href="https://app.cal.eu/jurospain/30min" class="btn" style="padding: 1.5rem 4rem; font-size: 1.3rem;">Request Custom Proposal</a>
+    </div>
 
 </div>
