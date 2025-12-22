@@ -6,11 +6,11 @@ permalink: /glossary/
 ---
 
 <style>
-    /* 1. GLOSSARY HERO */
+    /* 1. GLOSSARY HERO - THEME SYNCED */
     .glossary-hero {
         padding: 5rem 0 4rem;
-        background: linear-gradient(to bottom, #fff 0%, #f8f9fa 100%);
-        border-top: 8px solid #E30613;
+        background: linear-gradient(to bottom, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+        border-top: 8px solid var(--sp-red);
         text-align: center;
     }
 
@@ -21,9 +21,10 @@ permalink: /glossary/
         text-transform: uppercase;
         letter-spacing: -1px !important;
         margin-bottom: 1rem;
+        color: var(--text-primary);
     }
 
-    /* 2. SEARCH & NAV */
+    /* 2. SEARCH & NAV - THEME SYNCED */
     .search-wrapper {
         position: relative;
         max-width: 650px;
@@ -33,6 +34,8 @@ permalink: /glossary/
     #search-input {
         width: 100%;
         padding: 1.2rem 1.8rem;
+        background: var(--bg-secondary);
+        color: var(--text-primary);
         border: 2px solid var(--border-light);
         border-radius: 50px;
         font-size: 1.1rem;
@@ -40,7 +43,7 @@ permalink: /glossary/
         box-shadow: var(--elev-1);
     }
 
-    #search-input:focus { border-color: #E30613; box-shadow: 0 10px 25px rgba(227, 6, 19, 0.1); }
+    #search-input:focus { border-color: var(--sp-red); box-shadow: 0 10px 25px rgba(227, 6, 19, 0.1); }
 
     .category-nav {
         display: flex;
@@ -52,7 +55,7 @@ permalink: /glossary/
 
     .cat-btn {
         padding: 0.6rem 1.2rem;
-        background: white;
+        background: var(--bg-secondary);
         border: 1px solid var(--border-light);
         border-radius: 50px;
         font-size: 0.85rem;
@@ -64,9 +67,9 @@ permalink: /glossary/
         color: var(--text-primary);
     }
 
-    .cat-btn:hover { border-color: #E30613; color: #E30613; transform: translateY(-2px); }
+    .cat-btn:hover { border-color: var(--sp-red); color: var(--sp-red); transform: translateY(-2px); }
 
-    /* 3. TERM CARDS */
+    /* 3. TERM CARDS - THEME SYNCED */
     .glossary-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -74,7 +77,7 @@ permalink: /glossary/
     }
 
     .term-card {
-        background: white;
+        background: var(--bg-secondary);
         border: 1px solid var(--border-light);
         border-left: 5px solid var(--gold-color);
         padding: 1.5rem;
@@ -83,11 +86,12 @@ permalink: /glossary/
         display: flex;
         flex-direction: column;
         height: 100%;
+        color: var(--text-primary);
     }
 
     .term-card:hover {
         transform: translateY(-5px);
-        border-left-color: #E30613;
+        border-left-color: var(--sp-red);
         box-shadow: 0 15px 30px rgba(0,0,0,0.05);
     }
 
@@ -102,14 +106,14 @@ permalink: /glossary/
     .term-card p {
         font-size: 0.9rem;
         line-height: 1.6;
-        color: #475569;
+        color: var(--text-muted);
         margin-bottom: 1rem;
         flex-grow: 1;
     }
 
     .term-link {
         font-weight: 800;
-        color: #E30613;
+        color: var(--sp-red);
         text-transform: uppercase;
         font-size: 0.75rem;
         text-decoration: none;
@@ -120,7 +124,7 @@ permalink: /glossary/
         align-items: center;
         gap: 1rem;
         margin: 5rem 0 2.5rem;
-        border-bottom: 2px solid #f1f5f9;
+        border-bottom: 2px solid var(--border-light);
         padding-bottom: 1rem;
     }
 
@@ -134,8 +138,8 @@ permalink: /glossary/
 
 <div class="glossary-hero center">
     <div class="container">
-        <p style="font-weight: 800; color: #E30613; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem;">Official Expat Dictionary</p>
-        <h1 class="glossary-h1">Spanish Bureaucracy <br><span style="color: #E30613;">Decoded</span></h1>
+        <p style="font-weight: 800; color: var(--sp-red); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem;">Official Expat Dictionary</p>
+        <h1 class="glossary-h1">Spanish Bureaucracy <br><span style="color: var(--sp-red);">Decoded</span></h1>
         <div class="search-wrapper">
             <input type="text" id="search-input" placeholder="🔍 Search e.g. 'NIE', 'Beckham', 'IBI'..." onkeyup="filterGlossary()">
         </div>
@@ -151,14 +155,14 @@ permalink: /glossary/
 
     <div id="no-results" class="center hidden" style="padding: 6rem 0;">
         <div style="font-size: 4rem; margin-bottom: 1rem;">🔎</div>
-        <h3>No matching terms found.</h3>
+        <h3 style="color: var(--text-primary);">No matching terms found.</h3>
         <button onclick="document.getElementById('search-input').value=''; filterGlossary();" class="btn" style="margin-top: 1rem;">Reset Search</button>
     </div>
 
     <div class="glossary-section-wrapper" id="immigration">
         <div class="section-title-wrap">
             <span style="font-size: 2rem;">🚀</span>
-            <h2 style="margin: 0; border: none; font-size: 1.8rem;">Immigration & Residency</h2>
+            <h2 style="margin: 0; border: none; font-size: 1.8rem; color: var(--text-primary);">Immigration & Residency</h2>
         </div>
         <div class="glossary-grid">
             <div class="term-card" data-terms="nie number identity identity extranjero foreigner identification">
@@ -308,7 +312,7 @@ permalink: /glossary/
     <div class="glossary-section-wrapper" id="property">
         <div class="section-title-wrap">
             <span style="font-size: 2rem;">🏡</span>
-            <h2 style="margin: 0; border: none; font-size: 1.8rem;">Property & Conveyancing</h2>
+            <h2 style="margin: 0; border: none; font-size: 1.8rem; color: var(--text-primary);">Property & Conveyancing</h2>
         </div>
         <div class="glossary-grid">
             <div class="term-card" data-terms="escritura publica public deed title sale notary ownership">
@@ -458,7 +462,7 @@ permalink: /glossary/
     <div class="glossary-section-wrapper" id="tax">
         <div class="section-title-wrap">
             <span style="font-size: 2rem;">💰</span>
-            <h2 style="margin: 0; border: none; font-size: 1.8rem;">Tax & Finance</h2>
+            <h2 style="margin: 0; border: none; font-size: 1.8rem; color: var(--text-primary);">Tax & Finance</h2>
         </div>
         <div class="glossary-grid">
             <div class="term-card" data-terms="agencia tributaria hacienda tax agency revenue compliance">
@@ -593,9 +597,9 @@ permalink: /glossary/
         </div>
     </div>
 
-    <div class="center" style="margin-top: 8rem; padding: 5rem 2rem; background: var(--text-primary); color: white; border-radius: 30px;">
-        <h2 style="color: white !important; border: none; margin-top: 0;">Still confused by the jargon?</h2>
-        <p style="opacity: 0.8; margin-bottom: 2rem;">Spanish bureaucracy is a maze. Our specialists can help you navigate it with a clear roadmap.</p>
+    <div class="center" style="margin-top: 8rem; padding: 5rem 2rem; background: var(--text-primary); color: var(--bg-primary); border-radius: 30px;">
+        <h2 style="color: var(--bg-primary) !important; border: none; margin-top: 0;">Still confused by the jargon?</h2>
+        <p style="opacity: 0.9; margin-bottom: 2rem; color: var(--bg-primary) !important;">Spanish bureaucracy is a maze. Our specialists can help you navigate it with a clear roadmap.</p>
         <a href="https://app.cal.eu/jurospain/30min" class="btn btn-white">Book Priority Call</a>
     </div>
 
