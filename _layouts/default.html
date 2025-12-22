@@ -9,7 +9,6 @@ layout: null
     <title>{{ page.title }} | JURO Spain</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 
     <style>
@@ -21,7 +20,7 @@ layout: null
             position: sticky;
             top: 0;
             z-index: 1000;
-            height: 80px; /* Fixed height for perfect alignment */
+            height: 80px;
             display: flex;
             align-items: center;
             transition: background-color 0.3s ease;
@@ -30,7 +29,7 @@ layout: null
         .site-nav {
             display: flex;
             align-items: center;
-            gap: 2.5rem; /* Spaced out for premium feel */
+            gap: 2.5rem;
         }
 
         .site-nav a, .dropdown-trigger {
@@ -45,9 +44,7 @@ layout: null
             cursor: pointer;
         }
 
-        .site-nav a:hover, .dropdown-trigger:hover {
-            color: var(--sp-red);
-        }
+        .site-nav a:hover, .dropdown-trigger:hover { color: var(--sp-red); }
 
         /* --- 2. THE DROPDOWN BRIDGE (The Fix) --- */
         .dropdown-container {
@@ -55,7 +52,6 @@ layout: null
             height: 100%;
             display: flex;
             align-items: center;
-            /* This padding acts as the bridge so the menu doesn't close */
             padding-bottom: 20px; 
             margin-bottom: -20px;
         }
@@ -73,50 +69,59 @@ layout: null
             border: 1px solid var(--border-light);
             padding: 0.8rem 0;
             z-index: 1000;
-            margin-top: -5px; /* Pulls it up slightly to meet the bridge */
+            margin-top: -5px;
         }
 
-        /* The "Invisible Bridge" pseudo-element */
         .dropdown-container::after {
             content: "";
             position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            height: 20px;
+            top: 100%; left: 0; width: 100%; height: 20px;
         }
 
-        .dropdown-container:hover .dropdown-menu {
-            display: block;
-        }
+        .dropdown-container:hover .dropdown-menu { display: block; }
 
         .dropdown-menu a {
             display: block;
             padding: 0.8rem 1.5rem !important;
-            margin: 0 !important;
             text-transform: none !important;
             font-family: 'Inter', sans-serif !important;
             font-size: 0.95rem;
             color: var(--text-primary) !important;
             border-bottom: 1px solid var(--border-light);
-            width: 100%;
         }
 
         .dropdown-menu a:last-child { border-bottom: none; }
         .dropdown-menu a:hover { background-color: var(--bg-primary); color: var(--sp-red) !important; }
 
-        /* --- 3. MOBILE MENU --- */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
+        /* --- 3. WHATSAPP FLOATING BUTTON --- */
+        .whatsapp-float {
+            position: fixed;
+            width: 62px;
+            height: 62px;
+            bottom: 30px;
+            left: 30px;
+            background-color: #25d366;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+            z-index: 9999;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
         }
-        .menu-toggle span { width: 25px; height: 3px; background: var(--text-primary); border-radius: 2px; }
 
-        @media (max-width: 1024px) {
-            .site-nav { gap: 1.5rem; }
+        .whatsapp-float:hover {
+            transform: scale(1.1) rotate(5deg);
+            background-color: #128c7e;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
         }
+
+        .whatsapp-float img { width: 34px; height: 34px; }
+
+        /* --- 4. MOBILE MENU --- */
+        .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+        .menu-toggle span { width: 25px; height: 3px; background: var(--text-primary); border-radius: 2px; }
 
         @media (max-width: 900px) {
             .menu-toggle { display: flex; }
@@ -127,11 +132,9 @@ layout: null
                 flex-direction: column; padding: 2rem;
                 border-bottom: 4px solid var(--sp-red);
                 gap: 1.5rem;
-                box-shadow: var(--elev-2);
             }
             .site-nav.active { display: flex; }
-            .dropdown-menu { position: static; transform: none; box-shadow: none; border: none; width: 100%; display: block; text-align: center; }
-            .dropdown-trigger::after { content: " (View Below)"; font-size: 0.7rem; opacity: 0.5; }
+            .whatsapp-float { width: 55px; height: 55px; bottom: 20px; left: 20px; }
         }
     </style>
 
@@ -187,7 +190,6 @@ layout: null
                 <nav class="site-nav" id="siteNav">
                     <a href="/services/">Services</a>
                     <a href="/pricing/">Pricing</a>
-                    
                     <div class="dropdown-container">
                         <span class="dropdown-trigger">Resources ▾</span>
                         <div class="dropdown-menu">
@@ -197,22 +199,24 @@ layout: null
                             <a href="/partners/">Partner Program</a>
                         </div>
                     </div>
-
                     <a href="/contact/">Contact</a>
                 </nav>
 
-                <button id="themeToggle" style="background: rgba(128,128,128,0.1); border: 2px solid var(--gold-color); border-radius: 8px; width: 40px; height: 40px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.3s;">
+                <button id="themeToggle" style="background: rgba(128,128,128,0.1); border: 2px solid var(--gold-color); border-radius: 8px; width: 42px; height: 42px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.3s;">
                     <span class="theme-icon" style="font-size: 1.2rem;">☀️</span>
                 </button>
 
                 <a href="https://app.cal.eu/jurospain/30min" class="btn" style="padding: 0.7rem 1.5rem; font-size: 0.85rem;">Book Call</a>
-                
                 <div class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></div>
             </div>
         </div>
     </header>
 
     <main>{{ content }}</main>
+
+    <a href="https://wa.me/34682050945?text=Hi%20JURO%20Spain,%20I%20need%20help%20with..." class="whatsapp-float" target="_blank" aria-label="WhatsApp Us">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
 
     <footer class="site-footer" style="padding: 5rem 0; background: var(--bg-secondary); border-top: 1px solid var(--border-light);">
         <div class="container">
@@ -234,17 +238,14 @@ layout: null
                     <p style="color: var(--text-muted);">hello@jurospain.com</p>
                 </div>
             </div>
-            <div class="center small" style="margin-top: 3rem; opacity: 0.6; color: var(--text-muted);">© 2026 JURO Spain. Concierge agency, not a law firm.</div>
+            <div class="center small" style="margin-top: 3rem; opacity: 0.6; color: var(--text-muted);">© 2026 JURO Spain.</div>
         </div>
     </footer>
 
     <script>
-        // Toggle Mobile Menu
         document.getElementById('menuToggle').addEventListener('click', () => {
             document.getElementById('siteNav').classList.toggle('active');
         });
-
-        // Toggle Theme
         document.getElementById('themeToggle').addEventListener('click', () => {
             const current = localStorage.getItem('juro-theme') || 'original-light';
             const next = current === 'original-light' ? 'midnight-navy' : 'original-light';
