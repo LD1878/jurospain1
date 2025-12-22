@@ -15,6 +15,72 @@ layout: null
     
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ site.time | date: '%s' }}">
     
+    <style>
+        /* --- DROPDOWN MENU STYLES (New) --- */
+        .dropdown-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-trigger {
+            cursor: pointer;
+            padding-right: 5px;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--bg-secondary);
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
+            z-index: 1000;
+            padding: 0.5rem 0;
+            text-align: left;
+        }
+
+        .dropdown-menu a {
+            color: var(--text-primary);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.95rem;
+            transition: background 0.2s;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--border-light);
+            color: var(--sp-red);
+        }
+
+        /* Show on Hover (Desktop) */
+        .dropdown-container:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Mobile Adjustments for Dropdown */
+        @media (max-width: 768px) {
+            .dropdown-menu {
+                position: static;
+                transform: none;
+                box-shadow: none;
+                border: none;
+                background: transparent;
+                padding-left: 1rem; /* Indent */
+                display: block; /* Always show in mobile menu for simplicity */
+                margin-top: 0.5rem;
+                border-left: 2px solid var(--border-light);
+            }
+            .dropdown-trigger {
+                display: none; /* Hide the trigger text on mobile, just show links */
+            }
+        }
+    </style>
+
     <script>
         // THEMES: Optimized for Trust, Authority & Readability
         const THEMES = [
@@ -111,17 +177,20 @@ layout: null
             </button>
             
             <nav class="site-nav">
-                {% assign nav_pages = "Services|/services/,Pricing|/pricing/,About|/about/,Blog|/blog/,Glossary|/glossary/,Contact|/contact/" | split: "," %}
+                <a href="{{ '/services/' | relative_url }}">Services</a>
+                <a href="{{ '/pricing/' | relative_url }}">Pricing</a>
                 
-                {% for entry in nav_pages %}
-                    {% assign parts = entry | split: "|" %}
-                    {% assign label = parts[0] %}
-                    {% assign url = parts[1] | relative_url %}
-                    <a href="{{ url }}" 
-                       {% if page.url contains parts[1] %}aria-current="page" style="color:var(--sp-red);"{% endif %}>
-                       {{ label }}
-                    </a>
-                {% endfor %}
+                <div class="dropdown-container">
+                    <span class="dropdown-trigger">Resources ▾</span>
+                    <div class="dropdown-menu">
+                        <a href="{{ '/blog/' | relative_url }}">Blog & Guides</a>
+                        <a href="{{ '/glossary/' | relative_url }}">Legal Glossary</a>
+                        <a href="{{ '/about/' | relative_url }}">About Us</a>
+                        <a href="{{ '/partners/' | relative_url }}" style="color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border-light); margin-top: 5px;">🤝 Partner Program</a>
+                    </div>
+                </div>
+
+                <a href="{{ '/contact/' | relative_url }}">Contact</a>
                 
                 <a href="https://app.cal.eu/jurospain/30min" class="btn" target="_blank" rel="noopener noreferrer">Book a Call</a>
             </nav>
@@ -155,7 +224,7 @@ layout: null
                     <ul>
                         <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
                         <li><a href="{{ '/glossary/' | relative_url }}">Glossary</a></li>
-                        <li><a href="{{ '/pricing/' | relative_url }}">Pricing</a></li>
+                        <li><a href="{{ '/partners/' | relative_url }}">Partner Program</a></li>
                     </ul>
                 </div>
 
@@ -266,7 +335,7 @@ layout: null
             width: 60px;
             height: 60px;
             bottom: 25px;
-            left: 25px; /* Sits on the LEFT to avoid Chatbot conflict */
+            left: 25px; 
             background-color: #25d366;
             color: #FFF;
             border-radius: 50px;
