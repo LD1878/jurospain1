@@ -1,188 +1,113 @@
 /* ==========================================================
-   JURO Spain: Final Master CSS (Sync Edition)
+   JURO Spain: Master Theme-Sync CSS
    ========================================================== */
 
 :root {
-  /* INITIAL DEFAULTS (Madrid Modern) */
+  /* INITIAL DEFAULTS - Madrid Modern */
   --sp-red: #E30613;
   --gold-color: #FFC400; 
-  --bg-primary: #fcfcfc;
+  --bg-primary: #f8fafc;
   --bg-secondary: #ffffff;
   --text-primary: #0f172a;
   --text-muted: #475569; 
   --border-light: #e2e8f0;
-  
-  /* UX DESIGN TOKENS */
-  --btn-radius: 8px;
-  --sp-radius: 12px;
-  --sp-font-heavy: 'Oswald', sans-serif;
-  --sp-font-body: 'Inter', sans-serif;
-  --sp-max-width: 1200px;
-  
-  /* SHADOWS */
-  --shadow-md: 0 4px 12px -1px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 15px 30px -5px rgba(227, 6, 19, 0.25);
-  --elev-1: 0 2px 6px rgba(0,0,0,0.06);
-  --elev-2: 0 10px 25px rgba(0,0,0,0.08);
 }
 
 /* ----------------------------------------------------------
-   BASE STYLES
+   1. GLOBAL THEME SYNC
    ---------------------------------------------------------- */
-*, *::before, *::after { box-sizing: border-box; }
-
-body {
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  font-family: var(--sp-font-body);
-  line-height: 1.7;
+html, body {
+  background-color: var(--bg-primary) !important; /* FORCES TOTAL BG CHANGE */
+  color: var(--text-primary) !important;
+  transition: background-color 0.4s ease, color 0.4s ease;
   margin: 0;
-  -webkit-font-smoothing: antialiased;
+  font-family: 'Inter', sans-serif;
 }
 
-h1, h2, h3, h4 {
-  font-family: var(--sp-font-heavy);
-  font-weight: 700;
+h1, h2, h3, h4, h5, h6, .site-title {
+  color: var(--text-primary) !important;
+  font-family: 'Oswald', sans-serif;
   text-transform: uppercase;
-  margin-bottom: 1rem;
-  color: var(--text-primary);
 }
 
-h1 { font-size: clamp(2.5rem, 6vw, 4rem); text-align: center; letter-spacing: -1.5px; }
-h2 { font-size: 2.2rem; border-bottom: 4px solid var(--gold-color); padding-bottom: 0.5rem; margin-top: 4rem; display: inline-block; }
-h3 { font-size: 1.5rem; color: var(--sp-red); }
+p, li, span, label {
+  color: var(--text-primary) !important;
+  opacity: 0.9;
+}
 
-.container { max-width: var(--sp-max-width); margin: 0 auto; padding: 0 1.5rem; }
-.center { text-align: center; }
-.small { font-size: 0.9rem; color: var(--text-muted); }
+.text-muted, .small {
+  color: var(--text-muted) !important;
+  opacity: 0.8;
+}
 
 /* ----------------------------------------------------------
-   THE "FERRARI" BUTTONS
+   2. HEADER & NAV (THEME AWARE)
+   ---------------------------------------------------------- */
+.site-header {
+  background-color: var(--bg-secondary) !important;
+  border-bottom: 4px solid var(--gold-color);
+  transition: background-color 0.4s ease;
+}
+
+.site-nav a, .dropdown-trigger {
+  color: var(--text-primary) !important;
+  font-family: 'Oswald', sans-serif;
+}
+
+.site-nav a:hover, .dropdown-trigger:hover {
+  color: var(--sp-red) !important;
+}
+
+.dropdown-menu {
+  background-color: var(--bg-secondary) !important;
+  border: 1px solid var(--border-light);
+}
+
+/* ----------------------------------------------------------
+   3. CARDS & SECTIONS
+   ---------------------------------------------------------- */
+.card, .premium-service-card, .term-card, .process-step, .blog-card, .workflow-container {
+  background-color: var(--bg-secondary) !important;
+  border: 1px solid var(--border-light) !important;
+  color: var(--text-primary) !important;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  border-color: var(--sp-red) !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* ----------------------------------------------------------
+   4. BUTTONS & UI
    ---------------------------------------------------------- */
 .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.9rem 2.2rem;
-  font-family: var(--sp-font-heavy);
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 1rem;
-  letter-spacing: 1px;
-  background: linear-gradient(180deg, var(--sp-red) 0%, #c40410 100%);
-  color: white !important;
-  border-radius: var(--btn-radius);
+  background: var(--sp-red) !important;
+  color: #ffffff !important;
   border: none;
+  font-family: 'Oswald', sans-serif;
+  padding: 0.8rem 2rem;
   cursor: pointer;
-  text-decoration: none;
-  box-shadow: var(--shadow-md);
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.btn:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: var(--shadow-lg);
-  filter: brightness(1.1);
+  text-transform: uppercase;
+  font-weight: 700;
+  border-radius: 8px;
+  display: inline-flex;
 }
 
 .btn-white { background: #ffffff !important; color: #0f172a !important; }
 .btn-outline {
-    background: transparent !important;
-    color: var(--text-primary) !important;
-    border: 2px solid var(--text-primary) !important;
+  background: transparent !important;
+  color: var(--text-primary) !important;
+  border: 2px solid var(--text-primary) !important;
 }
 
-/* ----------------------------------------------------------
-   HEADER & NAVIGATION
-   ---------------------------------------------------------- */
-.site-header {
-  background-color: var(--bg-secondary);
-  border-bottom: 4px solid var(--gold-color);
-  box-shadow: var(--elev-1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  padding: 0.8rem 0;
+input, textarea, select {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-light) !important;
 }
 
-.site-title {
-  font-family: var(--sp-font-heavy);
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: var(--sp-red);
-  text-decoration: none;
-  letter-spacing: -0.5px;
-}
-.site-title .text-highlight { color: var(--gold-color); }
-
-.site-nav { display: flex; align-items: center; gap: 2rem; }
-.site-nav a, .dropdown-trigger {
-  font-family: var(--sp-font-heavy);
-  color: var(--text-primary);
-  text-decoration: none;
-  font-weight: 600;
-  text-transform: uppercase;
-  font-size: 0.95rem;
-}
-
-.dropdown-container { position: relative; }
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%; left: 50%;
-    transform: translateX(-50%);
-    background: var(--bg-secondary);
-    min-width: 220px;
-    box-shadow: var(--elev-2);
-    border-radius: var(--sp-radius);
-    border: 1px solid var(--border-light);
-    padding: 0.5rem 0;
-    margin-top: 15px;
-}
-.dropdown-container:hover .dropdown-menu { display: block; }
-.dropdown-menu a { display: block; padding: 12px 24px; border-bottom: 1px solid var(--border-light); text-transform: none; }
-
-/* ----------------------------------------------------------
-   CARDS & UTILITIES
-   ---------------------------------------------------------- */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2.5rem;
-  margin: 4rem 0;
-}
-
-.card {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-light);
-  border-radius: var(--sp-radius);
-  padding: 2.5rem;
-  box-shadow: var(--elev-1);
-  transition: all 0.4s ease;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-.card:hover { transform: translateY(-8px); border-color: var(--gold-color); box-shadow: var(--elev-2); }
-
-/* ----------------------------------------------------------
-   FOOTER
-   ---------------------------------------------------------- */
 .site-footer {
-  background: var(--text-primary);
-  color: #f8fafc;
-  padding: 5rem 0 2.5rem;
-  margin-top: 6rem;
+  background-color: var(--text-primary) !important;
+  color: var(--bg-primary) !important;
 }
-.footer-section h3 { color: white; border: none; font-size: 1.1rem; }
-.footer-section ul { list-style: none; padding: 0; }
-.footer-section a { color: #94a3b8; text-decoration: none; font-size: 0.9rem; }
-.footer-section a:hover { color: var(--gold-color); }
-.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; text-align: center; font-size: 0.8rem; margin-top: 3rem; opacity: 0.7; }
-
-/* ----------------------------------------------------------
-   BLOG & POSTS (Whitepaper Look)
-   ---------------------------------------------------------- */
-.post-header-premium { padding: 4rem 0; background: var(--bg-secondary); border-top: 8px solid var(--sp-red); }
-.post-main-grid { display: grid; grid-template-columns: 1fr 320px; gap: 4rem; margin-top: 3rem; }
-.post-body-content { font-size: 1.15rem; line-height: 1.8; color: var(--text-primary); }
