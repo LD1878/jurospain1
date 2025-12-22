@@ -12,24 +12,34 @@ layout: null
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 
     <style>
-        /* --- 1. HEADER & NAV SPACING --- */
+        /* --- 1. HEADER CORE --- */
         .site-header {
             background-color: var(--bg-secondary);
             border-bottom: 3px solid var(--gold-color);
-            box-shadow: var(--elev-1);
             position: sticky;
             top: 0;
-            z-index: 1000;
-            height: 80px;
+            z-index: 9999;
+            height: 90px;
             display: flex;
             align-items: center;
             transition: background-color 0.3s ease;
         }
 
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* --- 2. DESKTOP NAVIGATION --- */
         .site-nav {
             display: flex;
             align-items: center;
-            gap: 2.5rem;
+            gap: 2.5rem; /* Spacious premium feel */
         }
 
         .site-nav a, .dropdown-trigger {
@@ -42,18 +52,28 @@ layout: null
             text-decoration: none;
             transition: color 0.2s ease;
             cursor: pointer;
+            display: flex;
+            align-items: center;
         }
 
         .site-nav a:hover, .dropdown-trigger:hover { color: var(--sp-red); }
 
-        /* --- 2. THE DROPDOWN BRIDGE (The Fix) --- */
+        /* --- 3. DROPDOWN FIX (NO DOUBLE ARROWS) --- */
         .dropdown-container {
             position: relative;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            padding-bottom: 20px; 
-            margin-bottom: -20px;
+            padding: 10px 0; /* Vertical padding to bridge the hover gap */
+        }
+
+        /* Pure CSS Arrow - Removes the double arrow bug */
+        .dropdown-trigger::after {
+            content: '';
+            display: inline-block;
+            margin-left: 8px;
+            width: 0; height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid currentColor;
+            vertical-align: middle;
         }
 
         .dropdown-menu {
@@ -67,22 +87,16 @@ layout: null
             box-shadow: var(--elev-3);
             border-radius: 12px;
             border: 1px solid var(--border-light);
-            padding: 0.8rem 0;
-            z-index: 1000;
-            margin-top: -5px;
-        }
-
-        .dropdown-container::after {
-            content: "";
-            position: absolute;
-            top: 100%; left: 0; width: 100%; height: 20px;
+            padding: 0.5rem 0;
+            z-index: 10000;
+            margin-top: 0;
         }
 
         .dropdown-container:hover .dropdown-menu { display: block; }
 
         .dropdown-menu a {
             display: block;
-            padding: 0.8rem 1.5rem !important;
+            padding: 12px 24px !important;
             text-transform: none !important;
             font-family: 'Inter', sans-serif !important;
             font-size: 0.95rem;
@@ -93,49 +107,65 @@ layout: null
         .dropdown-menu a:last-child { border-bottom: none; }
         .dropdown-menu a:hover { background-color: var(--bg-primary); color: var(--sp-red) !important; }
 
-        /* --- 3. WHATSAPP FLOATING BUTTON --- */
-        .whatsapp-float {
-            position: fixed;
-            width: 62px;
-            height: 62px;
-            bottom: 30px;
-            left: 30px;
-            background-color: #25d366;
-            border-radius: 50px;
+        /* --- 4. ACTION BUTTONS --- */
+        .header-actions {
             display: flex;
             align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
-            z-index: 9999;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            text-decoration: none;
+            gap: 1.2rem;
         }
 
-        .whatsapp-float:hover {
-            transform: scale(1.1) rotate(5deg);
-            background-color: #128c7e;
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+        #themeToggle {
+            background: rgba(128,128,128,0.1);
+            border: 2px solid var(--gold-color);
+            border-radius: 10px;
+            width: 44px; height: 44px;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: 0.3s;
         }
 
-        .whatsapp-float img { width: 34px; height: 34px; }
+        /* --- 5. MOBILE OVERHAUL --- */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 10001;
+        }
+        .menu-toggle span { width: 30px; height: 3px; background: var(--text-primary); border-radius: 2px; transition: 0.3s; }
 
-        /* --- 4. MOBILE MENU --- */
-        .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-        .menu-toggle span { width: 25px; height: 3px; background: var(--text-primary); border-radius: 2px; }
+        /* Hamburger to X Animation */
+        .menu-toggle.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+        .menu-toggle.active span:nth-child(2) { opacity: 0; }
+        .menu-toggle.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
 
         @media (max-width: 900px) {
             .menu-toggle { display: flex; }
             .site-nav {
                 display: none;
-                position: fixed; top: 80px; left: 0; width: 100%;
+                flex-direction: column;
+                position: fixed;
+                top: 90px; left: 0; width: 100%;
                 background: var(--bg-secondary);
-                flex-direction: column; padding: 2rem;
-                border-bottom: 4px solid var(--sp-red);
-                gap: 1.5rem;
+                padding: 2rem;
+                gap: 2rem;
+                border-bottom: 5px solid var(--sp-red);
+                box-shadow: 0 20px 40px rgba(0,0,0,0.2);
             }
             .site-nav.active { display: flex; }
-            .whatsapp-float { width: 55px; height: 55px; bottom: 20px; left: 20px; }
+            .dropdown-menu { position: static; transform: none; box-shadow: none; border: none; width: 100%; display: block; text-align: center; }
+            .dropdown-trigger::after { display: none; }
+            .header-actions .btn { display: none; } /* Hide big button on mobile to save space */
         }
+
+        /* --- 6. WHATSAPP --- */
+        .whatsapp-float {
+            position: fixed; width: 62px; height: 62px; bottom: 30px; left: 30px;
+            background-color: #25d366; border-radius: 50px; display: flex;
+            align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+            z-index: 999; text-decoration: none; transition: 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); background-color: #128c7e; }
     </style>
 
     <script>
@@ -181,31 +211,31 @@ layout: null
 <body>
 
     <header class="site-header">
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        <div class="header-container">
             <a class="site-title" href="/" style="font-size: 1.8rem; text-decoration: none; font-weight: 800; color: var(--sp-red);">
                 J<span style="color:var(--gold-color)">U</span>R<span style="color:var(--gold-color)">O</span> Spain
             </a>
             
-            <div style="display: flex; align-items: center; gap: 2.5rem;">
-                <nav class="site-nav" id="siteNav">
-                    <a href="/services/">Services</a>
-                    <a href="/pricing/">Pricing</a>
-                    <div class="dropdown-container">
-                        <span class="dropdown-trigger">Resources ▾</span>
-                        <div class="dropdown-menu">
-                            <a href="/blog/">Blog & Guides</a>
-                            <a href="/glossary/">Expat Glossary</a>
-                            <a href="/about/">About Us</a>
-                            <a href="/partners/">Partner Program</a>
-                        </div>
+            <nav class="site-nav" id="siteNav">
+                <a href="/services/">Services</a>
+                <a href="/pricing/">Pricing</a>
+                <div class="dropdown-container">
+                    <span class="dropdown-trigger">Resources</span>
+                    <div class="dropdown-menu">
+                        <a href="/blog/">Blog & Guides</a>
+                        <a href="/glossary/">Expat Glossary</a>
+                        <a href="/about/">About Us</a>
+                        <a href="/partners/">Partner Program</a>
                     </div>
-                    <a href="/contact/">Contact</a>
-                </nav>
+                </div>
+                <a href="/contact/">Contact</a>
+                <a href="https://app.cal.eu/jurospain/30min" class="btn" style="display: none; text-align: center;" id="mobileCTA">Book Call</a>
+            </nav>
 
-                <button id="themeToggle" style="background: rgba(128,128,128,0.1); border: 2px solid var(--gold-color); border-radius: 8px; width: 42px; height: 42px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.3s;">
+            <div class="header-actions">
+                <button id="themeToggle" aria-label="Toggle Theme">
                     <span class="theme-icon" style="font-size: 1.2rem;">☀️</span>
                 </button>
-
                 <a href="https://app.cal.eu/jurospain/30min" class="btn" style="padding: 0.7rem 1.5rem; font-size: 0.85rem;">Book Call</a>
                 <div class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></div>
             </div>
@@ -214,8 +244,8 @@ layout: null
 
     <main>{{ content }}</main>
 
-    <a href="https://wa.me/34682050945?text=Hi%20JURO%20Spain,%20I%20need%20help%20with..." class="whatsapp-float" target="_blank" aria-label="WhatsApp Us">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    <a href="https://wa.me/34682050945?text=Hi%20JURO%20Spain,%20I%20need%20help..." class="whatsapp-float" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="34" alt="WhatsApp">
     </a>
 
     <footer class="site-footer" style="padding: 5rem 0; background: var(--bg-secondary); border-top: 1px solid var(--border-light);">
@@ -223,10 +253,10 @@ layout: null
             <div class="footer-content" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem;">
                 <div class="footer-section">
                     <h3 style="color: var(--sp-red);">JURO Spain</h3>
-                    <p style="color: var(--text-muted);">Expert English-speaking relocation support.</p>
+                    <p style="color: var(--text-muted);">Expert relocation support.</p>
                 </div>
                 <div class="footer-section">
-                    <h3 style="color: var(--text-primary); font-family: 'Oswald';">Quick Links</h3>
+                    <h3 style="color: var(--text-primary); font-family: 'Oswald';">Navigation</h3>
                     <ul style="list-style: none; padding: 0;">
                         <li><a href="/services/" style="text-decoration: none; color: var(--text-muted);">Services</a></li>
                         <li><a href="/pricing/" style="text-decoration: none; color: var(--text-muted);">Pricing</a></li>
@@ -243,9 +273,14 @@ layout: null
     </footer>
 
     <script>
-        document.getElementById('menuToggle').addEventListener('click', () => {
-            document.getElementById('siteNav').classList.toggle('active');
+        const menuToggle = document.getElementById('menuToggle');
+        const siteNav = document.getElementById('siteNav');
+        
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            siteNav.classList.toggle('active');
         });
+
         document.getElementById('themeToggle').addEventListener('click', () => {
             const current = localStorage.getItem('juro-theme') || 'original-light';
             const next = current === 'original-light' ? 'midnight-navy' : 'original-light';
