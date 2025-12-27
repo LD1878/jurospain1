@@ -28,7 +28,7 @@ layout: null
             overflow-x: hidden;
         }
 
-        /* --- HERO --- */
+        /* --- HERO: Authentic Seville Skyline --- */
         .hero-vogue {
             height: 100vh;
             display: flex;
@@ -37,7 +37,7 @@ layout: null
             align-items: center;
             text-align: center;
             position: relative;
-            background: linear-gradient(to bottom, rgba(5,5,5,0.2), var(--bg)),
+            background: linear-gradient(to bottom, rgba(5,5,5,0.4), var(--bg)),
                         url('https://images.weserv.nl/?url=images.pexels.com/photos/2147491/pexels-photo-2147491.jpeg&w=1920&q=90') center/cover no-repeat;
         }
 
@@ -178,7 +178,7 @@ layout: null
             transition: 0.4s;
         }
 
-        /* --- MOBILE --- */
+        /* --- MOBILE OPTIMIZATION --- */
         @media (max-width: 900px) {
             .chapter-section { grid-template-columns: 1fr; padding: 100px 8%; gap: 60px; }
             .chapter-section:nth-child(even) .img-reveal { order: 2; }
@@ -214,8 +214,6 @@ layout: null
         </div>
     </section>
 
-    
-
     <div class="city-gallery">
         <a href="#" class="gallery-card" style="background-image:url('https://images.weserv.nl/?url=images.pexels.com/photos/3566136/pexels-photo-3566136.jpeg&w=800&fit=crop')"><h3>Madrid</h3></a>
         <a href="#" class="gallery-card" style="background-image:url('https://images.weserv.nl/?url=images.pexels.com/photos/189296/pexels-photo-189296.jpeg&w=800&fit=crop')"><h3>Marbella</h3></a>
@@ -234,8 +232,6 @@ layout: null
         </div>
     </section>
 
-    
-
     <section class="chapter-section">
         <div class="img-reveal">
             <img src="https://images.weserv.nl/?url=images.pexels.com/photos/235375/pexels-photo-235375.jpeg&w=1200&fit=crop" alt="Authentic Spanish Paella">
@@ -247,20 +243,16 @@ layout: null
         </div>
     </section>
 
-    <section class="editorial-section" style="padding: 140px 10%;">
-        <div class="split-reveal" style="display:grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items:center;">
-            <div class="editorial-text">
-                <span class="chapter-tag" style="color:var(--gold); font-family:'Oswald'; letter-spacing:4px; font-size:0.75rem;">CHAPTER IV</span>
-                <h2 style="font-family:'Playfair Display'; font-size:4rem; line-height:1;">GLOBAL<br><em>ACCESS</em></h2>
-                <p style="font-size:1.2rem; opacity:0.6; line-height:1.9;">A Spanish residency card is a key to the entire Schengen Area. Weekend trips to Paris Rome or Zurich become as simple as a domestic flight. It is the ultimate passport to the continent.</p>
-            </div>
-            <div class="editorial-img" style="box-shadow: 0 40px 80px rgba(0,0,0,0.5);">
-                <img src="https://images.weserv.nl/?url=images.pexels.com/photos/1554469/pexels-photo-1554469.jpeg&w=1200&fit=crop" alt="Global Access" style="width:100%; filter:brightness(0.9);">
-            </div>
+    <section class="chapter-section" style="grid-template-columns: 0.8fr 1.2fr;">
+        <div class="text-editorial" style="order: 2;">
+            <span class="chapter-num">Chapter IV</span>
+            <h2>GLOBAL<br><em>ACCESS</em></h2>
+            <p>A Spanish residency card is a key to the entire Schengen Area. Weekend trips to Paris Rome or Zurich become as simple as a domestic flight. It is the ultimate passport to the continent.</p>
+        </div>
+        <div class="img-reveal" style="order: 1;">
+            <img src="https://images.weserv.nl/?url=images.pexels.com/photos/1554469/pexels-photo-1554469.jpeg&w=1200&fit=crop" alt="Global Access">
         </div>
     </section>
-
-    
 
     <section class="chapter-section" style="padding-bottom: 300px; border-bottom: none;">
         <div class="img-reveal">
@@ -272,8 +264,6 @@ layout: null
             <p>The logistics of the move are our concern not yours. From initial visa strategy to luxury property acquisition and international school placements. You simply arrive; we handle the rest.</p>
         </div>
     </section>
-
-    
 
     <div class="prestige-bar">
         <div class="dial-wrap">
@@ -307,7 +297,7 @@ layout: null
             if(val > 150000) tier = "VALENCIA VIBE";
             if(val > 250000) tier = "MADRID ELITE";
             if(val > 400000) tier = "IBIZA LEGACY";
-            document.getElementById('tierName').textContent = tier;
+            document.getElementById('tierText').textContent = tier;
         }
         updateUI();
     </script>
