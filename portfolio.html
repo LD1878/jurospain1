@@ -28,7 +28,7 @@ layout: null
             overflow-x: hidden;
         }
 
-        /* --- HERO --- */
+        /* --- HERO: Authentic Seville Skyline --- */
         .hero-vogue {
             height: 100vh;
             display: flex;
@@ -36,8 +36,9 @@ layout: null
             justify-content: center;
             align-items: center;
             text-align: center;
+            position: relative;
             background: linear-gradient(to bottom, rgba(5,5,5,0.4), var(--bg)),
-                        url('https://images.weserv.nl/?url=images.pexels.com/photos/2147491/pexels-photo-2147491.jpeg&w=1920&q=95') center/cover no-repeat;
+                        url('https://images.weserv.nl/?url=images.unsplash.com/photo-1543783232-af9942f4a472?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
         }
 
         .hero-vogue h1 {
@@ -53,7 +54,7 @@ layout: null
         .chapter-section {
             padding: 160px 10%;
             display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
+            grid-template-columns: 1.2fr 0.8fr;
             gap: 120px;
             align-items: center;
             border-bottom: 1px solid var(--glass);
@@ -101,7 +102,7 @@ layout: null
             display: block;
         }
 
-        /* --- THE GALLERY --- */
+        /* --- THE GALLERY: Authentic Spain --- */
         .city-gallery {
             padding: 120px 0;
             display: flex;
@@ -131,7 +132,7 @@ layout: null
         .gallery-card:hover { filter: grayscale(0) brightness(1); min-width: 550px; }
         .gallery-card h3 { font-family: 'Oswald'; font-size: 2.5rem; text-transform: uppercase; margin: 0; letter-spacing: 3px; }
 
-        /* --- THE PRESTIGE BAR --- */
+        /* --- THE PRESTIGE BAR (UX Redesign) --- */
         .prestige-bar {
             position: fixed;
             bottom: 40px; left: 50%;
@@ -139,7 +140,7 @@ layout: null
             width: 95%; max-width: 1200px;
             background: rgba(10,10,10,0.98);
             backdrop-filter: blur(40px);
-            padding: 25px 60px;
+            padding: 30px 60px;
             border-radius: 100px;
             border: 1px solid var(--glass);
             display: flex;
@@ -154,10 +155,11 @@ layout: null
 
         input[type="range"] {
             flex: 1;
-            height: 2px;
+            height: 4px;
             background: rgba(255,255,255,0.1);
             accent-color: var(--gold);
             appearance: none;
+            border-radius: 10px;
         }
 
         .stat-box { text-align: center; }
@@ -167,7 +169,7 @@ layout: null
         .btn-luxe {
             background: var(--gold);
             color: black;
-            padding: 18px 50px;
+            padding: 20px 50px;
             border-radius: 100px;
             font-family: 'Oswald';
             font-weight: 700;
@@ -177,7 +179,7 @@ layout: null
             transition: 0.4s;
         }
 
-        /* --- MOBILE --- */
+        /* --- MOBILE RE-ENGINEERING --- */
         @media (max-width: 900px) {
             .chapter-section { grid-template-columns: 1fr; padding: 100px 8%; gap: 60px; }
             .chapter-section:nth-child(even) .img-reveal { order: 2; }
@@ -187,10 +189,12 @@ layout: null
             .prestige-bar {
                 bottom: 0; width: 100%; border-radius: 40px 40px 0 0;
                 flex-direction: column; padding: 40px 20px; gap: 30px;
+                transform: none; left: 0;
             }
             .dial-wrap { width: 100%; }
-            .stat-display { width: 100%; justify-content: space-between; gap: 20px; }
-            .btn-luxe { width: 100%; text-align: center; }
+            .stat-display { width: 100%; justify-content: space-between; gap: 10px; }
+            .stat-data { font-size: 1.6rem; }
+            .btn-luxe { width: 100%; text-align: center; padding: 22px; }
         }
     </style>
 </head>
@@ -204,38 +208,42 @@ layout: null
 
     <section class="chapter-section">
         <div class="img-reveal">
-            <img src="https://images.weserv.nl/?url=images.pexels.com/photos/3760529/pexels-photo-3760529.jpeg&w=1200&fit=crop" alt="The Heart of Madrid">
+            <img src="https://images.weserv.nl/?url=images.unsplash.com/photo-1539037116277-4db20889f2d4?q=80&w=1200&auto=format&fit=crop" alt="The Heart of Madrid">
         </div>
         <div class="text-editorial">
             <span class="chapter-num">Chapter I</span>
             <h2>FISCAL<br><em>SANTUARIO</em></h2>
             <p>Wealth preservation is not merely about accumulation; it is about environment. Spain invites high earners to cap global income tax at a flat 24%. It is the world’s most sophisticated arbitrage wrapped in a culture of absolute security.</p>
-            
         </div>
     </section>
+    
+    
 
     <div class="city-gallery">
-        <a href="#" class="gallery-card" style="background-image:url('https://images.weserv.nl/?url=images.pexels.com/photos/3566136/pexels-photo-3566136.jpeg&w=800&fit=crop')"><h3>Madrid</h3></a>
-        <a href="#" class="gallery-card" style="background-image:url('https://images.weserv.nl/?url=images.pexels.com/photos/189296/pexels-photo-189296.jpeg&w=800&fit=crop')"><h3>Marbella</h3></a>
-        <a href="#" class="gallery-card" style="background-image:url('https://images.weserv.nl/?url=images.pexels.com/photos/1388030/pexels-photo-1388030.jpeg&w=800&fit=crop')"><h3>Barcelona</h3></a>
-        <a href="#" class="gallery-card" style="background-image:url('https://images.weserv.nl/?url=images.pexels.com/photos/2407072/pexels-photo-2407072.jpeg&w=800&fit=crop')"><h3>Ibiza</h3></a>
+        <a href="#" class="gallery-card" style="background-image:url('https://images.weserv.nl/?url=images.unsplash.com/photo-1539037116277-4db20889f2d4?q=80&w=800&auto=format&fit=crop')"><h3>Madrid</h3></a>
+        <a href="#" class="gallery-card" style="background-image:url('https://images.weserv.nl/?url=images.unsplash.com/photo-1561575262-3e4326bb7405?q=80&w=800&auto=format&fit=crop')"><h3>Marbella</h3></a>
+        <a href="#" class="gallery-card" style="background-image:url('https://images.weserv.nl/?url=images.unsplash.com/photo-1583997051654-af6caac53b7c?q=80&w=800&auto=format&fit=crop')"><h3>Barcelona</h3></a>
+        <a href="#" class="gallery-card" style="background-image:url('https://images.weserv.nl/?url=images.unsplash.com/photo-1559121225-4c96227d8192?q=80&w=800&auto=format&fit=crop')"><h3>Ibiza</h3></a>
     </div>
+    
+    
 
     <section class="chapter-section" style="grid-template-columns: 0.8fr 1.2fr;">
         <div class="text-editorial" style="order: 2;">
             <span class="chapter-num">Chapter II</span>
             <h2>MODERN<br><em>VELOCITY</em></h2>
-            <p>Access the world’s second largest high speed rail network and 1Gbps fiber optics that reach even the most remote enclaves. Connectivity in Spain is a standard not a luxury.</p>
-            
+            <p>Access the world’s second largest high speed rail network and 1Gbps fiber optics that reach even the most remote coastal enclaves. Connectivity in Spain is a standard not a luxury.</p>
         </div>
         <div class="img-reveal" style="order: 1;">
-            <img src="https://images.weserv.nl/?url=images.pexels.com/photos/258447/pexels-photo-258447.jpeg&w=1200&fit=crop" alt="Spanish AVE High Speed">
+            <img src="https://images.weserv.nl/?url=images.unsplash.com/photo-1474487585632-70d285960ed2?q=80&w=1200&auto=format&fit=crop" alt="Spanish AVE High Speed">
         </div>
     </section>
+    
+    
 
     <section class="chapter-section">
         <div class="img-reveal">
-            <img src="https://images.weserv.nl/?url=images.pexels.com/photos/235375/pexels-photo-235375.jpeg&w=1200&fit=crop" alt="Authentic Spanish Gastronomy">
+            <img src="https://images.weserv.nl/?url=images.unsplash.com/photo-1515444744559-7be63e1600de?q=80&w=1200&auto=format&fit=crop" alt="Authentic Spanish Gastronomy - Seafood Paella">
         </div>
         <div class="text-editorial">
             <span class="chapter-num">Chapter III</span>
@@ -248,25 +256,27 @@ layout: null
         <div class="text-editorial" style="order: 2;">
             <span class="chapter-num">Chapter IV</span>
             <h2>GLOBAL<br><em>ACCESS</em></h2>
-            <p>A Spanish residency card is a key to the entire Schengen Area. Weekend trips to Paris Rome or Zurich become as simple as a domestic flight. It is the ultimate passport to the capitals of Europe.</p>
-            
+            <p>A Spanish residency card is a key to the entire Schengen Area. Weekend trips to Paris Rome or Zurich become as simple as a domestic flight. It is the ultimate passport to the continent.</p>
         </div>
         <div class="img-reveal" style="order: 1;">
-            <img src="https://images.weserv.nl/?url=images.pexels.com/photos/1554469/pexels-photo-1554469.jpeg&w=1200&fit=crop" alt="European Gateway">
+            <img src="https://images.weserv.nl/?url=images.unsplash.com/photo-1554469384-e58fac16e23a?q=80&w=1200&auto=format&fit=crop" alt="European Gateway">
         </div>
     </section>
+    
+    
 
     <section class="chapter-section" style="padding-bottom: 300px; border-bottom: none;">
         <div class="img-reveal">
-            <img src="https://images.weserv.nl/?url=images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg&w=1200&fit=crop" alt="Luxury Madrid Interior">
+            <img src="https://images.weserv.nl/?url=images.unsplash.com/photo-1571460-e4a7a13d3283?q=80&w=1200&auto=format&fit=crop" alt="Luxury Madrid Interior">
         </div>
         <div class="text-editorial">
             <span class="chapter-num">Chapter V</span>
             <h2>WHITE GLOVE<br><em>ARRIVAL</em></h2>
-            <p>The logistics of the move are our concern not yours. From initial visa strategy to luxury property acquisition and international school placements. Every step is curated for absolute discretion and speed.</p>
-            
+            <p>The logistics of the move are our concern not yours. From initial visa strategy to luxury property acquisition and international school placements. You simply arrive; we handle the rest.</p>
         </div>
     </section>
+    
+    
 
     <div class="prestige-bar">
         <div class="dial-wrap">
@@ -283,7 +293,7 @@ layout: null
             </div>
             <div class="stat-box">
                 <span class="stat-label">TIER</span>
-                <div class="stat-data" style="font-size:1.2rem; border-bottom:1px solid var(--gold);" id="tierText">MADRID ELITE</div>
+                <div class="stat-data" style="font-size:1.2rem; border-bottom:1px solid var(--gold); padding-bottom: 5px;" id="tierText">MADRID ELITE</div>
             </div>
             <a href="/contact/" class="btn-luxe">Begin</a>
         </div>
