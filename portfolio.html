@@ -28,7 +28,7 @@ layout: null
             overflow-x: hidden;
         }
 
-        /* --- HERO: Authentic Seville Skyline --- */
+        /* --- HERO --- */
         .hero-vogue {
             height: 100vh;
             display: flex;
@@ -36,9 +36,8 @@ layout: null
             justify-content: center;
             align-items: center;
             text-align: center;
-            position: relative;
             background: linear-gradient(to bottom, rgba(5,5,5,0.4), var(--bg)),
-                        url('https://images.weserv.nl/?url=images.pexels.com/photos/2147491/pexels-photo-2147491.jpeg&w=1920&q=90') center/cover no-repeat;
+                        url('https://images.weserv.nl/?url=images.pexels.com/photos/2147491/pexels-photo-2147491.jpeg&w=1920&q=95') center/cover no-repeat;
         }
 
         .hero-vogue h1 {
@@ -54,7 +53,7 @@ layout: null
         .chapter-section {
             padding: 160px 10%;
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
+            grid-template-columns: 1.1fr 0.9fr;
             gap: 120px;
             align-items: center;
             border-bottom: 1px solid var(--glass);
@@ -178,7 +177,7 @@ layout: null
             transition: 0.4s;
         }
 
-        /* --- MOBILE OPTIMIZATION --- */
+        /* --- MOBILE --- */
         @media (max-width: 900px) {
             .chapter-section { grid-template-columns: 1fr; padding: 100px 8%; gap: 60px; }
             .chapter-section:nth-child(even) .img-reveal { order: 2; }
@@ -205,12 +204,13 @@ layout: null
 
     <section class="chapter-section">
         <div class="img-reveal">
-            <img src="https://images.weserv.nl/?url=images.pexels.com/photos/3760529/pexels-photo-3760529.jpeg&w=1200&fit=crop" alt="Madrid Architecture">
+            <img src="https://images.weserv.nl/?url=images.pexels.com/photos/3760529/pexels-photo-3760529.jpeg&w=1200&fit=crop" alt="The Heart of Madrid">
         </div>
         <div class="text-editorial">
             <span class="chapter-num">Chapter I</span>
             <h2>FISCAL<br><em>SANTUARIO</em></h2>
             <p>Wealth preservation is not merely about accumulation; it is about environment. Spain invites high earners to cap global income tax at a flat 24%. It is the world’s most sophisticated arbitrage wrapped in a culture of absolute security.</p>
+            
         </div>
     </section>
 
@@ -225,16 +225,17 @@ layout: null
         <div class="text-editorial" style="order: 2;">
             <span class="chapter-num">Chapter II</span>
             <h2>MODERN<br><em>VELOCITY</em></h2>
-            <p>Access the world’s second largest high speed rail network and 1Gbps fiber optics that reach even the most remote coastal enclaves. Connectivity in Spain is a standard not a luxury.</p>
+            <p>Access the world’s second largest high speed rail network and 1Gbps fiber optics that reach even the most remote enclaves. Connectivity in Spain is a standard not a luxury.</p>
+            
         </div>
         <div class="img-reveal" style="order: 1;">
-            <img src="https://images.weserv.nl/?url=images.pexels.com/photos/258447/pexels-photo-258447.jpeg&w=1200&fit=crop" alt="Spanish AVE Train">
+            <img src="https://images.weserv.nl/?url=images.pexels.com/photos/258447/pexels-photo-258447.jpeg&w=1200&fit=crop" alt="Spanish AVE High Speed">
         </div>
     </section>
 
     <section class="chapter-section">
         <div class="img-reveal">
-            <img src="https://images.weserv.nl/?url=images.pexels.com/photos/235375/pexels-photo-235375.jpeg&w=1200&fit=crop" alt="Authentic Spanish Paella">
+            <img src="https://images.weserv.nl/?url=images.pexels.com/photos/235375/pexels-photo-235375.jpeg&w=1200&fit=crop" alt="Authentic Spanish Gastronomy">
         </div>
         <div class="text-editorial">
             <span class="chapter-num">Chapter III</span>
@@ -247,10 +248,11 @@ layout: null
         <div class="text-editorial" style="order: 2;">
             <span class="chapter-num">Chapter IV</span>
             <h2>GLOBAL<br><em>ACCESS</em></h2>
-            <p>A Spanish residency card is a key to the entire Schengen Area. Weekend trips to Paris Rome or Zurich become as simple as a domestic flight. It is the ultimate passport to the continent.</p>
+            <p>A Spanish residency card is a key to the entire Schengen Area. Weekend trips to Paris Rome or Zurich become as simple as a domestic flight. It is the ultimate passport to the capitals of Europe.</p>
+            
         </div>
         <div class="img-reveal" style="order: 1;">
-            <img src="https://images.weserv.nl/?url=images.pexels.com/photos/1554469/pexels-photo-1554469.jpeg&w=1200&fit=crop" alt="Global Access">
+            <img src="https://images.weserv.nl/?url=images.pexels.com/photos/1554469/pexels-photo-1554469.jpeg&w=1200&fit=crop" alt="European Gateway">
         </div>
     </section>
 
@@ -261,7 +263,8 @@ layout: null
         <div class="text-editorial">
             <span class="chapter-num">Chapter V</span>
             <h2>WHITE GLOVE<br><em>ARRIVAL</em></h2>
-            <p>The logistics of the move are our concern not yours. From initial visa strategy to luxury property acquisition and international school placements. You simply arrive; we handle the rest.</p>
+            <p>The logistics of the move are our concern not yours. From initial visa strategy to luxury property acquisition and international school placements. Every step is curated for absolute discretion and speed.</p>
+            
         </div>
     </section>
 
@@ -289,7 +292,7 @@ layout: null
     <script>
         function updateUI() {
             const val = document.getElementById('salSlider').value;
-            const savings = Math.round(val * 0.17);
+            const savings = Math.round(val * 0.17); // Realistic 17% arbitrage
             document.getElementById('salVal').textContent = '$' + parseInt(val).toLocaleString();
             document.getElementById('taxSaved').textContent = '$' + savings.toLocaleString();
 
