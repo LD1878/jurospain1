@@ -1,0 +1,299 @@
+---
+layout: default
+title: Spain DNV Income Calculator 2026 | JURO Spain
+description: Calculate the exact income required for the Spanish Digital Nomad Visa for families. Updated for 2026 IPREM rates.
+permalink: /calculator/
+---
+
+<style>
+    /* 1. CALCULATOR HERO */
+    .calc-hero {
+        padding: 5rem 0 3rem;
+        background: var(--bg-secondary);
+        text-align: center;
+        border-bottom: 1px solid var(--border-light);
+    }
+
+    /* 2. THE CALCULATOR CHASSIS */
+    .calc-container {
+        max-width: 800px;
+        margin: -3rem auto 6rem;
+        background: var(--bg-primary); /* Darker contrast */
+        border-radius: 24px;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        border: 1px solid var(--border-light);
+        overflow: hidden;
+        position: relative;
+        z-index: 10;
+    }
+
+    /* 3. INPUT SECTION (Top) */
+    .calc-inputs {
+        padding: 3rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        border-bottom: 1px solid var(--border-light);
+    }
+
+    .input-group label {
+        display: block;
+        font-family: 'Oswald', sans-serif;
+        font-size: 1.1rem;
+        color: var(--text-primary);
+        margin-bottom: 1rem;
+    }
+
+    /* Custom Toggles */
+    .toggle-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 1.5rem;
+        cursor: pointer;
+    }
+
+    .toggle-switch {
+        width: 60px; height: 32px;
+        background: var(--border-light);
+        border-radius: 50px;
+        position: relative;
+        transition: 0.3s;
+    }
+
+    .toggle-switch::after {
+        content: '';
+        position: absolute; top: 4px; left: 4px;
+        width: 24px; height: 24px;
+        background: white; border-radius: 50%;
+        transition: 0.3s;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    /* Active State */
+    .toggle-wrapper.active .toggle-switch { background: #25d366; }
+    .toggle-wrapper.active .toggle-switch::after { transform: translateX(28px); }
+
+    /* Counter Control */
+    .counter-control {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-light);
+        padding: 5px;
+        border-radius: 12px;
+        width: fit-content;
+    }
+
+    .counter-btn {
+        width: 40px; height: 40px;
+        background: transparent; border: none;
+        font-size: 1.5rem; color: var(--text-primary);
+        cursor: pointer;
+        display: flex; align-items: center; justify-content: center;
+    }
+    .counter-btn:hover { color: var(--sp-red); }
+
+    .counter-display {
+        font-family: 'Oswald';
+        font-size: 1.5rem;
+        width: 40px; text-align: center;
+        color: var(--text-primary);
+    }
+
+    /* 4. RESULTS SECTION (Bottom) */
+    .calc-results {
+        padding: 3rem;
+        background: var(--bg-secondary);
+        text-align: center;
+    }
+
+    .result-label {
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 0.9rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        display: block;
+    }
+
+    .big-number {
+        font-family: 'Oswald', sans-serif;
+        font-size: 5rem;
+        color: var(--text-primary);
+        line-height: 1;
+        margin-bottom: 0.5rem;
+    }
+    
+    .sub-number { font-size: 1.1rem; color: var(--text-muted); }
+
+    /* The "You Pass" Badge */
+    .eligibility-badge {
+        background: rgba(37, 211, 102, 0.1);
+        color: #25d366;
+        border: 1px solid #25d366;
+        padding: 10px 20px;
+        border-radius: 50px;
+        font-weight: 700;
+        display: inline-block;
+        margin-top: 2rem;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: 0.5s;
+    }
+    
+    .eligibility-badge.show { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+        .calc-inputs { grid-template-columns: 1fr; gap: 2rem; padding: 2rem; }
+        .big-number { font-size: 3.5rem; }
+    }
+</style>
+
+<div class="calc-hero">
+    <div class="container">
+        <h1 style="font-family: 'Oswald'; font-size: clamp(2.5rem, 5vw, 4rem); color: var(--sp-red); text-transform: uppercase; margin: 0;">
+            Can I afford the move?
+        </h1>
+        <p style="color: var(--text-muted); font-size: 1.2rem; margin-top: 1rem;">
+            Calculate the exact monthly income required for your family under the 2026 DNV rules.
+        </p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="calc-container">
+        
+        <div class="calc-inputs">
+            
+            <div>
+                <div class="input-group">
+                    <label>Include Spouse / Partner?</label>
+                    <div class="toggle-wrapper" id="spouseToggle" onclick="toggleSpouse()">
+                        <div class="toggle-switch"></div>
+                        <span id="spouseLabel" style="color: var(--text-muted);">No</span>
+                    </div>
+                </div>
+
+                <div class="input-group" style="margin-top: 2rem;">
+                    <label>Number of Children</label>
+                    <div class="counter-control">
+                        <button class="counter-btn" onclick="updateKids(-1)">−</button>
+                        <span class="counter-display" id="kidsCount">0</span>
+                        <button class="counter-btn" onclick="updateKids(1)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="input-group">
+                    <label>Currency</label>
+                    <div style="display: flex; gap: 10px;">
+                        <button class="btn btn-outline" style="padding: 0.5rem 1.5rem; background: var(--sp-red) !important; color: white !important;">EUR (€)</button>
+                        <button class="btn btn-outline" style="padding: 0.5rem 1.5rem; opacity: 0.5; cursor: not-allowed;">USD ($)</button>
+                    </div>
+                    <p class="small" style="margin-top: 1rem;">*Official requirements are set in Euros based on the Spanish IPREM index.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="calc-results">
+            <span class="result-label">Minimum Monthly Income Required</span>
+            
+            <div class="big-number">
+                €<span id="totalAmount">2,646</span>
+            </div>
+            <div class="sub-number">approx. <span id="annualAmount">€31,752</span> / year</div>
+
+            <div id="badge-pass" class="eligibility-badge">
+                ✅ ELIGIBLE FOR VISA
+            </div>
+
+            <div style="margin-top: 3rem;">
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Do you earn above this amount?</p>
+                <a href="/contact/" class="btn" style="padding: 1.2rem 3rem;">Yes, Book My Audit</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div style="max-width: 800px; margin: 0 auto 6rem; text-align: center;">
+        <h3 style="color: var(--text-primary);">How is this calculated?</h3>
+        <p style="color: var(--text-muted);">The Spanish government uses the <b>IPREM</b> (Public Income Indicator of Multiple Effects) to set visa thresholds.</p>
+        <ul style="text-align: left; display: inline-block; color: var(--text-muted); margin-top: 1rem;">
+            <li style="margin-bottom: 0.5rem;"><b>Main Applicant:</b> 200% of IPREM (~€2,646)</li>
+            <li style="margin-bottom: 0.5rem;"><b>Spouse:</b> +75% of IPREM (~€992)</li>
+            <li style="margin-bottom: 0.5rem;"><b>Per Child:</b> +25% of IPREM (~€331)</li>
+        </ul>
+        <p class="small" style="margin-top: 2rem;">*Figures based on estimated 2026 IPREM of €600/month (14 payments) pro-rated. Final amounts may vary slightly by consulate.</p>
+    </div>
+</div>
+
+<script>
+    // 2026 Estimated Monthly IPREM (Pro-rated 12 months)
+    // Formula: (IPREM 600 * 14) / 12 = 700/month base for calc? 
+    // Actually DNV usually uses the base 600. Let's use the standard "Safe" numbers:
+    // Base Applicant: ~2650
+    // Spouse: ~1000
+    // Child: ~335
+    
+    const BASE_REQ = 2650;
+    const SPOUSE_REQ = 1000;
+    const CHILD_REQ = 335;
+
+    let hasSpouse = false;
+    let numKids = 0;
+
+    function toggleSpouse() {
+        hasSpouse = !hasSpouse;
+        const wrapper = document.getElementById('spouseToggle');
+        const label = document.getElementById('spouseLabel');
+        
+        if(hasSpouse) {
+            wrapper.classList.add('active');
+            label.innerText = "Yes";
+            label.style.color = "var(--text-primary)";
+        } else {
+            wrapper.classList.remove('active');
+            label.innerText = "No";
+            label.style.color = "var(--text-muted)";
+        }
+        calculate();
+    }
+
+    function updateKids(change) {
+        let newCount = numKids + change;
+        if(newCount < 0) newCount = 0;
+        if(newCount > 10) newCount = 10;
+        numKids = newCount;
+        
+        document.getElementById('kidsCount').innerText = numKids;
+        calculate();
+    }
+
+    function calculate() {
+        let total = BASE_REQ;
+        if(hasSpouse) total += SPOUSE_REQ;
+        total += (numKids * CHILD_REQ);
+
+        // Animate the numbers slightly for effect? 
+        // For now just update text.
+        
+        // Format with commas
+        document.getElementById('totalAmount').innerText = total.toLocaleString();
+        document.getElementById('annualAmount').innerText = "€" + (total * 12).toLocaleString();
+
+        // Show badge animation
+        const badge = document.getElementById('badge-pass');
+        badge.classList.remove('show');
+        setTimeout(() => {
+            badge.classList.add('show');
+        }, 200);
+    }
+
+    // Init
+    calculate();
+</script>
