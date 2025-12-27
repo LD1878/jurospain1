@@ -1,0 +1,163 @@
+<section class="juro-dashboard">
+    <div class="dash-header">
+        <h1 style="font-family: 'Oswald'; font-size: 2.5rem; letter-spacing: 2px;">COMMAND <span style="color:var(--gold-color)">CENTER</span></h1>
+        <p style="opacity: 0.8; font-family: 'Inter';">Your life in Spain, quantified.</p>
+    </div>
+
+    <div class="dash-grid">
+        
+        <div class="dash-card freedom-card">
+            <div class="card-label">LIFESTYLE ARBITRAGE</div>
+            <h3 style="font-family: 'Oswald'; margin: 10px 0;">THE FREEDOM DIAL</h3>
+            <p style="font-size: 0.8rem; margin-bottom: 20px;">Enter your current US Annual Salary ($):</p>
+            <input type="number" id="us-salary" value="120000" oninput="calculateFreedom()" class="dash-input">
+            
+            <div class="freedom-result">
+                <span id="hours-gained">--</span>
+                <label>HOURS GAINED / WEEK</label>
+            </div>
+            <p id="freedom-insight" style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4;"></p>
+        </div>
+
+        <div class="dash-card vibe-card">
+            <div class="card-label">CULTURAL SYNC</div>
+            <div class="vibe-selector">
+                <select id="user-location" onchange="updateVibeMirror()" class="dash-select">
+                    <option value="America/New_York">New York (EST)</option>
+                    <option value="America/Chicago">Chicago (CST)</option>
+                    <option value="America/Los_Angeles">Los Angeles (PST)</option>
+                </select>
+            </div>
+            <div class="comparison-row">
+                <div class="vibe-side">
+                    <span class="vibe-tag">YOUR CURRENT GRIND</span>
+                    <div id="user-time" class="time-display">00:00</div>
+                    <div id="user-activity" class="activity-text">Likely working...</div>
+                </div>
+                <div class="vibe-side highlight">
+                    <span class="vibe-tag">YOUR SPAIN FLOW</span>
+                    <div id="spain-time" class="time-display">00:00</div>
+                    <div id="spain-activity" class="activity-text" style="color: var(--sp-red);">Tapas & Vermut</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dash-card quest-card">
+            <div class="card-label">RESIDENCY RPG</div>
+            <h3 style="font-family: 'Oswald'; margin: 10px 0;">LEVEL: <span id="rank-name">TOURIST</span></h3>
+            
+            <div class="hp-bar-bg">
+                <div id="hp-fill" class="hp-bar-fill" style="width: 10%;"></div>
+            </div>
+
+            <div class="quest-list">
+                <label class="quest-item"><input type="checkbox" onclick="updateQuest(this, 15)"> Document Apostille <span>+15XP</span></label>
+                <label class="quest-item"><input type="checkbox" onclick="updateQuest(this, 25)"> Visa Approved <span>+25XP</span></label>
+                <label class="quest-item"><input type="checkbox" onclick="updateQuest(this, 20)"> Spain Landing <span>+20XP</span></label>
+                <label class="quest-item"><input type="checkbox" onclick="updateQuest(this, 20)"> Padron Registered <span>+20XP</span></label>
+                <label class="quest-item"><input type="checkbox" onclick="updateQuest(this, 20)"> TIE Card in Hand <span>+20XP</span></label>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+    .juro-dashboard { padding: 40px 20px; background: var(--bg-primary); color: var(--text-primary); }
+    .dash-header { text-align: center; margin-bottom: 50px; }
+    .dash-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; }
+    
+    /* Card Styling */
+    .dash-card { 
+        background: var(--bg-secondary); 
+        border: 1px solid var(--border-light); 
+        border-radius: 24px; 
+        padding: 30px; 
+        box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .dash-card:hover { transform: translateY(-10px); border-color: var(--gold-color); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+    .card-label { font-family: 'Oswald'; font-size: 0.7rem; color: var(--gold-color); letter-spacing: 2px; }
+
+    /* Inputs */
+    .dash-input, .dash-select { 
+        width: 100%; padding: 12px; border-radius: 12px; border: 1px solid var(--border-light);
+        background: var(--bg-primary); color: var(--text-primary); font-family: 'Inter'; font-weight: 600;
+    }
+
+    /* Freedom Calc */
+    .freedom-result { margin: 25px 0; text-align: center; }
+    .freedom-result span { display: block; font-family: 'Oswald'; font-size: 4rem; color: var(--sp-red); line-height: 1; }
+    .freedom-result label { font-family: 'Oswald'; font-size: 0.8rem; letter-spacing: 1px; }
+
+    /* Vibe Sync */
+    .comparison-row { display: flex; margin-top: 20px; gap: 15px; text-align: center; }
+    .vibe-side { flex: 1; padding: 15px; border-radius: 15px; background: rgba(0,0,0,0.03); }
+    .vibe-side.highlight { background: rgba(187, 10, 48, 0.05); border: 1px solid rgba(187, 10, 48, 0.1); }
+    .vibe-tag { font-size: 0.6rem; font-weight: 800; opacity: 0.6; display: block; margin-bottom: 10px; }
+    .time-display { font-family: 'Oswald'; font-size: 1.8rem; }
+    .activity-text { font-size: 0.8rem; font-weight: 600; margin-top: 5px; }
+
+    /* Quest RPG */
+    .hp-bar-bg { background: #eee; height: 12px; border-radius: 10px; margin: 20px 0; overflow: hidden; }
+    .hp-bar-fill { background: linear-gradient(90deg, var(--gold-color), var(--sp-red)); height: 100%; transition: width 0.6s ease; }
+    .quest-list { text-align: left; }
+    .quest-item { display: flex; justify-content: space-between; align-items: center; padding: 10px; border-bottom: 1px solid var(--border-light); font-size: 0.85rem; cursor: pointer; }
+    .quest-item span { font-weight: 700; color: var(--gold-color); font-size: 0.7rem; }
+</style>
+
+<script>
+    // 1. FREEDOM CALCULATOR LOGIC
+    function calculateFreedom() {
+        const salary = document.getElementById('us-salary').value;
+        // Spain is ~40% cheaper + Beckham Law benefit vs high-tax US states
+        // We calculate "Life Hours Gained" by showing that you need to work 35% less hours 
+        // to maintain the same purchasing power.
+        const hoursGained = Math.round((salary / 120000) * 16.5); 
+        document.getElementById('hours-gained').textContent = `+${hoursGained}`;
+        document.getElementById('freedom-insight').textContent = `By optimizing your tax to 24% and leveraging Spain's cost of living, you effectively gain ${hoursGained} hours of personal freedom every single week.`;
+    }
+
+    // 2. VIBE MIRROR LOGIC
+    function updateVibeMirror() {
+        const now = new Date();
+        const userTZ = document.getElementById('user-location').value;
+        
+        const userTime = now.toLocaleTimeString('en-GB', { timeZone: userTZ, hour: '2-digit', minute: '2-digit' });
+        const spainTime = now.toLocaleTimeString('en-GB', { timeZone: 'Europe/Madrid', hour: '2-digit', minute: '2-digit' });
+        const spainHour = parseInt(now.toLocaleTimeString('en-GB', { timeZone: 'Europe/Madrid', hour: '2-digit', hour12: false }));
+
+        document.getElementById('user-time').textContent = userTime;
+        document.getElementById('spain-time').textContent = spainTime;
+
+        // Dynamic Activities
+        let userAct = "Grinding...";
+        let spainAct = "Sueño (Sleeping)";
+
+        if (spainHour >= 9 && spainHour < 13) spainAct = "Desayuno & Focus";
+        if (spainHour >= 13 && spainHour < 16) spainAct = "La Comida (The Big Lunch)";
+        if (spainHour >= 16 && spainHour < 19) spainAct = "Siesta / Slow Work";
+        if (spainHour >= 19 && spainHour < 21) spainAct = "Paseo & Vermut";
+        if (spainHour >= 21 || spainHour < 1) spainAct = "Cena (Late Dinner)";
+
+        document.getElementById('spain-activity').textContent = spainAct;
+    }
+
+    // 3. QUEST RPG LOGIC
+    let currentXP = 10;
+    function updateQuest(cb, xp) {
+        currentXP = cb.checked ? currentXP + xp : currentXP - xp;
+        document.getElementById('hp-fill').style.width = currentXP + "%";
+        
+        let rank = "TOURIST";
+        if (currentXP > 30) rank = "EXPANDING NOMAD";
+        if (currentXP > 60) rank = "RESIDENT";
+        if (currentXP >= 90) rank = "LOCAL LEGEND";
+        document.getElementById('rank-name').textContent = rank;
+    }
+
+    // Init
+    setInterval(updateVibeMirror, 60000);
+    updateVibeMirror();
+    calculateFreedom();
+</script>
