@@ -38,11 +38,11 @@ layout: null
             position: relative;
         }
 
-        /* --- 1. HERO --- */
+        /* --- 1. HERO (Seville Golden Hour) --- */
         .hero {
             height: 100vh;
-            background: linear-gradient(to bottom, rgba(8,8,8,0.4), var(--bg)),
-                        url('https://images.pexels.com/photos/1388030/pexels-photo-1388030.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
+            background: linear-gradient(to bottom, rgba(8,8,8,0.3), var(--bg)),
+                        url('https://images.weserv.nl/?url=images.pexels.com/photos/2147491/pexels-photo-2147491.jpeg&w=1920&q=85') center/cover no-repeat;
             text-align: center;
             justify-content: center;
             border-bottom: none;
@@ -79,7 +79,7 @@ layout: null
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: brightness(0.85);
+            filter: brightness(0.9);
             transition: 1.2s cubic-bezier(0.2, 1, 0.3, 1);
         }
 
@@ -129,19 +129,20 @@ layout: null
             height: 500px;
             background-size: cover;
             background-position: center;
-            filter: grayscale(1);
+            filter: grayscale(0.8) brightness(0.8);
             transition: 0.5s;
             display: flex;
             align-items: flex-end;
             padding: 30px;
             text-decoration: none;
             color: white;
+            background-color: #1a1a1a;
         }
 
-        .gallery-item:hover { filter: grayscale(0); min-width: 450px; }
+        .gallery-item:hover { filter: grayscale(0) brightness(1); min-width: 450px; }
         .gallery-item h3 { font-family: 'Oswald'; font-size: 1.5rem; text-transform: uppercase; margin: 0; }
 
-        /* --- 4. PRESTIGE CONTROLLER (OPTIMIZED) --- */
+        /* --- 4. PRESTIGE CONTROLLER (MOBILE OPTIMIZED) --- */
         .controller {
             position: fixed;
             bottom: 30px;
@@ -188,7 +189,7 @@ layout: null
             transition: 0.3s;
         }
 
-        /* --- MOBILE OPTIMIZATION --- */
+        /* --- MOBILE BREAKPOINT --- */
         @media (max-width: 900px) {
             section { padding: 60px 20px; min-height: auto; }
             .grid { grid-template-columns: 1fr; gap: 30px; }
@@ -229,22 +230,22 @@ layout: null
     <section>
         <div class="grid">
             <div class="img-box">
-                <img src="https://images.pexels.com/photos/3760529/pexels-photo-3760529.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Madrid Architecture">
+                <img src="https://images.weserv.nl/?url=images.pexels.com/photos/930595/pexels-photo-930595.jpeg&w=800&h=1000&fit=cover" alt="Madrid Grand Architecture">
             </div>
             <div class="text-box">
                 <span class="chapter">Chapter I</span>
                 <h2>FISCAL<br><em>SANTUARIO</em></h2>
                 <p>For high-earning individuals, tax is the primary threat to long-term legacy. The Special Tax Regime—the Beckham Law—caps your fiscal obligation at a flat 24%. We convert this arbitrage into the capital required for your next era of growth.</p>
-                
+                <div style="margin-top: 30px; opacity: 0.5; font-size: 0.8rem;">[Interactive Tax Comparison Graph Placeholder]</div>
             </div>
         </div>
     </section>
 
     <div class="gallery">
-        <a href="#" class="gallery-item" style="background-image:url('https://images.pexels.com/photos/3566136/pexels-photo-3566136.jpeg?auto=compress&cs=tinysrgb&w=800')"><h3>Madrid</h3></a>
-        <a href="#" class="gallery-item" style="background-image:url('https://images.pexels.com/photos/2609459/pexels-photo-2609459.jpeg?auto=compress&cs=tinysrgb&w=800')"><h3>Marbella</h3></a>
-        <a href="#" class="gallery-item" style="background-image:url('https://images.pexels.com/photos/1388030/pexels-photo-1388030.jpeg?auto=compress&cs=tinysrgb&w=800')"><h3>Barcelona</h3></a>
-        <a href="#" class="gallery-item" style="background-image:url('https://images.pexels.com/photos/1043965/pexels-photo-1043965.jpeg?auto=compress&cs=tinysrgb&w=800')"><h3>Ibiza</h3></a>
+        <a href="#" class="gallery-item" style="background-image:url('https://images.weserv.nl/?url=images.pexels.com/photos/3760529/pexels-photo-3760529.jpeg&w=600&h=800&fit=cover')"><h3>Madrid</h3></a>
+        <a href="#" class="gallery-item" style="background-image:url('https://images.weserv.nl/?url=images.pexels.com/photos/261394/pexels-photo-261394.jpeg&w=600&h=800&fit=cover')"><h3>Marbella</h3></a>
+        <a href="#" class="gallery-item" style="background-image:url('https://images.weserv.nl/?url=images.pexels.com/photos/1388030/pexels-photo-1388030.jpeg&w=600&h=800&fit=cover')"><h3>Barcelona</h3></a>
+        <a href="#" class="gallery-item" style="background-image:url('https://images.weserv.nl/?url=images.pexels.com/photos/2407072/pexels-photo-2407072.jpeg&w=600&h=800&fit=cover')"><h3>Ibiza</h3></a>
     </div>
 
     <section>
@@ -253,10 +254,10 @@ layout: null
                 <span class="chapter">Chapter II</span>
                 <h2>MODERN<br><em>VELOCITY</em></h2>
                 <p>Access the world’s second-largest high-speed rail network and 1Gbps fiber optics that reach even the most remote coastal villages. Spain’s infrastructure allows for absolute connectivity without sacrificing the quiet of the Mediterranean.</p>
-                
+                <div style="margin-top: 30px; opacity: 0.5; font-size: 0.8rem;">[High-Speed Rail Network Map Placeholder]</div>
             </div>
             <div class="img-box">
-                <img src="https://images.pexels.com/photos/258447/pexels-photo-258447.jpeg?auto=compress&cs=tinysrgb&w=800" alt="European Velocity">
+                <img src="https://images.weserv.nl/?url=images.pexels.com/photos/258447/pexels-photo-258447.jpeg&w=800&h=1000&fit=cover" alt="High Speed Train">
             </div>
         </div>
     </section>
@@ -264,7 +265,7 @@ layout: null
     <section>
         <div class="grid">
             <div class="img-box">
-                <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Spanish Wellness">
+                <img src="https://images.weserv.nl/?url=images.pexels.com/photos/5638666/pexels-photo-5638666.jpeg&w=800&h=1000&fit=cover" alt="Spanish Gastronomy">
             </div>
             <div class="text-box">
                 <span class="chapter">Chapter III</span>
@@ -280,10 +281,10 @@ layout: null
                 <span class="chapter">Chapter IV</span>
                 <h2>THE PRIVATE<br><em>STRATEGY</em></h2>
                 <p>Relocation is a complex operation. Our end-to-end concierge manages the friction: from US-based document apostilles and visa filings to Spanish property scouting and luxury school placements. You simply arrive.</p>
-                
+                <div style="margin-top: 30px; opacity: 0.5; font-size: 0.8rem;">[Concierge Timeline Placeholder]</div>
             </div>
             <div class="img-box">
-                <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Luxury Transition">
+                <img src="https://images.weserv.nl/?url=images.pexels.com/photos/276554/pexels-photo-276554.jpeg&w=800&h=1000&fit=cover" alt="Luxury Interior">
             </div>
         </div>
     </section>
@@ -303,13 +304,14 @@ layout: null
                 <div class="stat-label">Lifestyle Tier</div>
                 <div class="stat-val" style="font-size:1rem; border-bottom:1px solid var(--gold);" id="tierText">COSTA NOMAD</div>
             </div>
-            <a href="/contact/" class="btn-action">Start</a>
+            <a href="/contact/" class="btn-action">Start Journey</a>
         </div>
     </div>
 
     <script>
         function updateUI() {
             const val = document.getElementById('salSlider').value;
+            // Realistic arbitrage (~17% difference between high-tax US and Beckham Law)
             const savings = Math.round(val * 0.17);
             
             document.getElementById('salText').textContent = '$' + parseInt(val).toLocaleString();
