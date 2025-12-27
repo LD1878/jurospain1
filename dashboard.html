@@ -1,163 +1,218 @@
-<section class="juro-dashboard">
-    <div class="dash-header">
-        <h1 style="font-family: 'Oswald'; font-size: 2.5rem; letter-spacing: 2px;">COMMAND <span style="color:var(--gold-color)">CENTER</span></h1>
-        <p style="opacity: 0.8; font-family: 'Inter';">Your life in Spain, quantified.</p>
-    </div>
-
-    <div class="dash-grid">
-        
-        <div class="dash-card freedom-card">
-            <div class="card-label">LIFESTYLE ARBITRAGE</div>
-            <h3 style="font-family: 'Oswald'; margin: 10px 0;">THE FREEDOM DIAL</h3>
-            <p style="font-size: 0.8rem; margin-bottom: 20px;">Enter your current US Annual Salary ($):</p>
-            <input type="number" id="us-salary" value="120000" oninput="calculateFreedom()" class="dash-input">
-            
-            <div class="freedom-result">
-                <span id="hours-gained">--</span>
-                <label>HOURS GAINED / WEEK</label>
-            </div>
-            <p id="freedom-insight" style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4;"></p>
-        </div>
-
-        <div class="dash-card vibe-card">
-            <div class="card-label">CULTURAL SYNC</div>
-            <div class="vibe-selector">
-                <select id="user-location" onchange="updateVibeMirror()" class="dash-select">
-                    <option value="America/New_York">New York (EST)</option>
-                    <option value="America/Chicago">Chicago (CST)</option>
-                    <option value="America/Los_Angeles">Los Angeles (PST)</option>
-                </select>
-            </div>
-            <div class="comparison-row">
-                <div class="vibe-side">
-                    <span class="vibe-tag">YOUR CURRENT GRIND</span>
-                    <div id="user-time" class="time-display">00:00</div>
-                    <div id="user-activity" class="activity-text">Likely working...</div>
-                </div>
-                <div class="vibe-side highlight">
-                    <span class="vibe-tag">YOUR SPAIN FLOW</span>
-                    <div id="spain-time" class="time-display">00:00</div>
-                    <div id="spain-activity" class="activity-text" style="color: var(--sp-red);">Tapas & Vermut</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="dash-card quest-card">
-            <div class="card-label">RESIDENCY RPG</div>
-            <h3 style="font-family: 'Oswald'; margin: 10px 0;">LEVEL: <span id="rank-name">TOURIST</span></h3>
-            
-            <div class="hp-bar-bg">
-                <div id="hp-fill" class="hp-bar-fill" style="width: 10%;"></div>
-            </div>
-
-            <div class="quest-list">
-                <label class="quest-item"><input type="checkbox" onclick="updateQuest(this, 15)"> Document Apostille <span>+15XP</span></label>
-                <label class="quest-item"><input type="checkbox" onclick="updateQuest(this, 25)"> Visa Approved <span>+25XP</span></label>
-                <label class="quest-item"><input type="checkbox" onclick="updateQuest(this, 20)"> Spain Landing <span>+20XP</span></label>
-                <label class="quest-item"><input type="checkbox" onclick="updateQuest(this, 20)"> Padron Registered <span>+20XP</span></label>
-                <label class="quest-item"><input type="checkbox" onclick="updateQuest(this, 20)"> TIE Card in Hand <span>+20XP</span></label>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<style>
-    .juro-dashboard { padding: 40px 20px; background: var(--bg-primary); color: var(--text-primary); }
-    .dash-header { text-align: center; margin-bottom: 50px; }
-    .dash-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; }
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Command Center | JURO Spain</title>
     
-    /* Card Styling */
-    .dash-card { 
-        background: var(--bg-secondary); 
-        border: 1px solid var(--border-light); 
-        border-radius: 24px; 
-        padding: 30px; 
-        box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-    .dash-card:hover { transform: translateY(-10px); border-color: var(--gold-color); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-    .card-label { font-family: 'Oswald'; font-size: 0.7rem; color: var(--gold-color); letter-spacing: 2px; }
+    <link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/32px-Flag_of_Spain.svg.png">
 
-    /* Inputs */
-    .dash-input, .dash-select { 
-        width: 100%; padding: 12px; border-radius: 12px; border: 1px solid var(--border-light);
-        background: var(--bg-primary); color: var(--text-primary); font-family: 'Inter'; font-weight: 600;
-    }
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 
-    /* Freedom Calc */
-    .freedom-result { margin: 25px 0; text-align: center; }
-    .freedom-result span { display: block; font-family: 'Oswald'; font-size: 4rem; color: var(--sp-red); line-height: 1; }
-    .freedom-result label { font-family: 'Oswald'; font-size: 0.8rem; letter-spacing: 1px; }
+    <style>
+        /* --- 1. THE CLICKABLE USA BANNER --- */
+        .usa-promo-banner {
+            background: #002868; color: white !important; padding: 12px 0; overflow: hidden; position: relative;
+            border-bottom: 4px solid #bf0a30; font-family: 'Oswald', sans-serif; font-weight: 700;
+            text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1.5px; z-index: 10001;
+            display: block; text-decoration: none; cursor: pointer;
+        }
+        .banner-track { display: flex; width: 200%; animation: scrollBanner 25s linear infinite; }
+        .banner-item { flex: 1; display: flex; align-items: center; justify-content: center; gap: 40px; white-space: nowrap; }
+        @keyframes scrollBanner { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .usa-flag-icon { width: 24px; height: auto; border-radius: 2px; }
 
-    /* Vibe Sync */
-    .comparison-row { display: flex; margin-top: 20px; gap: 15px; text-align: center; }
-    .vibe-side { flex: 1; padding: 15px; border-radius: 15px; background: rgba(0,0,0,0.03); }
-    .vibe-side.highlight { background: rgba(187, 10, 48, 0.05); border: 1px solid rgba(187, 10, 48, 0.1); }
-    .vibe-tag { font-size: 0.6rem; font-weight: 800; opacity: 0.6; display: block; margin-bottom: 10px; }
-    .time-display { font-family: 'Oswald'; font-size: 1.8rem; }
-    .activity-text { font-size: 0.8rem; font-weight: 600; margin-top: 5px; }
+        /* --- 2. HEADER & NAV --- */
+        .site-header {
+            background-color: var(--bg-secondary); border-bottom: 3px solid var(--gold-color);
+            position: sticky; top: 0; z-index: 9999; height: 90px; display: flex; align-items: center;
+        }
+        .header-container { display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        .site-nav { display: flex; align-items: center; gap: 2.5rem; }
+        .site-nav a, .dropdown-trigger {
+            font-family: 'Oswald', sans-serif !important; font-weight: 600; text-transform: uppercase;
+            font-size: 0.95rem; color: var(--text-primary); text-decoration: none; cursor: pointer;
+        }
+        .dropdown-container { position: relative; padding: 10px 0; }
+        .dropdown-trigger::after { content: ''; display: inline-block; margin-left: 8px; width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 5px solid currentColor; }
+        .dropdown-menu { 
+            display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+            background-color: var(--bg-secondary); min-width: 220px; box-shadow: var(--elev-3);
+            border-radius: 12px; border: 1px solid var(--border-light); padding: 0.5rem 0;
+        }
+        .dropdown-container:hover .dropdown-menu { display: block; }
+        .dropdown-menu a { display: block; padding: 12px 24px !important; text-transform: none !important; font-family: 'Inter', sans-serif !important; color: var(--text-primary) !important; border-bottom: 1px solid var(--border-light); }
 
-    /* Quest RPG */
-    .hp-bar-bg { background: #eee; height: 12px; border-radius: 10px; margin: 20px 0; overflow: hidden; }
-    .hp-bar-fill { background: linear-gradient(90deg, var(--gold-color), var(--sp-red)); height: 100%; transition: width 0.6s ease; }
-    .quest-list { text-align: left; }
-    .quest-item { display: flex; justify-content: space-between; align-items: center; padding: 10px; border-bottom: 1px solid var(--border-light); font-size: 0.85rem; cursor: pointer; }
-    .quest-item span { font-weight: 700; color: var(--gold-color); font-size: 0.7rem; }
-</style>
-
-<script>
-    // 1. FREEDOM CALCULATOR LOGIC
-    function calculateFreedom() {
-        const salary = document.getElementById('us-salary').value;
-        // Spain is ~40% cheaper + Beckham Law benefit vs high-tax US states
-        // We calculate "Life Hours Gained" by showing that you need to work 35% less hours 
-        // to maintain the same purchasing power.
-        const hoursGained = Math.round((salary / 120000) * 16.5); 
-        document.getElementById('hours-gained').textContent = `+${hoursGained}`;
-        document.getElementById('freedom-insight').textContent = `By optimizing your tax to 24% and leveraging Spain's cost of living, you effectively gain ${hoursGained} hours of personal freedom every single week.`;
-    }
-
-    // 2. VIBE MIRROR LOGIC
-    function updateVibeMirror() {
-        const now = new Date();
-        const userTZ = document.getElementById('user-location').value;
+        /* --- 3. BENTO DASHBOARD CORE --- */
+        .juro-cmd-center { padding: 60px 20px; max-width: 1100px; margin: 0 auto; }
+        .cmd-intro { text-align: center; margin-bottom: 60px; }
+        .oswald-bold { font-family: 'Oswald'; font-weight: 700; font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: -1px; margin: 0; }
         
-        const userTime = now.toLocaleTimeString('en-GB', { timeZone: userTZ, hour: '2-digit', minute: '2-digit' });
-        const spainTime = now.toLocaleTimeString('en-GB', { timeZone: 'Europe/Madrid', hour: '2-digit', minute: '2-digit' });
-        const spainHour = parseInt(now.toLocaleTimeString('en-GB', { timeZone: 'Europe/Madrid', hour: '2-digit', hour12: false }));
-
-        document.getElementById('user-time').textContent = userTime;
-        document.getElementById('spain-time').textContent = spainTime;
-
-        // Dynamic Activities
-        let userAct = "Grinding...";
-        let spainAct = "Sueño (Sleeping)";
-
-        if (spainHour >= 9 && spainHour < 13) spainAct = "Desayuno & Focus";
-        if (spainHour >= 13 && spainHour < 16) spainAct = "La Comida (The Big Lunch)";
-        if (spainHour >= 16 && spainHour < 19) spainAct = "Siesta / Slow Work";
-        if (spainHour >= 19 && spainHour < 21) spainAct = "Paseo & Vermut";
-        if (spainHour >= 21 || spainHour < 1) spainAct = "Cena (Late Dinner)";
-
-        document.getElementById('spain-activity').textContent = spainAct;
-    }
-
-    // 3. QUEST RPG LOGIC
-    let currentXP = 10;
-    function updateQuest(cb, xp) {
-        currentXP = cb.checked ? currentXP + xp : currentXP - xp;
-        document.getElementById('hp-fill').style.width = currentXP + "%";
+        .cmd-bento-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 20px; }
+        .bento-card { 
+            background: var(--bg-secondary); padding: 40px; border-radius: 30px; 
+            border: 1px solid var(--border-light); position: relative; transition: 0.3s ease;
+        }
+        .bento-card:hover { border-color: var(--gold-color); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
         
-        let rank = "TOURIST";
-        if (currentXP > 30) rank = "EXPANDING NOMAD";
-        if (currentXP > 60) rank = "RESIDENT";
-        if (currentXP >= 90) rank = "LOCAL LEGEND";
-        document.getElementById('rank-name').textContent = rank;
-    }
+        /* Elements */
+        .card-meta { font-family: 'Inter'; font-weight: 700; font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; opacity: 0.4; margin-bottom: 20px; }
+        .juro-slider { width: 100%; height: 6px; background: var(--border-light); border-radius: 5px; appearance: none; outline: none; margin: 20px 0; }
+        .juro-slider::-webkit-slider-thumb { appearance: none; width: 24px; height: 24px; background: var(--gold-color); border-radius: 50%; cursor: pointer; border: 4px solid var(--bg-secondary); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        
+        .freedom-stat { margin-top: 20px; }
+        .hours-lg { font-family: 'Oswald'; font-weight: 700; font-size: 5rem; color: var(--sp-red); line-height: 1; }
+        
+        .pulse-indicator { width: 10px; height: 10px; background: #2ecc71; border-radius: 50%; display: inline-block; margin-left: 10px; animation: blink 2s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 0.2; } 50% { opacity: 1; } }
 
-    // Init
-    setInterval(updateVibeMirror, 60000);
-    updateVibeMirror();
-    calculateFreedom();
-</script>
+        .progress-track { background: var(--border-light); height: 6px; border-radius: 3px; margin: 20px 0; overflow: hidden; }
+        .progress-fill { background: var(--sp-red); height: 100%; width: 25%; transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+
+        /* --- 4. THEME & MOBILE --- */
+        #themeToggle { background: rgba(128,128,128,0.1); border: 2px solid var(--gold-color); border-radius: 10px; width: 44px; height: 44px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        @media (max-width: 900px) {
+            .cmd-bento-grid { grid-template-columns: 1fr; }
+            .site-nav { display: none; }
+        }
+    </style>
+
+    <script>
+        const THEMES = [
+            { name: 'original-light', icon: '☀️', '--bg-primary': '#fcfcfc', '--bg-secondary': '#ffffff', '--text-primary': '#232323', '--text-muted': '#64748b', '--border-light': '#e2e8f0' },
+            { name: 'midnight-navy', icon: '🌙', '--bg-primary': '#0a192f', '--bg-secondary': '#112240', '--text-primary': '#e6f1ff', '--text-muted': '#8892b0', '--border-light': '#233554' }
+        ];
+        function applyTheme(themeName) {
+            const root = document.documentElement;
+            const theme = THEMES.find(t => t.name === themeName);
+            if (!theme) return;
+            Object.keys(theme).forEach(key => { if (key.startsWith('--')) root.style.setProperty(key, theme[key]); });
+            localStorage.setItem('juro-theme', themeName);
+            const iconEl = document.querySelector('.theme-icon');
+            if (iconEl) iconEl.textContent = theme.icon;
+        }
+        (function() { applyTheme(localStorage.getItem('juro-theme') || 'original-light'); })();
+    </script>
+</head>
+<body>
+
+    <a href="/dnv-eligibility-usa/" class="usa-promo-banner">
+        <div class="banner-track">
+            <div class="banner-item">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" class="usa-flag-icon">
+                US Citizens: Check Your 2026 DNV Eligibility
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" class="usa-flag-icon">
+                Exclusive 24% Beckham Law Tax Audit
+            </div>
+        </div>
+    </a>
+
+    <header class="site-header">
+        <div class="header-container">
+            <a class="site-title" href="/" style="font-size: 1.8rem; text-decoration: none; font-weight: 800; color: var(--sp-red);">
+                J<span style="color:var(--gold-color)">U</span>R<span style="color:var(--gold-color)">O</span> Spain
+            </a>
+            <nav class="site-nav">
+                <a href="/services/">Services</a>
+                <div class="dropdown-container">
+                    <span class="dropdown-trigger">Resources</span>
+                    <div class="dropdown-menu">
+                        <a href="/dashboard/">Command Center</a>
+                        <a href="/calculator/">Tax Calculator</a>
+                        <a href="/blog/">Blog & Guides</a>
+                    </div>
+                </div>
+                <a href="/contact/">Contact</a>
+            </nav>
+            <div class="header-actions" style="display:flex; gap:15px; align-items:center;">
+                <button id="themeToggle"><span class="theme-icon">☀️</span></button>
+                <a href="https://app.cal.eu/jurospain/30min" class="btn" style="padding: 10px 20px;">Book Call</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="juro-cmd-center">
+        <div class="cmd-intro">
+            <h1 class="oswald-bold">DESIGN YOUR <span style="color:var(--gold-color)">SPAIN LIFE</span></h1>
+            <p style="font-family:'Inter'; opacity:0.7;">Stop calculating taxes. Start calculating freedom.</p>
+        </div>
+
+        <div class="cmd-bento-grid">
+            <div class="bento-card">
+                <div class="card-meta">Lifestyle Arbitrage</div>
+                <h2 style="font-family:'Oswald'; text-transform:uppercase;">The Time Buy-Back</h2>
+                <p style="font-family:'Inter'; font-size:0.9rem; opacity:0.8;">Move your US salary to Spain. Reclaim your life.</p>
+                
+                <input type="range" min="80000" max="500000" step="5000" value="150000" class="juro-slider" id="salarySlider">
+                <div style="font-family:'Oswald'; color:var(--gold-color); font-size:1.5rem;">$<span id="salaryVal">150,000</span></div>
+
+                <div class="freedom-stat">
+                    <div id="hoursBack" class="hours-lg">+22</div>
+                    <div style="font-family:'Oswald'; font-size:0.8rem; letter-spacing:1px; opacity:0.6;">HOURS OF "LIFE" RECLAIMED / WEEK</div>
+                </div>
+            </div>
+
+            <div class="bento-card">
+                <div class="card-meta">Live Status <div class="pulse-indicator"></div></div>
+                <div id="spainClock" style="font-family:'Oswald'; font-size:2.5rem; margin-bottom:10px;">00:00</div>
+                <h3 id="vibeTitle" style="font-family:'Oswald'; color:var(--sp-red); text-transform:uppercase;">TAPAS O'CLOCK</h3>
+                <p id="vibeText" style="font-family:'Inter'; font-size:0.85rem; line-height:1.6; opacity:0.8;">The sun is setting. Families are out and the first vermouth is being poured.</p>
+                
+                <div style="margin-top:30px; border-top:1px solid var(--border-light); padding-top:20px;">
+                    <select id="userCity" style="background:transparent; border:none; font-family:'Inter'; font-weight:700; font-size:0.7rem; color:var(--text-muted);">
+                        <option value="America/New_York">vs. NEW YORK</option>
+                        <option value="America/Los_Angeles">vs. LOS ANGELES</option>
+                    </select>
+                    <div id="userTime" style="font-family:'Oswald'; font-size:1.2rem;">00:00</div>
+                </div>
+            </div>
+
+            <div class="bento-card" style="grid-column: span 2;">
+                <div class="card-meta">The Roadmap</div>
+                <div style="display:flex; justify-content:space-between; margin-bottom:15px;">
+                    <div style="text-align:center; cursor:pointer;" onclick="setStep(1, this)"><span style="display:block; font-family:'Oswald'; color:var(--gold-color);">01</span><span style="font-size:0.7rem; font-weight:700;">DOCS</span></div>
+                    <div style="text-align:center; cursor:pointer;" onclick="setStep(2, this)"><span style="display:block; font-family:'Oswald'; opacity:0.3;">02</span><span style="font-size:0.7rem; font-weight:700; opacity:0.3;">VISA</span></div>
+                    <div style="text-align:center; cursor:pointer;" onclick="setStep(3, this)"><span style="display:block; font-family:'Oswald'; opacity:0.3;">03</span><span style="font-size:0.7rem; font-weight:700; opacity:0.3;">TIE</span></div>
+                    <div style="text-align:center; cursor:pointer;" onclick="setStep(4, this)"><span style="display:block; font-family:'Oswald'; opacity:0.3;">04</span><span style="font-size:0.7rem; font-weight:700; opacity:0.3;">LOCAL</span></div>
+                </div>
+                <div class="progress-track"><div id="questBar" class="progress-fill"></div></div>
+                <p id="questTip" style="font-family:'Inter'; font-style:italic; font-size:0.9rem; opacity:0.6;">"Gather your FBI checks. This is the foundation."</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // 1. Logic for Slider
+        const slider = document.getElementById('salarySlider');
+        slider.oninput = function() {
+            document.getElementById('salaryVal').textContent = parseInt(this.value).toLocaleString();
+            const hours = Math.round((this.value / 100000) * 14.5);
+            document.getElementById('hoursBack').textContent = `+${hours}`;
+        };
+
+        // 2. Logic for Pulse
+        function updatePulse() {
+            const now = new Date();
+            const spainStr = now.toLocaleTimeString('en-GB', { timeZone: 'Europe/Madrid', hour: '2-digit', minute: '2-digit' });
+            const userTZ = document.getElementById('userCity').value;
+            const userStr = now.toLocaleTimeString('en-GB', { timeZone: userTZ, hour: '2-digit', minute: '2-digit' });
+            document.getElementById('spainClock').textContent = spainStr;
+            document.getElementById('userTime').textContent = userStr;
+        }
+
+        // 3. Logic for Theme
+        document.getElementById('themeToggle').addEventListener('click', () => {
+            const current = localStorage.getItem('juro-theme') || 'original-light';
+            applyTheme(current === 'original-light' ? 'midnight-navy' : 'original-light');
+        });
+
+        setInterval(updatePulse, 1000);
+        updatePulse();
+    </script>
+
+</body>
+</html>
