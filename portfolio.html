@@ -16,7 +16,7 @@ layout: null
             --gold: #fabd00;
             --bg: #080808;
             --cream: #f4f4f4;
-            --glass: rgba(255, 255, 255, 0.05);
+            --glass: rgba(255, 255, 255, 0.08);
         }
 
         body, html {
@@ -28,298 +28,282 @@ layout: null
             overflow-x: hidden;
         }
 
-        /* --- 1. HERO --- */
-        .hero-vogue {
-            height: 100vh;
-            background: linear-gradient(to bottom, rgba(8,8,8,0.4) 50%, var(--bg) 100%),
-                        #1a1a1a url('https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
+        /* --- SECTION BASE --- */
+        section {
+            padding: 100px 8%;
+            min-height: 80vh;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            text-align: center;
-        }
-
-        .hero-vogue h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(4rem, 15vw, 12rem);
-            line-height: 0.85;
-            margin: 0;
-            font-style: italic;
-            letter-spacing: -4px;
-        }
-
-        .hero-subtitle {
-            font-family: 'Oswald';
-            letter-spacing: 8px;
-            font-size: 0.9rem;
-            margin-top: 25px;
-            opacity: 0.8;
-            text-transform: uppercase;
-        }
-
-        /* --- 2. EDITORIAL CONTENT BLOCKS --- */
-        .editorial-section {
-            padding: 140px 8%;
-            max-width: 1600px;
-            margin: 0 auto;
             border-bottom: 1px solid var(--glass);
+            position: relative;
         }
 
-        .split-reveal {
+        /* --- 1. HERO --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(to bottom, rgba(8,8,8,0.4), var(--bg)),
+                        url('https://images.pexels.com/photos/1388030/pexels-photo-1388030.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
+            text-align: center;
+            justify-content: center;
+            border-bottom: none;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3.5rem, 12vw, 10rem);
+            font-style: italic;
+            margin: 0;
+            line-height: 0.8;
+            letter-spacing: -3px;
+        }
+
+        /* --- 2. EDITORIAL GRID --- */
+        .grid {
             display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 100px;
-            align-items: center;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
         }
 
-        .editorial-img {
-            background: #111;
+        .img-box {
+            position: relative;
             border-radius: 4px;
             overflow: hidden;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            background: #111;
+            aspect-ratio: 4/5;
         }
 
-        .editorial-img img { 
-            width: 100%; 
-            display: block;
-            filter: brightness(0.9);
-            transition: 1.5s cubic-bezier(0.2, 1, 0.3, 1);
+        .img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.85);
+            transition: 1.2s cubic-bezier(0.2, 1, 0.3, 1);
         }
 
-        .editorial-img:hover img { filter: brightness(1.1); transform: scale(1.05); }
+        .img-box:hover img {
+            filter: brightness(1.1);
+            transform: scale(1.05);
+        }
 
-        .editorial-text h2 {
+        .text-box h2 {
             font-family: 'Playfair Display';
-            font-size: clamp(3rem, 6vw, 5.5rem);
-            margin: 0 0 35px 0;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            margin: 0 0 20px 0;
             line-height: 1;
         }
 
-        .editorial-text p {
-            font-size: 1.25rem;
-            line-height: 2;
+        .text-box p {
+            font-size: 1.1rem;
+            line-height: 1.8;
             opacity: 0.7;
             font-weight: 300;
         }
-        
-        .chapter-tag {
+
+        .chapter {
+            font-family: 'Oswald';
             color: var(--gold);
-            font-weight: 800;
-            letter-spacing: 5px;
-            font-size: 0.75rem;
+            letter-spacing: 4px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            margin-bottom: 15px;
             display: block;
-            margin-bottom: 20px;
         }
 
-        /* --- 3. THE CITY GALLERY --- */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            height: 75vh;
-            padding: 0 20px;
+        /* --- 3. GALLERY SCROLL --- */
+        .gallery {
+            padding: 80px 0;
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            padding-left: 8%;
         }
+
+        .gallery::-webkit-scrollbar { display: none; }
 
         .gallery-item {
+            min-width: 350px;
+            height: 500px;
             background-size: cover;
             background-position: center;
-            transition: 0.8s cubic-bezier(0.2, 1, 0.3, 1);
-            filter: grayscale(100%) brightness(0.6);
+            filter: grayscale(1);
+            transition: 0.5s;
             display: flex;
             align-items: flex-end;
-            padding: 40px;
+            padding: 30px;
             text-decoration: none;
             color: white;
-            background-color: #222;
         }
 
-        .gallery-item:hover { filter: grayscale(0%) brightness(1); flex-grow: 2.5; }
-        .gallery-item h3 { font-family: 'Oswald'; font-size: 2rem; margin: 0; text-transform: uppercase; letter-spacing: 2px; }
+        .gallery-item:hover { filter: grayscale(0); min-width: 450px; }
+        .gallery-item h3 { font-family: 'Oswald'; font-size: 1.5rem; text-transform: uppercase; margin: 0; }
 
-        /* --- 4. PRESTIGE BAR (DOCK) --- */
-        .prestige-bar {
+        /* --- 4. PRESTIGE CONTROLLER (OPTIMIZED) --- */
+        .controller {
             position: fixed;
-            bottom: 40px; left: 50%;
+            bottom: 30px;
+            left: 50%;
             transform: translateX(-50%);
-            width: 90%; max-width: 1300px;
-            background: rgba(12,12,12,0.95);
-            backdrop-filter: blur(40px);
-            padding: 25px 60px;
-            border-radius: 100px;
-            border: 1px solid rgba(255,255,255,0.1);
+            width: 90%;
+            max-width: 1100px;
+            background: rgba(12,12,12,0.96);
+            backdrop-filter: blur(30px);
+            padding: 20px 40px;
+            border-radius: 25px;
+            border: 1px solid var(--glass);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 10000;
-            box-shadow: 0 40px 100px rgba(0,0,0,0.8);
+            z-index: 9999;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
         }
 
-        .slider-wrap { flex: 1; margin-right: 80px; }
-        .result-wrap { display: flex; gap: 70px; align-items: center; }
+        .slider-section { flex: 1; margin-right: 40px; }
+        .stats-section { display: flex; gap: 40px; align-items: center; }
 
         input[type="range"] {
-            width: 100%; height: 2px;
-            background: rgba(255,255,255,0.1);
-            accent-color: var(--gold); appearance: none;
-            margin-top: 20px;
+            width: 100%;
+            accent-color: var(--gold);
+            cursor: pointer;
+            height: 4px;
         }
 
-        .btn-gold {
-            background: var(--gold); color: black; padding: 22px 55px; border-radius: 50px;
-            font-family: 'Oswald'; text-decoration: none; font-weight: 700; text-transform: uppercase;
-            font-size: 0.9rem; letter-spacing: 2px; transition: 0.4s;
-        }
-        .btn-gold:hover { background: white; transform: translateY(-5px); }
+        .stat-group { text-align: center; }
+        .stat-label { font-family: 'Oswald'; font-size: 0.6rem; letter-spacing: 1px; opacity: 0.5; text-transform: uppercase; }
+        .stat-val { font-family: 'Playfair Display'; font-size: 1.8rem; color: var(--gold); }
 
-        @media (max-width: 1100px) {
-            .split-reveal { grid-template-columns: 1fr; text-align: center; }
-            .prestige-bar { flex-direction: column; border-radius: 40px; width: 95%; padding: 40px; }
-            .gallery-grid { grid-template-columns: 1fr; height: auto; }
-            .gallery-item { height: 350px; }
+        .btn-action {
+            background: var(--gold);
+            color: black;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-family: 'Oswald';
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            transition: 0.3s;
+        }
+
+        /* --- MOBILE OPTIMIZATION --- */
+        @media (max-width: 900px) {
+            section { padding: 60px 20px; min-height: auto; }
+            .grid { grid-template-columns: 1fr; gap: 30px; }
+            .editorial-img { order: 2; }
+            .text-box { order: 1; text-align: center; }
+            .text-box p { font-size: 1rem; }
+            
+            .gallery-item { min-width: 280px; height: 400px; }
+            
+            /* Mobile Controller Redesign */
+            .controller {
+                bottom: 0;
+                width: 100%;
+                left: 0;
+                transform: none;
+                border-radius: 20px 20px 0 0;
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+            }
+            .slider-section { margin-right: 0; width: 100%; }
+            .stats-section { width: 100%; justify-content: space-between; }
+            .stat-val { font-size: 1.4rem; }
+            .btn-action { width: 100%; text-align: center; }
         }
     </style>
 </head>
 <body>
 
-    <section class="hero-vogue">
-        <div class="hero-subtitle">JURO Spain Private Collection</div>
-        <h1>Portfolio<span>.</span></h1>
-        <div class="hero-subtitle" style="font-family:'Inter'; font-weight:300; opacity:0.6;">A Curated Arbitrage of Time and Wealth</div>
+    <section class="hero">
+        <div style="z-index: 2;">
+            <span class="chapter" style="color:white; opacity: 0.6;">JURO Spain Collection</span>
+            <h1>Portfolio<span>.</span></h1>
+            <p style="font-family:'Oswald'; letter-spacing: 3px; margin-top: 15px; opacity: 0.8;">TIME · WEALTH · LIFESTYLE</p>
+        </div>
     </section>
 
-    <section class="editorial-section">
-        <div class="split-reveal">
-            <div class="editorial-img">
-                <img src="https://images.pexels.com/photos/3760529/pexels-photo-3760529.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Madrid Skyline">
+    <section>
+        <div class="grid">
+            <div class="img-box">
+                <img src="https://images.pexels.com/photos/3760529/pexels-photo-3760529.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Madrid Architecture">
             </div>
-            <div class="editorial-text">
-                <span class="chapter-tag">CHAPTER I</span>
+            <div class="text-box">
+                <span class="chapter">Chapter I</span>
                 <h2>FISCAL<br><em>SANTUARIO</em></h2>
-                <p>For the American high earner tax is the greatest erosion of legacy. Under the Beckham Law Spain invites you to cap your fiscal contribution at a flat 24%. It is the world's most sophisticated wealth preservation tool cloaked in a lifestyle of unparalleled richness.</p>
+                <p>For high-earning individuals, tax is the primary threat to long-term legacy. The Special Tax Regime—the Beckham Law—caps your fiscal obligation at a flat 24%. We convert this arbitrage into the capital required for your next era of growth.</p>
+                
             </div>
         </div>
-        
     </section>
 
-    <div class="gallery-grid">
+    <div class="gallery">
         <a href="#" class="gallery-item" style="background-image:url('https://images.pexels.com/photos/3566136/pexels-photo-3566136.jpeg?auto=compress&cs=tinysrgb&w=800')"><h3>Madrid</h3></a>
         <a href="#" class="gallery-item" style="background-image:url('https://images.pexels.com/photos/2609459/pexels-photo-2609459.jpeg?auto=compress&cs=tinysrgb&w=800')"><h3>Marbella</h3></a>
         <a href="#" class="gallery-item" style="background-image:url('https://images.pexels.com/photos/1388030/pexels-photo-1388030.jpeg?auto=compress&cs=tinysrgb&w=800')"><h3>Barcelona</h3></a>
         <a href="#" class="gallery-item" style="background-image:url('https://images.pexels.com/photos/1043965/pexels-photo-1043965.jpeg?auto=compress&cs=tinysrgb&w=800')"><h3>Ibiza</h3></a>
     </div>
 
-    <section class="editorial-section">
-        <div class="split-reveal" style="grid-template-columns: 0.9fr 1.1fr;">
-            <div class="editorial-text">
-                <span class="chapter-tag">CHAPTER II</span>
+    <section>
+        <div class="grid">
+            <div class="text-box" style="order: window.innerWidth < 900 ? 1 : 0;">
+                <span class="chapter">Chapter II</span>
                 <h2>MODERN<br><em>VELOCITY</em></h2>
-                <p>Spain's infrastructure is a quiet triumph. From the second largest high speed rail network in the world to 1Gbps fiber optics reaching even the deepest coastal villages. You aren't moving to a slower world you are moving to a more efficient one.</p>
+                <p>Access the world’s second-largest high-speed rail network and 1Gbps fiber optics that reach even the most remote coastal villages. Spain’s infrastructure allows for absolute connectivity without sacrificing the quiet of the Mediterranean.</p>
+                
             </div>
-            <div class="editorial-img">
-                <img src="https://images.pexels.com/photos/258447/pexels-photo-258447.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="AVE Train">
+            <div class="img-box">
+                <img src="https://images.pexels.com/photos/258447/pexels-photo-258447.jpeg?auto=compress&cs=tinysrgb&w=800" alt="European Velocity">
             </div>
         </div>
-        
     </section>
 
-    <section class="editorial-section">
-        <div class="split-reveal">
-            <div class="editorial-img">
-                <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Mediterranean Diet">
+    <section>
+        <div class="grid">
+            <div class="img-box">
+                <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Spanish Wellness">
             </div>
-            <div class="editorial-text">
-                <span class="chapter-tag">CHAPTER III</span>
+            <div class="text-box">
+                <span class="chapter">Chapter III</span>
                 <h2>VITALITY<br><em>INDEX</em></h2>
-                <p>Ranked as the healthiest country globally by Bloomberg Spain's secret is a Mediterranean diet that is culture not a trend. Life expectancy here is a promise of more time spent in a state of vitality that simply cannot be bought elsewhere.</p>
+                <p>Life expectancy in Spain is a testament to the Mediterranean ethos. It is a promise of more time, spent in a state of wellness that is fostered by the world’s healthiest climate and a food culture that is heritage, not a trend.</p>
             </div>
         </div>
     </section>
 
-    <section class="editorial-section">
-        <div class="split-reveal" style="grid-template-columns: 0.9fr 1.1fr;">
-            <div class="editorial-text">
-                <span class="chapter-tag">CHAPTER IV</span>
-                <h2>ACADEMIC<br><em>LEGACY</em></h2>
-                <p>For families Spain offers a prestigious network of International schools that rival the world's best. Bilingualism isn't a subject it's the environment. Your children grow up with a global perspective in a safe nurturing and high achieving culture.</p>
+    <section style="padding-bottom: 200px; border-bottom: none;">
+        <div class="grid">
+            <div class="text-box">
+                <span class="chapter">Chapter IV</span>
+                <h2>THE PRIVATE<br><em>STRATEGY</em></h2>
+                <p>Relocation is a complex operation. Our end-to-end concierge manages the friction: from US-based document apostilles and visa filings to Spanish property scouting and luxury school placements. You simply arrive.</p>
+                
             </div>
-            <div class="editorial-img">
-                <img src="https://images.pexels.com/photos/256417/pexels-photo-256417.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Library School">
-            </div>
-        </div>
-    </section>
-
-    <section class="editorial-section">
-        <div class="split-reveal">
-            <div class="editorial-img">
-                <img src="https://images.pexels.com/photos/2662086/pexels-photo-2662086.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Europe Travel">
-            </div>
-            <div class="editorial-text">
-                <span class="chapter-tag">CHAPTER V</span>
-                <h2>GLOBAL<br><em>ACCESS</em></h2>
-                <p>A Spanish residency card is a key to the entire Schengen Area. Weekend trips to Paris Rome or Zurich become as simple as a domestic flight. It is the ultimate passport to the continent offering you unrestricted access to the capitals of Europe.</p>
-            </div>
-        </div>
-        
-    </section>
-
-    <section class="editorial-section">
-        <div class="split-reveal" style="grid-template-columns: 0.9fr 1.1fr;">
-            <div class="editorial-text">
-                <span class="chapter-tag">CHAPTER VI</span>
-                <h2>CIVIC<br><em>PEACE</em></h2>
-                <p>Safety is the ultimate luxury. Walk through the plazas of Seville or the streets of Madrid at midnight with absolute peace of mind. Spain's low crime rate and family centric culture create an environment where freedom is truly felt.</p>
-            </div>
-            <div class="editorial-img">
-                <img src="https://images.pexels.com/photos/3562681/pexels-photo-3562681.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Spanish Plaza Night">
+            <div class="img-box">
+                <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Luxury Transition">
             </div>
         </div>
     </section>
 
-    <section class="editorial-section">
-        <div class="split-reveal">
-            <div class="editorial-img">
-                <img src="https://images.pexels.com/photos/189349/pexels-photo-189349.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Sunset Coast">
-            </div>
-            <div class="editorial-text">
-                <span class="chapter-tag">CHAPTER VII</span>
-                <h2>ETERNAL<br><em>ESTÍO</em></h2>
-                <p>With over 300 days of sunshine in many regions life in Spain is played out in the open air. The climate is a natural antidepressant fostering a lifestyle that prioritizes well being and outdoor activity year round.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="editorial-section" style="border-bottom:none; padding-bottom:200px;">
-        <div class="split-reveal" style="grid-template-columns: 0.9fr 1.1fr;">
-            <div class="editorial-text">
-                <span class="chapter-tag">CHAPTER VIII</span>
-                <h2>WHITE GLOVE<br><em>ARRIVAL</em></h2>
-                <p>Relocation is a complex operation we make it an experience. From initial visa strategy in the US to final TIE fingerprinting and luxury property acquisition in Spain. We manage the friction so you can enjoy the arrival.</p>
-            </div>
-            <div class="editorial-img">
-                <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Luxury Modern Penthouse">
-            </div>
-        </div>
-        
-    </section>
-
-    <div class="prestige-bar">
-        <div class="slider-wrap">
-            <span style="font-family:'Oswald'; font-size:0.75rem; letter-spacing:2px; opacity:0.5;">ANNUAL INCOME ($)</span><br>
+    <div class="controller">
+        <div class="slider-section">
+            <div class="stat-label">Annual Income</div>
             <input type="range" id="salSlider" min="80000" max="500000" step="5000" value="150000" oninput="updateUI()">
-            <div id="salVal" style="font-family:'Playfair Display'; font-size:2.2rem; color:var(--gold);">$150,000</div>
+            <div style="font-family:'Playfair Display'; font-style:italic; font-size:1.2rem;" id="salText">$150,000</div>
         </div>
-
-        <div class="result-wrap">
-            <div style="text-align:center;">
-                <span style="font-family:'Oswald'; font-size:0.75rem; letter-spacing:1px; opacity:0.5;">TAX ARBITRAGE</span>
-                <div id="taxSaved" style="font-family:'Playfair Display'; font-size:2.5rem; color:var(--sp-red);">$25,500</div>
+        <div class="stats-section">
+            <div class="stat-group">
+                <div class="stat-label">Tax Saved / Yr</div>
+                <div class="stat-val" id="taxSaved">$25,500</div>
             </div>
-            <div style="text-align:center;">
-                <span style="font-family:'Oswald'; font-size:0.75rem; letter-spacing:1px; opacity:0.5;">LIFESTYLE TIER</span>
-                <div id="tierName" style="font-family:'Oswald'; font-size:1.2rem; border-bottom:2px solid var(--gold); padding-bottom:5px;">COSTA NOMAD</div>
+            <div class="stat-group">
+                <div class="stat-label">Lifestyle Tier</div>
+                <div class="stat-val" style="font-size:1rem; border-bottom:1px solid var(--gold);" id="tierText">COSTA NOMAD</div>
             </div>
-            <a href="/contact/" class="btn-gold">Begin Journey</a>
+            <a href="/contact/" class="btn-action">Start</a>
         </div>
     </div>
 
@@ -327,14 +311,15 @@ layout: null
         function updateUI() {
             const val = document.getElementById('salSlider').value;
             const savings = Math.round(val * 0.17);
-            document.getElementById('salVal').textContent = '$' + parseInt(val).toLocaleString();
+            
+            document.getElementById('salText').textContent = '$' + parseInt(val).toLocaleString();
             document.getElementById('taxSaved').textContent = '$' + savings.toLocaleString();
 
             let tier = "COSTA NOMAD";
-            if(val > 120000) tier = "VALENCIA VIBE";
-            if(val > 220000) tier = "MADRID ELITE";
-            if(val > 380000) tier = "IBIZA LEGACY";
-            document.getElementById('tierName').textContent = tier;
+            if(val > 140000) tier = "VALENCIA VIBE";
+            if(val > 240000) tier = "MADRID ELITE";
+            if(val > 400000) tier = "IBIZA LEGACY";
+            document.getElementById('tierText').textContent = tier;
         }
         updateUI();
     </script>
