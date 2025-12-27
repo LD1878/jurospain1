@@ -16,6 +16,7 @@ layout: null
             --gold: #fabd00;
             --bg: #080808;
             --cream: #f4f4f4;
+            --glass: rgba(255, 255, 255, 0.05);
         }
 
         body, html {
@@ -27,13 +28,11 @@ layout: null
             overflow-x: hidden;
         }
 
-        /* --- 1. HERO --- */
+        /* --- 1. HERO SECTION --- */
         .hero-vogue {
             height: 100vh;
             background: linear-gradient(to bottom, rgba(8,8,8,0.4) 50%, var(--bg) 100%),
-                        url('https://images.unsplash.com/photo-1543783232-af9942f4a472?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
+                        #1a1a1a url('https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -59,12 +58,12 @@ layout: null
             text-transform: uppercase;
         }
 
-        /* --- 2. EDITORIAL LAYOUT --- */
+        /* --- 2. EDITORIAL CONTENT BLOCKS --- */
         .editorial-section {
             padding: 140px 8%;
             max-width: 1600px;
             margin: 0 auto;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid var(--glass);
         }
 
         .split-reveal {
@@ -74,15 +73,21 @@ layout: null
             align-items: center;
         }
 
-        .editorial-img img { 
-            width: 100%; 
-            border-radius: 4px; 
-            filter: brightness(0.9);
-            transition: 1s ease;
+        .editorial-img {
+            background: #111; /* Fallback if image fails */
+            border-radius: 4px;
+            overflow: hidden;
             box-shadow: 0 30px 60px rgba(0,0,0,0.5);
         }
 
-        .editorial-img:hover img { filter: brightness(1.1); transform: scale(1.02); }
+        .editorial-img img { 
+            width: 100%; 
+            display: block;
+            filter: brightness(0.9);
+            transition: 1.5s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+
+        .editorial-img:hover img { filter: brightness(1.1); transform: scale(1.05); }
 
         .editorial-text h2 {
             font-family: 'Playfair Display';
@@ -107,7 +112,7 @@ layout: null
             margin-bottom: 20px;
         }
 
-        /* --- 3. GALLERY --- */
+        /* --- 3. THE CITY GALLERY --- */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -126,12 +131,13 @@ layout: null
             padding: 40px;
             text-decoration: none;
             color: white;
+            background-color: #222;
         }
 
         .gallery-item:hover { filter: grayscale(0%) brightness(1); flex-grow: 2.5; }
         .gallery-item h3 { font-family: 'Oswald'; font-size: 2rem; margin: 0; text-transform: uppercase; letter-spacing: 2px; }
 
-        /* --- 4. PRESTIGE BAR --- */
+        /* --- 4. PRESTIGE BAR (DOCK) --- */
         .prestige-bar {
             position: fixed;
             bottom: 40px; left: 50%;
@@ -185,7 +191,7 @@ layout: null
     <section class="editorial-section">
         <div class="split-reveal">
             <div class="editorial-img">
-                <img src="https://images.unsplash.com/photo-1539037116277-4db20889f2d4?auto=format&fit=crop&w=1200&q=80" alt="Madrid Architecture">
+                <img src="https://images.pexels.com/photos/3760529/pexels-photo-3760529.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Madrid Skyline">
             </div>
             <div class="editorial-text">
                 <span class="chapter-tag">CHAPTER I</span>
@@ -193,13 +199,16 @@ layout: null
                 <p>For the American high earner tax is the greatest erosion of legacy. Under the Beckham Law Spain invites you to cap your fiscal contribution at a flat 24%. It is the world's most sophisticated wealth preservation tool cloaked in a lifestyle of unparalleled richness.</p>
             </div>
         </div>
+        <div style="text-align:center; padding: 50px 0;">
+            
+        </div>
     </section>
 
     <div class="gallery-grid">
-        <a href="#" class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1543783232-af9942f4a472?auto=format&fit=crop&w=800&q=80')"><h3>Madrid</h3></a>
-        <a href="#" class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1561575262-3e4326bb7405?auto=format&fit=crop&w=800&q=80')"><h3>Marbella</h3></a>
-        <a href="#" class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1512444596036-7140411b2395?auto=format&fit=crop&w=800&q=80')"><h3>Barcelona</h3></a>
-        <a href="#" class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1559121225-4c96227d8192?auto=format&fit=crop&w=800&q=80')"><h3>Ibiza</h3></a>
+        <a href="#" class="gallery-item" style="background-image:url('https://images.pexels.com/photos/3566136/pexels-photo-3566136.jpeg?auto=compress&cs=tinysrgb&w=800')"><h3>Madrid</h3></a>
+        <a href="#" class="gallery-item" style="background-image:url('https://images.pexels.com/photos/2609459/pexels-photo-2609459.jpeg?auto=compress&cs=tinysrgb&w=800')"><h3>Marbella</h3></a>
+        <a href="#" class="gallery-item" style="background-image:url('https://images.pexels.com/photos/1388030/pexels-photo-1388030.jpeg?auto=compress&cs=tinysrgb&w=800')"><h3>Barcelona</h3></a>
+        <a href="#" class="gallery-item" style="background-image:url('https://images.pexels.com/photos/2324564/pexels-photo-2324564.jpeg?auto=compress&cs=tinysrgb&w=800')"><h3>Ibiza</h3></a>
     </div>
 
     <section class="editorial-section">
@@ -210,15 +219,18 @@ layout: null
                 <p>Spain's infrastructure is a quiet triumph. From the second largest high speed rail network in the world to 1Gbps fiber optics reaching even the deepest coastal villages. You aren't moving to a slower world you are moving to a more efficient one.</p>
             </div>
             <div class="editorial-img">
-                <img src="https://images.unsplash.com/photo-1534351590666-13e3e96b5017?auto=format&fit=crop&w=1200&q=80" alt="High Speed Train">
+                <img src="https://images.pexels.com/photos/258447/pexels-photo-258447.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="AVE Train">
             </div>
+        </div>
+        <div style="text-align:center; padding: 50px 0;">
+            
         </div>
     </section>
 
     <section class="editorial-section">
         <div class="split-reveal">
             <div class="editorial-img">
-                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=80" alt="Mediterranean Vitality">
+                <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Mediterranean Diet">
             </div>
             <div class="editorial-text">
                 <span class="chapter-tag">CHAPTER III</span>
@@ -236,7 +248,7 @@ layout: null
                 <p>For families Spain offers a prestigious network of International schools that rival the world's best. Bilingualism isn't a subject it's the environment. Your children grow up with a global perspective in a safe nurturing and high achieving culture.</p>
             </div>
             <div class="editorial-img">
-                <img src="https://images.unsplash.com/photo-1523050335392-9bc5ad04044a?auto=format&fit=crop&w=1200&q=80" alt="Campus">
+                <img src="https://images.pexels.com/photos/256417/pexels-photo-256417.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Library School">
             </div>
         </div>
     </section>
@@ -244,7 +256,7 @@ layout: null
     <section class="editorial-section">
         <div class="split-reveal">
             <div class="editorial-img">
-                <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1200&q=80" alt="European Access">
+                <img src="https://images.pexels.com/photos/2662086/pexels-photo-2662086.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Europe Travel">
             </div>
             <div class="editorial-text">
                 <span class="chapter-tag">CHAPTER V</span>
@@ -252,18 +264,50 @@ layout: null
                 <p>A Spanish residency card is a key to the entire Schengen Area. Weekend trips to Paris Rome or Zurich become as simple as a domestic flight. It is the ultimate passport to the continent offering you unrestricted access to the capitals of Europe.</p>
             </div>
         </div>
+        <div style="text-align:center; padding: 50px 0;">
+            
+        </div>
+    </section>
+
+    <section class="editorial-section">
+        <div class="split-reveal" style="grid-template-columns: 0.9fr 1.1fr;">
+            <div class="editorial-text">
+                <span class="chapter-tag">CHAPTER VI</span>
+                <h2>CIVIC<br><em>PEACE</em></h2>
+                <p>Safety is the ultimate luxury. Walk through the plazas of Seville or the streets of Madrid at midnight with absolute peace of mind. Spain's low crime rate and family centric culture create an environment where freedom is truly felt.</p>
+            </div>
+            <div class="editorial-img">
+                <img src="https://images.pexels.com/photos/3562681/pexels-photo-3562681.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Spanish Plaza Night">
+            </div>
+        </div>
+    </section>
+
+    <section class="editorial-section">
+        <div class="split-reveal">
+            <div class="editorial-img">
+                <img src="https://images.pexels.com/photos/189349/pexels-photo-189349.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Sunset Coast">
+            </div>
+            <div class="editorial-text">
+                <span class="chapter-tag">CHAPTER VII</span>
+                <h2>ETERNAL<br><em>ESTÍO</em></h2>
+                <p>With over 300 days of sunshine in many regions life in Spain is played out in the open air. The climate is a natural antidepressant fostering a lifestyle that prioritizes well being and outdoor activity year round.</p>
+            </div>
+        </div>
     </section>
 
     <section class="editorial-section" style="border-bottom:none; padding-bottom:200px;">
         <div class="split-reveal" style="grid-template-columns: 0.9fr 1.1fr;">
             <div class="editorial-text">
-                <span class="chapter-tag">CHAPTER VI</span>
-                <h2>WHITE GLOVE<br><em>TRANSITION</em></h2>
+                <span class="chapter-tag">CHAPTER VIII</span>
+                <h2>WHITE GLOVE<br><em>ARRIVAL</em></h2>
                 <p>Relocation is a complex operation we make it an experience. From initial visa strategy in the US to final TIE fingerprinting and luxury property acquisition in Spain. We manage the friction so you can enjoy the arrival.</p>
             </div>
             <div class="editorial-img">
-                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80" alt="Luxury Travel">
+                <img src="https://images.pexels.com/photos/3769118/pexels-photo-3769118.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Luxury Interior">
             </div>
+        </div>
+        <div style="text-align:center; padding: 50px 0;">
+            
         </div>
     </section>
 
@@ -290,7 +334,9 @@ layout: null
     <script>
         function updateUI() {
             const val = document.getElementById('salSlider').value;
+            // Realistic arbitrage calculation (17% savings for Beckham Law vs high-tax US)
             const savings = Math.round(val * 0.17);
+            
             document.getElementById('salVal').textContent = '$' + parseInt(val).toLocaleString();
             document.getElementById('taxSaved').textContent = '$' + savings.toLocaleString();
 
