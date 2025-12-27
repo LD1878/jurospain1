@@ -6,234 +6,304 @@ layout: null
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Spain Upgrade | JURO Spain</title>
+    <title>Spain: The New Gold Standard | JURO Spain</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;600;800&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
             --sp-red: #bb0a30;
-            --gold-color: #fabd00;
-            --bg-deep: #0f0f0f;
-            --glass: rgba(255, 255, 255, 0.03);
-            --border: rgba(255, 255, 255, 0.1);
+            --gold: #fabd00;
+            --bg: #080808;
+            --cream: #f4f4f4;
         }
 
         body, html {
             margin: 0; padding: 0;
+            background: var(--bg);
+            color: var(--cream);
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-deep);
-            color: white;
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
-        /* --- 1. THE HERO --- */
-        .hero {
-            height: 100vh;
+        /* --- 1. THE EDITORIAL HERO --- */
+        .hero-vogue {
+            height: 110vh;
+            background: linear-gradient(to bottom, rgba(8,8,8,0) 50%, var(--bg) 100%),
+                        url('https://images.unsplash.com/photo-1558191053-8edcb01e1da3?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://images.unsplash.com/photo-1539037116277-4db20889f2d4?auto=format&fit=crop&w=1920&q=80');
+            perspective: 1000px;
+        }
+
+        .hero-vogue h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(4rem, 15vw, 12rem);
+            line-height: 0.8;
+            margin: 0;
+            font-style: italic;
+            letter-spacing: -5px;
+        }
+
+        .hero-subtitle {
+            font-family: 'Oswald';
+            letter-spacing: 8px;
+            font-size: 1rem;
+            margin-top: 20px;
+            opacity: 0.8;
+            text-transform: uppercase;
+        }
+
+        /* --- 2. THE GOLDEN RATIO SECTION --- */
+        .editorial-section {
+            padding: 150px 8%;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .split-reveal {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 80px;
+            align-items: center;
+            margin-bottom: 250px;
+        }
+
+        .editorial-img {
+            position: relative;
+            filter: grayscale(20%);
+            transition: 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+
+        .editorial-img:hover { filter: grayscale(0%); transform: scale(1.02); }
+
+        .editorial-img img { width: 100%; border-radius: 4px; }
+
+        .editorial-text h2 {
+            font-family: 'Playfair Display';
+            font-size: clamp(3rem, 6vw, 5rem);
+            margin: 0 0 30px 0;
+            line-height: 1;
+        }
+
+        .editorial-text p {
+            font-size: 1.25rem;
+            line-height: 1.9;
+            opacity: 0.7;
+            font-weight: 300;
+        }
+
+        /* --- 3. THE MICHELIN & HEALTH INDEX (DATA VIZ) --- */
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin: 100px 0;
+        }
+
+        .data-card {
+            border-left: 1px solid var(--gold);
+            padding: 30px;
+            background: rgba(255,255,255,0.02);
+        }
+
+        .data-card h4 { font-family: 'Oswald'; color: var(--gold); letter-spacing: 2px; margin: 0 0 10px 0; }
+        .data-card .value { font-family: 'Playfair Display'; font-size: 3.5rem; }
+
+        /* --- 4. THE NEIGHBORHOOD GALLERY --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            height: 600px;
             background-size: cover;
             background-position: center;
-            padding: 0 20px;
-        }
-
-        .hero h1 {
-            font-family: 'Oswald';
-            font-size: clamp(3.5rem, 8vw, 7rem);
-            line-height: 0.9;
-            margin: 0;
-            text-transform: uppercase;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            opacity: 0.8;
-            margin-top: 25px;
-        }
-
-        /* --- 2. LIFESTYLE SECTIONS --- */
-        .lifestyle-section {
-            min-height: 80vh;
-            padding: 100px 5%;
             display: flex;
-            align-items: center;
-            border-bottom: 1px solid var(--border);
+            align-items: flex-end;
+            padding: 40px;
+            text-decoration: none;
+            color: white;
+            position: relative;
+            overflow: hidden;
         }
 
-        .content-wrap {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            max-width: 1200px;
-            margin: 0 auto;
-            align-items: center;
+        .gallery-item::after {
+            content: '';
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
         }
 
-        .text-block h2 {
-            font-family: 'Oswald';
-            font-size: 3rem;
-            color: var(--gold-color);
-            margin-bottom: 20px;
-        }
+        .gallery-item h3 { position: relative; z-index: 2; font-family: 'Oswald'; font-size: 2.5rem; margin: 0; }
 
-        .text-block p {
-            font-size: 1.15rem;
-            line-height: 1.8;
-            opacity: 0.7;
-        }
-
-        .benefit-tag {
-            display: inline-block;
-            background: var(--sp-red);
-            padding: 5px 15px;
-            font-weight: 700;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-        }
-
-        /* --- 3. THE FLOATING UPGRADE BAR --- */
-        .upgrade-bar {
+        /* --- 5. THE PRESTIGE BAR (DOCK) --- */
+        .prestige-bar {
             position: fixed;
-            bottom: 30px;
-            left: 50%;
+            bottom: 40px; left: 50%;
             transform: translateX(-50%);
-            background: rgba(25, 25, 25, 0.8);
-            backdrop-filter: blur(15px);
-            padding: 20px 40px;
-            border-radius: 20px;
-            border: 1px solid var(--border);
+            width: 95%; max-width: 1200px;
+            background: rgba(10,10,10,0.85);
+            backdrop-filter: blur(30px);
+            padding: 25px 50px;
+            border-radius: 100px;
+            border: 1px solid rgba(255,255,255,0.1);
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 40px;
-            z-index: 1000;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            z-index: 10000;
         }
 
-        .stat-group { text-align: center; }
-        .stat-label { font-size: 0.65rem; font-weight: 700; opacity: 0.5; text-transform: uppercase; letter-spacing: 1px; }
-        .stat-value { font-family: 'Oswald'; font-size: 1.8rem; color: var(--gold-color); }
+        .slider-group { flex: 1; margin-right: 50px; }
+        .result-group { display: flex; gap: 40px; align-items: center; }
 
         input[type="range"] {
-            width: 150px;
-            accent-color: var(--gold-color);
+            width: 100%;
+            height: 2px;
+            background: rgba(255,255,255,0.2);
+            accent-color: var(--gold);
         }
 
-        /* --- 4. MOBILE --- */
-        @media (max-width: 900px) {
-            .content-wrap { grid-template-columns: 1fr; gap: 40px; }
-            .upgrade-bar { width: 90%; gap: 15px; padding: 15px; flex-direction: column; border-radius: 30px; }
-            .hero h1 { font-size: 3rem; }
+        .btn-gold {
+            background: var(--gold);
+            color: black;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-family: 'Oswald';
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        .btn-gold:hover { background: white; transform: scale(1.05); }
+
+        @media (max-width: 1100px) {
+            .split-reveal, .data-grid { grid-template-columns: 1fr; }
+            .prestige-bar { flex-direction: column; border-radius: 30px; padding: 30px; gap: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <section class="hero">
-        <div class="benefit-tag">Residency & Tax Experts</div>
-        <h1>YOUR LIFE,<br><span style="color:var(--sp-red)">UPGRADED.</span></h1>
-        <p>In the US, you pay for services. In Spain, you pay for experiences. Experience the Beckham Law advantage with JURO Spain.</p>
-        <div style="margin-top: 40px;">
-            <a href="#start" style="color:white; text-decoration:none; font-family:'Oswald'; letter-spacing:2px;">SCROLL TO PREVIEW SPAIN ↓</a>
-        </div>
+    <section class="hero-vogue">
+        <div class="hero-subtitle">JURO Spain · The Private Collection</div>
+        <h1>Spain<span>.</span></h1>
+        <div class="hero-subtitle" style="letter-spacing: 2px; margin-top: 10px; font-family: 'Inter'; font-weight: 300;">An Arbitrage of Time, Wealth, and Taste</div>
     </section>
 
-    <section class="lifestyle-section" id="start">
-        <div class="content-wrap">
-            <div class="text-block">
-                <div class="benefit-tag">The Beckham Law</div>
-                <h2>THE 24% ADVANTAGE</h2>
+    <section class="editorial-section">
+        <div class="split-reveal">
+            <div class="editorial-img">
+                <img src="https://images.unsplash.com/photo-1544984243-ea5bade18567?auto=format&fit=crop&w=1200&q=80" alt="Madrid Architecture">
+            </div>
+            <div class="editorial-text">
+                <span style="color:var(--gold); font-weight:700; letter-spacing:3px;">CHAPTER I</span>
+                <h2>THE 24%<br><em>MANDATE</em></h2>
                 <p>
-                    Most US high-earners lose 35-45% of their income to federal and state taxes. 
-                    In Spain, the Special Tax Regime (Beckham Law) caps your tax at <strong>24% flat</strong> for 6 years. 
-                    That isn't just a number—it's your new travel budget, your kid's private school, or your villa in Marbella.
+                    Financial freedom in the 21st century is defined by mobility. Under the Beckham Law, Spain offers a sanctuary for the global elite—capping your fiscal contribution at a flat 24%. It is the world's most elegant tax optimization strategy, cloaked in a lifestyle of unparalleled richness.
                 </p>
-            </div>
-            <div style="text-align: center;">
-                 
-            </div>
-        </div>
-    </section>
-
-    <section class="lifestyle-section" style="background: #151515;">
-        <div class="content-wrap">
-            <div style="text-align: center; order: 2;">
                 
             </div>
-            <div class="text-block" style="order: 1;">
-                <div class="benefit-tag">Culture of Connection</div>
-                <h2>THE SOBREMESA</h2>
-                <p>
-                    In Spain, we don't eat at our desks. <strong>La Comida</strong> is a sacred 2-hour window. 
-                    <em>Sobremesa</em> is the time spent talking, laughing, and lingering after a meal. 
-                    Life in Spain moves slower so you can actually taste it.
-                </p>
-            </div>
         </div>
-    </section>
 
-    <section class="lifestyle-section">
-        <div class="content-wrap">
-            <div class="text-block">
-                <div class="benefit-tag">Safety & Quality</div>
-                <h2>A HIGHER STANDARD</h2>
-                <p>
-                    Walk home at 2:00 AM without a second thought. Access world-class healthcare that won't bankrupt you. 
-                    Spain isn't just cheaper; it's <strong>better</strong>. Rated as one of the safest and healthiest countries on earth.
-                </p>
+        <div class="data-grid">
+            <div class="data-card">
+                <h4>GLOBAL SAFETY</h4>
+                <div class="value">TOP 10</div>
+                <p style="opacity:0.5; font-size:0.8rem;">Ranked above the USA, UK, and France in peace and security.</p>
             </div>
-            <div style="text-align: center;">
-                 
+            <div class="data-card">
+                <h4>MICHELIN STARS</h4>
+                <div class="value">272</div>
+                <p style="opacity:0.5; font-size:0.8rem;">A gastronomic landscape second only to France and Japan.</p>
             </div>
-        </div>
-    </section>
-
-    <div class="upgrade-bar">
-        <div class="stat-group">
-            <label class="stat-label">YOUR SALARY ($)</label><br>
-            <input type="range" id="salRange" min="80000" max="400000" step="5000" value="150000" oninput="updateUpgrade()">
-            <div class="stat-value" id="salVal">$150,000</div>
+            <div class="data-card">
+                <h4>LIFE EXPECTANCY</h4>
+                <div class="value">83.3y</div>
+                <p style="opacity:0.5; font-size:0.8rem;">Powered by the Mediterranean diet and world-class care.</p>
+            </div>
         </div>
         
-        <div class="stat-group">
-            <label class="stat-label">TAX SAVINGS / YR</label>
-            <div class="stat-value" id="taxSave" style="color:var(--sp-red)">$21,000</div>
+    </section>
+
+    <section class="editorial-section" style="padding-top:0;">
+        <h2 style="font-family:'Playfair Display'; font-size:4rem; text-align:center; margin-bottom:80px;"><em>The</em> CURATED REGIONS</h2>
+        <div class="gallery-grid">
+            <a href="#" class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1539037116277-4db20889f2d4?auto=format&fit=crop&w=800&q=80')">
+                <h3>MADRID</h3>
+            </a>
+            <a href="#" class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80')">
+                <h3>MARBELLA</h3>
+            </a>
+            <a href="#" class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1523531294919-4bcd7c65e216?auto=format&fit=crop&w=800&q=80')">
+                <h3>BARCELONA</h3>
+            </a>
+            <a href="#" class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1559121225-4c96227d8192?auto=format&fit=crop&w=800&q=80')">
+                <h3>IBIZA</h3>
+            </a>
+        </div>
+        
+    </section>
+
+    <section class="editorial-section">
+        <div class="split-reveal" style="grid-template-columns: 0.8fr 1.2fr;">
+            <div class="editorial-text">
+                <span style="color:var(--gold); font-weight:700; letter-spacing:3px;">CHAPTER II</span>
+                <h2>MODERN<br><em>VELOCITY</em></h2>
+                <p>
+                    Spain’s infrastructure is a quiet triumph. From the second-largest high-speed rail network in the world (AVE) to 1Gbps fiber optics reaching the deepest coastal white villages. You are never disconnected, only more selectively involved.
+                </p>
+                
+            </div>
+            <div class="editorial-img">
+                <img src="https://images.unsplash.com/photo-1534351590666-13e3e96b5017?auto=format&fit=crop&w=1200&q=80" alt="AVE High Speed Train">
+            </div>
+        </div>
+    </section>
+
+    <div class="prestige-bar">
+        <div class="slider-group">
+            <span style="font-family:'Oswald'; font-size:0.7rem; letter-spacing:2px; opacity:0.5;">ANNUAL REVENUE ($)</span><br>
+            <input type="range" id="salRange" min="150000" max="800000" step="10000" value="250000" oninput="updateMaster()">
+            <div id="salVal" style="font-family:'Playfair Display'; font-size:1.8rem; color:var(--gold);">$250,000</div>
         </div>
 
-        <div class="stat-group">
-            <label class="stat-label">LIFESTYLE UPGRADE</label>
-            <div class="stat-value" id="lifeLevel" style="font-size:1.2rem; color:white;">ELITE RETREAT</div>
-        </div>
-
-        <div class="stat-group">
-            <a href="/contact/" style="background:var(--gold-color); color:black; padding:10px 20px; text-decoration:none; font-weight:800; border-radius:10px; font-size:0.8rem;">GO SPAIN</a>
+        <div class="result-group">
+            <div style="text-align:center;">
+                <span style="font-family:'Oswald'; font-size:0.7rem; letter-spacing:1px; opacity:0.5;">TAX SAVINGS</span>
+                <div id="taxSaved" style="font-family:'Playfair Display'; font-size:2rem; color:var(--sp-red);">$42,000</div>
+            </div>
+            <div style="text-align:center;">
+                <span style="font-family:'Oswald'; font-size:0.7rem; letter-spacing:1px; opacity:0.5;">LIFESTYLE TIER</span>
+                <div id="tierName" style="font-family:'Oswald'; font-size:1.2rem; border-bottom:2px solid var(--gold);">MADRID RESIDENT</div>
+            </div>
+            <a href="/contact/" class="btn-gold">Consultation</a>
         </div>
     </div>
 
     <script>
-        function updateUpgrade() {
-            const salary = document.getElementById('salRange').value;
-            document.getElementById('salVal').textContent = '$' + parseInt(salary).toLocaleString();
+        function updateMaster() {
+            const val = document.getElementById('salRange').value;
+            const savings = Math.round(val * 0.17); // Premium arbitrage estimate
+            
+            document.getElementById('salVal').textContent = '$' + parseInt(val).toLocaleString();
+            document.getElementById('taxSaved').textContent = '$' + savings.toLocaleString();
 
-            // Logic: US Tax (~38% avg for nomad types) vs Spain Beckham (24%)
-            const savings = Math.round(salary * 0.14);
-            document.getElementById('taxSave').textContent = '$' + savings.toLocaleString();
+            let tier = "COSTA DEL SOL";
+            if(val > 300000) tier = "MADRID ELITE";
+            if(val > 500000) tier = "IBIZA PRIVATE";
+            if(val > 700000) tier = "BALEARIC LEGACY";
 
-            let level = "BALEARIC BLISS";
-            if (salary < 120000) level = "COSTA DEL SOL";
-            if (salary >= 120000 && salary < 250000) level = "MADRID ELITE";
-            if (salary >= 250000) level = "IBIZA LUXURY";
-
-            document.getElementById('lifeLevel').textContent = level;
+            document.getElementById('tierName').textContent = tier;
         }
-        updateUpgrade();
+        updateMaster();
     </script>
 
 </body>
