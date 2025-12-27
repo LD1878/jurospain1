@@ -1,49 +1,165 @@
 ---
-layout: default
-title: Page not found - Error 404
+layout: null
+title: Lost in Spain - 404
 permalink: /404.html
 sitemap: false
 ---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 | JURO Spain</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;600;800&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --sp-red: #bb0a30;
+            --gold: #fabd00;
+            --bg: #080808;
+            --cream: #f4f4f4;
+        }
 
-<div class="container center" style="max-width: 600px; padding: var(--sp-space-6) var(--sp-space-4);">
-    
-    <span class="section-icon" style="font-size: 4rem; color: var(--sp-red); display: block; margin-bottom: var(--sp-space-3);">⚠️</span>
-    
-    <h1>404: Page Not Found</h1>
-    
-    <p class="lead" style="font-size: 1.25rem;">
-        **Lost in Translation?** The guide, service page, or legal term you were looking for has moved or no longer exists.
-    </p>
-    
-    <hr style="margin: var(--sp-space-5) 0;">
+        body, html {
+            margin: 0; padding: 0;
+            background: var(--bg);
+            color: var(--cream);
+            font-family: 'Inter', sans-serif;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
 
-    <div class="card" style="padding: var(--sp-space-5);">
-        <h2>Start Fresh: Go to a Main Destination</h2>
-        
-        <div class="services-grid" style="grid-template-columns: repeat(2, 1fr); gap: var(--sp-space-4); margin-top: var(--sp-space-4);">
-            <a href="{{ '/' | relative_url }}" class="btn" style="background-color: var(--text-primary);">
-                🏠 Home
-            </a>
-            <a href="{{ '/services/' | relative_url }}" class="btn">
-                🇪🇸 Services
-            </a>
-            <a href="{{ '/pricing/' | relative_url }}" class="btn">
-                💰 Pricing
-            </a>
-            <a href="{{ '/blog/' | relative_url }}" class="btn">
-                📚 Blog & Guides
-            </a>
+        /* --- IMMERSIVE BACKGROUND --- */
+        .error-canvas {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(8,8,8,0.9) 30%, rgba(8,8,8,0.2) 100%),
+                        url('https://images.pexels.com/photos/1388030/pexels-photo-1388030.jpeg?auto=compress&cs=tinysrgb&w=1600');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 10;
+            max-width: 800px;
+            padding: 0 5%;
+        }
+
+        .chapter-tag {
+            font-family: 'Oswald';
+            color: var(--gold);
+            font-weight: 800;
+            letter-spacing: 5px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 10vw, 6rem);
+            line-height: 0.9;
+            margin: 0;
+            font-style: italic;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            opacity: 0.7;
+            margin: 30px 0;
+            font-weight: 300;
+            max-width: 500px;
+        }
+
+        /* --- DESTINATION NAVIGATION --- */
+        .destinations {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            max-width: 400px;
+        }
+
+        .dest-link {
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(10px);
+            padding: 15px;
+            color: white;
+            text-decoration: none;
+            font-family: 'Oswald';
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: 0.3s ease;
+            text-align: center;
+        }
+
+        .dest-link:hover {
+            border-color: var(--gold);
+            background: var(--gold);
+            color: black;
+            transform: translateY(-3px);
+        }
+
+        .cta-footer {
+            margin-top: 50px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+        }
+
+        .btn-call {
+            color: var(--gold);
+            text-decoration: none;
+            font-family: 'Oswald';
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .btn-call:hover {
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .error-canvas {
+                background: linear-gradient(to bottom, rgba(8,8,8,0.8) 0%, rgba(8,8,8,0.95) 100%),
+                            url('https://images.pexels.com/photos/1388030/pexels-photo-1388030.jpeg?auto=compress&cs=tinysrgb&w=800');
+            }
+            .destinations {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="error-canvas"></div>
+
+    <div class="content">
+        <span class="chapter-tag">Errata 404</span>
+        <h1>A scenic<br><em>detour.</em></h1>
+        <p>The page you were looking for doesn't exist here. Perhaps it’s like a quiet plaza in the Gothic Quarter—hard to find, but worth the walk. Let’s get you back on track.</p>
+
+        <div class="destinations">
+            <a href="/" class="dest-link">Main Plaza (Home)</a>
+            <a href="/services/" class="dest-link">Relocation Services</a>
+            <a href="/portfolio/" class="dest-link">The Life Portfolio</a>
+            <a href="/blog/" class="dest-link">The Travel Guides</a>
+        </div>
+
+        <div class="cta-footer">
+            <a href="/contact/" class="btn-call">Need a direct answer? Book a Strategy Call →</a>
         </div>
     </div>
-    
-    <hr>
-    
-    <div class="hero center" style="padding: var(--sp-space-4); margin-top: var(--sp-space-5);">
-        <h2>Or, Book a Call Now</h2>
-        <p>Skip the search and get a direct answer to your visa or property question.</p>
-        <a href="{{ '/contact/' | relative_url }}" class="btn" style="font-size: 1.15rem; margin-top: var(--sp-space-3);">
-            Book Your Free Consultation
-        </a>
-    </div>
 
-</div>
+</body>
+</html>
