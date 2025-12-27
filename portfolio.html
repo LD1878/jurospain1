@@ -28,7 +28,7 @@ layout: null
             overflow-x: hidden;
         }
 
-        /* --- 1. HERO SECTION --- */
+        /* --- 1. HERO --- */
         .hero-vogue {
             height: 100vh;
             background: linear-gradient(to bottom, rgba(8,8,8,0.4) 50%, var(--bg) 100%),
@@ -74,7 +74,7 @@ layout: null
         }
 
         .editorial-img {
-            background: #111; /* Fallback if image fails */
+            background: #111;
             border-radius: 4px;
             overflow: hidden;
             box-shadow: 0 30px 60px rgba(0,0,0,0.5);
@@ -199,16 +199,14 @@ layout: null
                 <p>For the American high earner tax is the greatest erosion of legacy. Under the Beckham Law Spain invites you to cap your fiscal contribution at a flat 24%. It is the world's most sophisticated wealth preservation tool cloaked in a lifestyle of unparalleled richness.</p>
             </div>
         </div>
-        <div style="text-align:center; padding: 50px 0;">
-            
-        </div>
+        
     </section>
 
     <div class="gallery-grid">
         <a href="#" class="gallery-item" style="background-image:url('https://images.pexels.com/photos/3566136/pexels-photo-3566136.jpeg?auto=compress&cs=tinysrgb&w=800')"><h3>Madrid</h3></a>
         <a href="#" class="gallery-item" style="background-image:url('https://images.pexels.com/photos/2609459/pexels-photo-2609459.jpeg?auto=compress&cs=tinysrgb&w=800')"><h3>Marbella</h3></a>
         <a href="#" class="gallery-item" style="background-image:url('https://images.pexels.com/photos/1388030/pexels-photo-1388030.jpeg?auto=compress&cs=tinysrgb&w=800')"><h3>Barcelona</h3></a>
-        <a href="#" class="gallery-item" style="background-image:url('https://images.pexels.com/photos/2324564/pexels-photo-2324564.jpeg?auto=compress&cs=tinysrgb&w=800')"><h3>Ibiza</h3></a>
+        <a href="#" class="gallery-item" style="background-image:url('https://images.pexels.com/photos/1043965/pexels-photo-1043965.jpeg?auto=compress&cs=tinysrgb&w=800')"><h3>Ibiza</h3></a>
     </div>
 
     <section class="editorial-section">
@@ -222,9 +220,7 @@ layout: null
                 <img src="https://images.pexels.com/photos/258447/pexels-photo-258447.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="AVE Train">
             </div>
         </div>
-        <div style="text-align:center; padding: 50px 0;">
-            
-        </div>
+        
     </section>
 
     <section class="editorial-section">
@@ -264,9 +260,7 @@ layout: null
                 <p>A Spanish residency card is a key to the entire Schengen Area. Weekend trips to Paris Rome or Zurich become as simple as a domestic flight. It is the ultimate passport to the continent offering you unrestricted access to the capitals of Europe.</p>
             </div>
         </div>
-        <div style="text-align:center; padding: 50px 0;">
-            
-        </div>
+        
     </section>
 
     <section class="editorial-section">
@@ -303,12 +297,10 @@ layout: null
                 <p>Relocation is a complex operation we make it an experience. From initial visa strategy in the US to final TIE fingerprinting and luxury property acquisition in Spain. We manage the friction so you can enjoy the arrival.</p>
             </div>
             <div class="editorial-img">
-                <img src="https://images.pexels.com/photos/3769118/pexels-photo-3769118.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Luxury Interior">
+                <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Luxury Modern Penthouse">
             </div>
         </div>
-        <div style="text-align:center; padding: 50px 0;">
-            
-        </div>
+        
     </section>
 
     <div class="prestige-bar">
@@ -334,9 +326,7 @@ layout: null
     <script>
         function updateUI() {
             const val = document.getElementById('salSlider').value;
-            // Realistic arbitrage calculation (17% savings for Beckham Law vs high-tax US)
             const savings = Math.round(val * 0.17);
-            
             document.getElementById('salVal').textContent = '$' + parseInt(val).toLocaleString();
             document.getElementById('taxSaved').textContent = '$' + savings.toLocaleString();
 
