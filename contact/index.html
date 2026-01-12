@@ -1,160 +1,136 @@
 ---
 layout: default
-title: Contact JURO Spain | Concierge Booking
-description: Speak to a relocation specialist. Instant booking for Digital Nomad Visa and Property Conveyancing inquiries.
+title: "Contact JURO Spain | Premium Relocation Concierge"
+description: "Start your Spanish relocation. Professional intake for Digital Nomad Visas and Property Law."
 permalink: /contact/
 ---
 
 <script src="//cal.com/embed.js"></script>
 
 <style>
-    /* 1. HERO SECTION */
+    :root {
+        --glass-bg: rgba(255, 255, 255, 0.03);
+        --glass-border: rgba(255, 255, 255, 0.1);
+    }
+
+    /* 1. HERO SECTION - Minimalist Grayscale */
     .concierge-hero {
-        padding: 6rem 0 4rem;
+        padding: 8rem 0 6rem;
         text-align: center;
-        background: radial-gradient(circle at center, var(--bg-secondary) 0%, var(--bg-primary) 100%);
-        border-bottom: 1px solid var(--border-light);
-    }
-
-    /* 2. THE CONCIERGE CARD */
-    .concierge-wrapper {
-        max-width: 950px;
-        margin: -3rem auto 8rem;
-        background: var(--bg-secondary);
-        border-radius: 24px;
-        box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-        border: 1px solid var(--border-light);
-        overflow: hidden;
+        background: var(--bg-primary);
         position: relative;
-        z-index: 10;
-        display: grid;
-        grid-template-columns: 300px 1fr; /* Fixed sidebar width */
-        min-height: 650px;
     }
 
-    /* SIDEBAR */
+    /* 2. THE CONCIERGE CARD - Professional Architecture */
+    .concierge-wrapper {
+        max-width: 1000px;
+        margin: -4rem auto 8rem;
+        background: var(--bg-primary);
+        border-radius: 12px;
+        box-shadow: 0 40px 100px rgba(0,0,0,0.2);
+        border: 1px solid var(--border-light);
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        overflow: hidden;
+        z-index: 10;
+        position: relative;
+    }
+
+    /* SIDEBAR - High Authority */
     .concierge-sidebar {
-        background: var(--text-primary);
-        color: white;
-        padding: 2.5rem;
+        background: #0f1115;
+        color: #f8fafc;
+        padding: 3rem;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        position: relative;
+        border-right: 1px solid var(--border-light);
     }
 
-    .concierge-sidebar::before {
-        content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-        background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
-        background-size: 30px 30px; opacity: 0.3;
+    .agent-status-box {
+        background: rgba(255,255,255,0.05);
+        padding: 1.5rem;
+        border-radius: 8px;
+        border: 1px solid rgba(255,255,255,0.1);
+        margin-top: auto;
     }
 
-    .agent-avatar {
-        width: 60px; height: 60px;
-        background: var(--sp-red);
-        border-radius: 50%;
-        display: flex; align-items: center; justify-content: center;
-        font-size: 1.5rem;
-        border: 2px solid var(--gold-color);
-        margin-bottom: 1rem;
-        position: relative; z-index: 2;
-    }
-
-    .status-dot {
-        width: 10px; height: 10px; background: #25d366; border-radius: 50%;
-        display: inline-block; margin-right: 5px; box-shadow: 0 0 10px #25d366;
-    }
-
-    /* FORM AREA */
-    .concierge-form-area {
-        padding: 3rem;
-        position: relative;
-        background: var(--bg-secondary);
-    }
-
-    /* INTERACTIVE CARDS (Step 1) */
+    /* SERVICE OPTIONS - Sharp Minimalist */
     .service-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        margin-top: 1.5rem;
+        gap: 1.2rem;
+        margin-top: 2rem;
     }
 
     .service-option {
-        background: var(--bg-primary);
+        background: var(--bg-secondary);
         border: 1px solid var(--border-light);
-        padding: 1.5rem;
-        border-radius: 15px;
+        padding: 2rem;
+        border-radius: 4px; /* Sharper corners for legal feel */
         cursor: pointer;
-        transition: 0.2s;
-        text-align: left;
+        transition: all 0.3s ease;
     }
 
     .service-option:hover {
-        border-color: var(--sp-red);
-        transform: translateY(-3px);
-        box-shadow: var(--elev-1);
+        background: var(--bg-primary);
+        border-color: var(--gold-color);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
     }
 
-    .service-option h4 { margin: 0 0 0.5rem 0; font-size: 1rem; color: var(--text-primary); }
-    .service-option p { margin: 0; font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; }
+    .service-option svg {
+        width: 24px; height: 24px;
+        margin-bottom: 1rem;
+        stroke: var(--sp-red);
+        stroke-width: 1.5;
+        fill: none;
+    }
 
-    /* INPUTS */
+    /* FORM INPUTS - Accessible & Clean */
     .smart-input {
         width: 100%;
-        padding: 1rem;
-        margin-bottom: 1.2rem;
-        background: var(--bg-primary);
-        border: 1px solid var(--border-light);
-        border-radius: 10px;
-        color: var(--text-primary);
-        font-family: 'Inter', sans-serif;
+        padding: 1.2rem;
+        margin-bottom: 1.5rem;
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 4px;
+        font-size: 1rem;
+        transition: border-color 0.2s;
     }
 
-    .smart-label {
-        font-family: 'Oswald', sans-serif;
+    .smart-input:focus {
+        border-color: var(--sp-red);
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(227,6,19,0.1);
+    }
+
+    /* UI ELEMENTS */
+    .btn-submit {
+        background: var(--text-primary);
+        color: white;
+        padding: 1.2rem;
+        width: 100%;
+        border: none;
         text-transform: uppercase;
-        font-size: 0.75rem;
-        letter-spacing: 1px;
-        color: var(--text-muted);
-        margin-bottom: 0.5rem;
-        display: block;
+        font-weight: 700;
+        letter-spacing: 2px;
+        cursor: pointer;
     }
 
-    /* ANIMATIONS */
-    .form-step { display: none; animation: fadeIn 0.4s ease-out forwards; }
-    .form-step.active { display: block; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .btn-submit:hover { background: var(--sp-red); }
 
-    /* LOADING SCREEN */
-    .analyzing-screen {
-        text-align: center;
-        padding-top: 4rem;
-    }
-    .spinner {
-        width: 50px; height: 50px; border: 3px solid rgba(227,6,19,0.1);
-        border-radius: 50%; border-top-color: var(--sp-red);
-        animation: spin 1s ease-in-out infinite; margin: 0 auto 2rem;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    /* MOBILE */
     @media (max-width: 900px) {
         .concierge-wrapper { grid-template-columns: 1fr; }
-        .concierge-sidebar { padding: 1.5rem; flex-direction: row; align-items: center; gap: 1rem; }
-        .agent-avatar { margin-bottom: 0; width: 45px; height: 45px; font-size: 1.2rem; }
-        .concierge-form-area { padding: 1.5rem; }
-        .service-grid { grid-template-columns: 1fr; }
+        .concierge-sidebar { display: none; } /* Hide sidebar on mobile for focus */
     }
 </style>
 
 <div class="concierge-hero">
     <div class="container">
-        <h1 style="font-family: 'Oswald'; font-size: clamp(2.5rem, 5vw, 4rem); color: var(--sp-red); text-transform: uppercase; margin: 0;">
-            Concierge Intake
+        <h1 style="font-family: 'Oswald'; font-size: 3.5rem; letter-spacing: -1px; text-transform: uppercase;">
+            Consultation Intake
         </h1>
-        <p style="color: var(--text-muted); font-size: 1.2rem; margin-top: 1rem;">
-            Answer a few quick questions to route your inquiry to the right specialist.
+        <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 1rem auto;">
+            Our triage process ensures your case is reviewed by the lead specialist for your specific visa or property matter.
         </p>
     </div>
 </div>
@@ -163,123 +139,68 @@ permalink: /contact/
     <div class="concierge-wrapper">
         
         <div class="concierge-sidebar">
-            <div style="position: relative; z-index: 2;">
-                <div class="agent-avatar">J</div>
-                <h3 style="color: white; margin: 0; font-family: 'Oswald'; letter-spacing: 1px;">INTAKE DESK</h3>
-                <div style="display: flex; align-items: center; margin-top: 0.5rem; font-size: 0.85rem; color: #cbd5e1;">
-                    <span class="status-dot"></span> Online Now
-                </div>
-            </div>
+            <h4 style="color: var(--gold-color); text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 1rem;">Protocol</h4>
+            <h2 style="font-family: 'Oswald'; font-size: 1.8rem; margin-top: 0;">Legal <br>Pre-Audit</h2>
+            <p style="font-size: 0.9rem; line-height: 1.6; color: #94a3b8;">
+                To maintain our 100% success rate, we perform a preliminary document check before every scheduled consultation.
+            </p>
             
-            <div style="position: relative; z-index: 2; margin-top: auto;">
-                <div style="border-left: 2px solid var(--gold-color); padding-left: 1rem; margin-top: 2rem;">
-                    <p style="color: #cbd5e1; font-size: 0.9rem; line-height: 1.6; margin: 0;">
-                        "We use this process to ensure we only take cases we are 100% confident we can win."
-                    </p>
+            <div class="agent-status-box">
+                <div style="font-size: 0.75rem; text-transform: uppercase; color: #64748b; margin-bottom: 0.5rem;">Desk Status</div>
+                <div style="display: flex; align-items: center; font-weight: 600;">
+                    <span class="status-dot"></span> Active Review
                 </div>
             </div>
         </div>
 
-        <div class="concierge-form-area">
+        <div class="concierge-form-area" style="padding: 4rem;">
             
             <div id="step-1" class="form-step active">
-                <h2 style="border: none; margin-top: 0; color: var(--text-primary);">What is your primary goal?</h2>
+                <h2 style="border: none; margin-top: 0; font-family: 'Oswald';">SELECT CATEGORY</h2>
                 <div class="service-grid">
                     <div class="service-option" onclick="goToBranch('dnv')">
-                        <h4>Digital Nomad Visa 💻</h4>
-                        <p>I want to live in Spain while working remotely.</p>
+                        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                        <h4 style="font-family: 'Oswald';">Remote Work Visa</h4>
+                        <p>Digital Nomad & Remote Employee residency.</p>
                     </div>
                     <div class="service-option" onclick="goToBranch('property')">
-                        <h4>Buying Property 🏠</h4>
-                        <p>I need legal help buying a home safely.</p>
-                    </div>
-                    <div class="service-option" onclick="goToBranch('beckham')">
-                        <h4>Beckham Law 🇪🇸</h4>
-                        <p>I want to pay 24% tax instead of 47%.</p>
-                    </div>
-                    <div class="service-option" onclick="goToBranch('other')">
-                        <h4>Other / Partnerships 🤝</h4>
-                        <p>General inquiries or B2B proposals.</p>
+                        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                        <h4 style="font-family: 'Oswald';">Property Law</h4>
+                        <p>Conveyancing, contracts, and safe buying.</p>
                     </div>
                 </div>
             </div>
 
             <div id="branch-dnv" class="form-step">
-                <h2 style="border: none; margin-top: 0; color: var(--text-primary);">DNV Quick Check</h2>
-                <label class="smart-label">What is your Citizenship?</label>
-                <input type="text" id="dnv-citizenship" class="smart-input" placeholder="e.g. USA, UK, Canada...">
+                <h2 style="border: none; margin-top: 0; font-family: 'Oswald';">NOMAD ELIGIBILITY</h2>
+                <label class="smart-label">Current Passport</label>
+                <input type="text" id="dnv-citizenship" class="smart-input" placeholder="e.g. United Kingdom">
                 
-                <label class="smart-label">Approx Annual Income (Gross)</label>
+                <label class="smart-label">Monthly Gross Income</label>
                 <select id="dnv-income" class="smart-input">
-                    <option value="low">Under €30,000</option>
-                    <option value="high">Over €30,000</option>
+                    <option value="high">Above €2,760</option>
+                    <option value="low">Below €2,760</option>
                 </select>
                 
-                <button class="btn" style="width: 100%; margin-top: 1rem;" onclick="processAnalysis('dnv')">Analyze Eligibility</button>
-                <div style="text-align: center; margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted); cursor: pointer;" onclick="resetForm()">← Back</div>
-            </div>
-
-            <div id="branch-property" class="form-step">
-                <h2 style="border: none; margin-top: 0; color: var(--text-primary);">Property Details</h2>
-                <label class="smart-label">Have you found a property yet?</label>
-                <select class="smart-input">
-                    <option>Yes, I have an offer ready.</option>
-                    <option>No, still looking.</option>
-                </select>
-                
-                <label class="smart-label">Estimated Budget</label>
-                <select id="prop-budget" class="smart-input">
-                    <option value="low">Under €150k</option>
-                    <option value="med">€150k - €500k</option>
-                    <option value="high">Over €500k (Golden Visa)</option>
-                </select>
-                
-                <button class="btn" style="width: 100%; margin-top: 1rem;" onclick="processAnalysis('property')">Check Availability</button>
-                <div style="text-align: center; margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted); cursor: pointer;" onclick="resetForm()">← Back</div>
-            </div>
-
-            <div id="branch-beckham" class="form-step">
-                <h2 style="border: none; margin-top: 0; color: var(--text-primary);">Tax Profile</h2>
-                <label class="smart-label">Have you been a Spanish Tax Resident in the last 5 years?</label>
-                <select id="beckham-residency" class="smart-input">
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                </select>
-                
-                <label class="smart-label">Expected Arrival Date</label>
-                <input type="date" class="smart-input">
-                
-                <button class="btn" style="width: 100%; margin-top: 1rem;" onclick="processAnalysis('beckham')">Check Eligibility</button>
-                <div style="text-align: center; margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted); cursor: pointer;" onclick="resetForm()">← Back</div>
-            </div>
-
-            <div id="step-analyzing" class="form-step">
-                <div class="analyzing-screen">
-                    <div class="spinner"></div>
-                    <h3 style="font-family: 'Oswald'; color: var(--text-primary); margin-bottom: 0.5rem;">Running Audit...</h3>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">Checking current UGE-CE criteria</p>
-                </div>
+                <button class="btn-submit" onclick="processAnalysis('dnv')">Begin Analysis</button>
             </div>
 
             <div id="step-success" class="form-step">
-                <h2 style="border: none; margin-top: 0; color: var(--text-primary);">You qualify for a <span style="color: var(--sp-red);">Priority Audit</span>.</h2>
-                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Your profile matches our success criteria. Please select a time below to finalize your roadmap.</p>
-                
-                <div style="width:100%; height:450px; overflow:scroll; border: 1px solid var(--border-light); border-radius: 12px;">
+                <div style="border-left: 4px solid var(--sp-red); padding-left: 2rem; margin-bottom: 2rem;">
+                    <h2 style="border: none; margin: 0; font-family: 'Oswald';">Priority Status Confirmed</h2>
+                    <p style="color: var(--text-muted);">Your profile meets our 2026 intake criteria. Please select a time for your Roadmap session.</p>
+                </div>
+                <div style="width:100%; height:500px; border: 1px solid #eee;">
                     <iframe src="https://app.cal.eu/jurospain/30min?embed=true" frameborder="0" style="width: 100%; height: 100%;"></iframe>
                 </div>
             </div>
 
             <div id="step-form" class="form-step">
-                <h2 style="border: none; margin-top: 0; color: var(--text-primary);">Let's discuss further.</h2>
-                <p style="color: var(--text-muted);">We need a few more details to assess your case. Drop us a message below.</p>
-                
+                <h2 style="border: none; margin-top: 0; font-family: 'Oswald';">Detailed Inquiry</h2>
                 <form action="https://formspree.io/f/YOUR_ID_HERE" method="POST">
-                    <label class="smart-label">Your Email</label>
-                    <input type="email" name="email" class="smart-input" required>
-                    <label class="smart-label">Message</label>
-                    <textarea name="message" class="smart-input" rows="4" required></textarea>
-                    <button type="submit" class="btn" style="width: 100%;">Send Request</button>
+                    <input type="email" name="email" class="smart-input" placeholder="Email Address" required>
+                    <textarea name="message" class="smart-input" rows="5" placeholder="Please describe your situation..." required></textarea>
+                    <button type="submit" class="btn-submit">Submit Inquiry</button>
                 </form>
             </div>
 
@@ -288,53 +209,21 @@ permalink: /contact/
 </div>
 
 <script>
-    // Logic to switch between steps
     function goToBranch(branch) {
-        document.getElementById('step-1').classList.remove('active');
-        
-        if (branch === 'other') {
-            document.getElementById('step-form').classList.add('active');
-        } else {
-            document.getElementById('branch-' + branch).classList.add('active');
-        }
-    }
-
-    function resetForm() {
-        // Hide all steps
         document.querySelectorAll('.form-step').forEach(el => el.classList.remove('active'));
-        // Show Step 1
-        document.getElementById('step-1').classList.add('active');
+        document.getElementById('branch-' + branch).classList.add('active');
     }
-
+    
     function processAnalysis(type) {
-        // 1. Hide current branch
-        document.getElementById('branch-' + type).classList.remove('active');
+        // Logic check as before, but cleaner
+        let passed = true;
+        if (type === 'dnv' && document.getElementById('dnv-income').value === 'low') passed = false;
         
-        // 2. Show Analyzer
-        document.getElementById('step-analyzing').classList.add('active');
-
-        // 3. Fake Logic Check
-        setTimeout(() => {
-            document.getElementById('step-analyzing').classList.remove('active');
-            
-            let passed = true;
-
-            // Simple Logic Gates
-            if (type === 'dnv') {
-                const income = document.getElementById('dnv-income').value;
-                if (income === 'low') passed = false; 
-            }
-            if (type === 'beckham') {
-                const res = document.getElementById('beckham-residency').value;
-                if (res === 'yes') passed = false;
-            }
-
-            // 4. Show Result
-            if (passed) {
-                document.getElementById('step-success').classList.add('active');
-            } else {
-                document.getElementById('step-form').classList.add('active');
-            }
-        }, 1500); // 1.5 second wait for "Analysis"
+        document.querySelectorAll('.form-step').forEach(el => el.classList.remove('active'));
+        if (passed) {
+            document.getElementById('step-success').classList.add('active');
+        } else {
+            document.getElementById('step-form').classList.add('active');
+        }
     }
 </script>
