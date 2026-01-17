@@ -6,77 +6,113 @@ permalink: /partners/
 lang: es
 ---
 
+<meta name="robots" content="noindex, nofollow">
+
 <style>
     /* 1. LUXURY B2B HERO */
     .partner-hero-lux {
-        padding: 8rem 0 6rem;
+        padding: 8rem 0 7rem;
         background: var(--text-primary); 
         color: white;
         text-align: center;
         position: relative;
+        overflow: hidden;
+    }
+    
+    /* Subtle geometric background */
+    .partner-hero-lux::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background-image: radial-gradient(circle at 10% 20%, rgba(255,255,255,0.03) 0%, transparent 20%);
+        pointer-events: none;
     }
 
     .partner-hero-lux h1 {
         font-family: 'Oswald', sans-serif !important;
         font-size: clamp(2.5rem, 6vw, 4.5rem) !important;
         color: white !important;
-        line-height: 1;
+        line-height: 1.1;
         margin-bottom: 2rem;
     }
 
     .partner-hero-lux .sub-lead {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         color: var(--gold-color);
         text-transform: uppercase;
-        letter-spacing: 4px;
+        letter-spacing: 3px;
         font-weight: 700;
-        margin-bottom: 1rem;
-        display: block;
+        margin-bottom: 1.5rem;
+        display: inline-block;
+        border: 1px solid var(--gold-color);
+        padding: 0.5rem 1.5rem;
+        border-radius: 50px;
     }
 
-    /* 2. THE LUX GRID */
+    /* 2. THE LUX GRID (ELEVATED) */
     .lux-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 2px;
-        background: var(--border-light);
-        border: 1px solid var(--border-light);
-        margin-top: -4rem;
-        border-radius: 20px;
+        gap: 1px; /* Creates the border effect */
+        background: rgba(0,0,0,0.1); /* Subtle border color */
+        margin-top: -5rem;
+        border-radius: 12px;
         overflow: hidden;
-        box-shadow: var(--elev-3);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        position: relative;
+        z-index: 10;
+        border: 1px solid var(--border-light);
     }
 
     .lux-card {
-        background: var(--bg-secondary);
-        padding: 4rem 3rem;
+        background: white;
+        padding: 3.5rem 2.5rem;
         text-align: center;
+        transition: background 0.3s ease;
+    }
+    
+    .lux-card:hover {
+        background: #fafafa;
     }
 
-    .lux-card h3 { font-size: 1.4rem; color: var(--text-primary); margin-bottom: 1.5rem; border: none; }
-    .lux-card p { color: var(--text-muted); font-size: 1rem; line-height: 1.7; }
+    .lux-card h3 { font-family: 'Oswald', sans-serif; font-size: 1.5rem; color: var(--text-primary); margin-bottom: 1rem; margin-top: 1rem; }
+    .lux-card p { color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin: 0; }
+    .lux-icon { font-size: 3rem; margin-bottom: 0.5rem; display: block; }
 
-    /* 3. B2B FAQ - THE CLOSER */
+    /* 3. EFFICIENCY METRICS (NEW SECTION) */
+    .metrics-row {
+        display: flex;
+        justify-content: center;
+        gap: 4rem;
+        margin: 5rem 0;
+        text-align: center;
+        flex-wrap: wrap;
+    }
+    .metric-item strong { font-size: 3.5rem; color: var(--sp-red); font-family: 'Oswald', sans-serif; display: block; line-height: 1; }
+    .metric-item span { text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; color: var(--text-muted); font-weight: 700; }
+
+    /* 4. B2B FAQ - THE CLOSER */
     .partner-faq-section {
-        padding: 8rem 0;
-        background: var(--bg-primary);
+        padding: 6rem 0;
+        background: #f9f9f9; /* Slight contrast */
+        border-top: 1px solid var(--border-light);
     }
 
     .partner-faq-item {
-        background: var(--bg-secondary);
+        background: white;
         border: 1px solid var(--border-light);
-        margin-bottom: 1.5rem;
-        border-radius: 15px;
+        margin-bottom: 1rem;
+        border-radius: 8px;
         transition: 0.3s;
     }
 
     .partner-faq-item[open] {
         border-color: var(--sp-red);
-        box-shadow: var(--elev-2);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
     }
 
     .partner-faq-item summary {
-        padding: 1.8rem;
+        padding: 1.5rem 2rem;
         font-weight: 700;
         cursor: pointer;
         color: var(--text-primary);
@@ -93,42 +129,50 @@ lang: es
         content: '+';
         color: var(--sp-red);
         font-size: 1.5rem;
+        font-weight: 300;
     }
 
     .partner-faq-item[open] summary::after { content: '−'; }
 
     .faq-answer {
-        padding: 0 1.8rem 1.8rem;
+        padding: 0 2rem 2rem;
         color: var(--text-muted);
         line-height: 1.8;
-        font-size: 1.1rem;
+        font-size: 1.05rem;
     }
 
-    /* DASHBOARD BOX */
-    .dashboard-box {
-        background: var(--bg-secondary);
-        border-radius: 30px;
+    /* 5. DASHBOARD CTA (HIGH CONVERTING) */
+    .cta-dashboard {
+        background: var(--text-primary); /* Dark luxury background */
+        border-radius: 20px;
         padding: 4rem;
-        border: 1px solid var(--border-light);
         display: grid;
-        grid-template-columns: 1.5fr 1fr;
-        gap: 4rem;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 3rem;
         align-items: center;
         margin-top: 4rem;
+        color: white;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
     }
+    
+    .cta-dashboard h2 { color: white !important; margin-top: 0; font-family: 'Oswald', sans-serif; font-size: 2.5rem; }
+    .cta-dashboard p { color: rgba(255,255,255,0.7); font-size: 1.1rem; line-height: 1.6; }
 
     @media (max-width: 900px) {
-        .lux-grid { grid-template-columns: 1fr; margin-top: 2rem; }
-        .dashboard-box { grid-template-columns: 1fr; padding: 2rem; }
+        .lux-grid { grid-template-columns: 1fr; margin-top: 2rem; gap: 1rem; background: transparent; border: none; box-shadow: none; }
+        .lux-card { border: 1px solid var(--border-light); border-radius: 12px; }
+        .cta-dashboard { grid-template-columns: 1fr; padding: 2.5rem; text-align: center; }
+        .metrics-row { gap: 2rem; }
     }
 </style>
 
 <div class="partner-hero-lux">
     <div class="container">
-        <span class="sub-lead">Propuesta de Colaboración</span>
-        <h1>Rentabilidad <br> Sin Burocracia.</h1>
-        <p style="max-width: 750px; margin: 0 auto; opacity: 0.8; font-size: 1.25rem;">
-            JURO Spain es el brazo operativo para despachos de abogados que buscan eficiencia. Preparamos el 100% del expediente; usted solo aporta la firma jurídica.
+        <span class="sub-lead">Solo para Despachos Colegiados</span>
+        <h1>Rentabilidad Neta. <br> Cero Burocracia.</h1>
+        <p style="max-width: 700px; margin: 0 auto; opacity: 0.85; font-size: 1.3rem; line-height: 1.6;">
+            JURO Spain es el brazo operativo para abogados que valoran su tiempo. <br>
+            Nosotros captamos, filtramos y preparamos. <strong>Usted firma y factura.</strong>
         </p>
     </div>
 </div>
@@ -136,95 +180,97 @@ lang: es
 <div class="container">
     <div class="lux-grid">
         <div class="lux-card">
-            <div style="font-size: 2.5rem; margin-bottom: 1rem;">📦</div>
+            <span class="lux-icon">📦</span>
             <h3>Expedientes "Ready-to-File"</h3>
-            <p>Entregamos archivos PDF organizados, foliados y listos. Auditoría documental completa realizada antes de que llegue a su mesa.</p>
+            <p>Le entregamos un PDF foliado y auditado. Cero persecución de documentos. Cero explicaciones al cliente. Solo revisión jurídica final.</p>
         </div>
         <div class="lux-card">
-            <div style="font-size: 2.5rem; margin-bottom: 1rem;">🇬🇧</div>
-            <h3>Filtro de Idioma Nativo</h3>
-            <p>Filtramos todas las consultas en inglés. Su despacho recibe clientes ya cualificados con expectativas gestionadas.</p>
+            <span class="lux-icon">🇬🇧</span>
+            <h3>Filtro Anglo-Nativo</h3>
+            <p>Gestionamos el 100% de la comunicación en inglés nativo. Su despacho recibe un cliente cualificado y "educado" en el proceso.</p>
         </div>
         <div class="lux-card">
-            <div style="font-size: 2.5rem; margin-bottom: 1rem;">💶</div>
-            <h3>Honorarios Garantizados</h3>
-            <p>Liquidación inmediata tras la entrega. Sin facturas pendientes ni gestión comercial de su parte.</p>
+            <span class="lux-icon">💶</span>
+            <h3>Honorarios Netos</h3>
+            <p>Sin costes de adquisición (CAC). Sin costes de gestión administrativa. Una vía de ingresos limpia para su despacho.</p>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="metrics-row">
+        <div class="metric-item">
+            <strong>80%</strong>
+            <span>Menos Carga Administrativa</span>
+        </div>
+        <div class="metric-item">
+            <strong>100%</strong>
+            <span>Cobro Garantizado</span>
+        </div>
+        <div class="metric-item">
+            <strong>24h</strong>
+            <span>Tiempo Medio de Respuesta</span>
         </div>
     </div>
 </div>
 
 <div class="partner-faq-section">
     <div class="container">
-        <div class="center" style="margin-bottom: 5rem;">
-            <h2 style="border: none; font-size: 3rem; color: var(--text-primary);">Resolviendo Dudas</h2>
-            <p style="font-size: 1.2rem; color: var(--text-muted);">Hablemos claro: por qué somos su mejor aliado estratégico, no su competencia.</p>
+        <div class="center" style="margin-bottom: 4rem;">
+            <h2 style="border: none; font-size: 2.5rem; color: var(--text-primary); font-family: 'Oswald', sans-serif; text-transform: uppercase;">Preguntas Frecuentes</h2>
+            <p style="font-size: 1.1rem; color: var(--text-muted);">Transparencia total en nuestra relación B2B.</p>
         </div>
 
-        <div style="max-width: 900px; margin: 0 auto;">
+        <div style="max-width: 850px; margin: 0 auto;">
             
             <details class="partner-faq-item">
-                <summary>¿JURO Spain es un despacho de abogados?</summary>
+                <summary>¿JURO Spain es competencia para mi despacho?</summary>
                 <div class="faq-answer">
-                    No. Somos una <strong>agencia de servicios de reubicación y gestión administrativa</strong>. No ejercemos el derecho ni ofrecemos asesoramiento legal directo. Nuestro papel es el de "Project Managers": captamos al cliente internacional, auditamos sus documentos y preparamos el dossier técnico. Necesitamos abogados colegiados para la validación y presentación final. Somos su departamento de operaciones externo.
+                    <strong>Absolutamente no.</strong> Somos su departamento comercial y administrativo externalizado. Nosotros traemos clientes (USA, UK, Tech) que probablemente no llegarían a su despacho por barreras de idioma o marketing. Usted mantiene la relación letrado-cliente para la presentación oficial.
                 </div>
             </details>
 
             <details class="partner-faq-item">
-                <summary>¿Me van a quitar mis clientes en el futuro?</summary>
+                <summary>¿Es este un servicio gratuito?</summary>
                 <div class="faq-answer">
-                    Al contrario. Nosotros le traemos clientes que usted probablemente nunca habría captado debido a la barrera idiomática o la inversión en marketing internacional (USA, UK, Emiratos). Usted mantiene la relación jurídica con el cliente para la presentación. Nosotros somos "partners", no competidores. Nuestro éxito depende de que su despacho sea eficiente.
+                    Sí. Usted no paga nada a JURO. Nosotros cobramos al cliente final por la "Gestión del Proyecto". Usted cobra sus honorarios profesionales íntegros por la "Validación y Presentación Jurídica". Es un modelo <em>Win-Win</em>.
                 </div>
             </details>
 
             <details class="partner-faq-item">
-                <summary>¿Cuánto trabajo me va a quitar realmente?</summary>
+                <summary>¿Qué volumen de expedientes puedo esperar?</summary>
                 <div class="faq-answer">
-                    Estimamos que <strong>reducimos su carga de trabajo en un 80%</strong>. Olvídese de explicar qué es un certificado de antecedentes penales o de perseguir traducciones juradas. Le entregamos un archivo digital perfecto. Su tiempo se limita a la revisión de viabilidad técnica y el clic de presentación en la plataforma (UGE/Mercurio).
-                </div>
-            </details>
-
-            <details class="partner-faq-item">
-                <summary>¿Es este un servicio gratuito para el despacho?</summary>
-                <div class="faq-answer">
-                    Totalmente. Usted no paga nada a JURO. Nosotros cobramos al cliente por la gestión del proyecto y la auditoría. Usted recibe sus honorarios profesionales íntegros por la parte jurídica. Es una vía de ingresos "neta" sin costes de adquisición de cliente ni costes de administración.
-                </div>
-            </details>
-
-            <details class="partner-faq-item">
-                <summary>¿Qué volumen de expedientes pueden enviarme?</summary>
-                <div class="faq-answer">
-                    Buscamos partners que puedan absorber un flujo recurrente de entre <strong>5 y 15 expedientes mensuales</strong>. Preferimos trabajar con pocos despachos muy ágiles que con muchos despachos lentos. Si su despacho tiene capacidad de respuesta rápida, le garantizamos volumen.
+                    Buscamos partners capaces de absorber entre <strong>5 y 15 expedientes mensuales</strong> (DNV, NLV, Golden Visa). Priorizamos despachos ágiles sobre grandes estructuras burocráticas.
                 </div>
             </details>
 
             <details class="partner-faq-item">
                 <summary>¿Cómo se gestionan los pagos?</summary>
                 <div class="faq-answer">
-                    Somos extremadamente rigurosos con esto. Liquidamos sus honorarios profesionales de forma inmediata tras la validación del expediente o confirmación de envío. Queremos que el abogado esté motivado y centrado en lo que mejor sabe hacer: el Derecho.
+                    Liquidación inmediata. En el momento en que usted valida el expediente para su presentación, se liberan sus honorarios. Sin plazos a 90 días.
                 </div>
             </details>
 
         </div>
 
-        <div class="dashboard-box">
+        <div class="cta-dashboard">
             <div>
-                <h2 style="border: none; margin-top: 0; font-size: 2.5rem;">Crezca con nosotros.</h2>
-                <p>Si su despacho tiene capacidad para procesar expedientes de Nómada Digital o No Lucrativa con agilidad, hablemos de tarifas.</p>
-                <div style="display: flex; gap: 1rem; margin-top: 2rem;">
-                    <span style="background: var(--sp-red); color: white; padding: 5px 15px; border-radius: 50px; font-size: 0.8rem; font-weight: 700;">DNV</span>
-                    <span style="background: var(--text-primary); color: white; padding: 5px 15px; border-radius: 50px; font-size: 0.8rem; font-weight: 700;">PAC</span>
-                    <span style="background: var(--gold-color); color: var(--text-primary); padding: 5px 15px; border-radius: 50px; font-size: 0.8rem; font-weight: 700;">LEY BECKHAM</span>
+                <h2>Únase a la Red JURO.</h2>
+                <p>Actualmente estamos ampliando nuestra red de abogados colaboradores en <strong>Madrid, Barcelona y Málaga</strong>.</p>
+                <div style="display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;">
+                    <span style="background: rgba(255,255,255,0.1); padding: 8px 20px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; border: 1px solid rgba(255,255,255,0.2);">DIGITAL NOMAD VISA</span>
+                    <span style="background: rgba(255,255,255,0.1); padding: 8px 20px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; border: 1px solid rgba(255,255,255,0.2);">GOLDEN VISA</span>
+                    <span style="background: rgba(255,255,255,0.1); padding: 8px 20px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; border: 1px solid rgba(255,255,255,0.2);">LEY BECKHAM</span>
                 </div>
             </div>
-            <div style="text-align: center;">
-                <p style="font-family: 'Oswald'; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px;">¿Hablamos?</p>
-                <a href="mailto:partners@jurospain.com" class="btn" style="width: 100%; margin-bottom: 1rem;">Solicitar Dossier B2B</a>
-                <a href="https://wa.me/34682050945" class="btn btn-outline" style="width: 100%; border-color: var(--text-primary); color: var(--text-primary) !important;">WhatsApp para Abogados</a>
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <a href="mailto:hello@jurospain.com" class="btn" style="background: var(--sp-red); border: none; color: white; padding: 1.2rem; font-size: 1.1rem; text-align: center;">Solicitar Dossier B2B</a>
+                <a href="https://wa.me/34682050945" class="btn btn-outline" style="border: 1px solid rgba(255,255,255,0.3); color: white !important; padding: 1rem; text-align: center;">WhatsApp Partners</a>
             </div>
         </div>
     </div>
 </div>
 
-<div style="padding: 4rem 0; text-align: center; opacity: 0.6;">
-    <p>JURO Spain — Partnering with legal professionals nationwide.</p>
+<div style="padding: 4rem 0; text-align: center; opacity: 0.5; font-size: 0.9rem;">
+    <p>JURO Spain B2B Portal — Acceso Restringido a Profesionales Colegiados.</p>
 </div>
