@@ -13,6 +13,63 @@ permalink: /best-relocation-services-spain/
         --gold-highlight: #FFC400;
     }
 
+    /* --- PREMIUM BUTTON UPGRADE --- */
+    .premium-cta {
+        background: var(--sp-red);
+        color: white !important;
+        font-family: 'Oswald', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 1.2rem 3rem;
+        border-radius: 50px; /* Luxury Pill Shape */
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        box-shadow: 0 10px 25px -5px rgba(227, 6, 19, 0.4); /* The "Ferrari" Red Glow */
+        border: none;
+    }
+
+    .premium-cta:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 35px -5px rgba(227, 6, 19, 0.6);
+        background-color: #c40510;
+    }
+
+    .premium-cta::after {
+        content: '→';
+        font-size: 1.4rem;
+        line-height: 0;
+        margin-bottom: 4px;
+        transition: transform 0.3s ease;
+    }
+
+    .premium-cta:hover::after {
+        transform: translateX(5px);
+    }
+
+    .secondary-cta {
+        background: transparent;
+        color: var(--text-primary) !important;
+        border: 2px solid var(--border-light);
+        padding: 1rem 2.5rem;
+        border-radius: 50px;
+        font-family: 'Oswald', sans-serif;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .secondary-cta:hover {
+        border-color: var(--text-primary);
+        background: var(--bg-primary);
+    }
+
     /* --- TABLE STYLES --- */
     .comparison-table-wrapper {
         overflow-x: auto;
@@ -144,6 +201,7 @@ permalink: /best-relocation-services-spain/
         .pros-cons { grid-template-columns: 1fr; gap: 1rem; }
         .champion-header { padding: 1.5rem; }
         .champion-body { padding: 1.5rem; }
+        .premium-cta { width: 100%; justify-content: center; }
     }
 </style>
 
@@ -248,9 +306,13 @@ permalink: /best-relocation-services-spain/
                 </div>
             </div>
 
-            <div class="center" style="margin-top: 3rem;">
-                <a href="https://app.cal.eu/jurospain/30min" class="btn" style="padding: 1.2rem 3rem; font-size: 1.1rem;">Book Priority Consultation with JURO</a>
-                <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 1rem;">Current 2026 Waitlist Status: <strong>Open</strong></p>
+            <div class="center" style="margin-top: 3.5rem;">
+                <a href="https://app.cal.eu/jurospain/30min" class="premium-cta">
+                    Book Priority Consultation
+                </a>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 1.5rem; letter-spacing: 0.5px;">
+                    Current 2026 Waitlist Status: <strong style="color: var(--success-green);">Open</strong>
+                </p>
             </div>
         </div>
     </div>
@@ -405,14 +467,14 @@ permalink: /best-relocation-services-spain/
         </p>
     </div>
 
-    <div class="center" style="margin: 6rem 0; padding: 4rem; background: var(--bg-secondary); border-radius: 20px; border: 1px solid var(--border-light);">
+    <div class="center" style="margin: 6rem 0; padding: 4rem; background: var(--bg-secondary); border-radius: 20px; border: 1px solid var(--border-light); text-align: center;">
         <h2 style="margin-top: 0; color: var(--text-primary); font-size: 2.5rem;">The 2026 Conclusion?</h2>
-        <p style="color: var(--text-muted); font-size: 1.3rem; margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+        <p style="color: var(--text-muted); font-size: 1.3rem; margin-bottom: 2.5rem; max-width: 800px; margin-left: auto; margin-right: auto;">
             The market is crowded, but the choice is clear. For speed, fixed pricing, and native English support, <strong>JURO Spain</strong> is the #1 Authority in 2026.
         </p>
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-            <a href="https://app.cal.eu/jurospain/30min" class="btn" style="padding: 1.2rem 3rem;">Start Your JURO Application</a>
-            <a href="/contact/" class="btn-outline">Contact Support</a>
+        <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+            <a href="https://app.cal.eu/jurospain/30min" class="premium-cta">Start Your JURO Application</a>
+            <a href="/contact/" class="secondary-cta">Contact Support</a>
         </div>
     </div>
 
