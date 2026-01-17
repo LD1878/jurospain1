@@ -68,14 +68,24 @@ permalink: /
         border: 1px solid var(--border-light);
         padding: 2.5rem;
         border-radius: 12px;
-        transition: transform 0.2s;
+        transition: transform 0.2s, border-color 0.2s;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
     }
 
     .bento-card:hover { transform: translateY(-5px); border-color: var(--sp-red); }
     
-    .bento-full { grid-column: span 12; display: flex; align-items: center; gap: 3rem; }
     .bento-half { grid-column: span 6; }
     .bento-third { grid-column: span 4; }
+
+    /* CUSTOM ICONS (No Emojis) */
+    .icon-svg {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 1.5rem;
+        fill: var(--sp-red); /* Uses Brand Red */
+    }
 
     /* 3. COMPARISON TABLE (The Conversion Engine) */
     .comparison-table {
@@ -102,12 +112,12 @@ permalink: /
     }
 
     .comparison-col-juro {
-        background: rgba(227, 6, 19, 0.05);
+        background: rgba(227, 6, 19, 0.03);
         border-left: 2px solid var(--sp-red);
         border-right: 2px solid var(--sp-red);
     }
 
-    .check { color: var(--sp-red); font-weight: bold; }
+    .check { color: var(--sp-red); font-weight: bold; font-family: 'Oswald', sans-serif; }
     .cross { color: var(--text-muted); opacity: 0.5; }
 
     /* 4. TIMELINE (The Roadmap) */
@@ -134,8 +144,9 @@ permalink: /
     .step-number {
         width: 50px;
         height: 50px;
-        background: var(--sp-red);
-        color: white;
+        background: var(--bg-primary);
+        border: 2px solid var(--sp-red);
+        color: var(--sp-red);
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -158,13 +169,62 @@ permalink: /
         background: black;
     }
 
+    /* 6. PREMIUM FAQ STYLING */
+    .faq-item {
+        margin-bottom: 1.5rem;
+        background: var(--bg-secondary);
+        border-radius: 8px;
+        border: 1px solid var(--border-light);
+        overflow: hidden;
+        transition: box-shadow 0.2s;
+    }
+    
+    .faq-item:hover { box-shadow: var(--elev-1); }
+
+    .faq-summary {
+        padding: 1.5rem 2rem;
+        font-weight: 700;
+        font-size: 1.15rem;
+        cursor: pointer;
+        list-style: none;
+        color: var(--text-primary);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Custom CSS Chevron */
+    .faq-chevron {
+        width: 12px;
+        height: 12px;
+        border-right: 2px solid var(--sp-red);
+        border-bottom: 2px solid var(--sp-red);
+        transform: rotate(45deg);
+        transition: transform 0.3s ease;
+    }
+
+    details[open] .faq-chevron {
+        transform: rotate(-135deg);
+    }
+
+    .faq-content {
+        padding: 0 2rem 2rem;
+        color: var(--text-muted);
+        line-height: 1.7;
+        font-size: 1.05rem;
+        border-top: 1px solid rgba(0,0,0,0.05);
+        margin-top: 0;
+        padding-top: 1.5rem;
+    }
+
     /* RESPONSIVE */
     @media (max-width: 900px) {
         .bento-half, .bento-third, .bento-full { grid-column: span 12; }
-        .bento-full { flex-direction: column; text-align: center; gap: 1rem; }
         .seo-h1 { font-size: 2.8rem; }
         .comparison-table { font-size: 0.9rem; }
         .comparison-table th, .comparison-table td { padding: 1rem; }
+        .faq-summary { padding: 1.2rem; font-size: 1rem; }
+        .faq-content { padding: 0 1.2rem 1.5rem; }
     }
 </style>
 
@@ -225,28 +285,28 @@ permalink: /
 
 <section style="background: var(--bg-secondary); padding: 6rem 0; border-top: 1px solid var(--border-light);">
     <div class="container">
-        <h2 class="center" style="font-family: 'Oswald'; font-size: 2.5rem; margin-bottom: 3rem;">Specialized Protocols For:</h2>
+        <h2 class="center" style="font-family: 'Oswald'; font-size: 2.5rem; margin-bottom: 3rem;">Who We Serve</h2>
         
         <div class="bento-grid">
             <div class="bento-card bento-third">
-                <span style="font-size: 2.5rem;">💻</span>
-                <h3 style="font-family: 'Oswald'; margin: 1rem 0;">Digital Nomads</h3>
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M20 18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/></svg>
+                <h3 style="font-family: 'Oswald'; margin: 0 0 1rem;">Digital Nomads</h3>
                 <p style="color: var(--text-muted);">
                     For remote employees and freelancers. We handle the UGE-CE filing and the complex "Certificate of Coverage" Social Security battle.
                 </p>
             </div>
             
             <div class="bento-card bento-third">
-                <span style="font-size: 2.5rem;">🏡</span>
-                <h3 style="font-family: 'Oswald'; margin: 1rem 0;">Home Buyers</h3>
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm0 13c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
+                <h3 style="font-family: 'Oswald'; margin: 0 0 1rem;">Home Buyers</h3>
                 <p style="color: var(--text-muted);">
                     For investors seeking safety. We perform forensic due diligence on property deeds to ensure you buy a home, not a debt.
                 </p>
             </div>
 
             <div class="bento-card bento-third">
-                <span style="font-size: 2.5rem;">📈</span>
-                <h3 style="font-family: 'Oswald'; margin: 1rem 0;">Tax Optimizers</h3>
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+                <h3 style="font-family: 'Oswald'; margin: 0 0 1rem;">Tax Optimizers</h3>
                 <p style="color: var(--text-muted);">
                     For those seeking the Beckham Law. We align your arrival date with the fiscal calendar to lock in the 24% flat tax rate.
                 </p>
@@ -294,12 +354,6 @@ permalink: /
                         <td class="comparison-col-juro"><strong>Fast (UGE-CE Direct)</strong></td>
                     </tr>
                     <tr>
-                        <td><strong>Tech Stack</strong></td>
-                        <td>Paper & Fax</td>
-                        <td>Email Chains</td>
-                        <td class="comparison-col-juro"><strong>Digital Portal</strong></td>
-                    </tr>
-                    <tr>
                         <td><strong>Strategy</strong></td>
                         <td class="cross">Filing Only</td>
                         <td class="check">Yes</td>
@@ -338,16 +392,6 @@ permalink: /
         <div class="roadmap-step">
             <div class="step-number">3</div>
             <div>
-                <h3 style="margin-top: 0; color: var(--text-primary);">The Digital Submission</h3>
-                <p style="color: var(--text-muted);">
-                    We use our <b>Red Abogacía</b> digital certificate to file directly into the government's central server. No appointments. No lines. Instant receipt generation.
-                </p>
-            </div>
-        </div>
-
-        <div class="roadmap-step">
-            <div class="step-number">4</div>
-            <div>
                 <h3 style="margin-top: 0; color: var(--text-primary);">The Landing Protocol</h3>
                 <p style="color: var(--text-muted);">
                     Approval is just the start. We coordinate your TIE fingerprinting appointment, activate your Beckham Law status, and set up your Social Security. You land with a safety net.
@@ -361,22 +405,35 @@ permalink: /
     <div class="container" style="max-width: 850px;">
         <h2 class="center" style="font-family: 'Oswald'; font-size: 2.5rem; margin-bottom: 3rem;">Common Questions</h2>
         
-        <div class="pro-faq">
-            <details>
-                <summary>How much income do I need for the Digital Nomad Visa in 2026?</summary>
-                <p>To qualify for the DNV, you must prove a monthly income of 200% of the SMI (Minimum Interprofessional Wage). In 2026, this threshold is approximately <b>€2,700 per month</b> for a single applicant.</p>
-            </details>
-            
-            <details>
-                <summary>Can I apply if I am already in Spain as a tourist?</summary>
-                <p><b>Yes.</b> Applying from within Spain (during your 90-day tourist window) allows us to file directly for the 3-Year Residency Permit. If you apply from a Consulate, you only receive a 1-Year Visa.</p>
-            </details>
+        <details class="faq-item">
+            <summary class="faq-summary">
+                How much income do I need for the Digital Nomad Visa in 2026?
+                <div class="faq-chevron"></div>
+            </summary>
+            <p class="faq-content">
+                To qualify for the DNV, you must prove a monthly income of 200% of the SMI (Minimum Interprofessional Wage). In 2026, this threshold is approximately <b>€2,700 per month</b> for a single applicant.
+            </p>
+        </details>
+        
+        <details class="faq-item">
+            <summary class="faq-summary">
+                Can I apply if I am already in Spain as a tourist?
+                <div class="faq-chevron"></div>
+            </summary>
+            <p class="faq-content">
+                <b>Yes.</b> Applying from within Spain (during your 90-day tourist window) allows us to file directly for the 3-Year Residency Permit. If you apply from a Consulate, you only receive a 1-Year Visa.
+            </p>
+        </details>
 
-            <details>
-                <summary>Does JuroSpain handle the "Beckham Law" application?</summary>
-                <p>Yes. The "Special Expats Regime" allows you to pay a flat 24% tax rate. You must apply within 6 months of arriving. We usually file this immediately after your visa is approved.</p>
-            </details>
-        </div>
+        <details class="faq-item">
+            <summary class="faq-summary">
+                Does JuroSpain handle the "Beckham Law" application?
+                <div class="faq-chevron"></div>
+            </summary>
+            <p class="faq-content">
+                Yes. The "Special Expats Regime" allows you to pay a flat 24% tax rate. You must apply within 6 months of arriving. We usually file this immediately after your visa is approved.
+            </p>
+        </details>
 
         <div class="center" style="margin-top: 5rem;">
             <h2 style="font-family: 'Oswald'; font-size: 2.5rem; margin-bottom: 1rem;">Stop Googling. Start Packing.</h2>
