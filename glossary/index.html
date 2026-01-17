@@ -1,425 +1,324 @@
 ---
 layout: default
-title: Spanish Expat Glossary | Immigration, Property & Tax Terms
-description: The ultimate dictionary for moving to Spain. Clear definitions for NIE, TIE, Beckham Law, Plusvalía, and 100+ other legal terms.
+title: The Ultimate Spanish Bureaucracy Glossary (2026 Edition) | JuroSpain
+description: The most comprehensive dictionary of Spanish legal, tax, and property terms. Definitions for NIE, TIE, Plusvalía, Arras, Modelo 720, and 100+ others.
 permalink: /glossary/
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  "@id": "https://jurospain.com/glossary",
+  "name": "Spanish Bureaucracy & Legal Glossary",
+  "description": "Comprehensive definitions of Spanish immigration, tax, and real estate terms for expats.",
+  "inDefinedTermSet": "https://jurospain.com/glossary"
+}
+</script>
+
 <style>
-    /* 1. GLOSSARY HERO - THEME SYNCED */
+    /* 1. HERO SECTION */
     .glossary-hero {
-        padding: 5rem 0 4rem;
-        background: linear-gradient(to bottom, var(--bg-secondary) 0%, var(--bg-primary) 100%);
-        border-top: 8px solid var(--sp-red);
+        padding: 6rem 0 4rem;
+        background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+        border-top: 6px solid var(--sp-red);
         text-align: center;
     }
 
     .glossary-h1 {
-        font-family: 'Oswald', sans-serif !important;
-        font-size: clamp(2.5rem, 6vw, 4rem) !important;
-        font-weight: 700 !important;
+        font-family: 'Oswald', sans-serif;
+        font-size: clamp(2.5rem, 5vw, 4rem);
         text-transform: uppercase;
-        letter-spacing: -1px !important;
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
         color: var(--text-primary);
+        line-height: 1.1;
     }
 
-    /* 2. SEARCH & NAV - THEME SYNCED */
-    .search-wrapper {
-        position: relative;
-        max-width: 650px;
-        margin: 2rem auto 0;
+    /* 2. SEARCH BAR (Sticky on Mobile) */
+    .search-container {
+        position: sticky;
+        top: 20px;
+        z-index: 100;
+        max-width: 700px;
+        margin: 0 auto 3rem;
+        padding: 0 1rem;
     }
 
     #search-input {
         width: 100%;
-        padding: 1.2rem 1.8rem;
-        background: var(--bg-secondary);
-        color: var(--text-primary);
+        padding: 1.4rem 2rem;
+        background: white;
+        color: #333;
         border: 2px solid var(--border-light);
         border-radius: 50px;
-        font-size: 1.1rem;
-        outline: none;
-        box-shadow: var(--elev-1);
+        font-size: 1.2rem;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
     }
 
-    #search-input:focus { border-color: var(--sp-red); box-shadow: 0 10px 25px rgba(227, 6, 19, 0.1); }
+    #search-input:focus {
+        border-color: var(--sp-red);
+        transform: scale(1.02);
+        outline: none;
+    }
 
-    .category-nav {
+    /* 3. NAVIGATION PILLS */
+    .nav-pills {
         display: flex;
         justify-content: center;
-        gap: 1rem;
-        margin-top: 2.5rem;
+        gap: 0.8rem;
         flex-wrap: wrap;
+        margin-bottom: 4rem;
     }
 
-    .cat-btn {
-        padding: 0.6rem 1.2rem;
+    .nav-pill {
+        padding: 0.5rem 1.2rem;
+        border-radius: 20px;
         background: var(--bg-secondary);
         border: 1px solid var(--border-light);
-        border-radius: 50px;
-        font-size: 0.85rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        cursor: pointer;
-        transition: all 0.2s;
-        text-decoration: none;
-        color: var(--text-primary);
-    }
-
-    .cat-btn:hover { border-color: var(--sp-red); color: var(--sp-red); transform: translateY(-2px); }
-
-    /* 3. TERM CARDS - THEME SYNCED */
-    .glossary-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 1.5rem;
-    }
-
-    .term-card {
-        background: var(--bg-secondary);
-        border: 1px solid var(--border-light);
-        border-left: 5px solid var(--gold-color);
-        padding: 1.5rem;
-        border-radius: 12px;
-        transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        color: var(--text-primary);
-    }
-
-    .term-card:hover {
-        transform: translateY(-5px);
-        border-left-color: var(--sp-red);
-        box-shadow: 0 15px 30px rgba(0,0,0,0.05);
-    }
-
-    .term-card h3 {
-        font-family: 'Oswald', sans-serif !important;
-        font-size: 1.2rem !important;
-        margin: 0 0 0.8rem 0;
-        color: var(--text-primary);
-        border: none !important;
-    }
-
-    .term-card p {
-        font-size: 0.9rem;
-        line-height: 1.6;
         color: var(--text-muted);
-        margin-bottom: 1rem;
-        flex-grow: 1;
-    }
-
-    .term-link {
-        font-weight: 800;
-        color: var(--sp-red);
-        text-transform: uppercase;
-        font-size: 0.75rem;
         text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 600;
+        transition: all 0.2s;
     }
 
-    .section-title-wrap {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        margin: 5rem 0 2.5rem;
+    .nav-pill:hover, .nav-pill.active {
+        background: var(--sp-red);
+        color: white;
+        border-color: var(--sp-red);
+    }
+
+    /* 4. CONTENT GRID */
+    .glossary-cluster {
+        margin-bottom: 6rem;
+    }
+
+    .cluster-header {
+        margin-bottom: 2rem;
         border-bottom: 2px solid var(--border-light);
         padding-bottom: 1rem;
     }
 
-    .hidden { display: none !important; }
+    .cluster-header h2 {
+        font-family: 'Oswald', sans-serif;
+        font-size: 2.2rem;
+        color: var(--text-primary);
+        margin: 0;
+    }
 
+    .cluster-desc {
+        font-size: 1.1rem;
+        color: var(--text-muted);
+        max-width: 800px;
+        margin-top: 0.5rem;
+    }
+
+    .terms-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 1.5rem;
+    }
+
+    /* 5. TERM CARDS */
+    .term-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-light);
+        padding: 1.8rem;
+        border-radius: 8px;
+        position: relative;
+        transition: transform 0.2s;
+    }
+
+    .term-card:hover {
+        transform: translateY(-3px);
+        border-color: var(--sp-red);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .term-card h3 {
+        color: var(--sp-red);
+        font-size: 1.3rem;
+        margin: 0 0 0.5rem 0;
+        font-weight: 700;
+        font-family: 'Oswald', sans-serif;
+    }
+
+    .term-card .sub-term {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--text-muted);
+        margin-bottom: 1rem;
+        display: block;
+    }
+
+    .term-card p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: var(--text-primary);
+        margin: 0;
+    }
+
+    .insider-badge {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: var(--gold-color);
+        color: black;
+        font-size: 0.7rem;
+        font-weight: 800;
+        padding: 2px 8px;
+        border-radius: 4px;
+        text-transform: uppercase;
+    }
+
+    /* MOBILE OPTIMIZATION */
     @media (max-width: 768px) {
-        .glossary-h1 { font-size: 2.2rem !important; }
-        .category-nav { display: none; }
+        .glossary-h1 { font-size: 2.5rem; }
+        .terms-grid { grid-template-columns: 1fr; }
     }
 </style>
 
-<div class="glossary-hero center">
+<div class="glossary-hero">
     <div class="container">
-        <p style="font-weight: 800; color: var(--sp-red); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem;">Official Expat Dictionary</p>
-        <h1 class="glossary-h1">Spanish Bureaucracy <br><span style="color: var(--sp-red);">Decoded</span></h1>
-        <div class="search-wrapper">
-            <input type="text" id="search-input" placeholder="🔍 Search e.g. 'NIE', 'Beckham', 'IBI'..." onkeyup="filterGlossary()">
-        </div>
-        <div class="category-nav">
-            <a href="#immigration" class="cat-btn">Residency</a>
-            <a href="#property" class="cat-btn">Property</a>
-            <a href="#tax" class="cat-btn">Tax & Finance</a>
-        </div>
+        <h1 class="glossary-h1">The JuroSpain<br><span style="color: var(--sp-red);">Master Glossary</span></h1>
+        <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto; opacity: 0.8;">Don't let the language barrier cost you money. Every legal, tax, and property term defined in plain English.</p>
     </div>
 </div>
 
-<div class="container" style="padding-bottom: 8rem;">
-
-    <div id="no-results" class="center hidden" style="padding: 6rem 0;">
-        <div style="font-size: 4rem; margin-bottom: 1rem;">🔎</div>
-        <h3 style="color: var(--text-primary);">No matching terms found.</h3>
-        <button onclick="document.getElementById('search-input').value=''; filterGlossary();" class="btn" style="margin-top: 1rem;">Reset Search</button>
-    </div>
-
-    <div class="glossary-section-wrapper" id="immigration">
-        <div class="section-title-wrap">
-            <span style="font-size: 2rem;">🚀</span>
-            <h2 style="margin: 0; border: none; font-size: 1.8rem; color: var(--text-primary);">Immigration & Residency</h2>
-        </div>
-        <div class="glossary-grid">
-            
-            <div class="term-card" data-terms="uge unidad grandes empresas large companies strategic sectors fast track vip">
-                <h3>UGE-CE (Large Business Unit)</h3>
-                <p>The "VIP Lane" for visas. Unlike local offices, the UGE-CE in Madrid must process DNV and HQP applications within 20 days. We file here to bypass provincial delays.</p>
-            </div>
-
-            <div class="term-card" data-terms="silencio administrativo administrative silence positive response deadline approval">
-                <h3>Silencio Administrativo (Positive)</h3>
-                <p>A legal mechanism where the government's failure to respond by the deadline equals an <strong>Automatic Approval</strong>. We use this to force DNV resolutions.</p>
-            </div>
-
-             <div class="term-card" data-terms="compromiso alta commitment register social security reta health insurance pre-existing">
-                <h3>Compromiso de Alta</h3>
-                <p>A legal declaration used to bypass private health insurance requirements (and rejections) by committing to register in Social Security upon visa approval.</p>
-            </div>
-
-            <div class="term-card" data-terms="nie number identity identity extranjero foreigner identification">
-                <h3>NIE (Número de Identidad de Extranjero)</h3>
-                <p>The unique identification number required for all legal and financial activities in Spain, from banking to property.</p>
-                <a href="/guides/how-to-get-your-nie-number-in-spain/" class="term-link">NIE Guide →</a>
-            </div>
-            <div class="term-card" data-terms="tie tarjeta identity card extranjero foreigner residency biometric card">
-                <h3>TIE (Tarjeta de Identidad de Extranjero)</h3>
-                <p>The physical biometric card proving your residency status. Applied for *after* your visa approval.</p>
-            </div>
-            <div class="term-card" data-terms="digital nomad visa dnv remote work freelance entrepreneur beckham">
-                <h3>Digital Nomad Visa (DNV)</h3>
-                <p>Residency for remote workers whose income comes from outside Spain. Grants access to the Beckham Law.</p>
-            </div>
-             <div class="term-card" data-terms="non-lucrative visa nlv residency passive income pension">
-                <h3>Non-Lucrative Visa (NLV)</h3>
-                <p>Residency for non-EU citizens based on passive income or savings. You cannot work on this visa.</p>
-            </div>
-            <div class="term-card" data-terms="golden visa investment property real estate investor residency 500000">
-                <h3>Golden Visa</h3>
-                <p>Residency granted for a €500,000+ real estate investment. Offers flexible stay requirements.</p>
-            </div>
-            <div class="term-card" data-terms="schengen area travel europe passport border control">
-                <h3>Schengen Area</h3>
-                <p>A 29-country zone with no internal borders. Your TIE allows travel here for 90 days out of 180.</p>
-            </div>
-            <div class="term-card" data-terms="reagrupacion familiar family reunification spouse children dependents">
-                <h3>Reagrupación Familiar</h3>
-                <p>The legal process to bring spouse and children to live with a legal resident in Spain.</p>
-            </div>
-            <div class="term-card" data-terms="autorizacion regreso return authorization travel permit re-entry">
-                <h3>Autorización de Regreso</h3>
-                <p>A travel permit allowing entry while your TIE is being renewed or processed.</p>
-            </div>
-            <div class="term-card" data-terms="antecedentes penales criminal record background check certificate">
-                <h3>Antecedentes Penales</h3>
-                <p>Criminal Record Certificate. Must be less than 6 months old and Apostilled for your visa application.</p>
-            </div>
-            <div class="term-card" data-terms="empadronamiento padron municipal registration census certificate address">
-                <h3>Empadronamiento</h3>
-                <p>Municipal Registry certificate proving your address. Vital for TIE and healthcare.</p>
-            </div>
-            <div class="term-card" data-terms="apostille hague convention document legalization authentication">
-                <h3>Apostille</h3>
-                <p>An international seal verifying a document’s authenticity for use in Spain (Hague Convention).</p>
-            </div>
-            <div class="term-card" data-terms="tasa tax fee administrative charge immigration model 790">
-                <h3>Tasa (Modelo 790)</h3>
-                <p>The government fee paid at a bank before submitting immigration paperwork.</p>
-            </div>
-            <div class="term-card" data-terms="nacionalidad citizenship naturalization spanish passport 10 years">
-                <h3>Nacionalidad Española</h3>
-                <p>Spanish Citizenship, generally available after 10 years of legal residency (or 2 years for LatAm citizens).</p>
-            </div>
-             <div class="term-card" data-terms="seguro medico health insurance healthcare private coverage sanitas">
-                <h3>Seguro Médico</h3>
-                <p>Private Health Insurance. Mandatory for most visas; must be "Sin Copago" (no copay).</p>
-            </div>
-            <div class="term-card" data-terms="cita previa appointment booking online oficina extranjeria">
-                <h3>Cita Previa</h3>
-                <p>The mandatory "Prior Appointment" system. <strong>Note:</strong> JuroSpain clients do NOT need this for visa filings (we file digitally).</p>
-            </div>
-             <div class="term-card" data-terms="traduccion jurada sworn translation official translator certified">
-                <h3>Traducción Jurada</h3>
-                <p>Official translation by a certified 'sworn' translator. Simple translations are rejected.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="glossary-section-wrapper" id="property">
-        <div class="section-title-wrap">
-            <span style="font-size: 2rem;">🏡</span>
-            <h2 style="margin: 0; border: none; font-size: 1.8rem; color: var(--text-primary);">Property & Conveyancing</h2>
-        </div>
-        <div class="glossary-grid">
-            
-            <div class="term-card" data-terms="alquiler temporada seasonal rental contract 11 months temporary housing law fraud">
-                <h3>Alquiler de Temporada</h3>
-                <p>A "Seasonal Contract" (usually 11 months). Landlords use this to avoid rent caps. We can help you legally convert this to a long-term lease.</p>
-            </div>
-
-            <div class="term-card" data-terms="acta manifestacion notary padron address proof registration">
-                <h3>Acta de Manifestación</h3>
-                <p>A sworn statement before a Notary used to force a Padrón registration when a landlord refuses to sign standard forms.</p>
-            </div>
-
-            <div class="term-card" data-terms="escritura publica public deed title sale notary ownership">
-                <h3>Escritura Pública</h3>
-                <p>The Public Deed of Sale signed at the Notary that transfers property ownership.</p>
-            </div>
-            <div class="term-card" data-terms="nota simple property registry extract land registry debts liens">
-                <h3>Nota Simple</h3>
-                <p>Vital Land Registry extract confirming owner and checking for debts or liens.</p>
-            </div>
-            <div class="term-card" data-terms="notario notary public official authentication certificate">
-                <h3>Notario (Notary)</h3>
-                <p>Public official who certifies deeds. They check legality but do not protect buyer interests like a lawyer.</p>
-            </div>
-            <div class="term-card" data-terms="contrato arras reservation contract deposit earnest money">
-                <h3>Contrato de Arras</h3>
-                <p>Binding deposit contract (usually 10%) to secure a property before completion. If you pull out, you lose it.</p>
-            </div>
-            <div class="term-card" data-terms="cedula habitabilidad licencia primera ocupacion habitation certificate">
-                <h3>Cédula de Habitabilidad</h3>
-                <p>Habitation Certificate certifying a property is fit to live in and connect utilities.</p>
-            </div>
-            <div class="term-card" data-terms="valor catastral cadastral value tax base ibi property tax">
-                <h3>Valor Catastral</h3>
-                <p>The administrative value of a property set by Catastro; used to calculate IBI tax.</p>
-            </div>
-            <div class="term-card" data-terms="plusvalia tax municipal capital gains land value increment seller">
-                <h3>Plusvalía Municipal</h3>
-                <p>Local tax on the increase in land value, usually paid by the seller.</p>
-            </div>
-            <div class="term-card" data-terms="itp impuesto transmisiones patrimoniales transfer tax stamp duty">
-                <h3>ITP (Transfer Tax)</h3>
-                <p>Tax on resale property purchases (6-10% depending on the region).</p>
-            </div>
-            <div class="term-card" data-terms="gastos compraventa purchase costs closing costs fees taxes">
-                <h3>Gastos de Compraventa</h3>
-                <p>Closing Costs. Total taxes and fees on top of the property price (budget 10-12%).</p>
-            </div>
-             <div class="term-card" data-terms="licencia obras building permit construction authorization">
-                <h3>Licencia de Obras</h3>
-                <p>The general Building License required before starting construction or major renovations.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="glossary-section-wrapper" id="tax">
-        <div class="section-title-wrap">
-            <span style="font-size: 2rem;">💰</span>
-            <h2 style="margin: 0; border: none; font-size: 1.8rem; color: var(--text-primary);">Tax & Finance</h2>
-        </div>
-        <div class="glossary-grid">
-            
-            <div class="term-card" data-terms="certificado cobertura certificate coverage social security bilateral agreement home country">
-                <h3>Certificado de Cobertura</h3>
-                <p>Document proving you pay Social Security in your home country. Essential for Employee DNVs to avoid double deductions.</p>
-            </div>
-
-            <div class="term-card" data-terms="smi minimum wage salario minimo interprofesional income threshold 200%">
-                <h3>SMI (Minimum Wage)</h3>
-                <p>The National Minimum Wage. In 2026, Visa income requirements are 200% of this figure.</p>
-            </div>
-
-            <div class="term-card" data-terms="agencia tributaria hacienda tax agency revenue compliance">
-                <h3>Agencia Tributaria (Hacienda)</h3>
-                <p>The Spanish Tax Authority. The entity you want to stay on the good side of.</p>
-            </div>
-            <div class="term-card" data-terms="irpf income tax personal renta personas fisicas resident 183 days">
-                <h3>IRPF (Income Tax)</h3>
-                <p>Personal Income Tax for residents on worldwide income (19% - 47%).</p>
-            </div>
-            <div class="term-card" data-terms="irnr non-resident income tax impuesto renta no residentes rental">
-                <h3>IRNR (Non-Resident Tax)</h3>
-                <p>Income Tax for non-residents on Spanish-sourced income only.</p>
-            </div>
-            <div class="term-card" data-terms="regimen impatriados beckham law expat tax 24% flat rate dnv">
-                <h3>Beckham Law</h3>
-                <p>Special regime allowing new residents a flat 24% tax rate for 6 years.</p>
-                <a href="/guides/beckham-law-guide/" class="term-link">Beckham Guide →</a>
-            </div>
-            <div class="term-card" data-terms="modelo 720 overseas assets foreign property bank accounts declaration">
-                <h3>Modelo 720 / 721</h3>
-                <p>Informational declaration of overseas assets (including Crypto) worth over €50,000.</p>
-            </div>
-            <div class="term-card" data-terms="impuesto patrimonio wealth tax assets net worth autonomous communities">
-                <h3>Impuesto sobre el Patrimonio</h3>
-                <p>Wealth Tax on net assets. In 2026, applies to assets >€3M nationally (Solidarity Tax).</p>
-            </div>
-            <div class="term-card" data-terms="autonomo self-employed freelance social security reta monthly payment">
-                <h3>Autónomo</h3>
-                <p>Self-employed/Freelance status. Includes mandatory monthly Social Security contributions (RETA).</p>
-            </div>
-            <div class="term-card" data-terms="seguridad social social security system contributions healthcare pension">
-                <h3>Seguridad Social</h3>
-                <p>The state system funding healthcare, unemployment, and pensions.</p>
-            </div>
-            <div class="term-card" data-terms="certificado residencia fiscal tax residency certificate form 136">
-                <h3>Certificado Residencia Fiscal</h3>
-                <p>Official certificate proving tax residency to avoid double taxation.</p>
-            </div>
-            <div class="term-card" data-terms="convenio doble imposicion double taxation treaty dtt tax agreement">
-                <h3>Convenio Doble Imposición</h3>
-                <p>Treaties between countries to prevent paying tax twice on the same income.</p>
-            </div>
-            <div class="term-card" data-terms="gestor gestoria administrative agent tax accountant paperwork">
-                <h3>Gestor</h3>
-                <p>Administrative specialist who handles paperwork. Good for basic filing, bad for strategy.</p>
-            </div>
-             <div class="term-card" data-terms="asesor fiscal tax advisor accountant consultant gestor tributario">
-                <h3>Asesor Fiscal</h3>
-                <p>Professional Tax Advisor specialized in planning and compliance.</p>
-            </div>
-            <div class="term-card" data-terms="iban international bank account number cuenta bancaria swift bic">
-                <h3>IBAN</h3>
-                <p>International Bank Account Number; Spanish ones begin with 'ES'.</p>
-            </div>
-             <div class="term-card" data-terms="certificado bancario bank certificate saldo balance account proof">
-                <h3>Certificado Bancario</h3>
-                <p>Proof of balance document required for visas. Must be stamped by the bank.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="center" style="margin-top: 8rem; padding: 5rem 2rem; background: var(--text-primary); color: var(--bg-primary); border-radius: 30px;">
-        <h2 style="color: var(--bg-primary) !important; border: none; margin-top: 0;">Still confused by the jargon?</h2>
-        <p style="opacity: 0.9; margin-bottom: 2rem; color: var(--bg-primary) !important;">Spanish bureaucracy is a maze. Our specialists can help you navigate it with a clear roadmap.</p>
-        <a href="https://app.cal.eu/jurospain/30min" class="btn btn-white">Book Priority Call</a>
-    </div>
-
+<div class="search-container">
+    <input type="text" id="search-input" placeholder="Search 60+ terms (e.g. 'Beckham', 'Plusvalía', 'Arras')..." onkeyup="filterGlossary()">
 </div>
 
-<script>
-    function filterGlossary() {
-        let input = document.getElementById('search-input');
-        let filter = input.value.toLowerCase().trim();
-        let sections = document.querySelectorAll('.glossary-section-wrapper');
-        let noResults = document.getElementById('no-results');
-        let totalVisible = 0;
+<div class="container">
+    
+    <div class="nav-pills">
+        <a href="#immigration" class="nav-pill">Visas & Residency</a>
+        <a href="#taxes" class="nav-pill">Taxes & Finance</a>
+        <a href="#property" class="nav-pill">Real Estate</a>
+        <a href="#bureaucracy" class="nav-pill">Daily Bureaucracy</a>
+    </div>
 
-        sections.forEach(section => {
-            let cards = section.querySelectorAll('.term-card');
-            let sectionVisible = 0;
+    <div id="no-results" style="display:none; text-align:center; padding: 4rem;">
+        <h3>No terms found. Try a different keyword.</h3>
+    </div>
 
-            cards.forEach(card => {
-                let terms = card.getAttribute('data-terms') + card.innerText.toLowerCase();
-                if (terms.includes(filter)) {
-                    card.style.display = 'flex';
-                    sectionVisible++;
-                    totalVisible++;
-                } else {
-                    card.style.display = 'none';
-                }
-            });
+    <div class="glossary-cluster" id="immigration">
+        <div class="cluster-header">
+            <h2>Immigration & Visas</h2>
+            <p class="cluster-desc">Key terms for the Digital Nomad Visa, Non-Lucrative Visa, and EU Residency processes.</p>
+        </div>
+        <div class="terms-grid">
+            <div class="term-card" data-terms="uge large business unit fast track">
+                <span class="insider-badge">Insider Tool</span>
+                <h3>UGE-CE</h3>
+                <span class="sub-term">Unidad de Grandes Empresas</span>
+                <p>The specialized unit in Madrid that processes Digital Nomad Visas. Unlike local offices, they guarantee a 20-day resolution.</p>
+            </div>
+            <div class="term-card" data-terms="silencio administrativo administrative silence positive negative">
+                <span class="insider-badge">Insider Tool</span>
+                <h3>Silencio Administrativo</h3>
+                <span class="sub-term">Administrative Silence</span>
+                <p>A legal mechanism where a lack of response equals a decision. For the DNV, silence is <strong>Positive</strong> (Approval).</p>
+            </div>
+            
+            <div class="term-card" data-terms="nie foreigner identity number">
+                <h3>NIE</h3>
+                <span class="sub-term">Número de Identidad de Extranjero</span>
+                <p>Your all-purpose ID number for tax and legal acts. You have the number for life, even if your residency expires.</p>
+            </div>
+            <div class="term-card" data-terms="tie card residency card plastic">
+                <h3>TIE</h3>
+                <span class="sub-term">Tarjeta de Identidad de Extranjero</span>
+                <p>The physical plastic card that proves your residency. It contains your photo, fingerprint, and NIE.</p>
+            </div>
+            <div class="term-card" data-terms="toma de huellas fingerprinting appointment police">
+                <h3>Toma de Huellas</h3>
+                <span class="sub-term">Fingerprinting</span>
+                <p>The mandatory police appointment to provide biometric data for your TIE card after visa approval.</p>
+            </div>
+            <div class="term-card" data-terms="resolucion resolution decision letter approval">
+                <h3>Resolución</h3>
+                <span class="sub-term">Resolution Letter</span>
+                <p>The formal PDF document stating your visa is "Favorable" (Approved) or "Denegado" (Denied).</p>
+            </div>
+            <div class="term-card" data-terms="recurso alzada appeal rejection court">
+                <h3>Recurso de Alzada</h3>
+                <span class="sub-term">Administrative Appeal</span>
+                <p>The first level of appeal if your visa is rejected. It must be filed within one month of the denial.</p>
+            </div>
+            <div class="term-card" data-terms="renovacion renewal extension">
+                <h3>Renovación</h3>
+                <span class="sub-term">Renewal</span>
+                <p>The process of extending your residency. DNV renewals are currently for 3 years.</p>
+            </div>
+            <div class="term-card" data-terms="padron empadronamiento town hall census address">
+                <h3>Empadronamiento (Padrón)</h3>
+                <span class="sub-term">Municipal Registry</span>
+                <p>Registration at the Town Hall. Essential for proving address for TIE cards and public healthcare.</p>
+            </div>
+            <div class="term-card" data-terms="certificado registro union eu citizen green card">
+                <h3>Certificado de Registro (CUE)</h3>
+                <span class="sub-term">EU Green Card</span>
+                <p>The small green paper card for EU citizens residing in Spain. It does not have a photo.</p>
+            </div>
+            <div class="term-card" data-terms="visado business visa schengen sticker">
+                <h3>Visado</h3>
+                <span class="sub-term">Visa Sticker</span>
+                <p>The sticker in your passport allowing entry. Distinct from the "Autorización" (Residency Permit).</p>
+            </div>
+            <div class="term-card" data-terms="espacio schengen travel zone europe border">
+                <h3>Espacio Schengen</h3>
+                <span class="sub-term">Schengen Area</span>
+                <p>The 29 countries with open borders. Your Spanish residency allows 90/180 days travel here.</p>
+            </div>
+        </div>
+    </div>
 
-            section.style.display = sectionVisible > 0 ? 'block' : 'none';
-        });
-
-        noResults.style.display = totalVisible === 0 ? 'block' : 'none';
-    }
-</script>
+    <div class="glossary-cluster" id="taxes">
+        <div class="cluster-header">
+            <h2>Taxes & Finance</h2>
+            <p class="cluster-desc">Understanding Hacienda, the Beckham Law, and the Autonomo system.</p>
+        </div>
+        <div class="terms-grid">
+            <div class="term-card" data-terms="beckham law regimen impatriados special expats regime 24%">
+                <span class="insider-badge">Tax Hack</span>
+                <h3>Ley Beckham</h3>
+                <span class="sub-term">Special Expats Regime</span>
+                <p>A tax regime allowing new residents to pay a flat 24% tax on income up to €600k for 6 years.</p>
+            </div>
+            <div class="term-card" data-terms="certificado digital digital certificate electronic signature fnmt">
+                <span class="insider-badge">Essential Tool</span>
+                <h3>Certificado Digital</h3>
+                <span class="sub-term">Digital Certificate</span>
+                <p>A digital ID file installed in your browser. It allows you to sign documents and access tax portals online.</p>
+            </div>
+            <div class="term-card" data-terms="cl@ve pin clave system login government">
+                <h3>Cl@ve PIN</h3>
+                <span class="sub-term">Digital Key</span>
+                <p>A 2-factor authentication system for accessing Spanish government websites via a phone app.</p>
+            </div>
+            
+            <div class="term-card" data-terms="hacienda agencia tributaria tax office aeat">
+                <h3>Hacienda (AEAT)</h3>
+                <span class="sub-term">The Tax Agency</span>
+                <p>The dreaded Spanish Tax Authority. Responsible for audits and revenue collection.</p>
+            </div>
+            <div class="term-card" data-terms="residencia fiscal tax residency 183 days">
+                <h3>Residencia Fiscal</h3>
+                <span class="sub-term">Tax Residency</span>
+                <p>Status acquired by spending >183 days in Spain or having your center of vital interests here.</p>
+            </div>
+            <div class="term-card" data-terms="irpf personal income tax renta resident">
+                <h3>IRPF</h3>
+                <span class="sub-term">Impuesto sobre la Renta</span>
+                <p>Standard progressive income tax for residents (19% to 47%).</p>
+            </div>
+            <div class="term-card" data-terms="irnr non-resident tax rental income">
+                <h3>IRNR</h3>
+                <span class="sub-term">Non-Resident Income Tax</span>
+                <p>Tax paid by non-residents on Spanish income (e.g., rental income from a holiday home).</p>
+            </div>
+            <div class="term-card" data-terms="modelo 720 asset declaration foreign assets">
+                <h3>Modelo 720
