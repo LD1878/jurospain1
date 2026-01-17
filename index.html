@@ -1,7 +1,7 @@
 ---
 layout: default
-title: English-Speaking Relocation & Immigration Lawyers Spain | JuroSpain
-description: We bridge the gap between Spanish bureaucracy and your new life. Expert legal support for Digital Nomad Visas, Property Conveyancing, and the Beckham Law.
+title: English-Speaking Immigration Lawyers Spain | Digital Nomad Visa & Property Law
+description: The premium legal partner for moving to Spain. We combine Oxford-level advisory with a network of registered Spanish attorneys to handle Visas, Property, and Tax.
 permalink: /
 ---
 
@@ -21,15 +21,15 @@ permalink: /
     "postalCode": "28013",
     "addressCountry": "ES"
   },
-  "description": "Premium English-speaking immigration and relocation services in Spain. Specialists in the Digital Nomad Visa, Real Estate Law, and Tax Optimization.",
-  "priceRange": "€€"
+  "priceRange": "€€€",
+  "description": "Premium English-speaking immigration and relocation services in Spain."
 }
 </script>
 
 <style>
-    /* HERO & TYPOGRAPHY */
+    /* 1. HERO & TYPOGRAPHY */
     .hero-authority {
-        padding: 7rem 0 5rem;
+        padding: 6rem 0 5rem;
         background: linear-gradient(to bottom, var(--bg-secondary) 0%, var(--bg-primary) 100%);
         border-top: 8px solid var(--sp-red);
         position: relative;
@@ -37,9 +37,9 @@ permalink: /
 
     .seo-h1 {
         font-family: 'Oswald', sans-serif;
-        font-size: clamp(2.8rem, 6vw, 4.5rem);
+        font-size: clamp(2.8rem, 5vw, 4.5rem);
         font-weight: 700;
-        line-height: 1.05;
+        line-height: 1.1;
         color: var(--text-primary);
         text-transform: uppercase;
         margin-bottom: 1.5rem;
@@ -55,96 +55,135 @@ permalink: /
         line-height: 1.6;
     }
 
-    /* NARRATIVE SECTIONS (The "Oxford" Layer) */
+    /* 2. VIDEO CONTAINER (PREMIUM FEEL) */
+    .video-cinema-frame {
+        max-width: 950px;
+        margin: 0 auto 4rem;
+        border-radius: 12px;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* Deep shadow */
+        overflow: hidden;
+        border: 1px solid var(--border-light);
+        background: black;
+    }
+
+    /* 3. "SERVICE DOSSIERS" (THE PILLAR FIX) */
+    .dossier-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2.5rem;
+        margin-top: 3rem;
+    }
+
+    .dossier-card {
+        background: var(--bg-primary);
+        padding: 3rem 2.5rem;
+        border: 1px solid var(--border-light);
+        border-left: 6px solid var(--gold-color); /* The "Gold Thread" */
+        box-shadow: var(--elev-1);
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .dossier-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--elev-3);
+        border-left-color: var(--sp-red); /* Brand Red on Hover */
+    }
+
+    .dossier-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        display: block;
+    }
+
+    .dossier-title {
+        font-family: 'Oswald', sans-serif;
+        font-size: 1.8rem;
+        margin: 0 0 1rem;
+        color: var(--text-primary);
+    }
+
+    .dossier-desc {
+        color: var(--text-muted);
+        line-height: 1.7;
+        margin-bottom: 2rem;
+        font-size: 1.05rem;
+    }
+
+    .dossier-link {
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--text-primary);
+        text-decoration: none;
+        border-bottom: 2px solid var(--sp-red);
+        padding-bottom: 3px;
+        transition: color 0.2s;
+    }
+
+    .dossier-link:hover { color: var(--sp-red); }
+
+    /* 4. NARRATIVE BLOCKS (Oxford Voice) */
     .narrative-block {
-        max-width: 800px;
+        max-width: 850px;
         margin: 0 auto;
-        padding: 4rem 0;
+        padding: 2rem 0;
     }
 
     .narrative-h2 {
         font-family: 'Oswald', sans-serif;
-        font-size: 2.8rem;
+        font-size: 2.5rem;
         color: var(--text-primary);
         margin-bottom: 1.5rem;
-        line-height: 1.2;
     }
 
     .narrative-p {
-        font-size: 1.15rem;
+        font-size: 1.2rem;
         line-height: 1.8;
         color: var(--text-primary);
         margin-bottom: 1.5rem;
     }
 
-    .narrative-highlight {
-        border-left: 4px solid var(--sp-red);
-        padding-left: 1.5rem;
-        font-style: italic;
-        color: var(--text-muted);
-        font-size: 1.2rem;
-        margin: 2rem 0;
-    }
-
-    /* SERVICES GRID */
-    .feature-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin-top: 3rem;
-    }
-
-    .feature-card {
-        background: var(--bg-secondary);
-        padding: 2.5rem;
-        border-radius: 12px;
-        border: 1px solid var(--border-light);
-        transition: transform 0.2s;
-    }
-    
-    .feature-card:hover {
-        transform: translateY(-5px);
-        border-color: var(--sp-red);
-    }
-
-    /* TRUST STRIP */
-    .trust-stripe {
-        background: var(--sp-red);
-        color: white;
-        padding: 3rem 0;
-    }
-
-    .stat-number {
-        font-family: 'Oswald', sans-serif;
-        font-size: 3rem;
-        font-weight: 700;
-        color: var(--gold-color);
-    }
-
-    /* FAQ ACCORDION FOR SEO */
-    .seo-faq details {
+    /* 5. FAQ STYLING */
+    .pro-faq details {
         background: var(--bg-secondary);
         margin-bottom: 1rem;
-        border-radius: 8px;
-        overflow: hidden;
+        border: 1px solid var(--border-light);
+        border-radius: 4px;
     }
-    .seo-faq summary {
+    .pro-faq summary {
         padding: 1.5rem;
         font-weight: 700;
+        font-size: 1.1rem;
         cursor: pointer;
         list-style: none;
         color: var(--text-primary);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
-    .seo-faq p {
+    .pro-faq summary::after { content: "+"; font-size: 1.5rem; color: var(--sp-red); }
+    .pro-faq details[open] summary::after { content: "-"; }
+    
+    .pro-faq p {
         padding: 0 1.5rem 1.5rem;
         margin: 0;
         color: var(--text-muted);
         line-height: 1.6;
     }
 
+    /* CTA BAR */
+    .cta-bar {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        margin-top: 2rem;
+        flex-wrap: wrap;
+    }
+
     @media (max-width: 768px) {
         .seo-h1 { font-size: 2.5rem; }
-        .narrative-h2 { font-size: 2rem; }
+        .dossier-card { padding: 2rem; }
     }
 </style>
 
@@ -155,128 +194,46 @@ permalink: /
         </p>
         
         <h1 class="seo-h1">
-            We Navigate The Bureaucracy.<br>
-            <span style="color: var(--sp-red);">You Live The Life.</span>
+            English-Speaking <br>
+            <span style="color: var(--sp-red);">Immigration Lawyers</span> in Spain
         </h1>
         
         <p class="hero-sub">
-            Moving to Spain shouldn't require a law degree. JuroSpain combines <b>native English advisory</b> with a vetted network of <b>Spanish attorneys</b> to secure your Visa, Property, and Tax Residency with zero friction.
+            The modern alternative to traditional firms. We combine <b>Oxford-level advisory</b> with a vetted network of <b>registered Spanish attorneys</b> to handle your Visa, Property, and Tax Residency.
         </p>
 
-        <div style="max-width: 900px; margin: 0 auto 3.5rem; border-radius: 20px; border: 8px solid var(--bg-secondary); box-shadow: var(--elev-3); overflow: hidden; position: relative; aspect-ratio: 16/9; cursor: pointer;" 
-             onclick="this.innerHTML='<iframe src=\'https://www.youtube.com/embed/9WScByhEVms?autoplay=1&rel=0&modestbranding=1\' style=\'position:absolute;top:0;left:0;width:100%;height:100%;\' frameborder=\'0\' allowfullscreen></iframe>'">
-            <img src="https://img.youtube.com/vi/9WScByhEVms/maxresdefault.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="JuroSpain Introduction">
-            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(227, 6, 19, 0.9); width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 30px rgba(0,0,0,0.5);">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+        <div class="video-cinema-frame">
+            <div style="padding:56.25% 0 0 0;position:relative;">
+                <iframe src="https://www.youtube.com/embed/9WScByhEVms?rel=0&modestbranding=1" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
 
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-            <a href="https://app.cal.eu/jurospain/30min" class="btn" style="padding: 1.2rem 3rem; font-size: 1.1rem;">
-                Book Free Consultation
+        <div class="cta-bar">
+            <a href="https://app.cal.eu/jurospain/30min" class="btn" style="padding: 1.3rem 3.5rem; font-size: 1.15rem;">
+                Book Priority Consultation
             </a>
-            <a href="/pricing/" class="btn btn-outline" style="padding: 1.2rem 3rem; font-size: 1.1rem; border: 2px solid var(--text-primary); color: var(--text-primary) !important;">
+            <a href="/pricing/" class="btn btn-outline" style="padding: 1.3rem 3.5rem; font-size: 1.15rem; border: 2px solid var(--text-primary); color: var(--text-primary) !important;">
                 See Fixed Pricing
             </a>
         </div>
     </div>
 </div>
 
-<section class="trust-stripe">
+<section style="background: var(--sp-red); color: white; padding: 3rem 0;">
     <div class="container center">
         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
             <div>
-                <div class="stat-number">100%</div>
-                <p style="text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Visa Approval Record*</p>
+                <div style="font-family: 'Oswald'; font-size: 3rem; font-weight: 700; color: var(--gold-color);">100%</div>
+                <p style="text-transform: uppercase; font-weight: 700; margin: 0; font-size: 0.9rem;">Approval Record*</p>
+                <small style="opacity: 0.7; font-size: 0.7rem;">*On pre-validated files</small>
             </div>
             <div>
-                <div class="stat-number">20</div>
-                <p style="text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Days to Resolution</p>
+                <div style="font-family: 'Oswald'; font-size: 3rem; font-weight: 700; color: var(--gold-color);">20</div>
+                <p style="text-transform: uppercase; font-weight: 700; margin: 0; font-size: 0.9rem;">Days to Resolution</p>
             </div>
             <div>
-                <div class="stat-number">24%</div>
-                <p style="text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Beckham Law Rate</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section style="background: var(--bg-primary); padding: 6rem 0;">
-    <div class="container">
-        <div class="narrative-block">
-            <h2 class="narrative-h2">Spain is Paradise.<br>The Administration is Purgatory.</h2>
-            
-            <p class="narrative-p">
-                There is a reason Spain is the world's most popular destination for expats. The lifestyle, the climate, and the culture are unmatched. But there is a gatekeeper to this paradise: <b>The Spanish Bureaucracy.</b>
-            </p>
-            
-            <p class="narrative-p">
-                It is a system designed in the 19th century, struggling to cope with the 21st.
-                Websites crash. Appointments ("Cita Previa") disappear in seconds. A single missing stamp on a translated document can delay your life by six months.
-            </p>
-
-            <div class="narrative-highlight">
-                "The mistake most intelligent people make is assuming the Spanish system is logical. It is not logical; it is procedural. And if you miss a step, the procedure stops."
-            </div>
-
-            <p class="narrative-p">
-                This is where JuroSpain steps in. We do not just "fill out forms." We act as your <b>architects of residency.</b> We understand the nuanced difference between what the law <i>says</i> and what the civil servant <i>wants</i>.
-            </p>
-        </div>
-    </div>
-</section>
-
-<section style="background: var(--bg-secondary); padding: 7rem 0; border-top: 1px solid var(--border-light);">
-    <div class="container">
-        <h2 class="center narrative-h2" style="margin-bottom: 1rem;">The Juro Protocol</h2>
-        <p class="center" style="max-width: 600px; margin: 0 auto 4rem; color: var(--text-muted); font-size: 1.2rem;">
-            Three specialized pillars designed to protect your move from every legal angle.
-        </p>
-
-        <div class="feature-grid">
-            <div class="feature-card">
-                <span style="font-size: 2.5rem; display: block; margin-bottom: 1rem;">💻</span>
-                <h3 style="color: var(--sp-red); margin: 0 0 1rem;">1. Immigration & Visas</h3>
-                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
-                    We bypass the local immigration offices entirely. As registered attorneys, we file directly with the <b>UGE-CE (Large Business Unit)</b> in Madrid for expedited processing.
-                </p>
-                <ul style="padding-left: 1.2rem; color: var(--text-primary); line-height: 1.8; margin-bottom: 2rem;">
-                    <li>Digital Nomad Visa (DNV)</li>
-                    <li>Highly Qualified Professional (HQP)</li>
-                    <li>Non-Lucrative Visa (NLV)</li>
-                    <li>Golden Visa (Real Estate)</li>
-                </ul>
-                <a href="/pricing/" style="font-weight: 800; color: var(--text-primary); text-decoration: none;">Explore Visa Options →</a>
-            </div>
-
-            <div class="feature-card">
-                <span style="font-size: 2.5rem; display: block; margin-bottom: 1rem;">🏡</span>
-                <h3 style="color: var(--sp-red); margin: 0 0 1rem;">2. Property Law</h3>
-                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
-                    The Spanish property market is rife with hidden debts and illegal structures. Our conveyancing team performs forensic Due Diligence before you sign a deposit.
-                </p>
-                <ul style="padding-left: 1.2rem; color: var(--text-primary); line-height: 1.8; margin-bottom: 2rem;">
-                    <li>Debt & Embargo Checks</li>
-                    <li>"Nota Simple" Analysis</li>
-                    <li>Contract of Arras Review</li>
-                    <li>Notary Representation</li>
-                </ul>
-                <a href="/pricing/" style="font-weight: 800; color: var(--text-primary); text-decoration: none;">Protect Your Purchase →</a>
-            </div>
-
-            <div class="feature-card">
-                <span style="font-size: 2.5rem; display: block; margin-bottom: 1rem;">💶</span>
-                <h3 style="color: var(--sp-red); margin: 0 0 1rem;">3. Fiscal Optimization</h3>
-                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
-                    Residency is useless if you lose 50% of your income to taxes. We align your arrival date with Spanish tax years to maximize your savings.
-                </p>
-                <ul style="padding-left: 1.2rem; color: var(--text-primary); line-height: 1.8; margin-bottom: 2rem;">
-                    <li>Beckham Law Application</li>
-                    <li>US/UK Double Taxation Treaties</li>
-                    <li>Autónomo (Freelance) Setup</li>
-                    <li>Crypto Asset Reporting</li>
-                </ul>
-                <a href="/services/" style="font-weight: 800; color: var(--text-primary); text-decoration: none;">Optimize Your Taxes →</a>
+                <div style="font-family: 'Oswald'; font-size: 3rem; font-weight: 700; color: var(--gold-color);">24%</div>
+                <p style="text-transform: uppercase; font-weight: 700; margin: 0; font-size: 0.9rem;">Beckham Law Rate</p>
             </div>
         </div>
     </div>
@@ -284,60 +241,126 @@ permalink: /
 
 <section style="background: var(--bg-primary); padding: 7rem 0;">
     <div class="container">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;">
-            <div>
-                <h2 class="narrative-h2">The "Network" Advantage</h2>
-                <p class="narrative-p">
-                    Many agencies are just a website and a call center. JuroSpain is different. We are a <b>coordinated network of independent Spanish lawyers</b> (*Abogados Colegiados*) who have united under one standard of English-speaking service.
+        <div class="narrative-block">
+            <h2 class="narrative-h2">Spain is a Masterpiece.<br>Its Administration is a Maze.</h2>
+            
+            <p class="narrative-p">
+                There is a dissonance in the expat experience. You move here for the lifestyle—the slow lunches, the Mediterranean climate, the culture. But to access that life, you must first navigate a bureaucracy that is famously rigid, opaque, and unforgiving.
+            </p>
+            
+            <p class="narrative-p">
+                In 2026, the challenge isn't just "language." It's <b>procedure</b>. 
+                Appointment systems crash. "Silence" from the administration has legal consequences. A single error in a sworn translation can pause your life for months.
+            </p>
+            
+            <p class="narrative-p">
+                <b>This is where JuroSpain enters.</b> We do not simply "help." We architect your residency. We stand between you and the chaos, ensuring that your transition is as elegant as the life you are coming here to lead.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section style="background: var(--bg-secondary); padding: 7rem 0; border-top: 1px solid var(--border-light);">
+    <div class="container">
+        <div class="center" style="margin-bottom: 4rem;">
+            <h2 class="narrative-h2" style="margin-bottom: 1rem;">The Juro Protocols</h2>
+            <p class="hero-sub" style="margin-bottom: 0;">Three pillars of protection for your move.</p>
+        </div>
+
+        <div class="dossier-grid">
+            <div class="dossier-card">
+                <span class="dossier-icon">⚖️</span>
+                <h3 class="dossier-title">Immigration & Visas</h3>
+                <p class="dossier-desc">
+                    We bypass the slow provincial offices. As registered attorneys, we file directly with the <b>UGE-CE (Large Business Unit)</b> in Madrid for expedited resolutions.
                 </p>
-                <p class="narrative-p">
-                    When you hire Juro, you aren't getting a "helper." You are getting a Bar-registered attorney who has the legal standing to sign documents on your behalf, appeal rejections in court, and hold the administration accountable.
-                </p>
-            </div>
-            <div style="background: var(--bg-secondary); padding: 3rem; border-left: 6px solid var(--gold-color); border-radius: 8px;">
-                <h4 style="font-family: 'Oswald', sans-serif; font-size: 1.5rem; margin-top: 0; color: var(--text-primary);">Why "Registered" Matters:</h4>
-                <p style="margin-bottom: 1.5rem; color: var(--text-muted);">Only a registered lawyer can:</p>
-                <ul style="list-style: none; padding: 0; font-size: 1.1rem; line-height: 2; color: var(--text-primary);">
-                    <li>✅ Access the "Red Abogacía" Digital Portal</li>
-                    <li>✅ File appeals (Recurso de Alzada)</li>
-                    <li>✅ Certify documents without a Notary</li>
-                    <li>✅ Represent you in court</li>
+                <ul style="padding-left: 1.2rem; margin-bottom: 2rem; color: var(--text-primary); line-height: 1.8;">
+                    <li>Digital Nomad Visa (DNV)</li>
+                    <li>Highly Qualified Professional (HQP)</li>
+                    <li>Non-Lucrative Visa (NLV)</li>
+                    <li>Appeals & Renewals</li>
                 </ul>
+                <a href="/pricing/" class="dossier-link">Check Visa Requirements →</a>
+            </div>
+
+            <div class="dossier-card">
+                <span class="dossier-icon">🏡</span>
+                <h3 class="dossier-title">Property Conveyancing</h3>
+                <p class="dossier-desc">
+                    The Spanish market is rife with hidden debts. We perform forensic <b>Due Diligence</b> on the land registry ("Nota Simple") before you sign a single deposit.
+                </p>
+                <ul style="padding-left: 1.2rem; margin-bottom: 2rem; color: var(--text-primary); line-height: 1.8;">
+                    <li>Debt & Embargo Audits</li>
+                    <li>"Contrato de Arras" Review</li>
+                    <li>Notary Representation</li>
+                    <li>Mortgage Advisory</li>
+                </ul>
+                <a href="/pricing/" class="dossier-link">Secure Your Home →</a>
+            </div>
+
+            <div class="dossier-card">
+                <span class="dossier-icon">💶</span>
+                <h3 class="dossier-title">Fiscal Optimization</h3>
+                <p class="dossier-desc">
+                    Residency is useless if you lose 50% of your income. We align your arrival with the fiscal calendar to maximize the <b>Beckham Law</b> benefits.
+                </p>
+                <ul style="padding-left: 1.2rem; margin-bottom: 2rem; color: var(--text-primary); line-height: 1.8;">
+                    <li>Beckham Law Application</li>
+                    <li>US/UK Double Tax Treaties</li>
+                    <li>Autónomo (Freelance) Setup</li>
+                    <li>Crypto Asset Reporting</li>
+                </ul>
+                <a href="/services/" class="dossier-link">Optimize Your Tax →</a>
             </div>
         </div>
     </div>
 </section>
 
-<section style="background: var(--bg-secondary); padding: 6rem 0;">
-    <div class="container" style="max-width: 800px;">
-        <h2 class="center narrative-h2">Common Questions</h2>
+<section style="background: var(--bg-primary); padding: 7rem 0;">
+    <div class="container" style="max-width: 850px;">
+        <h2 class="center narrative-h2" style="margin-bottom: 3rem;">Frequently Asked Questions</h2>
         
-        <div class="seo-faq">
+        <div class="pro-faq">
             <details>
-                <summary>Do I need to be in Spain to apply for the Digital Nomad Visa?</summary>
-                <p>Yes, for the 3-year permit. While you can apply for a 1-year visa from a consulate abroad, we strongly recommend entering Spain as a tourist and applying directly for the 3-year residency permit via the UGE-CE in Madrid. It is faster and grants longer stability.</p>
+                <summary>How much income do I need for the Digital Nomad Visa in 2026?</summary>
+                <p>To qualify for the DNV, you must prove a monthly income of 200% of the SMI (Minimum Interprofessional Wage). In 2026, this threshold is approximately <b>€2,700 per month</b> for a single applicant. For a spouse, add 75% of the SMI, and for each child, add 25%.</p>
             </details>
+            
             <details>
-                <summary>What is the minimum income requirement for 2026?</summary>
-                <p>For the Digital Nomad Visa, you must prove 200% of the SMI (Minimum Interprofessional Wage). In 2026, this amounts to approximately €2,700 per month for a single applicant, with additions for spouses and children.</p>
+                <summary>Can I apply if I am already in Spain as a tourist?</summary>
+                <p><b>Yes, and we recommend it.</b> Applying from within Spain (during your 90-day tourist window) allows us to file directly for the 3-Year Residency Permit. If you apply from a Consulate in your home country, you only receive a 1-Year Visa and must duplicate the paperwork later.</p>
             </details>
+
             <details>
-                <summary>Can JuroSpain guarantee my approval?</summary>
-                <p>No honest lawyer can guarantee the decision of a government official. However, we offer a <b>Zero Rejection Record</b> guarantee on files we pre-validate. If we say your file is ready, it gets approved. If we doubt it, we won't let you file until it is fixed.</p>
+                <summary>Does JuroSpain handle the "Beckham Law" application?</summary>
+                <p>Yes. This is a critical part of our protocol. The "Special Expats Regime" (Beckham Law) allows you to pay a flat 24% tax rate on income up to €600,000. You must apply within 6 months of arriving. We usually file this immediately after your visa is approved.</p>
             </details>
+
             <details>
-                <summary>How long does the process take?</summary>
-                <p>Once we submit your file to the UGE-CE, they have a statutory limit of 20 working days to respond. If they fail to do so, your visa is approved by "Administrative Silence." Realistically, most of our clients receive their resolution within 15-25 days.</p>
+                <summary>What is the "Contractor Flip" strategy?</summary>
+                <p>This is a strategy for US/UK employees whose companies cannot provide a Social Security "Certificate of Coverage." We help you transition your contract to a B2B (Freelance) agreement, allowing you to register as an <i>Autónomo</i> in Spain. This bypasses the Social Security blockage that rejects many applicants.</p>
+            </details>
+
+            <details>
+                <summary>Why shouldn't I just use a generic Gestoría?</summary>
+                <p>A <i>Gestoría</i> handles administration; a Lawyer handles strategy. A gestor will file what you give them. If you give them the wrong document, you get rejected. JuroSpain audits your file <i>before</i> submission to ensure it meets the legal criteria of the UGE-CE.</p>
+            </details>
+
+            <details>
+                <summary>How long does the entire process take?</summary>
+                <p>Once we submit your "Perfect File" to the UGE-CE, the law mandates a 20-working-day resolution period. If approved (or if we invoke Administrative Silence), we then book your fingerprinting appointment. Most clients go from "Application" to "Residency Card" in about 6-8 weeks total.</p>
             </details>
         </div>
     </div>
 </section>
 
-<div class="container center" style="padding: 7rem 0;">
-    <h2 class="narrative-h2">Stop Googling.<br>Start Packing.</h2>
-    <p style="font-size: 1.2rem; margin-bottom: 3rem; color: var(--text-muted);">
-        Your new life in Spain is waiting. Let us handle the paperwork that stands in your way.
-    </p>
-    <a href="https://app.cal.eu/jurospain/30min" class="btn" style="font-size: 1.3rem; padding: 1.5rem 4rem;">Start Your Application</a>
-    <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.6;">No commitment. 100% Confidential.</p>
-</div>
+<section style="padding: 6rem 0; background: var(--bg-secondary); border-top: 1px solid var(--border-light);">
+    <div class="container center">
+        <h2 class="narrative-h2">Stop Googling. Start Packing.</h2>
+        <p style="font-size: 1.25rem; color: var(--text-muted); margin-bottom: 2.5rem;">
+            Your new life in Spain is waiting. Let us handle the paperwork that stands in your way.
+        </p>
+        <a href="https://app.cal.eu/jurospain/30min" class="btn" style="font-size: 1.3rem; padding: 1.5rem 4rem;">Book Your Consultation</a>
+        <p style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.6;">100% Confidential. No commitment required.</p>
+    </div>
+</section>
