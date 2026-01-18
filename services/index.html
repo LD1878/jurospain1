@@ -70,7 +70,7 @@ permalink: /services/
 
     .premium-service-card:hover {
         transform: translateY(-8px);
-        box-shadow: var(--elev-3);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         border-bottom-color: var(--gold-color);
     }
 
@@ -96,10 +96,10 @@ permalink: /services/
         border: 1px solid var(--border-light);
     }
 
-    /* --- 4. DELIVERY SECTION --- */
+    /* --- 4. DELIVERY SECTION (THEME SAFE) --- */
     .delivery-section {
-        background: var(--text-primary); /* Dark mode feel always */
-        color: var(--bg-secondary);
+        background: var(--text-primary); /* Inversion Trick: Dark in Light Mode */
+        color: var(--bg-primary); /* Text flips automatically */
         border-radius: 30px;
         padding: 5rem 4rem;
         margin: 6rem 0;
@@ -113,12 +113,16 @@ permalink: /services/
     }
 
     .savings-box {
-        background: rgba(255,255,255,0.05);
+        background: rgba(255,255,255,0.05); /* Works on dark backgrounds */
         padding: 3rem;
         border-radius: 20px;
         border: 1px solid rgba(255,255,255,0.1);
         text-align: center;
     }
+    
+    /* Ensure text inside delivery section stays legible */
+    .delivery-text { color: var(--bg-primary); opacity: 0.9; line-height: 1.8; }
+    .delivery-subtext { color: var(--bg-primary); opacity: 0.7; }
 
     /* --- MOBILE & TABLET OVERRIDES --- */
     @media (max-width: 900px) {
@@ -167,7 +171,7 @@ permalink: /services/
                 <h3>Digital Nomad Visa</h3>
                 <p style="color: var(--text-muted); line-height: 1.6;">The definitive 3-year residency for remote workers. Our team handles the UGE filing, document audits, and your Social Security registration.</p>
             </div>
-            <a href="/pricing/" class="btn" style="margin-top: 2rem;">Check Eligibility & Pricing</a>
+            <a href="/services/digital-nomad-visa/" class="btn" style="margin-top: 2rem;">Check Eligibility & Pricing</a>
         </div>
 
         <div class="premium-service-card">
@@ -201,7 +205,7 @@ permalink: /services/
                 <h3>Conveyancing Audit</h3>
                 <p style="color: var(--text-muted); line-height: 1.6;">Don't buy blindly. Our partners perform a deep-dive legal audit to check for hidden debts, illegal builds, and license issues.</p>
             </div>
-            <a href="/pricing/" class="btn" style="margin-top: 2rem;">See Conveyancing Rates</a>
+            <a href="/services/real-estate/" class="btn" style="margin-top: 2rem;">See Conveyancing Rates</a>
         </div>
 
         <div class="premium-service-card">
@@ -228,17 +232,19 @@ permalink: /services/
             <h3 style="margin-top: 0; color: var(--text-primary);">Digital Certificate</h3>
             <p style="color: var(--text-muted);">Your digital ID to sign documents with the government online.</p>
         </div>
-        <div class="card" style="background: var(--bg-secondary); border: 1px solid var(--border-light);">
-            <h3 style="margin-top: 0; color: var(--text-primary);">Bank Accounts</h3>
-            <p style="color: var(--text-muted);">Seamless setup of Spanish bank accounts for expats before arrival.</p>
-        </div>
+        <a href="/services/relocation/" style="text-decoration: none;">
+            <div class="card" style="background: var(--bg-secondary); border: 1px solid var(--border-light); height: 100%; transition: 0.2s;">
+                <h3 style="margin-top: 0; color: var(--text-primary);">Bank Accounts</h3>
+                <p style="color: var(--text-muted);">Seamless setup of Spanish bank accounts for expats before arrival.</p>
+            </div>
+        </a>
     </div>
 
     <div class="delivery-section">
         <div class="delivery-grid">
             <div>
-                <h2 style="color: white !important; border: none; font-size: 2.5rem; margin-top: 0; font-family: 'Oswald';">How We Deliver.</h2>
-                <p style="font-size: 1.1rem; opacity: 0.9; line-height: 1.8; color: #e2e8f0;">
+                <h2 style="color: var(--bg-secondary) !important; border: none; font-size: 2.5rem; margin-top: 0; font-family: 'Oswald';">How We Deliver.</h2>
+                <p class="delivery-text">
                     We aren't a traditional, slow-moving law firm. JURO Spain is a <b>legal concierge</b>. We act as your project managers, document auditors, and translators, while our vetted network of registered Abogados handle the formal submissions.
                 </p>
                 <ul style="list-style: none; padding: 0; margin-top: 2rem; color: var(--gold-color); font-weight: 700;">
@@ -249,9 +255,9 @@ permalink: /services/
             </div>
             <div style="display: flex; justify-content: center;">
                 <div class="savings-box">
-                    <h4 style="margin-top: 0; color: #e2e8f0; font-weight: 400; text-transform: uppercase; letter-spacing: 1px;">Average Savings</h4>
+                    <h4 style="margin-top: 0; color: var(--bg-secondary); font-weight: 400; text-transform: uppercase; letter-spacing: 1px;">Average Savings</h4>
                     <div style="font-size: 4.5rem; font-family: 'Oswald'; color: var(--gold-color); line-height: 1;">€350+</div>
-                    <p style="margin-bottom: 0; color: #e2e8f0; font-size: 0.9rem; margin-top: 10px;">per application vs traditional firms</p>
+                    <p class="delivery-subtext" style="margin-top: 10px;">per application vs traditional firms</p>
                 </div>
             </div>
         </div>
