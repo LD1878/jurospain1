@@ -6,7 +6,7 @@ permalink: /blog/
 ---
 
 <style>
-    /* 1. BLOG HERO - THEME SYNCED */
+    /* --- EXISTING STYLES (Preserved) --- */
     .blog-hero {
         padding: 5rem 0 3rem;
         background: linear-gradient(to bottom, var(--bg-secondary) 0%, var(--bg-primary) 100%);
@@ -24,7 +24,6 @@ permalink: /blog/
         color: var(--text-primary);
     }
 
-    /* 2. PREMIUM SEARCH BAR - THEME SYNCED */
     .search-wrapper {
         position: relative;
         max-width: 700px;
@@ -61,16 +60,15 @@ permalink: /blog/
         pointer-events: none;
     }
 
-    /* 3. CLICKABLE CARD RE-ENGINEERING - THEME SYNCED */
     .post-list-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
         gap: 2.5rem;
-        margin: 5rem 0;
+        margin: 3rem 0; /* Reduced margin to fit filters */
     }
 
     .post-card-link {
-        display: flex !important;
+        display: flex !important; /* Start hidden handled by JS */
         flex-direction: column !important;
         text-decoration: none !important;
         background: var(--bg-secondary);
@@ -116,10 +114,71 @@ permalink: /blog/
         letter-spacing: 1px;
     }
 
-    /* MOBILE ADJUSTMENTS */
+    /* --- NEW FEATURES: FILTERS & LOAD MORE --- */
+    
+    /* 1. Category Filter Pills */
+    .filter-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin: 3rem 0 1rem;
+    }
+
+    .filter-btn {
+        background: transparent;
+        border: 2px solid var(--border-light);
+        color: var(--text-muted);
+        padding: 0.6rem 1.2rem;
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.2s ease;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+        background: var(--sp-red);
+        color: white;
+        border-color: var(--sp-red);
+        box-shadow: 0 4px 15px rgba(227, 6, 19, 0.2);
+    }
+
+    /* 2. Load More Button */
+    .load-more-wrapper {
+        text-align: center;
+        margin-top: 2rem;
+        margin-bottom: 6rem;
+    }
+
+    .btn-load-more {
+        background: var(--bg-secondary);
+        color: var(--text-primary);
+        border: 2px solid var(--text-primary);
+        padding: 1rem 3rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .btn-load-more:hover {
+        background: var(--text-primary);
+        color: var(--bg-primary);
+    }
+
+    /* Helper to hide items initially */
+    .hidden-item {
+        display: none !important;
+    }
+
     @media (max-width: 768px) {
         .blog-h1 { font-size: 2.2rem !important; }
         .post-card-link { padding: 1.8rem; }
+        .filter-container { justify-content: flex-start; overflow-x: auto; padding-bottom: 10px; }
+        .filter-btn { white-space: nowrap; }
     }
 </style>
 
@@ -134,7 +193,7 @@ permalink: /blog/
         </p>
 
         <div class="search-wrapper">
-            <input type="text" id="search-input" placeholder="Search by topic (e.g. 'Beckham Law', 'NIE')..." onkeyup="filterPosts()">
+            <input type="text" id="search-input" placeholder="Search by topic (e.g. 'Beckham Law', 'NIE')..." onkeyup="handleSearch()">
             <span class="search-icon">🔍</span>
         </div>
     </div>
@@ -146,11 +205,27 @@ permalink: /blog/
 
     {% if sorted_posts.size > 0 %}
         
+        <div class="filter-container">
+            <button class="filter-btn active" onclick="filterByTag('all', this)">All Topics</button>
+            
+            {% assign raw_tags = "" %}
+            {% for post in site.posts %}
+                {% assign ttags = post.tags | join: '|' | append: '|' %}
+                {% assign raw_tags = raw_tags | append: ttags %}
+            {% endfor %}
+            {% assign raw_tags = raw_tags | split: '|' | uniq | sort %}
+
+            {% for tag in raw_tags %}
+                {% if tag != "" %}
+                <button class="filter-btn" onclick="filterByTag('{{ tag }}', this)">{{ tag | capitalize }}</button>
+                {% endif %}
+            {% endfor %}
+        </div>
+
         <section id="post-grid" class="post-list-grid">
             {% for post in sorted_posts %}
 
                 {% assign post_summary_source = post.seo_summary | default: post.excerpt %}
-
                 {% comment %} CLEAN UP LOGIC {% endcomment %}
                 {% if post_summary_source contains 'Table of contents' or post_summary_source contains 'table of contents' %}
                     {% assign cleaned_excerpt = post_summary_source | strip_html | replace: "Table of contents", "" | replace: "Overview:", "" | strip | truncate: 160 %}
@@ -159,7 +234,8 @@ permalink: /blog/
                 {% endif %}
 
                 <a href="{{ post.url | relative_url }}" 
-                   class="post-card-link" 
+                   class="post-card-link post-item" 
+                   data-tags="{{ post.tags | join: ',' | downcase }}"
                    data-search="{{ post.title | downcase }} {{ cleaned_excerpt | downcase }} {{ post.tags | join: ' ' | downcase }}"> 
                     
                     <span style="font-size: 0.75rem; font-weight: 800; color: var(--gold-color); text-transform: uppercase; letter-spacing: 1px;">
@@ -176,11 +252,15 @@ permalink: /blog/
             {% endfor %}
         </section>
 
-        <div id="no-results" class="center hidden" style="padding: 6rem 0;">
+        <div id="load-more-container" class="load-more-wrapper">
+            <button id="load-more-btn" class="btn-load-more" onclick="loadMore()">Load More Guides</button>
+        </div>
+
+        <div id="no-results" class="center hidden-item" style="padding: 6rem 0;">
             <div style="font-size: 3.5rem; margin-bottom: 1rem;">🔎</div>
             <h3 style="border: none; color: var(--text-primary);">No results found.</h3>
-            <p style="color: var(--text-muted);">Try searching for a broader term like 'Visa' or 'Tax'.</p>
-            <button onclick="document.getElementById('search-input').value = ''; filterPosts();" class="btn" style="margin-top: 1.5rem;">Clear Search</button>
+            <p style="color: var(--text-muted);">Try searching for a broader term or resetting the filters.</p>
+            <button onclick="resetFilters()" class="btn" style="margin-top: 1.5rem; background: var(--sp-red); color: white; border: none; padding: 1rem 2rem;">Clear Search</button>
         </div>
 
     {% else %}
@@ -204,31 +284,129 @@ permalink: /blog/
 </div>
 
 <script>
-    function filterPosts() {
-        var input = document.getElementById('search-input');
-        var filter = input.value.toLowerCase().trim();
-        var grid = document.getElementById('post-grid');
-        var cards = grid.getElementsByClassName('post-card-link');
-        var noResults = document.getElementById('no-results');
-        var visibleCount = 0;
+    // CONFIGURATION
+    const itemsPerPage = 9; 
+    let currentItems = itemsPerPage;
+    let activeTag = 'all';
+    
+    // CACHE ELEMENTS
+    const allPosts = document.querySelectorAll('.post-item');
+    const loadMoreBtn = document.getElementById('load-more-btn');
+    const loadMoreContainer = document.getElementById('load-more-container');
+    const noResults = document.getElementById('no-results');
+    const searchInput = document.getElementById('search-input');
+    const grid = document.getElementById('post-grid');
 
-        for (var i = 0; i < cards.length; i++) {
-            var searchData = cards[i].getAttribute('data-search');
-            if (searchData.indexOf(filter) > -1) {
-                cards[i].style.display = 'flex';
-                visibleCount++;
-            } else {
-                cards[i].style.display = 'none';
-            }
-        }
+    // INITIALIZE
+    document.addEventListener('DOMContentLoaded', () => {
+        applyFilters();
+    });
 
-        if (visibleCount === 0) {
-            noResults.style.display = 'block';
-            grid.style.display = 'none';
+    // 1. SEARCH HANDLER
+    function handleSearch() {
+        const query = searchInput.value.toLowerCase().trim();
+        
+        // If searching, we disable "Load More" logic and just show matches
+        if (query.length > 0) {
+            loadMoreContainer.style.display = 'none';
+            let visibleCount = 0;
+
+            allPosts.forEach(post => {
+                const searchData = post.getAttribute('data-search');
+                // Check if matches search AND matches current tag filter
+                const matchesSearch = searchData.indexOf(query) > -1;
+                const matchesTag = activeTag === 'all' || post.getAttribute('data-tags').includes(activeTag);
+
+                if (matchesSearch && matchesTag) {
+                    post.classList.remove('hidden-item');
+                    post.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    post.classList.add('hidden-item');
+                }
+            });
+            
+            toggleNoResults(visibleCount);
         } else {
-            noResults.style.display = 'none';
-            grid.style.display = 'grid';
+            // If search is cleared, revert to Pagination mode
+            applyFilters();
         }
     }
-    document.addEventListener('DOMContentLoaded', filterPosts);
+
+    // 2. TAG FILTER HANDLER
+    function filterByTag(tag, btnElement) {
+        // Visuals
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        btnElement.classList.add('active');
+
+        // Logic
+        activeTag = tag;
+        currentItems = itemsPerPage; // Reset pagination count on filter change
+        
+        // Clear search if a tag is clicked (optional preference, usually cleaner)
+        if(searchInput.value !== '') {
+            searchInput.value = ''; 
+        }
+
+        applyFilters();
+    }
+
+    // 3. MAIN FILTER & PAGINATION LOGIC
+    function applyFilters() {
+        let visibleCount = 0;
+        let hiddenCount = 0;
+
+        allPosts.forEach(post => {
+            const postTags = post.getAttribute('data-tags');
+            
+            // Does this post match the selected category?
+            if (activeTag === 'all' || postTags.includes(activeTag)) {
+                
+                // PAGINATION LOGIC: Only show up to 'currentItems'
+                if (visibleCount < currentItems) {
+                    post.classList.remove('hidden-item');
+                    post.style.display = 'flex'; // Restore flex display
+                } else {
+                    post.classList.add('hidden-item');
+                    hiddenCount++;
+                }
+                visibleCount++;
+            } else {
+                // Doesn't match category -> hide
+                post.classList.add('hidden-item');
+            }
+        });
+
+        // Show/Hide "Load More" button based on remaining items
+        if (hiddenCount > 0) {
+            loadMoreContainer.style.display = 'block';
+            loadMoreBtn.innerText = `Load More (${hiddenCount} remaining)`;
+        } else {
+            loadMoreContainer.style.display = 'none';
+        }
+
+        toggleNoResults(visibleCount);
+        grid.style.display = visibleCount > 0 ? 'grid' : 'none';
+    }
+
+    // 4. LOAD MORE CLICK
+    function loadMore() {
+        currentItems += itemsPerPage;
+        applyFilters();
+    }
+
+    // 5. RESET (from No Results)
+    function resetFilters() {
+        searchInput.value = '';
+        filterByTag('all', document.querySelector('.filter-btn')); // Resets to 'All'
+    }
+
+    // Helper
+    function toggleNoResults(count) {
+        if (count === 0) {
+            noResults.classList.remove('hidden-item');
+        } else {
+            noResults.classList.add('hidden-item');
+        }
+    }
 </script>
