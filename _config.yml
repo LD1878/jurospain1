@@ -20,7 +20,16 @@ header_pages:
   - glossary.md
   - contact.md
   - blog.md
+
+# 📂 NEW: Case Studies Collection Logic
+# This tells Jekyll to process files in the _cases folder
+collections:
+  cases:
+    output: true
+    permalink: /success-stories/:slug/
+
 defaults:
+  # 1. Standard Blog Posts
   - scope:
       path: ""
       type: posts
@@ -28,10 +37,21 @@ defaults:
       layout: post
       author: Juro Spain Team
       categories: guides
-  # 🎯 NEW BLOCK: Force blog.md to use the clean layout
+      
+  # 2. The Blog Index Page
   - scope:
       path: "blog.md"
     values:
       layout: blog-index
+
+  # 🏆 3. NEW: Case Studies Defaults
+  # automatically applies the layout to anything in _cases folder
+  - scope:
+      path: ""
+      type: cases
+    values:
+      layout: case-study
+      author: Juro Spain Team
+
 sass:
   style: compressed
