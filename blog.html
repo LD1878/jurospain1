@@ -64,7 +64,7 @@ permalink: /blog/
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
         gap: 2.5rem;
-        margin: 3rem 0; /* Reduced margin to fit filters */
+        margin: 3rem 0; 
     }
 
     .post-card-link {
@@ -114,37 +114,45 @@ permalink: /blog/
         letter-spacing: 1px;
     }
 
-    /* --- NEW FEATURES: FILTERS & LOAD MORE --- */
+    /* --- CLEANER FILTER UI --- */
     
-    /* 1. Category Filter Pills */
     .filter-container {
         display: flex;
-        flex-wrap: wrap;
         justify-content: center;
-        gap: 10px;
-        margin: 3rem 0 1rem;
+        gap: 12px;
+        margin: 3rem auto 1rem;
+        padding-bottom: 10px;
+        /* Make it scrollable on mobile without breaking layout */
+        overflow-x: auto; 
+        -webkit-overflow-scrolling: touch;
+        max-width: 100%;
+        white-space: nowrap;
     }
+    
+    /* Hide scrollbar for cleaner look */
+    .filter-container::-webkit-scrollbar { display: none; }
+    .filter-container { -ms-overflow-style: none; scrollbar-width: none; }
 
     .filter-btn {
         background: transparent;
-        border: 2px solid var(--border-light);
+        border: 1px solid var(--border-light); /* Thinner border */
         color: var(--text-muted);
-        padding: 0.6rem 1.2rem;
+        padding: 0.5rem 1.2rem; /* Smaller padding */
         border-radius: 50px;
         cursor: pointer;
         font-weight: 600;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         transition: all 0.2s ease;
+        flex-shrink: 0; /* Prevent squishing */
     }
 
     .filter-btn:hover, .filter-btn.active {
-        background: var(--sp-red);
-        color: white;
-        border-color: var(--sp-red);
-        box-shadow: 0 4px 15px rgba(227, 6, 19, 0.2);
+        background: var(--text-primary); /* Use dark grey instead of red for filters (cleaner) */
+        color: var(--bg-primary);
+        border-color: var(--text-primary);
     }
 
-    /* 2. Load More Button */
+    /* Load More Button */
     .load-more-wrapper {
         text-align: center;
         margin-top: 2rem;
@@ -169,7 +177,6 @@ permalink: /blog/
         color: var(--bg-primary);
     }
 
-    /* Helper to hide items initially */
     .hidden-item {
         display: none !important;
     }
@@ -177,8 +184,7 @@ permalink: /blog/
     @media (max-width: 768px) {
         .blog-h1 { font-size: 2.2rem !important; }
         .post-card-link { padding: 1.8rem; }
-        .filter-container { justify-content: flex-start; overflow-x: auto; padding-bottom: 10px; }
-        .filter-btn { white-space: nowrap; }
+        .filter-container { justify-content: flex-start; padding: 0 20px 10px 20px; }
     }
 </style>
 
@@ -206,19 +212,12 @@ permalink: /blog/
     {% if sorted_posts.size > 0 %}
         
         <div class="filter-container">
-            <button class="filter-btn active" onclick="filterByTag('all', this)">All Topics</button>
+            <button class="filter-btn active" onclick="filterByTag('all', this)">All Guides</button>
             
-            {% assign raw_tags = "" %}
-            {% for post in site.posts %}
-                {% assign ttags = post.tags | join: '|' | append: '|' %}
-                {% assign raw_tags = raw_tags | append: ttags %}
-            {% endfor %}
-            {% assign raw_tags = raw_tags | split: '|' | uniq | sort %}
+            {% assign curated_tags = "visas,tax,property,business,lifestyle" | split: ',' %}
 
-            {% for tag in raw_tags %}
-                {% if tag != "" %}
+            {% for tag in curated_tags %}
                 <button class="filter-btn" onclick="filterByTag('{{ tag }}', this)">{{ tag | capitalize }}</button>
-                {% endif %}
             {% endfor %}
         </div>
 
@@ -226,7 +225,6 @@ permalink: /blog/
             {% for post in sorted_posts %}
 
                 {% assign post_summary_source = post.seo_summary | default: post.excerpt %}
-                {% comment %} CLEAN UP LOGIC {% endcomment %}
                 {% if post_summary_source contains 'Table of contents' or post_summary_source contains 'table of contents' %}
                     {% assign cleaned_excerpt = post_summary_source | strip_html | replace: "Table of contents", "" | replace: "Overview:", "" | strip | truncate: 160 %}
                 {% else %}
@@ -243,9 +241,7 @@ permalink: /blog/
                     </span>
 
                     <h2>{{ post.title | escape }}</h2>
-                    
                     <p>{{ cleaned_excerpt }}</p>
-                    
                     <span class="read-more-label">Read Full Guide →</span>
                 </a>
 
@@ -264,12 +260,10 @@ permalink: /blog/
         </div>
 
     {% else %}
-
         <div class="card center" style="margin: 5rem 0; background: var(--bg-secondary); color: var(--text-primary);">
             <h2>Knowledge Base Loading...</h2>
             <p>We are currently finalizing our 2026 guides. Check back in a few days.</p>
         </div>
-
     {% endif %}
 
     <hr style="border-top: 1px solid var(--border-light);">
@@ -306,18 +300,17 @@ permalink: /blog/
     function handleSearch() {
         const query = searchInput.value.toLowerCase().trim();
         
-        // If searching, we disable "Load More" logic and just show matches
         if (query.length > 0) {
             loadMoreContainer.style.display = 'none';
             let visibleCount = 0;
 
             allPosts.forEach(post => {
                 const searchData = post.getAttribute('data-search');
-                // Check if matches search AND matches current tag filter
                 const matchesSearch = searchData.indexOf(query) > -1;
-                const matchesTag = activeTag === 'all' || post.getAttribute('data-tags').includes(activeTag);
-
-                if (matchesSearch && matchesTag) {
+                // We ignore the active tag filter during search to make finding things easier
+                // or you can enable stricter filtering if preferred.
+                
+                if (matchesSearch) {
                     post.classList.remove('hidden-item');
                     post.style.display = 'flex';
                     visibleCount++;
@@ -328,22 +321,18 @@ permalink: /blog/
             
             toggleNoResults(visibleCount);
         } else {
-            // If search is cleared, revert to Pagination mode
             applyFilters();
         }
     }
 
     // 2. TAG FILTER HANDLER
     function filterByTag(tag, btnElement) {
-        // Visuals
         document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
         btnElement.classList.add('active');
 
-        // Logic
         activeTag = tag;
-        currentItems = itemsPerPage; // Reset pagination count on filter change
+        currentItems = itemsPerPage; 
         
-        // Clear search if a tag is clicked (optional preference, usually cleaner)
         if(searchInput.value !== '') {
             searchInput.value = ''; 
         }
@@ -351,7 +340,7 @@ permalink: /blog/
         applyFilters();
     }
 
-    // 3. MAIN FILTER & PAGINATION LOGIC
+    // 3. MAIN LOGIC
     function applyFilters() {
         let visibleCount = 0;
         let hiddenCount = 0;
@@ -359,25 +348,20 @@ permalink: /blog/
         allPosts.forEach(post => {
             const postTags = post.getAttribute('data-tags');
             
-            // Does this post match the selected category?
             if (activeTag === 'all' || postTags.includes(activeTag)) {
-                
-                // PAGINATION LOGIC: Only show up to 'currentItems'
                 if (visibleCount < currentItems) {
                     post.classList.remove('hidden-item');
-                    post.style.display = 'flex'; // Restore flex display
+                    post.style.display = 'flex'; 
                 } else {
                     post.classList.add('hidden-item');
                     hiddenCount++;
                 }
                 visibleCount++;
             } else {
-                // Doesn't match category -> hide
                 post.classList.add('hidden-item');
             }
         });
 
-        // Show/Hide "Load More" button based on remaining items
         if (hiddenCount > 0) {
             loadMoreContainer.style.display = 'block';
             loadMoreBtn.innerText = `Load More (${hiddenCount} remaining)`;
@@ -389,19 +373,16 @@ permalink: /blog/
         grid.style.display = visibleCount > 0 ? 'grid' : 'none';
     }
 
-    // 4. LOAD MORE CLICK
     function loadMore() {
         currentItems += itemsPerPage;
         applyFilters();
     }
 
-    // 5. RESET (from No Results)
     function resetFilters() {
         searchInput.value = '';
-        filterByTag('all', document.querySelector('.filter-btn')); // Resets to 'All'
+        filterByTag('all', document.querySelector('.filter-btn')); 
     }
 
-    // Helper
     function toggleNoResults(count) {
         if (count === 0) {
             noResults.classList.remove('hidden-item');
