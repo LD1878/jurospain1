@@ -6,7 +6,7 @@ layout: default
     /* 1. POST HEADER - THEME SYNCED */
     .post-header-premium {
         padding: 4rem 0 3rem;
-        background: var(--bg-secondary); /* Flips with theme */
+        background: var(--bg-secondary);
         border-top: 8px solid var(--sp-red);
         border-bottom: 1px solid var(--border-light);
     }
@@ -14,7 +14,7 @@ layout: default
     .post-category-tag {
         display: inline-block;
         background: var(--gold-color);
-        color: #232323; /* Keep high contrast on gold */
+        color: #232323;
         padding: 5px 15px;
         border-radius: 4px;
         font-weight: 800;
@@ -43,12 +43,12 @@ layout: default
         align-items: start;
     }
 
-    /* 3. BODY TYPOGRAPHY - THEME SYNCED */
+    /* 3. BODY TYPOGRAPHY */
     .post-body-content {
         font-family: 'Inter', sans-serif;
         font-size: 1.2rem;
         line-height: 1.85;
-        color: var(--text-primary); /* Replaced hardcoded slate */
+        color: var(--text-primary);
     }
 
     .post-body-content h2 {
@@ -57,15 +57,17 @@ layout: default
         border-bottom: 4px solid var(--gold-color);
         padding-bottom: 0.5rem;
         color: var(--text-primary);
+        scroll-margin-top: 100px; /* Fixes sticky header overlap */
     }
 
     .post-body-content h3 {
         font-size: 1.6rem;
         margin-top: 2.5rem;
         color: var(--sp-red);
+        scroll-margin-top: 100px;
     }
 
-    /* 4. THE TRANSPARENCY BOX - THEME SYNCED */
+    /* 4. THE TRANSPARENCY BOX */
     .transparency-notice {
         background: var(--bg-primary);
         border-left: 6px solid var(--gold-color);
@@ -78,18 +80,17 @@ layout: default
         align-items: center;
         color: var(--text-primary);
         border: 1px solid var(--border-light);
-        border-left: 6px solid var(--gold-color);
     }
 
-    /* 5. STICKY SIDEBAR CTA - INVERSE SYNC */
+    /* 5. STICKY SIDEBAR CTA */
     .post-sidebar {
         position: sticky;
-        top: 120px;
+        top: 120px; /* Adjust based on your nav height */
     }
 
     .sidebar-card {
-        background: var(--text-primary); /* Dark in light mode, Light in dark mode */
-        color: var(--bg-primary); /* High contrast toggle */
+        background: var(--text-primary);
+        color: var(--bg-primary);
         padding: 2.5rem 2rem;
         border-radius: 20px;
         text-align: center;
@@ -104,10 +105,44 @@ layout: default
         color: var(--bg-primary) !important;
     }
 
+    /* 6. NEW: DYNAMIC TABLE OF CONTENTS */
+    .toc-container {
+        margin-top: 2rem;
+        padding: 1.5rem;
+        border-left: 2px solid var(--border-light);
+    }
+    
+    .toc-title {
+        font-family: 'Oswald', sans-serif;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        letter-spacing: 1px;
+        margin-bottom: 1rem;
+        display: block;
+    }
+
+    .toc-link {
+        display: block;
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 0.95rem;
+        margin-bottom: 0.8rem;
+        transition: all 0.2s ease;
+        line-height: 1.4;
+    }
+
+    .toc-link:hover, .toc-link.active {
+        color: var(--sp-red);
+        font-weight: 700;
+        transform: translateX(5px);
+    }
+
     /* MOBILE ADJUSTMENTS */
     @media (max-width: 900px) {
         .post-main-grid { grid-template-columns: 1fr; gap: 3rem; }
         .post-sidebar { position: static; margin-top: 4rem; }
+        .toc-container { display: none; } /* Hide TOC on mobile to save space */
     }
 </style>
 
@@ -137,7 +172,9 @@ layout: default
                     </div>
                 </div>
 
-                {{ content }}
+                <div id="article-content">
+                    {{ content }}
+                </div>
 
                 <div style="margin-top: 6rem; padding: 4rem; background: var(--bg-secondary); border-radius: 24px; text-align: center; border: 1px solid var(--border-light);">
                     <h2 style="border: none; margin-top: 0; color: var(--text-primary);">Ready to start your application?</h2>
@@ -152,6 +189,10 @@ layout: default
                     <p style="font-size: 0.9rem; opacity: 0.9; margin-bottom: 2rem;">Speak with a relocation specialist about your specific situation in Spain.</p>
                     <a href="https://app.cal.eu/jurospain/30min" class="btn btn-white" style="width: 100%; border-radius: 50px;">Book Call</a>
                 </div>
+
+                <div id="toc-wrapper" class="toc-container">
+                    <span class="toc-title">On This Page</span>
+                    </div>
 
                 <div style="margin-top: 3rem; padding: 2rem; border: 1px solid var(--border-light); border-radius: 16px; background: var(--bg-secondary);">
                     <h4 style="margin-top: 0; font-family: 'Oswald', sans-serif; text-transform: uppercase; color: var(--text-primary);">Related Resources</h4>
@@ -186,4 +227,58 @@ layout: default
   "datePublished": "{{ page.date | date_to_xmlschema }}",
   "description": "{{ page.description }}"
 }
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const content = document.getElementById('article-content');
+    const tocWrapper = document.getElementById('toc-wrapper');
+    const headers = content.querySelectorAll('h2'); // Only targeting H2 for cleaner sidebar
+
+    if (headers.length < 2) {
+        tocWrapper.style.display = 'none'; // Hide if article is too short
+        return;
+    }
+
+    headers.forEach((header, index) => {
+        // Create ID if missing
+        if (!header.id) {
+            header.id = 'section-' + index;
+        }
+
+        // Create Link
+        const link = document.createElement('a');
+        link.href = '#' + header.id;
+        link.textContent = header.textContent;
+        link.className = 'toc-link';
+        
+        // Smooth Scroll Click
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById(header.id).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+
+        tocWrapper.appendChild(link);
+    });
+
+    // Optional: Highlight on Scroll
+    window.addEventListener('scroll', () => {
+        let current = '';
+        headers.forEach(header => {
+            const top = header.getBoundingClientRect().top;
+            if (top < 200) {
+                current = header.getAttribute('id');
+            }
+        });
+
+        document.querySelectorAll('.toc-link').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').includes(current)) {
+                link.classList.add('active');
+            }
+        });
+    });
+});
 </script>
