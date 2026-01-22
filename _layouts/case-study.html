@@ -1,1 +1,194 @@
+---
+layout: default
+---
 
+<style>
+    /* --- CASE STUDY HERO --- */
+    .case-hero {
+        background: var(--bg-secondary);
+        padding: 5rem 0 3rem;
+        border-bottom: 1px solid var(--border-light);
+        text-align: center;
+        border-top: 8px solid var(--sp-red);
+    }
+    
+    .case-badge {
+        background: var(--sp-red);
+        color: white;
+        text-transform: uppercase;
+        font-weight: 800;
+        padding: 6px 16px;
+        border-radius: 50px;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+        margin-bottom: 1.5rem;
+        display: inline-block;
+        font-family: 'Inter', sans-serif;
+    }
+
+    .case-title {
+        font-family: 'Oswald', sans-serif;
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        margin: 0 auto 1.5rem;
+        max-width: 900px;
+        line-height: 1.1;
+        color: var(--text-primary);
+    }
+
+    /* --- THE STATS GRID (The Trust Builder) --- */
+    .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        max-width: 800px;
+        margin: 3rem auto 0;
+        text-align: center;
+    }
+
+    .stat-card {
+        background: var(--bg-primary);
+        padding: 1.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-light);
+        box-shadow: var(--elev-1);
+    }
+
+    .stat-number {
+        display: block;
+        font-family: 'Oswald', sans-serif;
+        font-size: 2rem;
+        color: var(--gold-color);
+        font-weight: 700;
+    }
+
+    .stat-label {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        font-weight: 700;
+        margin-top: 0.5rem;
+        letter-spacing: 0.5px;
+    }
+
+    /* --- BODY CONTENT --- */
+    .case-container {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 4rem 1.5rem;
+    }
+
+    .case-content {
+        font-size: 1.15rem;
+        line-height: 1.8;
+        color: var(--text-primary);
+    }
+
+    .case-content h2 {
+        font-family: 'Oswald', sans-serif;
+        font-size: 2rem;
+        margin-top: 3rem;
+        color: var(--text-primary);
+        border-bottom: 2px solid var(--border-light);
+        padding-bottom: 10px;
+    }
+
+    /* --- TIMELINE COMPONENT --- */
+    .timeline-box {
+        border-left: 4px solid var(--gold-color);
+        padding-left: 2rem;
+        margin: 3rem 0;
+    }
+
+    .timeline-item {
+        position: relative;
+        margin-bottom: 2rem;
+    }
+
+    .timeline-item h4 {
+        margin: 0;
+        color: var(--text-primary);
+        font-family: 'Oswald', sans-serif;
+        font-size: 1.2rem;
+    }
+
+    .timeline-item span {
+        font-size: 0.85rem;
+        color: var(--sp-red);
+        font-weight: 700;
+        text-transform: uppercase;
+        display: block;
+        margin-bottom: 0.3rem;
+    }
+
+    /* --- CONVERSION BOX --- */
+    .cta-box {
+        background: var(--text-primary); 
+        color: var(--bg-primary);
+        padding: 3rem;
+        border-radius: 20px;
+        text-align: center;
+        margin-top: 5rem;
+        box-shadow: var(--elev-3);
+    }
+
+    @media (max-width: 768px) {
+        .stat-grid { grid-template-columns: 1fr; gap: 10px; }
+        .case-hero { padding: 3rem 0; }
+    }
+</style>
+
+<article itemscope itemtype="http://schema.org/Article">
+    
+    <div class="case-hero">
+        <div class="container">
+            <span class="case-badge">Client Case Study: {{ page.service_type }}</span>
+            <h1 class="case-title" itemprop="headline">{{ page.title }}</h1>
+            <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin: 0 auto; line-height: 1.6;">{{ page.description }}</p>
+
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <span class="stat-number">{{ page.stats.timeline }}</span>
+                    <div class="stat-label">Time to Result</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">{{ page.stats.savings }}</span>
+                    <div class="stat-label">Financial Outcome</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">{{ page.stats.origin }}</span>
+                    <div class="stat-label">Client Origin</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="case-container">
+        
+        <div class="case-content" itemprop="articleBody">
+            <h2>🏁 The Challenge</h2>
+            <p>{{ page.challenge }}</p>
+
+            <h2>🛡️ The Juro Strategy</h2>
+            {{ content }}
+
+            {% if page.timeline %}
+            <h2>⏱️ Execution Timeline</h2>
+            <div class="timeline-box">
+                {% for event in page.timeline %}
+                <div class="timeline-item">
+                    <span>{{ event.date }}</span>
+                    <h4>{{ event.milestone }}</h4>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="cta-box">
+            <h2 style="color: var(--bg-primary); border: none; margin-top: 0; font-family: 'Oswald', sans-serif;">Do you have a similar profile?</h2>
+            <p style="margin-bottom: 2rem; opacity: 0.9; font-size: 1.1rem;">We can replicate this strategy for your application to ensure the same result.</p>
+            <a href="https://app.cal.eu/jurospain/30min" class="btn" style="background: var(--sp-red); color: white; border: none; padding: 1rem 2.5rem;">Start Case Review</a>
+        </div>
+
+    </div>
+</article>
