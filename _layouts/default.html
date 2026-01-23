@@ -193,15 +193,6 @@ layout: null
             .dropdown-trigger::after { display: none; }
             .header-actions .btn { display: none; }
         }
-
-        /* --- 7. WHATSAPP --- */
-        .whatsapp-float {
-            position: fixed; width: 62px; height: 62px; bottom: 30px; left: 30px;
-            background-color: #25d366; border-radius: 50px; display: flex;
-            align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
-            z-index: 999; text-decoration: none; transition: 0.3s;
-        }
-        .whatsapp-float:hover { transform: scale(1.1); background-color: #128c7e; }
     </style>
 
     <script>
@@ -279,8 +270,6 @@ layout: null
                 <div class="dropdown-container">
                     <span class="dropdown-trigger">Resources</span>
                     <div class="dropdown-menu">
-                        <a href="/success-stories/">Client Success Stories</a>
-                        
                         <a href="/calculator/">Calculator</a>
                         <a href="/blog/">Blog & Guides</a>
                         <a href="/glossary/">Expat Glossary</a>
@@ -302,10 +291,6 @@ layout: null
     </header>
 
     <main>{{ content }}</main>
-
-    <a href="https://wa.me/34682050945?text=Hi%20JURO%20Spain,%20I%20need%20help..." class="whatsapp-float" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="34" alt="WhatsApp">
-    </a>
 
     <footer class="site-footer" style="padding: 5rem 0; background: var(--bg-secondary); border-top: 1px solid var(--border-light); margin-top: 4rem;">
         <div class="container">
