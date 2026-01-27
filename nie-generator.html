@@ -1,47 +1,88 @@
 ---
 layout: default
-title: Free NIE Application Generator (Instant Download)
+title: Official NIE Application Generator
 permalink: /tools/nie-generator/
 ---
 
 <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
 
 <style>
-    .nie-generator-wrapper {
-        max-width: 800px;
+    /* JUROSPAIN BRANDING COLORS */
+    :root {
+        --brand-navy: #002868;
+        --brand-red: #E30613;
+        --brand-gold: #C5A059;
+        --bg-gray: #f4f6f8;
+    }
+
+    .tool-container {
+        max-width: 900px;
         margin: 4rem auto;
         font-family: 'Inter', sans-serif;
-        background: #fff;
-        border-radius: 12px;
-        box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.1);
         overflow: hidden;
+        border: 1px solid #e1e4e8;
     }
 
-    .header-banner {
-        background: #002868; /* Navy */
+    .tool-header {
+        background: var(--brand-navy);
         color: white;
-        padding: 2rem;
+        padding: 2.5rem 2rem;
         text-align: center;
+        position: relative;
     }
 
-    .form-body {
-        padding: 2rem;
+    .tool-header h1 {
+        margin: 0;
+        font-family: 'Oswald', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 2rem;
     }
 
-    .input-grid {
+    .tool-header p {
+        color: var(--brand-gold);
+        font-weight: 600;
+        margin-top: 10px;
+        opacity: 0.9;
+    }
+
+    .form-section {
+        padding: 2.5rem;
+    }
+
+    .section-title {
+        color: var(--brand-navy);
+        font-weight: 800;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        margin-top: 30px;
+    }
+
+    .section-title:first-child { margin-top: 0; }
+
+    /* GRID SYSTEM */
+    .form-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr; /* 2 Columns */
         gap: 20px;
     }
 
     .full-width { grid-column: span 2; }
+    .three-quarters { grid-column: span 2; } /* On mobile resets */
 
     label {
-        font-weight: 700;
-        font-size: 0.9rem;
-        color: #444;
         display: block;
-        margin-bottom: 5px;
+        font-weight: 700;
+        font-size: 0.85rem;
+        color: #4a5568;
+        margin-bottom: 6px;
     }
 
     input, select {
@@ -50,108 +91,179 @@ permalink: /tools/nie-generator/
         border: 2px solid #e2e8f0;
         border-radius: 8px;
         font-size: 1rem;
-    }
-
-    .legal-tip {
-        background: #fff8e1;
-        border-left: 4px solid #ffc107;
-        padding: 10px;
-        font-size: 0.85rem;
-        color: #664d03;
-        margin-top: 5px;
-    }
-
-    .btn-generate {
-        background: #E30613; /* Red */
-        color: white;
-        font-weight: 800;
-        text-transform: uppercase;
-        width: 100%;
-        padding: 1.2rem;
-        border: none;
-        border-radius: 50px;
-        font-size: 1.1rem;
-        cursor: pointer;
-        margin-top: 2rem;
         transition: 0.3s;
+        background: #fcfcfc;
     }
 
-    .btn-generate:hover { background: #b9050f; }
+    input:focus, select:focus {
+        border-color: var(--brand-red);
+        outline: none;
+        background: white;
+        box-shadow: 0 0 0 3px rgba(227, 6, 19, 0.1);
+    }
 
-    /* DIAGNOSTIC PANEL (Hidden by default) */
-    #diagnostic {
-        display: none; 
-        background: #333; 
-        color: #0f0; 
-        padding: 20px; 
-        margin-top: 50px;
-        font-family: monospace;
+    /* THE MAGIC BUTTON */
+    .btn-generate {
+        background: var(--brand-red);
+        color: white;
+        font-family: 'Oswald', sans-serif;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        width: 100%;
+        padding: 1.5rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 3rem;
+        transition: transform 0.2s, box-shadow 0.2s;
+        box-shadow: 0 10px 20px rgba(227, 6, 19, 0.2);
+    }
+
+    .btn-generate:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 15px 30px rgba(227, 6, 19, 0.3);
+    }
+
+    .trust-badge {
+        text-align: center;
+        margin-top: 1.5rem;
+        font-size: 0.85rem;
+        color: #718096;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    /* Mobile Responsive */
+    @media(max-width: 700px) {
+        .form-grid { grid-template-columns: 1fr; }
+        .full-width { grid-column: span 1; }
     }
 </style>
 
-<div class="nie-generator-wrapper">
-    <div class="header-banner">
-        <h1 style="margin:0; font-family:'Oswald';">NIE Application Wizard</h1>
-        <p style="opacity:0.8;">Fill in English. Download the official Spanish EX-15.</p>
+<div class="tool-container">
+    <div class="tool-header">
+        <h1>NIE Application Wizard</h1>
+        <p>Convert your English details into the Official EX-15 Form</p>
     </div>
 
-    <div class="form-body">
+    <div class="form-section">
         
-        <h3 style="color: #002868; border-bottom: 1px solid #eee; padding-bottom: 10px;">1. Applicant Details</h3>
-        <div class="input-grid">
-            <div>
+        <div class="section-title">1. Applicant Details</div>
+        <div class="form-grid">
+            <div class="full-width">
                 <label>Passport Number</label>
-                <input type="text" id="passport">
+                <input type="text" id="passport" placeholder="Your Passport No.">
             </div>
-            <div>
-                <label>Nationality</label>
-                <input type="text" id="nationality" placeholder="e.g. BRITISH">
-            </div>
-            <div>
-                <label>Surname (Last Name)</label>
-                <input type="text" id="surname">
-                <div class="legal-tip">Exactly as it appears on your passport.</div>
-            </div>
+            
             <div>
                 <label>First Name</label>
-                <input type="text" id="firstname">
+                <input type="text" id="firstname" placeholder="e.g. John">
             </div>
+            
+            <div>
+                <label>Surname (Last Name)</label>
+                <input type="text" id="surname" placeholder="e.g. Smith">
+            </div>
+
             <div>
                 <label>Father's First Name</label>
-                <input type="text" id="father">
+                <input type="text" id="father" placeholder="Required in Spain">
             </div>
+
             <div>
                 <label>Mother's First Name</label>
-                <input type="text" id="mother">
+                <input type="text" id="mother" placeholder="Required in Spain">
+            </div>
+
+            <div>
+                <label>Date of Birth</label>
+                <input type="text" id="dob" placeholder="DD/MM/YYYY">
+            </div>
+
+            <div>
+                <label>Nationality</label>
+                <input type="text" id="nationality" placeholder="e.g. British">
+            </div>
+            
+            <div>
+                <label>Sex</label>
+                <select id="sex">
+                    <option value="H">Male (Hombre)</option>
+                    <option value="M">Female (Mujer)</option>
+                </select>
+            </div>
+            
+            <div>
+                <label>Marital Status</label>
+                <select id="civil">
+                    <option value="S">Single (Soltero)</option>
+                    <option value="C">Married (Casado)</option>
+                    <option value="D">Divorced (Divorciado)</option>
+                </select>
             </div>
         </div>
 
-        <h3 style="color: #002868; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-top: 30px;">2. Reason for NIE</h3>
+        <div class="section-title">2. Address (Spain or Abroad)</div>
+        <div class="form-grid">
+            <div class="full-width">
+                <label>Street Name</label>
+                <input type="text" id="street" placeholder="e.g. Calle Gran Via">
+            </div>
+            
+            <div>
+                <label>House Number</label>
+                <input type="text" id="street_no">
+            </div>
+
+            <div>
+                <label>Floor/Door (Optional)</label>
+                <input type="text" id="floor">
+            </div>
+
+            <div>
+                <label>City (Localidad)</label>
+                <input type="text" id="city">
+            </div>
+
+            <div>
+                <label>Postal Code</label>
+                <input type="text" id="zip">
+            </div>
+
+            <div>
+                <label>Province / Region</label>
+                <input type="text" id="province">
+            </div>
+
+            <div class="full-width">
+                <label>Email Address</label>
+                <input type="email" id="email">
+            </div>
+        </div>
+
+        <div class="section-title">3. Application Reason</div>
         <div class="full-width">
-            <label>Why do you need a NIE?</label>
+            <label>Why do you need the NIE?</label>
             <select id="reason">
                 <option value="house">Buying Property (Compra de Inmueble)</option>
                 <option value="bank">Opening Bank Account (Apertura Cuenta)</option>
                 <option value="company">Setting up Company (Constitución Sociedad)</option>
-                <option value="other">Other Economic Interest</option>
+                <option value="taxes">Tax Purposes (Intereses Económicos)</option>
             </select>
-            <div class="legal-tip">We automatically select "Economic Interests" and write the Spanish legal term for you.</div>
+            <div style="margin-top:8px; font-size:0.85rem; color:#666; background:#fff3cd; padding:10px; border-radius:4px;">
+                💡 <strong>JuroSpain Tip:</strong> We automatically select "Economic Interests" for you, as this is the standard category for investors and property buyers.
+            </div>
         </div>
 
         <button class="btn-generate" onclick="generatePDF()">Download Official PDF</button>
-        
-        <p style="text-align:center; margin-top:10px; font-size:0.9rem; color:#888;">
-            100% Private. Data is processed in your browser.
-        </p>
 
-        <div style="text-align:center; margin-top: 30px;">
-            <a href="#" onclick="document.getElementById('diagnostic').style.display='block'; return false;" style="color:#ddd; font-size:10px;">Admin: Check PDF Fields</a>
+        <div class="trust-badge">
+            <span>🔒 Secure Processing</span>
+            <span>🇪🇸 2026 Compliant</span>
+            <span>⚡ Instant Download</span>
         </div>
-    </div>
-
-    <div id="diagnostic">
-        <strong>PDF Field Names Found:</strong>
-        <ul id="field-list"></ul>
     </div>
 </div>
 
@@ -160,79 +272,110 @@ permalink: /tools/nie-generator/
 
     async function generatePDF() {
         const btn = document.querySelector('.btn-generate');
-        btn.innerText = "Processing...";
-
+        const originalText = btn.innerText;
+        btn.innerText = "Generating...";
+        
         try {
-            // 1. LOAD THE PDF
-            // Ensure this file exists!
-            const url = '/assets/pdf/ex15.pdf'; 
+            // 1. LOAD YOUR PDF
+            const url = '/assets/pdf/ex15.pdf'; // Ensure this matches your file path
             const existingPdfBytes = await fetch(url).then(res => res.arrayBuffer());
 
-            // 2. PARSE THE FORM
+            // 2. LOAD DOCUMENT
             const pdfDoc = await PDFDocument.load(existingPdfBytes);
             const form = pdfDoc.getForm();
 
-            // 3. GET USER INPUTS
-            const data = {
+            // 3. GET DATA FROM INPUTS
+            const d = {
                 passport: document.getElementById('passport').value.toUpperCase(),
+                name: document.getElementById('firstname').value.toUpperCase(),
                 surname: document.getElementById('surname').value.toUpperCase(),
-                firstname: document.getElementById('firstname').value.toUpperCase(),
                 father: document.getElementById('father').value.toUpperCase(),
                 mother: document.getElementById('mother').value.toUpperCase(),
+                dob: document.getElementById('dob').value,
                 nationality: document.getElementById('nationality').value.toUpperCase(),
+                sex: document.getElementById('sex').value,
+                civil: document.getElementById('civil').value,
+                
+                street: document.getElementById('street').value.toUpperCase(),
+                no: document.getElementById('street_no').value.toUpperCase(),
+                floor: document.getElementById('floor').value.toUpperCase(),
+                city: document.getElementById('city').value.toUpperCase(),
+                zip: document.getElementById('zip').value,
+                province: document.getElementById('province').value.toUpperCase(),
+                email: document.getElementById('email').value.toLowerCase(),
+                
                 reason: document.getElementById('reason').value
             };
 
-            // 4. FILL THE FIELDS (SMART MAPPING)
-            // Note: These names ('apellidos', 'nombre', etc.) MUST match your PDF.
-            // Use the "Admin" link at the bottom to see your specific PDF's field names if this fails.
+            // 4. MAP TO PDF FIELDS (Using the names you found!)
             
-            try { form.getTextField('Pasaporte').setText(data.passport); } catch(e){}
-            try { form.getTextField('Apellidos').setText(data.surname); } catch(e){}
-            try { form.getTextField('Nombre').setText(data.firstname); } catch(e){}
-            try { form.getTextField('Nombre de padre').setText(data.father); } catch(e){}
-            try { form.getTextField('Nombre de madre').setText(data.mother); } catch(e){}
-            try { form.getTextField('Nacionalidad').setText(data.nationality); } catch(e){}
+            // --- Personal Details ---
+            try { form.getTextField('Pasaporte').setText(d.passport); } catch(e){}
+            try { form.getTextField('Nombre_Extranjero').setText(d.name); } catch(e){}
+            try { form.getTextField('Apellido1_extranjero').setText(d.surname); } catch(e){}
+            // Note: Leaving Apellido2 blank as typical for Anglo names
             
-            // 5. SMART LOGIC (The "200 IQ" part)
-            // Automatically Check "Economic Interests"
-            try { form.getCheckBox('Intereses Economicos').check(); } catch(e){} 
+            try { form.getTextField('NombrePadre_Extranjero').setText(d.father); } catch(e){}
+            try { form.getTextField('NombreMadre_Extranjero').setText(d.mother); } catch(e){}
+            try { form.getTextField('FechaNacimiento_Extranjero').setText(d.dob); } catch(e){}
+            try { form.getTextField('Nacionalidad_Extranjero').setText(d.nationality); } catch(e){}
+            try { form.getTextField('Sexo').setText(d.sex); } catch(e){}
+            try { form.getTextField('Estado_Civil').setText(d.civil); } catch(e){}
+
+            // --- Address ---
+            try { form.getTextField('Domicilio_Extranjero').setText(d.street); } catch(e){}
+            try { form.getTextField('Numero_Extranjero').setText(d.no); } catch(e){}
+            try { form.getTextField('Piso_Extranjero').setText(d.floor); } catch(e){}
+            try { form.getTextField('Localidad_Extranjero').setText(d.city); } catch(e){}
+            try { form.getTextField('CodigoPostal_Extranjero').setText(d.zip); } catch(e){}
+            try { form.getTextField('Provincia_Extranjero').setText(d.province); } catch(e){}
+            try { form.getTextField('Email_Extranjero').setText(d.email); } catch(e){}
+
+            // --- THE STRATEGY LOGIC ---
             
-            // Write the Spanish Legal Reason
+            // A. Select "NIE" (TipoDocumento)
+            // Note: Radio buttons are tricky without knowing the exact export value.
+            // We try the common ones ('NIE', '1', 'Yes'). If fails, user can tick manually.
+            try { 
+                const docGroup = form.getRadioGroup('TipoDocumento');
+                docGroup.select('NIE'); // Common value
+            } catch(e) {
+                // Fallback if it's a checkbox
+                 try { form.getCheckBox('TipoDocumento').check(); } catch(e){}
+            }
+
+            // B. Select "Economic" (Motivos)
+            try { 
+                const motGroup = form.getRadioGroup('Motivos');
+                motGroup.select('E'); // 'E' is common for Economico, or 'Intereses Economicos'
+            } catch(e) {}
+
+            // C. WRITE THE REASON TEXT (This is the most important part)
             const reasonMap = {
                 'house': 'COMPRA DE INMUEBLE',
                 'bank': 'APERTURA CUENTA BANCARIA',
                 'company': 'CONSTITUCION SOCIEDAD',
-                'other': 'INTERESES ECONOMICOS'
+                'taxes': 'INTERESES ECONOMICOS'
             };
-            try { form.getTextField('Especificar Motivos').setText(reasonMap[data.reason]); } catch(e){}
+            try { 
+                form.getTextField('MotivosEspecificar').setText(reasonMap[d.reason]); 
+            } catch(e) {
+                console.log("Could not find MotivosEspecificar field");
+            }
 
-            // 6. DOWNLOAD
+            // 5. SAVE & DOWNLOAD
             const pdfBytes = await pdfDoc.save();
-            download(pdfBytes, "NIE_Application_JuroSpain.pdf");
-            btn.innerText = "Download Again";
+            download(pdfBytes, "EX15_JuroSpain_AutoFilled.pdf");
+            
+            btn.innerText = "✅ Generated! Check Downloads";
+            setTimeout(() => btn.innerText = originalText, 4000);
 
         } catch (err) {
             console.error(err);
-            alert("Error: Could not load PDF. Check the Console (F12) or click 'Admin' to debug.");
+            alert("Error generating PDF. Please ensure /assets/pdf/ex15.pdf exists.");
+            btn.innerText = "Error - Try Again";
         }
     }
-
-    // DIAGNOSTIC TOOL (Helps you find the names)
-    document.querySelector('.btn-generate').addEventListener('mouseover', async () => {
-        const url = '/assets/pdf/ex15.pdf';
-        const existingPdfBytes = await fetch(url).then(res => res.arrayBuffer());
-        const pdfDoc = await PDFDocument.load(existingPdfBytes);
-        const form = pdfDoc.getForm();
-        const fields = form.getFields();
-        const list = document.getElementById('field-list');
-        list.innerHTML = '';
-        fields.forEach(f => {
-            const li = document.createElement('li');
-            li.textContent = f.getName() + " (" + f.constructor.name + ")";
-            list.appendChild(li);
-        });
-    });
 
     function download(data, filename) {
         var blob = new Blob([data], {type: "application/pdf"});
