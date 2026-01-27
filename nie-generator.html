@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Free NIE Application Tool (EX-15)
+title: Free NIE Application Generator (EX-15)
 permalink: /tools/nie-generator/
 ---
 
@@ -8,334 +8,216 @@ permalink: /tools/nie-generator/
 <script src="https://unpkg.com/@pdf-lib/fontkit@0.0.4/dist/fontkit.umd.min.js"></script>
 
 <style>
-    /* JUROSPAIN BRANDING */
-    :root {
-        --juro-red: #E30613;
-        --juro-navy: #002868;
-        --juro-gold: #C5A059;
-        --bg-light: #f8f9fa;
-    }
-
-    .tool-wrapper {
-        max-width: 900px;
+    /* LAYOUT: SPLIT SCREEN */
+    .wizard-container {
+        display: flex;
+        gap: 40px;
+        max-width: 1200px;
         margin: 4rem auto;
         font-family: 'Inter', sans-serif;
     }
 
-    /* WIZARD CARD */
-    .wizard-card {
+    /* LEFT SIDE: THE FORM */
+    .wizard-form {
+        flex: 2;
         background: white;
-        border-radius: 16px;
-        box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-        overflow: hidden;
-        border: 1px solid #eef2f6;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     }
 
-    .wizard-header {
-        background: var(--juro-navy);
+    /* RIGHT SIDE: THE ADVICE BRAIN */
+    .wizard-advice {
+        flex: 1;
+        position: sticky;
+        top: 120px; /* Sticks as you scroll */
+        height: fit-content;
+        background: #002868; /* Juro Navy */
         color: white;
         padding: 2rem;
-        text-align: center;
+        border-radius: 12px;
+        border-left: 5px solid #E30613; /* Juro Red */
+        transition: all 0.3s ease;
     }
 
-    .wizard-header h1 {
-        margin: 0;
+    .advice-title {
+        text-transform: uppercase;
         font-family: 'Oswald', sans-serif;
-        text-transform: uppercase;
-        font-size: 1.8rem;
         letter-spacing: 1px;
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+        color: #C5A059; /* Gold */
     }
 
-    .wizard-body {
-        padding: 2.5rem;
+    .advice-text {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        opacity: 0.9;
     }
 
-    /* FORM STEPS */
-    .step-indicator {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 2rem;
-        border-bottom: 2px solid #eee;
-        padding-bottom: 1rem;
-    }
-
-    .step-title {
-        font-weight: 700;
-        color: var(--juro-navy);
-        text-transform: uppercase;
-        font-size: 0.9rem;
-    }
-
-    .form-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1.5rem;
-    }
-
-    .full-width { grid-column: span 2; }
-
-    .input-group { margin-bottom: 1rem; }
+    /* INPUT STYLING */
+    .input-group { margin-bottom: 1.5rem; }
     
-    label {
-        display: block;
-        font-weight: 600;
-        font-size: 0.9rem;
-        margin-bottom: 0.5rem;
-        color: #444;
+    label { 
+        display: block; 
+        font-weight: 700; 
+        margin-bottom: 0.5rem; 
+        color: #333; 
     }
 
     input, select {
         width: 100%;
-        padding: 12px 16px;
+        padding: 12px;
         border: 2px solid #e2e8f0;
         border-radius: 8px;
         font-size: 1rem;
-        transition: border-color 0.2s;
     }
 
-    input:focus {
-        border-color: var(--juro-red);
+    input:focus, select:focus {
+        border-color: #E30613;
         outline: none;
     }
 
-    /* ACTION BUTTONS */
-    .btn-action {
-        background: var(--juro-red);
+    .btn-download {
+        background: #E30613;
         color: white;
+        width: 100%;
+        padding: 1rem;
         border: none;
-        padding: 1rem 3rem;
         border-radius: 50px;
-        font-weight: 700;
+        font-weight: bold;
         font-size: 1.1rem;
         cursor: pointer;
-        width: 100%;
         margin-top: 2rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        transition: transform 0.2s;
-        box-shadow: 0 4px 15px rgba(227, 6, 19, 0.3);
     }
 
-    .btn-action:hover { transform: translateY(-2px); }
-
-    /* SUCCESS STATE */
-    #success-message {
-        display: none;
-        text-align: center;
-        background: #ecfdf5;
-        border: 1px solid #10b981;
-        color: #065f46;
-        padding: 1rem;
-        border-radius: 8px;
-        margin-top: 1rem;
-    }
-
-    @media(max-width: 700px) {
-        .form-grid { grid-template-columns: 1fr; }
-        .full-width { grid-column: span 1; }
+    @media (max-width: 900px) {
+        .wizard-container { flex-direction: column-reverse; }
+        .wizard-advice { position: static; margin-bottom: 2rem; }
     }
 </style>
 
-<div class="tool-wrapper">
-    <div class="wizard-card">
-        <div class="wizard-header">
-            <h1>Official NIE Form Generator</h1>
-            <p style="opacity: 0.8; margin-top: 5px;">Convert English answers into the Spanish Government EX-15</p>
+<div class="wizard-container">
+    
+    <div class="wizard-form">
+        <h2 style="margin-top: 0; color: #002868;">1. Applicant Details</h2>
+        
+        <div class="input-group">
+            <label>Passport Number</label>
+            <input type="text" id="passport" onfocus="showAdvice('passport')">
         </div>
 
-        <div class="wizard-body">
-            <div class="step-indicator">
-                <span class="step-title">1. Personal Details</span>
-                <span style="color: #ccc;">2. Parents</span>
-                <span style="color: #ccc;">3. Address</span>
-            </div>
+        <div class="input-group">
+            <label>First Name (Nombre)</label>
+            <input type="text" id="firstname" onfocus="showAdvice('names')">
+        </div>
 
-            <div class="form-grid">
-                <div class="input-group">
-                    <label>Passport Number</label>
-                    <input type="text" id="passport" placeholder="e.g. 123456789">
-                </div>
-                <div class="input-group">
-                    <label>NIE Number (If renewing)</label>
-                    <input type="text" id="nie" placeholder="Leave blank if new application">
-                </div>
-                <div class="input-group">
-                    <label>First Name</label>
-                    <input type="text" id="firstname" placeholder="John">
-                </div>
-                <div class="input-group">
-                    <label>Surname (Last Name)</label>
-                    <input type="text" id="surname" placeholder="Smith">
-                </div>
-                <div class="input-group">
-                    <label>Date of Birth</label>
-                    <input type="text" id="dob" placeholder="DD/MM/YYYY">
-                </div>
-                <div class="input-group">
-                    <label>Place of Birth (City)</label>
-                    <input type="text" id="birthplace">
-                </div>
-                <div class="input-group">
-                    <label>Nationality</label>
-                    <input type="text" id="nationality" placeholder="e.g. AMERICAN">
-                </div>
-                <div class="input-group">
-                    <label>Marital Status</label>
-                    <select id="marital">
-                        <option value="S">Single</option>
-                        <option value="C">Married</option>
-                        <option value="D">Divorced</option>
-                    </select>
-                </div>
-            </div>
+        <div class="input-group">
+            <label>Surname (Apellidos)</label>
+            <input type="text" id="surname" onfocus="showAdvice('names')">
+        </div>
 
-            <hr style="margin: 2rem 0; border-top: 1px solid #eee;">
+        <div class="input-group">
+            <label>Father's Name</label>
+            <input type="text" id="father" onfocus="showAdvice('parents')">
+        </div>
 
-            <div class="step-indicator">
-                <span style="color: #ccc;">1. Personal Details</span>
-                <span class="step-title">2. Parents</span>
-                <span style="color: #ccc;">3. Address</span>
-            </div>
+        <div class="input-group">
+            <label>Mother's Name</label>
+            <input type="text" id="mother" onfocus="showAdvice('parents')">
+        </div>
 
-            <div class="form-grid">
-                <div class="input-group">
-                    <label>Father's First Name</label>
-                    <input type="text" id="father" placeholder="Required">
-                </div>
-                <div class="input-group">
-                    <label>Mother's First Name</label>
-                    <input type="text" id="mother" placeholder="Required">
-                </div>
-            </div>
+        <h2 style="margin-top: 2rem; color: #002868;">2. Reason for NIE</h2>
+        <div class="input-group">
+            <label>Why do you need this NIE?</label>
+            <select id="reason" onfocus="showAdvice('reason')">
+                <option value="bank">Opening a Bank Account</option>
+                <option value="house">Buying Property</option>
+                <option value="company">Setting up a Company</option>
+            </select>
+        </div>
 
-            <hr style="margin: 2rem 0; border-top: 1px solid #eee;">
+        <button class="btn-download" onclick="generateStandardEX15()">Generate Official PDF</button>
+        <p id="msg" style="text-align: center; margin-top: 10px; display:none;">✅ Generating...</p>
+    </div>
 
-            <div class="step-indicator">
-                <span style="color: #ccc;">1. Personal Details</span>
-                <span style="color: #ccc;">2. Parents</span>
-                <span class="step-title">3. Spanish Address</span>
-            </div>
-
-            <div class="form-grid">
-                <div class="input-group full-width">
-                    <label>Street Name & Number</label>
-                    <input type="text" id="address" placeholder="e.g. Calle Gran Vía 22">
-                </div>
-                <div class="input-group">
-                    <label>City (Localidad)</label>
-                    <input type="text" id="city">
-                </div>
-                <div class="input-group">
-                    <label>Postal Code</label>
-                    <input type="text" id="zip">
-                </div>
-                <div class="input-group">
-                    <label>Province</label>
-                    <input type="text" id="province" placeholder="e.g. Madrid">
-                </div>
-                <div class="input-group">
-                    <label>Email</label>
-                    <input type="email" id="email">
-                </div>
-            </div>
-
-            <button class="btn-action" onclick="generateEX15()">Generate Official PDF</button>
-            <div id="success-message">✅ PDF Generated! Check your downloads folder.</div>
-            
-            <p style="text-align: center; margin-top: 1.5rem; font-size: 0.85rem; color: #888;">
-                Your data is processed locally in your browser. Nothing is uploaded to our servers.
-            </p>
+    <div class="wizard-advice" id="adviceBox">
+        <div class="advice-title">💡 JuroSpain Legal Tip</div>
+        <div class="advice-text" id="adviceText">
+            Click on any field to see specific legal advice for that section. 
+            <br><br>
+            We help you fill this correctly so you don't get rejected at the appointment.
         </div>
     </div>
+
 </div>
 
 <script>
-    const { PDFDocument, rgb, StandardFonts } = PDFLib;
+    // 1. DYNAMIC ADVICE LOGIC
+    const adviceLibrary = {
+        'default': "Click on any field to see specific legal advice...",
+        'passport': "Ensure this matches your current valid passport exactly. If you renew your passport before the appointment, you must bring both the old and new one.",
+        'names': "Write your name exactly as it appears in the machine-readable zone (bottom lines) of your passport. Do not use nicknames.",
+        'parents': "Mandatory in Spain. This is used to distinguish you from others with similar names. Use your parents' First Names only.",
+        'reason': "This auto-selects 'Economic Interests' on the form. This is the safest category for non-residents. Do not select 'Professional' unless you have a job offer."
+    };
 
-    async function generateEX15() {
-        const btn = document.querySelector('.btn-action');
-        btn.innerText = "Processing...";
+    function showAdvice(key) {
+        document.getElementById('adviceText').innerText = adviceLibrary[key] || adviceLibrary['default'];
+    }
+
+    // 2. PDF GENERATION (Standard Coordinates Pre-Loaded)
+    const { PDFDocument, StandardFonts } = PDFLib;
+
+    async function generateStandardEX15() {
+        document.getElementById('msg').style.display = 'block';
         
         try {
-            // 1. Load the PDF from your assets
-            const url = '/assets/pdf/ex15.pdf'; // ENSURE THIS FILE EXISTS
+            // Load your blank EX-15
+            const url = '/assets/pdf/ex15.pdf';
             const existingPdfBytes = await fetch(url).then(res => res.arrayBuffer());
 
-            // 2. Load the Document
             const pdfDoc = await PDFDocument.load(existingPdfBytes);
-            const pages = pdfDoc.getPages();
-            const firstPage = pages[0];
+            const firstPage = pdfDoc.getPages()[0];
             const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
             const size = 10;
 
-            // 3. GET DATA
-            const data = {
-                passport: document.getElementById('passport').value.toUpperCase(),
-                nie: document.getElementById('nie').value.toUpperCase(),
-                surname: document.getElementById('surname').value.toUpperCase(),
-                firstname: document.getElementById('firstname').value.toUpperCase(),
-                dob: document.getElementById('dob').value,
-                birthplace: document.getElementById('birthplace').value.toUpperCase(),
-                nationality: document.getElementById('nationality').value.toUpperCase(),
-                father: document.getElementById('father').value.toUpperCase(),
-                mother: document.getElementById('mother').value.toUpperCase(),
-                address: document.getElementById('address').value.toUpperCase(),
-                city: document.getElementById('city').value.toUpperCase(),
-                zip: document.getElementById('zip').value,
-                province: document.getElementById('province').value.toUpperCase(),
-                email: document.getElementById('email').value.toLowerCase(),
-                marital: document.getElementById('marital').value
-            };
+            // --- PRE-CALCULATED COORDINATES FOR STANDARD EX-15 ---
+            // If text is slightly off, tweak these numbers (X = Left/Right, Y = Up/Down)
+            
+            // Passport (Top Right)
+            firstPage.drawText(document.getElementById('passport').value.toUpperCase(), { x: 480, y: 725, size: 12, font: font });
 
-            // 4. MAPPING COORDINATES (Calibrated for Standard EX-15)
-            // Note: X/Y are from Bottom-Left corner.
-            
-            // SECTION 1: PERSONAL
-            firstPage.drawText(data.passport, { x: 480, y: 725, size: 12, font: font });
-            firstPage.drawText(data.nie, { x: 130, y: 725, size: 12, font: font });
-            
-            firstPage.drawText(data.surname, { x: 40, y: 685, size: size, font: font }); // 1st Surname
-            firstPage.drawText(data.firstname, { x: 340, y: 685, size: size, font: font }); // Name
-            
-            firstPage.drawText(data.dob, { x: 130, y: 655, size: size, font: font }); // DOB
-            firstPage.drawText(data.birthplace, { x: 260, y: 655, size: size, font: font }); // Place
-            firstPage.drawText(data.nationality, { x: 380, y: 655, size: size, font: font }); // Country
-            
-            // Marital Status Checkbox (Approximate)
-            if(data.marital === 'S') firstPage.drawText('X', { x: 360, y: 635, size: 12, font: font }); // Single
-            if(data.marital === 'C') firstPage.drawText('X', { x: 390, y: 635, size: 12, font: font }); // Married
-            
-            firstPage.drawText(data.father, { x: 40, y: 615, size: size, font: font }); 
-            firstPage.drawText(data.mother, { x: 300, y: 615, size: size, font: font }); 
-            
-            firstPage.drawText(data.address, { x: 40, y: 585, size: size, font: font }); 
-            firstPage.drawText(data.city, { x: 40, y: 555, size: size, font: font }); 
-            firstPage.drawText(data.zip, { x: 300, y: 555, size: size, font: font }); 
-            firstPage.drawText(data.province, { x: 400, y: 555, size: size, font: font }); 
-            firstPage.drawText(data.email, { x: 250, y: 525, size: size, font: font }); 
+            // Surname (Left)
+            firstPage.drawText(document.getElementById('surname').value.toUpperCase(), { x: 40, y: 685, size: size, font: font });
 
-            // SECTION 4: AUTOMATIC SELECTIONS (The "200 IQ" Part)
-            // 4.1 NIE Number Selection
+            // First Name (Right)
+            firstPage.drawText(document.getElementById('firstname').value.toUpperCase(), { x: 350, y: 685, size: size, font: font });
+
+            // Parents
+            firstPage.drawText(document.getElementById('father').value.toUpperCase(), { x: 40, y: 615, size: size, font: font });
+            firstPage.drawText(document.getElementById('mother').value.toUpperCase(), { x: 300, y: 615, size: size, font: font });
+
+            // CHECKBOX LOGIC (Section 4.2 Economic)
+            // We draw an 'X' in the "Economic Interests" box
             firstPage.drawText('X', { x: 40, y: 220, size: 14, font: font }); 
             
-            // 4.2 Economic Interests
-            firstPage.drawText('X', { x: 40, y: 190, size: 14, font: font }); 
-            firstPage.drawText('APERTURA CUENTA BANCARIA / COMPRA INMUEBLE', { x: 180, y: 190, size: 8, font: font });
+            // We write the specific reason text
+            const reasonMap = {
+                'bank': 'APERTURA CUENTA BANCARIA',
+                'house': 'COMPRA DE INMUEBLE',
+                'company': 'CONSTITUCION SOCIEDAD'
+            };
+            const reasonText = reasonMap[document.getElementById('reason').value];
+            firstPage.drawText(reasonText, { x: 180, y: 220, size: 8, font: font });
 
-            // 4.4 Non-Resident (Usually Section 4.4 or 4.1 depending on form version)
-            // We assume standard EX-15 logic for non-residents
-            
-            // 5. DOWNLOAD
+            // SAVE
             const pdfBytes = await pdfDoc.save();
-            download(pdfBytes, "EX15_Ready_To_Sign.pdf", "application/pdf");
+            download(pdfBytes, "EX15_JuroSpain.pdf", "application/pdf");
+            document.getElementById('msg').innerText = "✅ Downloaded!";
             
-            btn.innerText = "Generate Again";
-            document.getElementById('success-message').style.display = 'block';
-
-        } catch (error) {
-            console.error(error);
-            alert("Error: Could not load the PDF. Make sure /assets/pdf/ex15.pdf exists!");
-            btn.innerText = "Try Again";
+        } catch (err) {
+            alert("Error: Could not load /assets/pdf/ex15.pdf. Please check the file exists.");
         }
     }
 
@@ -349,14 +231,4 @@ permalink: /tools/nie-generator/
         a.click();
         setTimeout(function() { document.body.removeChild(a); window.URL.revokeObjectURL(url); }, 0); 
     }
-
-    // --- DEVELOPER MODE: UNCOMMENT TO FIX COORDINATES ---
-    /*
-    document.addEventListener('click', (e) => {
-       // Open Console (F12) to see where you clicked relative to the PDF canvas overlay
-       // This helps you adjust the X/Y numbers above if your PDF is different.
-       console.log(`Click X: ${e.clientX}, Y: ${e.clientY}`); 
-       alert("Note: Use the console log to find coordinates, but remember PDF coordinates start from Bottom-Left!");
-    });
-    */
 </script>
