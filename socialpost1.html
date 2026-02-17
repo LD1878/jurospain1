@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Juro Social Media Assets</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body { background: #333; display: flex; flex-direction: column; align-items: center; gap: 50px; padding: 50px; font-family: sans-serif; }
+        h2 { color: white; margin-bottom: 10px; }
+        
+        /* THE CANVAS */
+        .social-post {
+            width: 1080px;
+            height: 1080px;
+            background: #f4f4f4;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* BRANDING */
+        .brand-stripe {
+            height: 20px;
+            background: linear-gradient(90deg, #002868 60%, #E30613 60%, #E30613 80%, #C5A059 80%);
+        }
+        
+        .logo-area {
+            position: absolute;
+            top: 60px;
+            left: 60px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 40px;
+            color: #002868;
+            font-weight: 700;
+        }
+
+        /* POST 1 STYLES (NIE) */
+        .post-1 { background: #002868; color: white; justify-content: center; align-items: center; text-align: center; }
+        .post-1 .highlight { color: #C5A059; }
+        .post-1 h1 { font-family: 'Oswald'; font-size: 140px; line-height: 1.1; margin: 0; text-transform: uppercase; }
+        .post-1 p { font-family: 'Inter'; font-size: 40px; margin-top: 40px; opacity: 0.9; }
+        .post-1 .card { background: white; color: #333; padding: 40px 80px; border-radius: 20px; margin-top: 60px; font-weight: bold; font-family: 'Inter'; font-size: 50px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+
+        /* POST 2 STYLES (TAX) */
+        .post-2 { background: white; }
+        .split-container { display: flex; height: 100%; }
+        .split-left { flex: 1; background: #f8f9fa; display: flex; flex-direction: column; justify-content: center; align-items: center; border-right: 4px solid #eee; }
+        .split-right { flex: 1; background: #002868; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; }
+        .big-percent { font-family: 'Oswald'; font-size: 180px; margin: 0; }
+        .label { font-family: 'Inter'; font-size: 40px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
+        .badge { position: absolute; top: 100px; right: 60px; background: #C5A059; color: #002868; padding: 10px 30px; font-weight: bold; font-family: 'Oswald'; font-size: 30px; border-radius: 50px; }
+
+        /* POST 3 STYLES (USA) */
+        .post-3 { background: #f8f9fa; justify-content: center; align-items: center; }
+        .flag-row { display: flex; align-items: center; gap: 60px; margin-bottom: 60px; }
+        .flag { font-size: 200px; }
+        .arrow { font-size: 100px; color: #E30613; }
+        .headline-3 { font-family: 'Oswald'; font-size: 100px; color: #002868; margin: 0; text-align: center; line-height: 1.2; }
+        .subhead-3 { font-family: 'Inter'; font-size: 40px; color: #666; margin-top: 30px; text-align: center; max-width: 800px; }
+        .cta-btn { margin-top: 80px; background: #E30613; color: white; padding: 30px 80px; font-family: 'Oswald'; font-size: 50px; border-radius: 100px; }
+
+    </style>
+</head>
+<body>
+
+    <div>
+        <h2>1. NIE Generator (Screenshot this box)</h2>
+        <div class="social-post post-1">
+            <div class="logo-area" style="color: white;">JURO SPAIN</div>
+            <h1>The Spanish<br><span class="highlight">Bureaucracy</span><br>Killer.</h1>
+            <p>Generate your official EX-15 form in 60 seconds.</p>
+            <div class="card">
+                ✅ 100% Free Tool
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <h2>2. Tax Optimization (Screenshot this box)</h2>
+        <div class="social-post post-2">
+            <div class="logo-area">JURO SPAIN</div>
+            <div class="brand-stripe"></div>
+            <div class="split-container">
+                <div class="split-left">
+                    <div class="label" style="color:#999;">Standard Tax</div>
+                    <div class="big-percent" style="color:#E30613; text-decoration: line-through;">47%</div>
+                </div>
+                <div class="split-right">
+                    <div class="badge">ELIGIBLE?</div>
+                    <div class="label" style="color:#C5A059;">Beckham Law</div>
+                    <div class="big-percent" style="color:white;">24%</div>
+                    <div style="font-family:'Inter'; font-size:30px; margin-top:20px;">Flat Rate for 6 Years</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <h2>3. US Citizens (Screenshot this box)</h2>
+        <div class="social-post post-3">
+            <div class="brand-stripe" style="position:absolute; top:0; width:100%;"></div>
+            <div class="logo-area">JURO SPAIN</div>
+            
+            <div class="flag-row">
+                <div class="flag">🇺🇸</div>
+                <div class="arrow">➜</div>
+                <div class="flag">🇪🇸</div>
+            </div>
+            
+            <h1 class="headline-3">2026 ROADMAP<br>FOR U.S. CITIZENS</h1>
+            <p class="subhead-3">Digital Nomad Visa Eligibility +<br>IRS/Hacienda Tax Strategy.</p>
+            
+            <div class="cta-btn">READ THE GUIDE</div>
+        </div>
+    </div>
+
+</body>
+</html>
