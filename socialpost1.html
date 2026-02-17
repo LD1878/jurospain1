@@ -2,124 +2,80 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Juro Spain Social Asset Generator</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    
+    <title>Juro Spain - Screenshot Ready</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { 
-            background: #222; 
-            color: white; 
-            font-family: sans-serif; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            padding: 40px; 
-            gap: 60px;
+        body {
+            background: #222;
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+            gap: 40px;
         }
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #ccc;
-        }
+        h2 { color: #ccc; margin-bottom: 10px; font-weight: normal; }
 
-        .btn-download {
-            background: #E30613; /* Juro Red */
-            color: white;
-            border: none;
-            padding: 15px 40px;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 50px;
-            cursor: pointer;
-            font-family: 'Oswald', sans-serif;
-            text-transform: uppercase;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            transition: 0.2s;
-            margin-bottom: 20px;
-        }
-        .btn-download:hover { background: white; color: #E30613; }
-
-        /* --- THE MAGIC WRAPPER --- */
-        /* This scales the visual preview down to 50% so it fits on your screen */
-        /* But the download script ignores this and grabs the full resolution */
-        .preview-wrapper {
-            transform: scale(0.5); 
-            transform-origin: top center;
-            margin-bottom: -500px; /* Compensate for the scale white space */
-            border: 2px solid #555;
-        }
-
-        /* --- THE CANVAS (1080x1080) --- */
+        /* --- THE CANVAS (Resized for Screens) --- */
         .social-post {
-            width: 1080px;
-            height: 1080px;
+            width: 600px;  /* Fits on laptop screens */
+            height: 600px; /* Perfect square */
             background: #f4f4f4;
             position: relative;
             overflow: hidden;
             display: flex;
             flex-direction: column;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
         }
 
-        /* BRANDING ASSETS */
-        .brand-stripe {
-            height: 20px;
-            width: 100%;
-            background: linear-gradient(90deg, #002868 60%, #E30613 60%, #E30613 80%, #C5A059 80%);
-        }
-        
-        .logo-area {
-            position: absolute;
-            top: 60px;
-            left: 60px;
-            font-family: 'Oswald', sans-serif;
-            font-size: 40px;
-            color: #002868;
-            font-weight: 700;
-            z-index: 10;
-        }
-
-        /* POST 1 STYLES (NIE) */
-        .post-1 { background: #002868; color: white; justify-content: center; align-items: center; text-align: center; }
+        /* --- POST 1: NIE GENERATOR --- */
+        .post-1 { background: #002868; color: white; align-items: center; text-align: center; justify-content: center; }
+        .post-1 .logo { font-family: 'Oswald'; position: absolute; top: 30px; left: 30px; font-size: 24px; color: white; letter-spacing: 1px; }
+        .post-1 .icon { font-size: 100px; margin-bottom: 10px; }
+        .post-1 h1 { font-family: 'Oswald'; font-size: 70px; line-height: 1.1; margin: 0; text-transform: uppercase; color: white; }
         .post-1 .highlight { color: #C5A059; }
-        .post-1 h1 { font-family: 'Oswald'; font-size: 140px; line-height: 1.1; margin: 0; text-transform: uppercase; z-index: 2; }
-        .post-1 p { font-family: 'Inter'; font-size: 40px; margin-top: 40px; opacity: 0.9; }
-        .post-1 .card { 
-            background: white; color: #333; 
-            padding: 40px 80px; border-radius: 20px; 
-            margin-top: 60px; font-weight: bold; 
-            font-family: 'Inter'; font-size: 50px; 
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            display: flex; align-items: center; gap: 20px;
+        .post-1 p { font-family: 'Inter'; font-size: 22px; margin-top: 20px; opacity: 0.9; width: 80%; line-height: 1.4; }
+        .post-1 .badge { 
+            background: white; color: #002868; 
+            padding: 15px 40px; border-radius: 50px; 
+            margin-top: 40px; font-weight: 700; 
+            font-family: 'Inter'; font-size: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
-        /* POST 2 STYLES (TAX) */
+        /* --- POST 2: BECKHAM LAW --- */
         .post-2 { background: white; }
+        .post-2 .logo { font-family: 'Oswald'; position: absolute; top: 30px; left: 30px; font-size: 24px; color: #002868; z-index: 10; }
         .split-container { display: flex; height: 100%; width: 100%; }
-        .split-left { flex: 1; background: #f8f9fa; display: flex; flex-direction: column; justify-content: center; align-items: center; border-right: 4px solid #eee; position: relative; }
+        .split-left { flex: 1; background: #f8f9fa; display: flex; flex-direction: column; justify-content: center; align-items: center; border-right: 2px solid #ddd; }
         .split-right { flex: 1; background: #002868; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; }
-        .big-percent { font-family: 'Oswald'; font-size: 220px; margin: 0; line-height: 1; }
-        .label { font-family: 'Inter'; font-size: 35px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
-        .badge { 
-            position: absolute; top: 120px; right: 60px; 
+        
+        .big-percent { font-family: 'Oswald'; font-size: 130px; margin: 0; line-height: 1; }
+        .label { font-family: 'Inter'; font-size: 20px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .pill { 
+            position: absolute; top: 80px; right: 30px; 
             background: #C5A059; color: #002868; 
-            padding: 15px 40px; font-weight: bold; 
-            font-family: 'Oswald'; font-size: 30px; 
-            border-radius: 50px; box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            padding: 8px 20px; font-weight: bold; 
+            font-family: 'Oswald'; font-size: 16px; 
+            border-radius: 50px; 
         }
 
-        /* POST 3 STYLES (USA) */
-        .post-3 { background: #f8f9fa; justify-content: center; align-items: center; }
-        .flag-row { display: flex; align-items: center; gap: 60px; margin-bottom: 60px; }
-        .flag { font-size: 200px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1)); }
-        .arrow { font-size: 100px; color: #E30613; }
-        .headline-3 { font-family: 'Oswald'; font-size: 110px; color: #002868; margin: 0; text-align: center; line-height: 1.1; font-weight: 700; }
-        .subhead-3 { font-family: 'Inter'; font-size: 45px; color: #555; margin-top: 40px; text-align: center; max-width: 850px; line-height: 1.4; }
-        .cta-btn { 
-            margin-top: 100px; background: #E30613; color: white; 
-            padding: 30px 80px; font-family: 'Oswald'; font-size: 45px; 
-            border-radius: 100px; text-transform: uppercase; letter-spacing: 2px;
+        /* --- POST 3: USA CITIZENS --- */
+        .post-3 { background: #f8f9fa; align-items: center; justify-content: center; }
+        .post-3 .top-stripe { width: 100%; height: 15px; background: linear-gradient(90deg, #002868 50%, #C5A059 50%); position: absolute; top: 0; }
+        .post-3 .logo { font-family: 'Oswald'; position: absolute; top: 40px; left: 0; width: 100%; text-align: center; font-size: 24px; color: #002868; letter-spacing: 2px; }
+        
+        .flag-row { display: flex; gap: 30px; align-items: center; margin-top: 40px; margin-bottom: 30px; }
+        .flag { font-size: 100px; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1)); }
+        .arrow { font-size: 50px; color: #E30613; }
+        
+        .headline-3 { font-family: 'Oswald'; font-size: 60px; color: #002868; margin: 0; text-align: center; line-height: 1.1; }
+        .subhead-3 { font-family: 'Inter'; font-size: 24px; color: #555; margin-top: 20px; text-align: center; width: 80%; }
+        .btn-fake { 
+            margin-top: 50px; background: #E30613; color: white; 
+            padding: 15px 50px; font-family: 'Oswald'; font-size: 24px; 
+            border-radius: 50px; letter-spacing: 1px;
         }
 
     </style>
@@ -127,98 +83,53 @@
 <body>
 
     <div>
-        <div class="section-title">
-            <h2>1. The NIE Generator</h2>
-            <button class="btn-download" onclick="downloadPost('post1', 'Juro_NIE_Post.png')">⬇️ Download HD Image</button>
+        <h2>1. NIE Generator (Screenshot This)</h2>
+        <div class="social-post post-1">
+            <div class="logo">JURO SPAIN</div>
+            <div class="icon">🇪🇸</div>
+            <h1>The Spanish<br><span class="highlight">Bureaucracy</span><br>Killer.</h1>
+            <p>Generate your official EX-15 form in 60 seconds.</p>
+            <div class="badge">✅ 100% Free Tool</div>
         </div>
-        
-        <div class="preview-wrapper">
-            <div class="social-post post-1" id="post1">
-                <div class="logo-area" style="color: white;">JURO SPAIN</div>
-                
-                <div style="font-size: 200px; margin-bottom: -20px;">🇪🇸</div>
-                
-                <h1>The Spanish<br><span class="highlight">Bureaucracy</span><br>Killer.</h1>
-                
-                <p>Generate your official EX-15 form in 60 seconds.</p>
-                
-                <div class="card">
-                    <span style="color:#00c853">✔</span> 100% Free Tool
+    </div>
+
+    <div>
+        <h2>2. Tax Optimization (Screenshot This)</h2>
+        <div class="social-post post-2">
+            <div class="logo">JURO SPAIN</div>
+            <div class="split-container">
+                <div class="split-left">
+                    <div class="label" style="color:#aaa;">Standard</div>
+                    <div class="big-percent" style="color:#ddd; text-decoration: line-through;">47%</div>
+                </div>
+                <div class="split-right">
+                    <div class="pill">ELIGIBLE?</div>
+                    <div class="label" style="color:#C5A059;">Beckham Law</div>
+                    <div class="big-percent">24%</div>
+                    <div style="font-family:'Inter'; font-size:16px; margin-top:10px; border-top: 1px solid #C5A059; padding-top:10px;">Flat Rate (6 Years)</div>
                 </div>
             </div>
         </div>
     </div>
 
     <div>
-        <div class="section-title">
-            <h2>2. Tax Optimization</h2>
-            <button class="btn-download" onclick="downloadPost('post2', 'Juro_Tax_Post.png')">⬇️ Download HD Image</button>
-        </div>
-
-        <div class="preview-wrapper">
-            <div class="social-post post-2" id="post2">
-                <div class="logo-area">JURO SPAIN</div>
-                <div class="brand-stripe" style="position: absolute; top:0; z-index: 5;"></div>
-                
-                <div class="split-container">
-                    <div class="split-left">
-                        <div class="label" style="color:#999;">Standard Tax</div>
-                        <div class="big-percent" style="color:#E30613; text-decoration: line-through; opacity: 0.4;">47%</div>
-                        <div style="font-family:'Inter'; font-size:24px; margin-top:20px; color:#aaa;">(Variable Rate)</div>
-                    </div>
-                    <div class="split-right">
-                        <div class="badge">ELIGIBLE?</div>
-                        <div class="label" style="color:#C5A059;">Beckham Law</div>
-                        <div class="big-percent" style="color:white;">24%</div>
-                        <div style="font-family:'Inter'; font-size:30px; margin-top:30px; border-top: 2px solid #C5A059; padding-top:20px;">Flat Rate for 6 Years</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div>
-        <div class="section-title">
-            <h2>3. US Citizens</h2>
-            <button class="btn-download" onclick="downloadPost('post3', 'Juro_USA_Post.png')">⬇️ Download HD Image</button>
-        </div>
-
-        <div class="preview-wrapper">
-            <div class="social-post post-3" id="post3">
-                <div class="brand-stripe" style="position:absolute; top:0; width:100%;"></div>
-                <div class="logo-area">JURO SPAIN</div>
-                
-                <div class="flag-row">
-                    <div class="flag">🇺🇸</div>
-                    <div class="arrow">➜</div>
-                    <div class="flag">🇪🇸</div>
-                </div>
-                
-                <h1 class="headline-3">2026 ROADMAP<br>FOR U.S. CITIZENS</h1>
-                <p class="subhead-3">Digital Nomad Visa Eligibility +<br>IRS / Hacienda Tax Strategy.</p>
-                
-                <div class="cta-btn">Read The Guide</div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function downloadPost(elementId, fileName) {
-            const element = document.getElementById(elementId);
+        <h2>3. US Citizens (Screenshot This)</h2>
+        <div class="social-post post-3">
+            <div class="top-stripe"></div>
+            <div class="logo">JURO SPAIN</div>
             
-            // We use html2canvas to render the div as an image
-            html2canvas(element, {
-                scale: 1, // Capture at native 1080p resolution
-                useCORS: true, // Allow external fonts/images if needed
-                backgroundColor: null
-            }).then(canvas => {
-                // Create a fake link to trigger download
-                const link = document.createElement('a');
-                link.download = fileName;
-                link.href = canvas.toDataURL("image/png");
-                link.click();
-            });
-        }
-    </script>
+            <div class="flag-row">
+                <div class="flag">🇺🇸</div>
+                <div class="arrow">➜</div>
+                <div class="flag">🇪🇸</div>
+            </div>
+            
+            <h1 class="headline-3">2026 ROADMAP<br>FOR U.S. CITIZENS</h1>
+            <p class="subhead-3">Digital Nomad Visa Eligibility +<br>IRS / Hacienda Tax Strategy.</p>
+            
+            <div class="btn-fake">READ THE GUIDE</div>
+        </div>
+    </div>
+
 </body>
 </html>
