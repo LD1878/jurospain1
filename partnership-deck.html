@@ -17,8 +17,8 @@
       --text-muted: #64748b;
       --border-light: #e2e8f0;
       --sp-font-heavy: 'Oswald', sans-serif;
-      --sp-font-body: 'Inter', sans-serif; /* Switched Arial to Inter for cleaner print */
-      --brand-navy: #002868; /* Added from your banner styles */
+      --sp-font-body: 'Inter', sans-serif;
+      --brand-navy: #002868;
     }
 
     /* ==========================================================
@@ -27,7 +27,7 @@
     body {
         margin: 0;
         padding: 0;
-        background: #555; /* Dark background for browser view only */
+        background: #555;
         font-family: var(--sp-font-body);
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
@@ -41,17 +41,16 @@
         padding: 20px;
     }
 
-    /* A4 LANDSCAPE RATIO (approx) or 16:9 for screen */
     .slide {
-        width: 1123px; /* A4 Landscape width at 96dpi */
-        height: 794px; /* A4 Landscape height at 96dpi */
+        width: 1123px; /* A4 Landscape width */
+        height: 794px; /* A4 Landscape height */
         background-color: var(--bg-primary);
         position: relative;
         overflow: hidden;
         box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         page-break-after: always;
         
-        /* The Juro Tech Texture */
+        /* Tech Texture */
         background-image: 
             linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
             linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
@@ -103,22 +102,52 @@
        4. SLIDE SPECIFIC STYLES
        ========================================================== */
     
-    /* SLIDE 1: COVER */
+    /* SLIDE 1: NEW PROFESSIONAL COVER */
     .slide-cover {
         background: var(--brand-navy);
         color: white;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding-left: 80px;
+        align-items: center;
+        text-align: center;
+        border: 20px solid white; /* Adds a clean frame */
+        box-sizing: border-box;
     }
-    .slide-cover::after {
-        content: ''; position: absolute; top: 0; right: 0; width: 30%; height: 100%;
-        background: var(--sp-red);
-        clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
+    
+    .cover-logo {
+        font-family: var(--sp-font-heavy);
+        font-size: 6rem;
+        font-weight: 700;
+        letter-spacing: 5px;
+        color: white;
+        margin-bottom: 20px;
     }
-    .cover-title { font-size: 5rem; line-height: 0.9; margin-bottom: 20px; z-index: 10; }
-    .cover-subtitle { font-family: var(--sp-font-body); font-size: 1.5rem; color: var(--gold-color); letter-spacing: 2px; z-index: 10; }
+
+    .cover-line {
+        width: 100px;
+        height: 6px;
+        background: var(--gold-color);
+        margin: 0 auto 40px auto;
+    }
+
+    .cover-subtitle {
+        font-family: var(--sp-font-body);
+        font-size: 1.4rem;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.8);
+        font-weight: 300;
+    }
+
+    .cover-year {
+        position: absolute;
+        bottom: 60px;
+        font-family: var(--sp-font-heavy);
+        font-size: 1.2rem;
+        color: var(--gold-color);
+        letter-spacing: 2px;
+    }
 
     /* SLIDE 2: THE PROBLEM */
     .big-stat { font-family: var(--sp-font-heavy); font-size: 6rem; color: var(--sp-red); line-height: 1; }
@@ -151,15 +180,12 @@
 <div class="deck-container">
 
     <div class="slide slide-cover">
-        <div class="cover-subtitle">PROPUESTA DE ALIANZA ESTRATÉGICA</div>
-        <div class="cover-title">
-            JURO<span class="text-gold">SPAIN</span><br>
-            PARTNERS
-        </div>
-        <p style="font-size: 1.2rem; opacity: 0.8; max-width: 600px; z-index: 10;">
-            Captación de clientes High Net Worth (HNW) y externalización legal.<br>
-            2026
-        </p>
+        <div class="cover-logo">JURO<span class="text-gold">SPAIN</span></div>
+        <div class="cover-line"></div>
+        <div class="cover-subtitle">Strategic Partnership Proposal</div>
+        <div class="cover-subtitle" style="font-size: 1rem; margin-top: 10px; opacity: 0.6;">Dossier de Colaboración Legal</div>
+        
+        <div class="cover-year">2026 EXECUTION PLAN</div>
     </div>
 
     <div class="slide">
@@ -366,7 +392,7 @@
 
             <p style="opacity: 0.7;">
                 JUROSPAIN<br>
-                Pedregalejo, Malaga
+                Regus Oficina Pedregalejo, Malaga
             </p>
         </div>
     </div>
