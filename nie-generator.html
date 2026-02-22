@@ -7,91 +7,147 @@ permalink: /tools/nie-generator/
 <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
 
 <style>
-    /* --- JUROSPAIN BRAND SYSTEM --- */
+    /* --- JUROSPAIN PREMIUM DESIGN SYSTEM --- */
     :root {
         --brand-navy: #002868;
         --brand-red: #E30613;
         --brand-gold: #C5A059;
         --text-dark: #1e293b;
         --text-light: #64748b;
+        --bg-light: #f8fafc;
+        --border-light: #e2e8f0;
+        --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     }
 
-    /* --- LAYOUT --- */
-    .nie-app-container {
-        max-width: 800px;
-        margin: 3rem auto;
-        background: white;
-        border-radius: 16px;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    * { box-sizing: border-box; }
+
+    body {
+        background: #f1f5f9;
         font-family: 'Inter', sans-serif;
+        margin: 0;
+        padding: 2rem 1rem;
+    }
+
+    /* --- MAIN CONTAINER --- */
+    .nie-app-container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 32px;
+        box-shadow: var(--shadow-lg);
         overflow: hidden;
-        border: 1px solid #e2e8f0;
+        border: 1px solid var(--border-light);
+        transition: all 0.3s ease;
+    }
+
+    /* --- HEADER WITH GRADIENT --- */
+    .app-header {
+        background: linear-gradient(135deg, var(--brand-navy) 0%, #001a4a 100%);
+        padding: 2.5rem 2rem;
+        text-align: center;
+        color: white;
         position: relative;
     }
 
-    .app-header {
-        background: var(--brand-navy);
-        padding: 2rem;
-        text-align: center;
-        color: white;
+    .app-header::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--brand-gold), var(--brand-red), var(--brand-gold));
     }
 
     .app-header h1 {
         font-family: 'Oswald', sans-serif;
-        font-size: 1.8rem;
+        font-size: 2.5rem;
         margin: 0;
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: 2px;
+        font-weight: 600;
+        line-height: 1.2;
     }
 
     .app-header p {
         color: var(--brand-gold);
-        font-size: 0.9rem;
+        font-size: 1rem;
         margin-top: 0.5rem;
-        font-weight: 600;
+        font-weight: 500;
+        letter-spacing: 1px;
+        opacity: 0.9;
     }
 
-    /* --- PROGRESS BAR --- */
+    /* --- PROGRESS BAR (ELEGANT) --- */
     .progress-track {
-        background: #eef2f6;
+        background: var(--border-light);
         height: 6px;
         width: 100%;
+        position: relative;
     }
     .progress-fill {
-        background: var(--brand-red);
+        background: linear-gradient(90deg, var(--brand-red), #ff4a4a);
         height: 100%;
         width: 33%;
-        transition: width 0.4s ease;
+        transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border-radius: 0 4px 4px 0;
+        position: relative;
+        overflow: hidden;
+    }
+    .progress-fill::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(90deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%);
+        animation: shimmer 2s infinite;
+    }
+    @keyframes shimmer {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
     }
 
-    /* --- FORM STEPS --- */
+    /* --- FORM BODY --- */
     .form-body { padding: 2.5rem; }
 
+    /* --- STEP SECTIONS --- */
     .step-section {
         display: none;
-        animation: fadeIn 0.4s ease;
+        animation: fadeSlide 0.4s ease-out;
     }
     
     .step-section.active { display: block; }
 
-    @keyframes fadeIn {
+    @keyframes fadeSlide {
         from { opacity: 0; transform: translateY(10px); }
         to { opacity: 1; transform: translateY(0); }
     }
 
     .step-title {
-        font-size: 1.2rem;
-        font-weight: 700;
+        font-family: 'Oswald', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 600;
         color: var(--brand-navy);
-        margin-bottom: 1.5rem;
-        padding-bottom: 10px;
+        margin-bottom: 2rem;
+        padding-bottom: 0.75rem;
         border-bottom: 2px solid #f1f5f9;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        letter-spacing: 0.5px;
+    }
+    .step-title span {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.9rem;
+        color: var(--text-light);
+        font-weight: 400;
     }
 
-    /* --- INPUT GRID --- */
+    /* --- INPUT GRID (TWO COLUMNS) --- */
     .input-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -100,31 +156,44 @@ permalink: /tools/nie-generator/
 
     .full-width { grid-column: span 2; }
 
+    .input-group {
+        display: flex;
+        flex-direction: column;
+    }
+
     .input-group label {
-        display: block;
-        font-size: 0.85rem;
+        font-size: 0.8rem;
         font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
         color: var(--text-dark);
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.4rem;
     }
 
     .input-group input, .input-group select {
         width: 100%;
-        padding: 12px;
-        border: 2px solid #e2e8f0;
-        border-radius: 8px;
-        font-size: 1rem;
+        padding: 12px 14px;
+        border: 2px solid var(--border-light);
+        border-radius: 12px;
+        font-size: 0.95rem;
         transition: all 0.2s;
-        background: #fff;
+        background: white;
+        font-family: 'Inter', sans-serif;
+        color: var(--text-dark);
     }
 
     .input-group input:focus, .input-group select:focus {
         border-color: var(--brand-navy);
         outline: none;
-        box-shadow: 0 0 0 3px rgba(0, 40, 104, 0.1);
+        box-shadow: 0 0 0 4px rgba(0, 40, 104, 0.1);
     }
 
-    /* --- ACTIONS --- */
+    .input-group input::placeholder {
+        color: #a0aec0;
+        font-size: 0.9rem;
+    }
+
+    /* --- FORM ACTIONS --- */
     .form-actions {
         margin-top: 3rem;
         display: flex;
@@ -132,56 +201,145 @@ permalink: /tools/nie-generator/
         align-items: center;
     }
 
+    .btn-secondary, .btn-primary {
+        padding: 12px 28px;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        border: none;
+        font-family: 'Inter', sans-serif;
+    }
+
     .btn-secondary {
         background: transparent;
         color: var(--text-light);
-        border: 2px solid #e2e8f0;
-        padding: 10px 24px;
-        border-radius: 50px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: 0.2s;
+        border: 2px solid var(--border-light);
     }
 
-    .btn-secondary:hover { border-color: var(--text-dark); color: var(--text-dark); }
+    .btn-secondary:hover {
+        border-color: var(--text-dark);
+        color: var(--text-dark);
+        transform: translateY(-2px);
+    }
 
     .btn-primary {
         background: var(--brand-red);
         color: white;
-        border: none;
-        padding: 14px 32px;
-        border-radius: 50px;
-        font-weight: 700;
-        font-size: 1rem;
-        cursor: pointer;
-        box-shadow: 0 4px 12px rgba(227, 6, 19, 0.3);
-        transition: 0.2s;
+        box-shadow: 0 4px 14px rgba(227, 6, 19, 0.3);
     }
 
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(227, 6, 19, 0.4); }
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(227, 6, 19, 0.4);
+        background: #c00510; /* slightly darker */
+    }
 
-    /* --- SUCCESS SCREEN --- */
+    .btn-primary:active { transform: translateY(0); }
+
+    /* --- READY BOX (step 3) --- */
+    .ready-box {
+        margin-top: 2rem;
+        background: #ecfdf5;
+        padding: 1.5rem;
+        border-radius: 16px;
+        border-left: 4px solid #10b981;
+        color: #064e3b;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        box-shadow: var(--shadow-sm);
+    }
+    .ready-box strong { color: #047857; }
+
+    /* --- SUCCESS SCREEN (PREMIUM) --- */
     #success-screen {
         display: none;
         text-align: center;
-        padding: 2rem;
-    }
-    
-    .success-icon { font-size: 4rem; margin-bottom: 1rem; display: block; }
-    
-    .upsell-box {
-        background: #f8fafc;
-        border: 1px solid #e2e8f0;
-        border-radius: 12px;
-        padding: 2rem;
-        margin-top: 2rem;
+        padding: 3rem 2rem;
+        background: white;
     }
 
+    .success-icon {
+        font-size: 5rem;
+        margin-bottom: 1rem;
+        display: inline-block;
+        background: #10b981;
+        color: white;
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        border-radius: 50%;
+        text-align: center;
+        box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+    }
+
+    #success-screen h2 {
+        font-family: 'Oswald', sans-serif;
+        font-size: 2rem;
+        color: var(--brand-navy);
+        margin: 1rem 0 0.5rem;
+    }
+
+    #success-screen p {
+        color: var(--text-light);
+        font-size: 1.1rem;
+        max-width: 450px;
+        margin: 0 auto 2rem;
+    }
+
+    .upsell-box {
+        background: linear-gradient(135deg, #fff9f0, #fff);
+        border: 1px solid var(--brand-gold);
+        border-radius: 24px;
+        padding: 2.5rem 2rem;
+        max-width: 500px;
+        margin: 0 auto;
+        box-shadow: var(--shadow-md);
+    }
+
+    .upsell-box h3 {
+        font-family: 'Oswald', sans-serif;
+        color: var(--brand-red);
+        font-size: 1.6rem;
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+
+    .upsell-box p {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        color: var(--text-dark);
+    }
+
+    .upsell-box .btn-primary {
+        display: inline-block;
+        text-decoration: none;
+        padding: 14px 32px;
+        font-size: 1.1rem;
+    }
+
+    .reset-link {
+        margin-top: 2rem;
+        background: none;
+        border: none;
+        color: var(--text-light);
+        text-decoration: underline;
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: color 0.2s;
+    }
+    .reset-link:hover { color: var(--brand-red); }
+
+    /* --- MOBILE ADAPTATIONS --- */
     @media (max-width: 600px) {
         .input-grid { grid-template-columns: 1fr; }
         .full-width { grid-column: span 1; }
-        .form-actions { flex-direction: column-reverse; gap: 15px; }
+        .form-actions { flex-direction: column-reverse; gap: 12px; }
         .btn-primary, .btn-secondary { width: 100%; }
+        .app-header h1 { font-size: 2rem; }
+        .step-title { font-size: 1.3rem; }
+        .form-body { padding: 1.5rem; }
     }
 </style>
 
@@ -197,6 +355,7 @@ permalink: /tools/nie-generator/
 
     <div class="form-body" id="wizard-form">
         
+        <!-- STEP 1: Personal Info -->
         <div class="step-section active" id="step1">
             <div class="step-title">1. Who are you? <span>Step 1/3</span></div>
             <div class="input-grid">
@@ -206,11 +365,11 @@ permalink: /tools/nie-generator/
                 </div>
                 <div class="input-group">
                     <label>First Name</label>
-                    <input type="text" id="firstname">
+                    <input type="text" id="firstname" placeholder="e.g. John">
                 </div>
                 <div class="input-group">
                     <label>Surname (Last Name)</label>
-                    <input type="text" id="surname">
+                    <input type="text" id="surname" placeholder="e.g. Doe">
                 </div>
                 <div class="input-group">
                     <label>Gender</label>
@@ -233,7 +392,7 @@ permalink: /tools/nie-generator/
                 </div>
                 <div class="input-group">
                     <label>Nationality</label>
-                    <input type="text" id="nationality">
+                    <input type="text" id="nationality" placeholder="e.g. BRITISH">
                 </div>
                 <div class="input-group">
                     <label>Father's First Name</label>
@@ -245,11 +404,11 @@ permalink: /tools/nie-generator/
                 </div>
                 <div class="input-group">
                     <label>Birth City</label>
-                    <input type="text" id="birthplace">
+                    <input type="text" id="birthplace" placeholder="e.g. LONDON">
                 </div>
                 <div class="input-group">
                     <label>Birth Country</label>
-                    <input type="text" id="birthcountry">
+                    <input type="text" id="birthcountry" placeholder="e.g. UNITED KINGDOM">
                 </div>
             </div>
             <div class="form-actions" style="justify-content: flex-end;">
@@ -257,6 +416,7 @@ permalink: /tools/nie-generator/
             </div>
         </div>
 
+        <!-- STEP 2: Contact Details -->
         <div class="step-section" id="step2">
             <div class="step-title">2. Contact Details <span>Step 2/3</span></div>
             <div class="input-grid">
@@ -266,27 +426,27 @@ permalink: /tools/nie-generator/
                 </div>
                 <div class="input-group">
                     <label>House Number</label>
-                    <input type="text" id="street_no">
+                    <input type="text" id="street_no" placeholder="e.g. 15A">
                 </div>
                 <div class="input-group">
                     <label>City</label>
-                    <input type="text" id="city">
+                    <input type="text" id="city" placeholder="e.g. LONDON">
                 </div>
                 <div class="input-group">
                     <label>Postal Code</label>
-                    <input type="text" id="zip">
+                    <input type="text" id="zip" placeholder="e.g. NW1 6XE">
                 </div>
                 <div class="input-group">
                     <label>Province / Region</label>
-                    <input type="text" id="province">
+                    <input type="text" id="province" placeholder="e.g. GREATER LONDON">
                 </div>
                 <div class="input-group">
                     <label>Email Address</label>
-                    <input type="email" id="email">
+                    <input type="email" id="email" placeholder="you@example.com">
                 </div>
                 <div class="input-group">
                     <label>Phone Number</label>
-                    <input type="text" id="phone">
+                    <input type="text" id="phone" placeholder="+44 123 456 789">
                 </div>
             </div>
             <div class="form-actions">
@@ -295,6 +455,7 @@ permalink: /tools/nie-generator/
             </div>
         </div>
 
+        <!-- STEP 3: Finalize -->
         <div class="step-section" id="step3">
             <div class="step-title">3. Finalize <span>Step 3/3</span></div>
             <div class="input-grid">
@@ -313,11 +474,11 @@ permalink: /tools/nie-generator/
                 </div>
                 <div class="input-group">
                     <label>Signing City</label>
-                    <input type="text" id="sign_city" placeholder="e.g. London">
+                    <input type="text" id="sign_city" placeholder="e.g. LONDON">
                 </div>
             </div>
 
-            <div style="margin-top: 2rem; background: #ecfdf5; padding: 1.5rem; border-radius: 8px; border: 1px solid #10b981; color: #064e3b;">
+            <div class="ready-box">
                 <strong>Ready to Generate?</strong><br>
                 We will automatically select "Economic Interests" and fill the Spanish legal terms for you. No Spanish required.
             </div>
@@ -329,25 +490,23 @@ permalink: /tools/nie-generator/
         </div>
     </div>
 
+    <!-- SUCCESS SCREEN -->
     <div id="success-screen">
-        <span class="success-icon">✅</span>
-        <h2 style="color:var(--brand-navy); margin-top:0;">Your PDF is Ready!</h2>
-        <p style="color:var(--text-light);">Check your downloads folder for <strong>NIE_Application.pdf</strong>.</p>
+        <div class="success-icon">✓</div>
+        <h2>Your PDF is Ready!</h2>
+        <p>Check your downloads folder for <strong>NIE_Application.pdf</strong>.</p>
         
         <div class="upsell-box">
-            <h3 style="color:var(--brand-red); margin-top:0;">Don't want to go to the police station?</h3>
-            <p style="margin-bottom: 2rem;">Appointments are hard to get and the language barrier is real. We can handle the entire submission for you.</p>
+            <h3>Don't want to go to the police station?</h3>
+            <p>Appointments are hard to get and the language barrier is real. We can handle the entire submission for you.</p>
             
-            <a href="https://app.cal.eu/jurospain/30min" target="_blank" class="btn-primary" style="text-decoration: none; display: inline-block;">
+            <a href="https://app.cal.eu/jurospain/30min" target="_blank" class="btn-primary">
                 Book a Strategy Call
             </a>
         </div>
         
-        <button onclick="location.reload()" style="margin-top:2rem; background:none; border:none; text-decoration:underline; cursor:pointer; color:#888;">
-            Generate another form
-        </button>
+        <button onclick="location.reload()" class="reset-link">Generate another form</button>
     </div>
-
 </div>
 
 <script>
@@ -364,7 +523,7 @@ permalink: /tools/nie-generator/
         document.querySelector('.nie-app-container').scrollIntoView({behavior: 'smooth'});
     }
 
-    // --- PDF GENERATION LOGIC ---
+    // --- PDF GENERATION LOGIC (unchanged) ---
     const { PDFDocument } = PDFLib;
 
     async function generatePDF() {
