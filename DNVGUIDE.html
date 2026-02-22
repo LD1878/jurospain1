@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spain Digital Nomad Visa – master guide · jurospain</title>
+    <!-- Fonts (Inter + Oswald) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (for icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- ===== MASTER CSS (PROVIDED) ===== -->
+    <style>
+        /* ----------------------------------------------------------
+           1. VARIABLES & SETUP
+           ---------------------------------------------------------- */
+        :root {
+          --sp-red: #E30613;
+          --gold-color: #FFC400; 
+          --bg-primary: #fcfcfc;
+          --bg-secondary: #ffffff;
+          --text-primary: #232323;
+          --text-muted: #64748b;
+          --border-light: #e2e8f0;
+          --btn-text: #ffffff;
+          --sp-radius: 6px;
+          --sp-font-heavy: 'Oswald', sans-serif;
+          --sp-font-body: 'Inter', sans-serif;
+          --sp-max-width: 1200px;
+          --elev-1: 0 2px 6px rgba(0,0,0,0.06);
+          --elev-2: 0 6px 12px rgba(0,0,0,0.12);
+          --elev-3: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        /* ----------------------------------------------------------
+           2. BASE STYLES & TEXTURE
+           ---------------------------------------------------------- */
+        *, *::before, *::after {
+          box-sizing: border-box;
+        }
+
+        body {
+          background-color: var(--bg-primary);
+          color: var(--text-primary);
+          font-family: var(--sp-font-body);
+          line-height: 1.6;
+          margin: 0;
+          font-size: 16px;
+          background-image: 
+              linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+          background-size: 50px 50px;
+          background-position: center top;
+        }
+
+        h1, h2, h3 {
+          font-family: var(--sp-font-heavy);
+          font-weight: 700;
+          margin-bottom: 1rem;
+          line-height: 1.2;
+        }
+
+        h1 {
+          font-size: 3rem;
+          text-align: center;
+          color: var(--sp-red);
+          letter-spacing: -1px;
+        }
+
+        h2 {
+          font-size: 2rem;
+          border-bottom: 3px solid var(--gold-color);
+          padding-bottom: 0.5rem;
+          margin-top: 3rem;
+          color: var(--text-primary);
+        }
+
+        h3 {
+          font-size: 1.25rem;
+          color: var(--sp-red);
+          margin-top: 0;
+        }
+
+        p { margin-bottom: 1rem; }
+        .center { text-align: center; }
+        .small { font-size: 0.9rem; color: var(--text-muted); }
+        .container { max-width: var(--sp-max-width); margin: 0 auto; padding: 0 1.5rem; }
+
+        hr {
+          border: 0;
+          border-top: 1px solid var(--border-light);
+          margin: 3rem 0;
+        }
+
+        /* ----------------------------------------------------------
+           3. BUTTONS
+           ---------------------------------------------------------- */
+        .btn {
+          background: var(--sp-red);
+          color: #ffffff !important;
+          font-weight: 700;
+          padding: 0.75rem 1.5rem;
+          border-radius: var(--sp-radius);
+          display: inline-block;
+          text-transform: uppercase;
+          font-size: 0.9rem;
+          letter-spacing: 0.5px;
+          border: 2px solid transparent;
+          cursor: pointer;
+          text-decoration: none;
+          transition: all 0.2s ease;
+          font-family: var(--sp-font-heavy);
+          box-shadow: 0 2px 5px rgba(227, 6, 19, 0.2);
+        }
+
+        .btn:hover {
+          background: #c40410;
+          transform: translateY(-2px);
+          box-shadow: 0 5px 15px rgba(227, 6, 19, 0.3);
+        }
+
+        .btn-white {
+            background-color: #ffffff !important;
+            color: #1e293b !important;
+            border-color: #ffffff !important;
+        }
+
+        .btn-outline {
+            background-color: transparent !important;
+            color: var(--sp-red) !important;
+            border: 2px solid var(--sp-red) !important;
+            box-shadow: none !important;
+        }
+        .btn-outline:hover {
+            background-color: var(--sp-red) !important;
+            color: #ffffff !important;
+        }
+
+        /* ----------------------------------------------------------
+           4. HEADER & NAVIGATION (Glassmorphism)
+           ---------------------------------------------------------- */
+        .site-header {
+          background-color: var(--bg-secondary);
+          backdrop-filter: blur(12px); 
+          -webkit-backdrop-filter: blur(12px);
+          opacity: 0.98;
+          border-bottom: 3px solid var(--gold-color);
+          box-shadow: var(--elev-1);
+          position: sticky;
+          top: 0;
+          z-index: 1000;
+          padding: 0;
+          height: 90px;
+          display: flex;
+          align-items: center;
+          transition: background-color 0.3s ease;
+        }
+
+        .site-header .container {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+        }
+
+        .site-title {
+          font-family: var(--sp-font-heavy);
+          font-size: 1.8rem;
+          font-weight: 800;
+          color: var(--sp-red);
+          text-decoration: none;
+          letter-spacing: -0.5px;
+        }
+
+        .site-nav {
+          display: flex;
+          align-items: center;
+          gap: 2.5rem;
+        }
+
+        .site-nav a {
+          font-family: var(--sp-font-heavy);
+          color: var(--text-primary);
+          text-decoration: none;
+          font-weight: 600;
+          text-transform: uppercase;
+          font-size: 0.95rem;
+          transition: color 0.2s;
+          letter-spacing: 0.5px;
+        }
+
+        .site-nav a:hover { color: var(--sp-red); }
+
+        /* DROPDOWN MENU */
+        .dropdown-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 100%;
+            padding: 10px 0;
+        }
+
+        .dropdown-trigger {
+            font-family: var(--sp-font-heavy);
+            color: var(--text-primary);
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .dropdown-trigger:hover { color: var(--sp-red); }
+
+        .dropdown-trigger::after {
+            content: '';
+            display: inline-block;
+            margin-left: 8px;
+            width: 0; height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid currentColor;
+            vertical-align: middle;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--bg-secondary);
+            min-width: 220px;
+            box-shadow: var(--elev-3);
+            border-radius: var(--sp-radius);
+            border: 1px solid var(--border-light);
+            padding: 0.5rem 0;
+            z-index: 10000;
+        }
+
+        .dropdown-container:hover .dropdown-menu { display: block; }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 12px 24px;
+            border-bottom: 1px solid var(--border-light);
+            text-transform: none;
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-primary);
+        }
+        .dropdown-menu a:hover { background-color: var(--bg-primary); color: var(--sp-red); }
+
+        /* ----------------------------------------------------------
+           5. USA BANNER (Global Styles)
+           ---------------------------------------------------------- */
+        .usa-promo-banner {
+            background: #002868;
+            color: white !important;
+            padding: 12px 0;
+            overflow: hidden;
+            position: relative;
+            border-bottom: 4px solid #bf0a30;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1.5px;
+            z-index: 10001;
+            display: block;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .usa-promo-banner:hover { background: #001f54; }
+
+        .banner-track {
+            display: flex;
+            width: 200%;
+            animation: scrollBanner 25s linear infinite;
+        }
+
+        .banner-item {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            white-space: nowrap;
+        }
+
+        @keyframes scrollBanner {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .usa-flag-icon { width: 24px; height: auto; border-radius: 2px; }
+
+        /* ----------------------------------------------------------
+           6. CARDS & GRIDS
+           ---------------------------------------------------------- */
+        .services-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 2rem;
+          margin: 3rem 0;
+        }
+
+        .card {
+          background: var(--bg-secondary);
+          border: 1px solid var(--border-light);
+          border-radius: var(--sp-radius);
+          padding: 2rem;
+          box-shadow: var(--elev-1);
+          transition: transform 0.3s, box-shadow 0.3s;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          color: var(--text-primary);
+        }
+
+        .card:hover { transform: translateY(-4px); border-color: var(--gold-color); }
+
+        /* ----------------------------------------------------------
+           7. FOOTER & MOBILE
+           ---------------------------------------------------------- */
+        .site-footer {
+          background: var(--bg-secondary);
+          color: var(--text-primary);
+          padding: 4rem 0 2rem;
+          margin-top: 5rem;
+          border-top: 1px solid var(--border-light);
+        }
+
+        .footer-content {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 2rem;
+          margin-bottom: 2rem;
+        }
+
+        .footer-section h3 { color: inherit; border-bottom: none; }
+        .footer-section a { color: inherit; opacity: 0.8; text-decoration: none; }
+
+        /* WHATSAPP FLOAT */
+        .whatsapp-float {
+            position: fixed; width: 62px; height: 62px; bottom: 30px; left: 30px;
+            background-color: #25d366; border-radius: 50px; display: flex;
+            align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+            z-index: 999; text-decoration: none; transition: 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); background-color: #128c7e; }
+
+        @media (max-width: 900px) {
+            .site-header .container { flex-wrap: wrap; }
+            .site-nav {
+                display: none; width: 100%; flex-direction: column; 
+                position: fixed; top: 90px; left: 0; background: var(--bg-secondary);
+                padding: 2rem; border-bottom: 5px solid var(--sp-red);
+                box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            }
+            .site-nav.active { display: flex; }
+            .site-nav a, .dropdown-trigger { width: 100%; padding: 1rem 0; border-bottom: 1px solid var(--border-light); justify-content: center; }
+            
+            .dropdown-menu { position: static; display: block; transform: none; box-shadow: none; border: none; background: rgba(0,0,0,0.03); text-align: center; }
+            .dropdown-trigger::after { display: none; }
+        }
+
+        /* Additional custom styles for guide (FAQ, insider tip, legal note) */
+        .faq-item {
+            margin: 1.5rem 0;
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 1rem;
+        }
+        .faq-question {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--sp-red);
+        }
+        .faq-answer {
+            color: var(--text-muted);
+            padding-left: 1rem;
+            border-left: 3px solid var(--gold-color);
+        }
+        .insider-tip {
+            background: #f0f7fe;
+            border-left: 6px solid var(--sp-red);
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            margin: 2.5rem 0;
+        }
+        .legal-note {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
+        }
+    </style>
+</head>
+<body>
+
+<!-- ========== SITE HEADER ========== -->
+<header class="site-header">
+    <div class="container">
+        <a href="#" class="site-title">jurospain<span style="color: var(--gold-color);">.</span></a>
+        <nav class="site-nav">
+            <a href="#">Home</a>
+            <div class="dropdown-container">
+                <span class="dropdown-trigger">Services</span>
+                <div class="dropdown-menu">
+                    <a href="#">Digital Nomad Visa</a>
+                    <a href="#">Golden Visa</a>
+                    <a href="#">Non lucrative residency</a>
+                    <a href="#">Spanish nationality</a>
+                    <a href="#">Family reunification</a>
+                </div>
+            </div>
+            <a href="#">Team</a>
+            <a href="#">Contact</a>
+        </nav>
+        <a href="#" class="btn btn-white" style="padding: 0.5rem 1.2rem;">Free call</a>
+    </div>
+</header>
+
+<!-- ========== USA PROMO BANNER ========== -->
+<div class="usa-promo-banner">
+    <div class="banner-track">
+        <div class="banner-item">
+            <span>🇺🇸 US citizens: FBI apostille & sworn translations included</span>
+            <span>⭐ free consultation for January ⭐</span>
+            <span>🇺🇸 US citizens: FBI apostille & sworn translations included</span>
+        </div>
+        <div class="banner-item">
+            <span>🇺🇸 US citizens: FBI apostille & sworn translations included</span>
+            <span>⭐ free consultation for January ⭐</span>
+            <span>🇺🇸 US citizens: FBI apostille & sworn translations included</span>
+        </div>
+    </div>
+</div>
+
+<!-- ========== MAIN CONTENT ========== -->
+<main class="container">
+
+    <!-- INTRO -->
+    <section style="margin: 3rem 0;">
+        <h1>Digital Nomad Visa Spain<br><span style="color: var(--gold-color);">the complete 2025 guide</span></h1>
+        <p style="font-size: 1.2rem; max-width: 900px; margin: 1.5rem auto; text-align: center;">Imagine working from a sunny Valencia terrace while advising global clients. Spain’s Digital Nomad Visa, rooted in <strong>Ley 14/2013</strong> and the <strong>Startup Act</strong>, makes it real. At jurospain we’ve helped hundreds of remote professionals navigate this permit. Below we break down the exact requirements, tax advantages, and step‑by‑step process – all verified with official government sources (Ministry of Inclusion, Consulates, and BOE).</p>
+
+        <!-- INSIDER TIP -->
+        <div class="insider-tip">
+            <i class="fas fa-lightbulb" style="color: var(--sp-red); font-size: 2rem; float: left; margin-right: 1rem;"></i>
+            <p><strong>Insider tip (lawyer’s perspective):</strong> Did you know that you can <em>apply from within Spain</em> if you entered as a tourist and have not overstayed? Thanks to the Startup Act, you can switch to the digital nomad permit directly at the Immigration Office without returning to your home country – but you must do so within the first 90 days. Ask us about the “arraigo” alternative.</p>
+        </div>
+    </section>
+
+    <!-- REQUIREMENTS CARDS -->
+    <h2>▸ What you need to qualify</h2>
+    <div class="services-grid">
+        <div class="card">
+            <i class="fas fa-euro-sign" style="font-size: 2rem; color: var(--gold-color);"></i>
+            <h3>Income threshold</h3>
+            <p><strong>≈ €2,550/month</strong> (or €30,600/year). Based on 200% of Spain’s SMI (2024: €1,323 x 2). Each additional family member requires +75% of SMI. Figures are periodically updated – we verify at the time of application.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-shield-alt" style="font-size: 2rem; color: var(--gold-color);"></i>
+            <h3>Private health insurance</h3>
+            <p>Full coverage with no co‑pays, from an insurer authorized in Spain. We recommend Sanitas, Adeslas, or DKV. Public insurance is not accepted for the initial visa.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-passport" style="font-size: 2rem; color: var(--gold-color);"></i>
+            <h3>Criminal record check</h3>
+            <p>From any country where you lived the last 5 years. Must be apostilled (or legalized) and translated into Spanish by a sworn translator.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-briefcase" style="font-size: 2rem; color: var(--gold-color);"></i>
+            <h3>Remote work proof</h3>
+            <p>Employment contract or proof of self‑employment with clients outside Spain. At least 1 year of remote work experience. You can work up to 20% for Spanish companies.</p>
+        </div>
+    </div>
+
+    <!-- STEP BY STEP PROCESS -->
+    <h2>▸ Application roadmap (consular & in‑country)</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-bottom: 2rem;">
+        <div style="flex: 2; min-width: 280px;">
+            <ul class="step-list" style="list-style: none; counter-reset: step-counter; padding-left: 0;">
+                <li style="counter-increment: step-counter; margin-bottom: 1.5rem; display: flex; gap: 1rem; align-items: baseline;"><span style="background: var(--sp-red); color: white; width: 28px; height: 28px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: bold;">1</span> <strong>Document gathering & legalisation</strong> – passports, criminal records (apostille), health insurance, income proofs, company letter, sworn translations.</li>
+                <li style="counter-increment: step-counter; margin-bottom: 1.5rem; display: flex; gap: 1rem; align-items: baseline;"><span style="background: var(--sp-red); color: white; width: 28px; height: 28px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: bold;">2</span> <strong>Submit application</strong> – at Spanish consulate abroad OR, if already in Spain legally, at the <em>Unidad de Grandes Empresas</em> (UGE) or Immigration Office.</li>
+                <li style="counter-increment: step-counter; margin-bottom: 1.5rem; display: flex; gap: 1rem; align-items: baseline;"><span style="background: var(--sp-red); color: white; width: 28px; height: 28px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: bold;">3</span> <strong>Wait for resolution</strong> – legal maximum is 20 working days (consular) or 3 months (in‑country). Many approvals in 10 days.</li>
+                <li style="counter-increment: step-counter; margin-bottom: 1.5rem; display: flex; gap: 1rem; align-items: baseline;"><span style="background: var(--sp-red); color: white; width: 28px; height: 28px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: bold;">4</span> <strong>Visa / initial authorization</strong> – if approved abroad, you get a 1‑year visa; if approved in Spain, you get a 3‑month residence authorization and then apply for TIE.</li>
+                <li style="counter-increment: step-counter; margin-bottom: 1.5rem; display: flex; gap: 1rem; align-items: baseline;"><span style="background: var(--sp-red); color: white; width: 28px; height: 28px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: bold;">5</span> <strong>Arrival & TIE card</strong> – within 30 days of entry, get your Foreigner Identity Card (TIE) at the police station.</li>
+            </ul>
+        </div>
+        <div style="flex: 1; background: var(--bg-secondary); padding: 2rem; border-radius: var(--sp-radius); border: 1px solid var(--border-light);">
+            <h3 style="color: var(--sp-red); margin-top: 0;">⏱️ Processing times</h3>
+            <p>Consulates: 1‑3 months (depending on location).<br>In‑country (UGE): 20 days – 3 months.<br>We’ve seen approvals in just 10 working days for well‑prepared files.</p>
+        </div>
+    </div>
+
+    <!-- BENEFITS -->
+    <h2>▸ Why choose the Spanish digital nomad visa</h2>
+    <div class="services-grid">
+        <div class="card">
+            <i class="fas fa-percent" style="font-size: 2rem; color: var(--gold-color);"></i>
+            <h3>Special tax regime (Beckham Law)</h3>
+            <p>If you haven’t been tax resident in Spain in the last 5 years, you can opt for the 24% flat tax on income up to €600,000 (instead of progressive rates up to 47%). Valid for up to 6 years.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-users" style="font-size: 2rem; color: var(--gold-color);"></i>
+            <h3>Family inclusion</h3>
+            <p>Your spouse and children can join you immediately. They get residence permits and can work (spouse) or study (children).</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-map-marked-alt" style="font-size: 2rem; color: var(--gold-color);"></i>
+            <h3>Path to permanent residency</h3>
+            <p>The visa is initially for 1 year, then renewable for 4 years. After 5 years of legal residence, you can apply for permanent residency.</p>
+        </div>
+    </div>
+
+    <!-- FAQ -->
+    <h2>▸ Frequently asked questions</h2>
+    <div style="margin: 2rem 0;">
+        <div class="faq-item">
+            <div class="faq-question">Can I work for Spanish companies on this visa?</div>
+            <div class="faq-answer">Yes, but no more than 20% of your total work time/income can come from Spanish sources. The core of your work must be remote for companies outside Spain.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">What if I'm self-employed (autónomo)?</div>
+            <div class="faq-answer">Self‑employed professionals are eligible. You must prove that your business is predominantly international. You may need to register as autónomo in Spain after arrival.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Is the visa renewable? Can I bring my parents?</div>
+            <div class="faq-answer">Yes, renewable for 4‑year periods. Parents are not included as dependents under this visa, only spouse and children under 18 or disabled.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Do I need to show a university degree?</div>
+            <div class="faq-answer">Not necessarily. You can substitute degree with 3+ years of relevant professional experience and/or continuous training. We help document this.</div>
+        </div>
+    </div>
+
+    <!-- STRONG CTA -->
+    <div style="text-align: center; background: var(--bg-secondary); padding: 3rem; border-radius: var(--sp-radius); margin: 3rem 0; border: 2px solid var(--gold-color);">
+        <h2 style="border-bottom: none; margin-top: 0;">Ready to make the move?</h2>
+        <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto 2rem;">Let jurospain handle the paperwork, avoid pitfalls, and secure your digital nomad visa. We offer a free initial eligibility check.</p>
+        <a href="#" class="btn" style="background: var(--sp-red); font-size: 1.2rem; padding: 1rem 3rem;">Contact our team</a>
+        <p class="small" style="margin-top: 2rem;">or WhatsApp us <i class="fab fa-whatsapp" style="color: #25d366;"></i> +34 123 456 789</p>
+    </div>
+
+    <!-- DISCLAIMER -->
+    <div class="legal-note">
+        <p><strong>Disclaimer:</strong> This guide is for general informational purposes only and does not constitute legal advice. Immigration laws and requirements may change. You should consult with a qualified attorney (like jurospain) for advice tailored to your specific situation. We strive for accuracy but cannot guarantee that all information is current at the time you read this.</p>
+    </div>
+</main>
+
+<!-- ========== FOOTER ========== -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>jurospain</h3>
+                <p>Spanish immigration lawyers<br>Barcelona · Madrid · Online</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick links</h3>
+                <p><a href="#">Home</a><br><a href="#">Services</a><br><a href="#">Team</a><br><a href="#">Contact</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <p><a href="#">Privacy policy</a><br><a href="#">Terms of use</a><br><a href="#">Cookie policy</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2025 jurospain – All rights reserved.
+        </div>
+    </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="#" class="whatsapp-float" target="_blank" rel="noopener">
+    <i class="fab fa-whatsapp" style="font-size: 2.2rem;"></i>
+</a>
+
+</body>
+</html>
