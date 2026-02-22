@@ -18,7 +18,7 @@ permalink: /calculator/
     .calc-container {
         max-width: 800px;
         margin: -3rem auto 6rem;
-        background: var(--bg-primary); /* Darker contrast */
+        background: var(--bg-primary);
         border-radius: 24px;
         box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         border: 1px solid var(--border-light);
@@ -27,7 +27,7 @@ permalink: /calculator/
         z-index: 10;
     }
 
-    /* 3. INPUT SECTION (Top) */
+    /* 3. INPUT SECTION */
     .calc-inputs {
         padding: 3rem;
         display: grid;
@@ -44,7 +44,7 @@ permalink: /calculator/
         margin-bottom: 1rem;
     }
 
-    /* Custom Toggles */
+    /* Toggle */
     .toggle-wrapper {
         display: flex;
         align-items: center;
@@ -70,11 +70,10 @@ permalink: /calculator/
         box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
 
-    /* Active State */
     .toggle-wrapper.active .toggle-switch { background: #25d366; }
     .toggle-wrapper.active .toggle-switch::after { transform: translateX(28px); }
 
-    /* Counter Control */
+    /* Counter */
     .counter-control {
         display: flex;
         align-items: center;
@@ -87,7 +86,7 @@ permalink: /calculator/
     }
 
     .counter-btn {
-        width: 40px; height: 40px;
+        width: 48px; height: 48px;  /* larger touch target */
         background: transparent; border: none;
         font-size: 1.5rem; color: var(--text-primary);
         cursor: pointer;
@@ -102,7 +101,7 @@ permalink: /calculator/
         color: var(--text-primary);
     }
 
-    /* 4. RESULTS SECTION (Bottom) */
+    /* 4. RESULTS SECTION */
     .calc-results {
         padding: 3rem;
         background: var(--bg-secondary);
@@ -129,7 +128,6 @@ permalink: /calculator/
     
     .sub-number { font-size: 1.1rem; color: var(--text-muted); }
 
-    /* The "You Pass" Badge */
     .eligibility-badge {
         background: rgba(37, 211, 102, 0.1);
         color: #25d366;
@@ -143,12 +141,70 @@ permalink: /calculator/
         transform: translateY(10px);
         transition: 0.5s;
     }
-    
     .eligibility-badge.show { opacity: 1; transform: translateY(0); }
+
+    /* 5. EMAIL CAPTURE */
+    .email-capture {
+        margin: 2rem auto 1rem;
+        max-width: 400px;
+    }
+    .email-btn {
+        background: transparent;
+        border: 2px solid var(--sp-red);
+        color: var(--sp-red);
+        padding: 12px 28px;
+        border-radius: 50px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: 0.2s;
+        font-size: 1rem;
+    }
+    .email-btn:hover {
+        background: var(--sp-red);
+        color: white;
+    }
+    .email-form {
+        display: none;
+        margin-top: 1.5rem;
+        background: var(--bg-primary);
+        padding: 1.5rem;
+        border-radius: 16px;
+        border: 1px solid var(--border-light);
+        text-align: left;
+        animation: fadeSlide 0.3s ease;
+    }
+    .email-form.active { display: block; }
+    .email-form input {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 1rem;
+        border: 2px solid var(--border-light);
+        border-radius: 8px;
+        font-family: 'Inter', sans-serif;
+    }
+    .email-form .btn {
+        width: 100%;
+        padding: 12px;
+    }
+    .thank-you-message {
+        display: none;
+        color: #25d366;
+        font-weight: 600;
+        margin-top: 1rem;
+    }
+    .thank-you-message a {
+        color: var(--sp-red);
+        text-decoration: underline;
+    }
+    @keyframes fadeSlide {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
 
     @media (max-width: 768px) {
         .calc-inputs { grid-template-columns: 1fr; gap: 2rem; padding: 2rem; }
         .big-number { font-size: 3.5rem; }
+        .counter-btn { width: 44px; height: 44px; }
     }
 </style>
 
@@ -212,9 +268,39 @@ permalink: /calculator/
                 ✅ ELIGIBLE FOR VISA
             </div>
 
-            <div style="margin-top: 3rem;">
-                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Do you earn above this amount?</p>
-                <a href="/contact/" class="btn" style="padding: 1.2rem 3rem;">Yes, Book My Audit</a>
+            <!-- Email capture section -->
+            <div class="email-capture">
+                <button id="emailBtn" class="email-btn" onclick="toggleEmailForm()">
+                    📧 Email me this breakdown
+                </button>
+
+                <div id="emailForm" class="email-form">
+                    <form id="leadForm" action="https://formspree.io/f/mwpjpyoj" method="POST">
+                        <!-- Hidden fields with calculation data -->
+                        <input type="hidden" name="_subject" value="DNV Calculator Breakdown">
+                        <input type="hidden" name="spouse" id="hiddenSpouse" value="no">
+                        <input type="hidden" name="children" id="hiddenChildren" value="0">
+                        <input type="hidden" name="required_income" id="hiddenIncome" value="2646">
+                        <input type="hidden" name="redirect_to" value="/calculator/?thanks=1">
+                        
+                        <label for="firstname" style="font-size: 0.9rem; font-weight: 600;">First name</label>
+                        <input type="text" id="firstname" name="firstname" required placeholder="e.g. Sarah">
+
+                        <label for="email" style="font-size: 0.9rem; font-weight: 600;">Email address</label>
+                        <input type="email" id="email" name="email" required placeholder="sarah@example.com">
+
+                        <button type="submit" class="btn" style="width: 100%;">Send my guide</button>
+                    </form>
+                    <div id="thankYouMessage" class="thank-you-message">
+                        ✅ Check your inbox – your guide is on the way!
+                    </div>
+                </div>
+            </div>
+
+            <!-- Original CTA (now below email option) -->
+            <div style="margin-top: 2rem;">
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Already know you qualify?</p>
+                <a href="/contact/" class="btn" style="padding: 1.2rem 3rem;">Book My Audit</a>
             </div>
         </div>
 
@@ -233,13 +319,6 @@ permalink: /calculator/
 </div>
 
 <script>
-    // 2026 Estimated Monthly IPREM (Pro-rated 12 months)
-    // Formula: (IPREM 600 * 14) / 12 = 700/month base for calc? 
-    // Actually DNV usually uses the base 600. Let's use the standard "Safe" numbers:
-    // Base Applicant: ~2650
-    // Spouse: ~1000
-    // Child: ~335
-    
     const BASE_REQ = 2650;
     const SPOUSE_REQ = 1000;
     const CHILD_REQ = 335;
@@ -279,14 +358,14 @@ permalink: /calculator/
         if(hasSpouse) total += SPOUSE_REQ;
         total += (numKids * CHILD_REQ);
 
-        // Animate the numbers slightly for effect? 
-        // For now just update text.
-        
-        // Format with commas
         document.getElementById('totalAmount').innerText = total.toLocaleString();
         document.getElementById('annualAmount').innerText = "€" + (total * 12).toLocaleString();
 
-        // Show badge animation
+        // Update hidden fields for email form
+        document.getElementById('hiddenSpouse').value = hasSpouse ? 'yes' : 'no';
+        document.getElementById('hiddenChildren').value = numKids;
+        document.getElementById('hiddenIncome').value = total;
+
         const badge = document.getElementById('badge-pass');
         badge.classList.remove('show');
         setTimeout(() => {
@@ -294,6 +373,21 @@ permalink: /calculator/
         }, 200);
     }
 
-    // Init
+    function toggleEmailForm() {
+        const form = document.getElementById('emailForm');
+        form.classList.toggle('active');
+    }
+
+    // Handle Formspree submission success (if redirected back with thanks)
+    window.onload = function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('thanks') === '1') {
+            // Hide form, show thank you message
+            document.getElementById('emailForm').style.display = 'none';
+            document.getElementById('emailBtn').style.display = 'none';
+            document.getElementById('thankYouMessage').style.display = 'block';
+        }
+    };
+
     calculate();
 </script>
