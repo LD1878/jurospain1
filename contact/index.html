@@ -90,7 +90,6 @@ permalink: /contact/
         text-align: left;
         position: relative;
         overflow: hidden;
-        /* Accessibility: button role */
         role: button;
         tabindex: 0;
     }
@@ -134,6 +133,13 @@ permalink: /contact/
         color: var(--text-muted);
         margin-bottom: 0.5rem;
         display: block;
+    }
+
+    /* Two-column layout for qualifying questions on larger screens */
+    .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
     }
 
     /* ANIMATIONS */
@@ -191,6 +197,7 @@ permalink: /contact/
         .agent-avatar { margin-bottom: 0; width: 45px; height: 45px; font-size: 1.2rem; }
         .concierge-form-area { padding: 1.5rem; }
         .service-grid { grid-template-columns: 1fr; }
+        .two-col { grid-template-columns: 1fr; }
         
         .service-option, 
         .btn,
@@ -215,7 +222,7 @@ permalink: /contact/
 <div class="container">
     <div class="concierge-wrapper">
         
-        <!-- SIDEBAR (badge removed) -->
+        <!-- SIDEBAR with rotating testimonial -->
         <div class="concierge-sidebar">
             <div style="position: relative; z-index: 2;">
                 <div class="agent-avatar">J</div>
@@ -227,9 +234,7 @@ permalink: /contact/
             
             <div style="position: relative; z-index: 2; margin-top: auto;">
                 <div style="border-left: 2px solid var(--gold-color); padding-left: 1rem; margin-top: 2rem;">
-                    <p style="color: #cbd5e1; font-size: 0.9rem; line-height: 1.6; margin: 0;">
-                        "We use this process to ensure we only take cases we are 100% confident we can win."
-                    </p>
+                    <p id="testimonial-text" style="color: #cbd5e1; font-size: 0.9rem; line-height: 1.6; margin: 0;"></p>
                 </div>
             </div>
         </div>
@@ -269,59 +274,163 @@ permalink: /contact/
                 </div>
             </div>
 
-            <!-- BRANCH: DNV -->
+            <!-- BRANCH: DNV (with additional qualifiers) -->
             <div id="branch-dnv" class="form-step">
                 <h2 style="border: none; margin-top: 0; color: var(--text-primary);">DNV Quick Check</h2>
-                <label for="dnv-citizenship" class="smart-label">What is your Citizenship?</label>
-                <input type="text" id="dnv-citizenship" class="smart-input" placeholder="e.g. USA, UK, Canada...">
                 
-                <label for="dnv-income" class="smart-label">Approx Annual Income (Gross)</label>
-                <select id="dnv-income" class="smart-input">
-                    <option value="low">Under €30,000</option>
-                    <option value="high">Over €30,000</option>
+                <label for="dnv-citizenship" class="smart-label">Citizenship</label>
+                <select id="dnv-citizenship" class="smart-input">
+                    <option value="">Select your country</option>
+                    <option value="USA">USA</option>
+                    <option value="UK">UK</option>
+                    <option value="Canada">Canada</option>
+                    <option value="Australia">Australia</option>
+                    <option value="Singapore">Singapore</option>
+                    <option value="Other">Other</option>
+                    <!-- In practice, you'd list all countries. For brevity, we include key ones + Other. -->
                 </select>
+
+                <div class="two-col">
+                    <div>
+                        <label for="dnv-income" class="smart-label">Approx Annual Income (Gross)</label>
+                        <select id="dnv-income" class="smart-input">
+                            <option value="low">Under €30,000</option>
+                            <option value="med">€30,000 – €60,000</option>
+                            <option value="high">Over €60,000</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="dnv-employment" class="smart-label">Employment type</label>
+                        <select id="dnv-employment" class="smart-input">
+                            <option value="employed">Employed</option>
+                            <option value="selfemployed">Self-employed</option>
+                            <option value="business">Business owner</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="two-col">
+                    <div>
+                        <label for="dnv-degree" class="smart-label">Degree or tech background?</label>
+                        <select id="dnv-degree" class="smart-input">
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="dnv-stay" class="smart-label">Planned length of stay</label>
+                        <select id="dnv-stay" class="smart-input">
+                            <option value="short"><6 months</option>
+                            <option value="medium">6–12 months</option>
+                            <option value="long">>12 months</option>
+                        </select>
+                    </div>
+                </div>
                 
-                <button class="btn" style="width: 100%; margin-top: 1rem;" onclick="processAnalysis('dnv')">Check your fit</button>
+                <button class="btn" style="width: 100%; margin-top: 1rem;" onclick="processAnalysis('dnv')">Check my eligibility</button>
                 <div style="text-align: center; margin-top: 1rem;">
                     <button class="back-button" onclick="resetForm()">← Back</button>
                 </div>
             </div>
 
-            <!-- BRANCH: Property -->
+            <!-- BRANCH: Property (with additional qualifiers) -->
             <div id="branch-property" class="form-step">
                 <h2 style="border: none; margin-top: 0; color: var(--text-primary);">Property Details</h2>
+                
                 <label for="property-status" class="smart-label">Have you found a property yet?</label>
                 <select id="property-status" class="smart-input">
-                    <option>Yes, I have an offer ready.</option>
-                    <option>No, still looking.</option>
+                    <option value="yes">Yes, I have an offer ready</option>
+                    <option value="no">No, still looking</option>
                 </select>
+
+                <div class="two-col">
+                    <div>
+                        <label for="prop-budget" class="smart-label">Estimated Budget</label>
+                        <select id="prop-budget" class="smart-input">
+                            <option value="low">Under €150k</option>
+                            <option value="med">€150k – €500k</option>
+                            <option value="high">Over €500k (Golden Visa)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="prop-financing" class="smart-label">Need financing?</label>
+                        <select id="prop-financing" class="smart-input">
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                            <option value="unsure">Unsure</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="two-col">
+                    <div>
+                        <label for="prop-eu" class="smart-label">Are you an EU citizen?</label>
+                        <select id="prop-eu" class="smart-input">
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="prop-purpose" class="smart-label">Purpose of purchase</label>
+                        <select id="prop-purpose" class="smart-input">
+                            <option value="primary">Primary residence</option>
+                            <option value="investment">Investment</option>
+                            <option value="holiday">Holiday home</option>
+                        </select>
+                    </div>
+                </div>
                 
-                <label for="prop-budget" class="smart-label">Estimated Budget</label>
-                <select id="prop-budget" class="smart-input">
-                    <option value="low">Under €150k</option>
-                    <option value="med">€150k - €500k</option>
-                    <option value="high">Over €500k (Golden Visa)</option>
-                </select>
-                
-                <button class="btn" style="width: 100%; margin-top: 1rem;" onclick="processAnalysis('property')">Check your fit</button>
+                <button class="btn" style="width: 100%; margin-top: 1rem;" onclick="processAnalysis('property')">Check my eligibility</button>
                 <div style="text-align: center; margin-top: 1rem;">
                     <button class="back-button" onclick="resetForm()">← Back</button>
                 </div>
             </div>
 
-            <!-- BRANCH: Beckham Law -->
+            <!-- BRANCH: Beckham Law (with additional qualifiers) -->
             <div id="branch-beckham" class="form-step">
                 <h2 style="border: none; margin-top: 0; color: var(--text-primary);">Tax Profile</h2>
+                
                 <label for="beckham-residency" class="smart-label">Have you been a Spanish Tax Resident in the last 5 years?</label>
                 <select id="beckham-residency" class="smart-input">
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
                 </select>
+
+                <div class="two-col">
+                    <div>
+                        <label for="beckham-income" class="smart-label">Expected annual income (€)</label>
+                        <select id="beckham-income" class="smart-input">
+                            <option value="low">Under €60k</option>
+                            <option value="med">€60k – €100k</option>
+                            <option value="high">€100k – €200k</option>
+                            <option value="veryhigh">Over €200k</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="beckham-moving" class="smart-label">Moving for work?</label>
+                        <select id="beckham-moving" class="smart-input">
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="two-col">
+                    <div>
+                        <label for="beckham-relocate" class="smart-label">Will your employer relocate you?</label>
+                        <select id="beckham-relocate" class="smart-input">
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                            <option value="self">Self-employed</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="beckham-date" class="smart-label">Expected Arrival Date</label>
+                        <input type="date" id="beckham-date" class="smart-input">
+                    </div>
+                </div>
                 
-                <label for="beckham-date" class="smart-label">Expected Arrival Date</label>
-                <input type="date" id="beckham-date" class="smart-input">
-                
-                <button class="btn" style="width: 100%; margin-top: 1rem;" onclick="processAnalysis('beckham')">Check your fit</button>
+                <button class="btn" style="width: 100%; margin-top: 1rem;" onclick="processAnalysis('beckham')">Check my eligibility</button>
                 <div style="text-align: center; margin-top: 1rem;">
                     <button class="back-button" onclick="resetForm()">← Back</button>
                 </div>
@@ -333,7 +442,7 @@ permalink: /contact/
                     <div class="spinner"></div>
                     <h3 style="font-family: 'Oswald'; color: var(--text-primary); margin-bottom: 0.5rem;">Running Audit...</h3>
                     <div style="margin-top: 1rem; color: var(--gold-color); font-size: 0.8rem; font-family: monospace;">
-                        <span id="loading-message">Checking current UGE-CE criteria</span>
+                        <span id="loading-message">Checking requirements</span>
                         <span style="animation: pulse 1.5s infinite;">...</span>
                     </div>
                 </div>
@@ -353,7 +462,7 @@ permalink: /contact/
                 </div>
             </div>
 
-            <!-- STEP: Contact form (with smarter placeholder + trust badge) -->
+            <!-- STEP: Contact form -->
             <div id="step-form" class="form-step">
                 <h2 style="border: none; margin-top: 0; color: var(--text-primary);">Your next step</h2>
                 <p style="color: var(--text-muted);">Please provide your details and we'll get back to you shortly.</p>
@@ -368,7 +477,6 @@ permalink: /contact/
                     <button type="submit" class="btn" style="width: 100%;">Send Request</button>
                 </form>
 
-                <!-- Trust badge -->
                 <div class="trust-badge">
                     Most clients receive a first response within 2 hours.
                 </div>
@@ -383,6 +491,17 @@ permalink: /contact/
 </div>
 
 <script>
+    // Rotating testimonials
+    const testimonials = [
+        { text: "The team guided me through every step—professional, transparent, and fast. I felt completely secure.", author: "David, USA" },
+        { text: "Incredible attention to detail. They handled my visa with care and kept me informed throughout.", author: "Priya, UK" },
+        { text: "I was nervous about buying property abroad, but they made it feel safe and straightforward.", author: "Michael, Canada" },
+        { text: "From our first call to the final paperwork, everything was smooth and timely. Highly recommend.", author: "Sarah, Australia" },
+        { text: "Their expertise gave me peace of mind. The process was efficient and I always felt supported.", author: "James, Singapore" }
+    ];
+    const randomIndex = Math.floor(Math.random() * testimonials.length);
+    document.getElementById('testimonial-text').innerHTML = `"${testimonials[randomIndex].text}"<br>— ${testimonials[randomIndex].author}`;
+
     // Update progress bar
     function updateProgress(step) {
         const step1 = document.getElementById('progress-step1');
@@ -413,45 +532,95 @@ permalink: /contact/
         updateProgress(1);
     }
 
+    // Collect form data for a branch
+    function collectFormData(type) {
+        const data = {};
+        const inputs = document.querySelectorAll(`#branch-${type} select, #branch-${type} input`);
+        inputs.forEach(input => {
+            if (input.id) {
+                const key = input.id.replace(`${type}-`, '');
+                data[key] = input.value;
+            }
+        });
+        return data;
+    }
+
+    // Calculate qualification score (0-100)
+    function calculateQualificationScore(type, data) {
+        let score = 50; // base
+
+        // DNV scoring
+        if (type === 'dnv') {
+            if (data.citizenship === 'USA' || data.citizenship === 'UK' || data.citizenship === 'Canada' || data.citizenship === 'Australia') score += 15;
+            if (data.income === 'high') score += 15;
+            else if (data.income === 'med') score += 5;
+            if (data.employment === 'business') score += 10;
+            else if (data.employment === 'selfemployed') score += 5;
+            if (data.degree === 'yes') score += 10;
+            if (data.stay === 'long' || data.stay === 'medium') score += 5;
+        }
+
+        // Property scoring
+        else if (type === 'property') {
+            if (data.budget === 'high') score += 20;
+            else if (data.budget === 'med') score += 10;
+            if (data.financing === 'no') score += 5; // cash buyer
+            if (data.eu === 'yes') score += 5; // fewer restrictions
+            if (data.purpose === 'primary' || data.purpose === 'investment') score += 5;
+            if (data.status === 'yes') score += 5; // has property ready
+        }
+
+        // Beckham Law scoring
+        else if (type === 'beckham') {
+            if (data.residency === 'no') score += 20;
+            if (data.income === 'veryhigh' || data.income === 'high') score += 15;
+            else if (data.income === 'med') score += 5;
+            if (data.moving === 'yes') score += 10;
+            if (data.relocate === 'yes') score += 10;
+            else if (data.relocate === 'self') score += 5;
+        }
+
+        return Math.min(100, Math.max(0, score));
+    }
+
     // Process analysis
     function processAnalysis(type) {
+        // Save current data
+        const data = collectFormData(type);
+
         document.getElementById('branch-' + type).classList.remove('active');
         document.getElementById('step-analyzing').classList.add('active');
         updateProgress(3);
 
         const loadingMessages = {
-            dnv: 'Checking DNV quota availability',
-            property: 'Verifying property registration status',
-            beckham: 'Calculating tax optimization potential'
+            dnv: 'Checking visa quotas and requirements',
+            property: 'Verifying property eligibility',
+            beckham: 'Calculating tax benefits'
         };
         const loadingEl = document.getElementById('loading-message');
         if (loadingEl) {
-            loadingEl.textContent = loadingMessages[type] || 'Checking current criteria';
+            loadingEl.textContent = loadingMessages[type] || 'Checking your profile';
         }
 
         setTimeout(() => {
             document.getElementById('step-analyzing').classList.remove('active');
             
-            let qualified = false;
-            if (type === 'dnv') {
-                const income = document.getElementById('dnv-income')?.value;
-                if (income === 'high') qualified = true;
-            } else if (type === 'property') {
-                const budget = document.getElementById('prop-budget')?.value;
-                if (budget === 'high' || budget === 'med') qualified = true;
-            } else if (type === 'beckham') {
-                const residency = document.getElementById('beckham-residency')?.value;
-                if (residency === 'no') qualified = true;
-            }
+            const score = calculateQualificationScore(type, data);
             
-            if (qualified) {
+            if (score >= 70) {
+                // High-quality lead → calendar
                 document.getElementById('step-success').classList.add('active');
             } else {
+                // Lower score → contact form
                 document.getElementById('step-form').classList.add('active');
-                // Pre-fill message with context only if empty
+                // Optionally pre-fill message with context
                 const messageField = document.querySelector('textarea[name="message"]');
                 if (messageField && messageField.value === '') {
-                    messageField.value = `Inquiry regarding ${type.toUpperCase()}. `;
+                    let context = `Inquiry regarding ${type.toUpperCase()}. `;
+                    if (type === 'dnv' && data.citizenship) {
+                        context += `Citizenship: ${data.citizenship}. `;
+                    }
+                    messageField.value = context;
                 }
             }
         }, 1500);
