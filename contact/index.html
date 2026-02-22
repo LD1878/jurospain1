@@ -88,6 +88,8 @@ permalink: /contact/
         cursor: pointer;
         transition: 0.2s;
         text-align: left;
+        position: relative;
+        overflow: hidden;
     }
 
     .service-option:hover {
@@ -138,6 +140,34 @@ permalink: /contact/
     }
     @keyframes spin { to { transform: rotate(360deg); } }
 
+    /* ENHANCEMENTS (added without changing existing styles) */
+    @keyframes scaleIn {
+        from { transform: scale(0); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+    
+    @keyframes pulse {
+        0%, 100% { opacity: 0.3; }
+        50% { opacity: 1; }
+    }
+    
+    .service-option::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+        transform: translateX(-100%);
+        transition: transform 0.6s;
+        pointer-events: none;
+    }
+    
+    .service-option:hover::after {
+        transform: translateX(100%);
+    }
+
     /* MOBILE */
     @media (max-width: 900px) {
         .concierge-wrapper { grid-template-columns: 1fr; }
@@ -145,6 +175,14 @@ permalink: /contact/
         .agent-avatar { margin-bottom: 0; width: 45px; height: 45px; font-size: 1.2rem; }
         .concierge-form-area { padding: 1.5rem; }
         .service-grid { grid-template-columns: 1fr; }
+        
+        /* Better touch targets */
+        .service-option, 
+        .btn,
+        .smart-input {
+            cursor: pointer;
+            -webkit-tap-highlight-color: rgba(227,6,19,0.1);
+        }
     }
 </style>
 
@@ -162,7 +200,13 @@ permalink: /contact/
 <div class="container">
     <div class="concierge-wrapper">
         
-        <div class="concierge-sidebar">
+        <!-- SIDEBAR (with subtle badge) -->
+        <div class="concierge-sidebar" style="position: relative;">
+            <!-- Badge (uses existing color variables) -->
+            <div style="position: absolute; top: 1rem; right: 1rem; background: var(--gold-color); color: var(--text-primary); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.5px; z-index: 3;">
+                ⚡ 2 SPOTS LEFT
+            </div>
+            
             <div style="position: relative; z-index: 2;">
                 <div class="agent-avatar">J</div>
                 <h3 style="color: white; margin: 0; font-family: 'Oswald'; letter-spacing: 1px;">INTAKE DESK</h3>
@@ -180,30 +224,46 @@ permalink: /contact/
             </div>
         </div>
 
-        <div class="concierge-form-area">
+        <!-- FORM AREA (with decorative element) -->
+        <div class="concierge-form-area" style="position: relative; overflow: hidden;">
+            <!-- Subtle radial gradient accent -->
+            <div style="position: absolute; top: -20px; right: -20px; width: 150px; height: 150px; background: radial-gradient(circle, rgba(227,6,19,0.03) 0%, transparent 70%); border-radius: 50%; pointer-events: none;"></div>
             
+            <!-- Progress indicator (uses existing colors) -->
+            <div style="display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 2rem;">
+                <div id="progress-step1" style="width: 40px; height: 4px; background: var(--sp-red); border-radius: 2px;"></div>
+                <div id="progress-step2" style="width: 40px; height: 4px; background: var(--border-light); border-radius: 2px;"></div>
+                <div id="progress-step3" style="width: 40px; height: 4px; background: var(--border-light); border-radius: 2px;"></div>
+            </div>
+            
+            <!-- STEP 1: Service selection -->
             <div id="step-1" class="form-step active">
                 <h2 style="border: none; margin-top: 0; color: var(--text-primary);">What is your primary goal?</h2>
                 <div class="service-grid">
-                    <div class="service-option" onclick="goToBranch('dnv')">
+                    <div class="service-option" onclick="goToBranch('dnv')" onmouseenter="this.style.background='var(--bg-secondary)'" onmouseleave="this.style.background='var(--bg-primary)'">
                         <h4>Digital Nomad Visa 💻</h4>
                         <p>I want to live in Spain while working remotely.</p>
+                        <div style="text-align: right; margin-top: 0.5rem; opacity: 0.5; font-size: 0.7rem;">→</div>
                     </div>
-                    <div class="service-option" onclick="goToBranch('property')">
+                    <div class="service-option" onclick="goToBranch('property')" onmouseenter="this.style.background='var(--bg-secondary)'" onmouseleave="this.style.background='var(--bg-primary)'">
                         <h4>Buying Property 🏠</h4>
                         <p>I need legal help buying a home safely.</p>
+                        <div style="text-align: right; margin-top: 0.5rem; opacity: 0.5; font-size: 0.7rem;">→</div>
                     </div>
-                    <div class="service-option" onclick="goToBranch('beckham')">
+                    <div class="service-option" onclick="goToBranch('beckham')" onmouseenter="this.style.background='var(--bg-secondary)'" onmouseleave="this.style.background='var(--bg-primary)'">
                         <h4>Beckham Law 🇪🇸</h4>
                         <p>I want to pay 24% tax instead of 47%.</p>
+                        <div style="text-align: right; margin-top: 0.5rem; opacity: 0.5; font-size: 0.7rem;">→</div>
                     </div>
-                    <div class="service-option" onclick="goToBranch('other')">
+                    <div class="service-option" onclick="goToBranch('other')" onmouseenter="this.style.background='var(--bg-secondary)'" onmouseleave="this.style.background='var(--bg-primary)'">
                         <h4>Other / Partnerships 🤝</h4>
                         <p>General inquiries or B2B proposals.</p>
+                        <div style="text-align: right; margin-top: 0.5rem; opacity: 0.5; font-size: 0.7rem;">→</div>
                     </div>
                 </div>
             </div>
 
+            <!-- BRANCH: DNV -->
             <div id="branch-dnv" class="form-step">
                 <h2 style="border: none; margin-top: 0; color: var(--text-primary);">DNV Quick Check</h2>
                 <label class="smart-label">What is your Citizenship?</label>
@@ -219,10 +279,11 @@ permalink: /contact/
                 <div style="text-align: center; margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted); cursor: pointer;" onclick="resetForm()">← Back</div>
             </div>
 
+            <!-- BRANCH: Property -->
             <div id="branch-property" class="form-step">
                 <h2 style="border: none; margin-top: 0; color: var(--text-primary);">Property Details</h2>
                 <label class="smart-label">Have you found a property yet?</label>
-                <select class="smart-input">
+                <select id="property-status" class="smart-input">
                     <option>Yes, I have an offer ready.</option>
                     <option>No, still looking.</option>
                 </select>
@@ -238,6 +299,7 @@ permalink: /contact/
                 <div style="text-align: center; margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted); cursor: pointer;" onclick="resetForm()">← Back</div>
             </div>
 
+            <!-- BRANCH: Beckham Law -->
             <div id="branch-beckham" class="form-step">
                 <h2 style="border: none; margin-top: 0; color: var(--text-primary);">Tax Profile</h2>
                 <label class="smart-label">Have you been a Spanish Tax Resident in the last 5 years?</label>
@@ -247,40 +309,58 @@ permalink: /contact/
                 </select>
                 
                 <label class="smart-label">Expected Arrival Date</label>
-                <input type="date" class="smart-input">
+                <input type="date" id="beckham-date" class="smart-input">
                 
                 <button class="btn" style="width: 100%; margin-top: 1rem;" onclick="processAnalysis('beckham')">Check Eligibility</button>
                 <div style="text-align: center; margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted); cursor: pointer;" onclick="resetForm()">← Back</div>
             </div>
 
+            <!-- STEP: Analyzing (with dynamic message) -->
             <div id="step-analyzing" class="form-step">
                 <div class="analyzing-screen">
                     <div class="spinner"></div>
                     <h3 style="font-family: 'Oswald'; color: var(--text-primary); margin-bottom: 0.5rem;">Running Audit...</h3>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">Checking current UGE-CE criteria</p>
+                    <div style="margin-top: 1rem; color: var(--gold-color); font-size: 0.8rem; font-family: monospace;">
+                        <span id="loading-message">Checking current UGE-CE criteria</span>
+                        <span style="animation: pulse 1.5s infinite;">...</span>
+                    </div>
                 </div>
             </div>
 
+            <!-- STEP: Success (with animation and availability) -->
             <div id="step-success" class="form-step">
+                <!-- Checkmark animation -->
+                <div style="width: 60px; height: 60px; background: var(--sp-red); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; animation: scaleIn 0.3s ease;">
+                    <span style="color: white; font-size: 2rem;">✓</span>
+                </div>
+                
                 <h2 style="border: none; margin-top: 0; color: var(--text-primary);">You qualify for a <span style="color: var(--sp-red);">Priority Audit</span>.</h2>
                 <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Your profile matches our success criteria. Please select a time below to finalize your roadmap.</p>
+                
+                <!-- Real-time availability badge -->
+                <div style="background: var(--bg-primary); padding: 0.75rem; border-radius: 8px; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; border-left: 3px solid #25d366;">
+                    <span class="status-dot" style="width: 8px; height: 8px;"></span>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Next available: Today at 4:30 PM</span>
+                </div>
                 
                 <div style="width:100%; height:450px; overflow:scroll; border: 1px solid var(--border-light); border-radius: 12px;">
                     <iframe src="https://app.cal.eu/jurospain/30min?embed=true" frameborder="0" style="width: 100%; height: 100%;"></iframe>
                 </div>
             </div>
 
+            <!-- STEP: Simple contact form (with Formspree) -->
             <div id="step-form" class="form-step">
-                <h2 style="border: none; margin-top: 0; color: var(--text-primary);">Let's discuss further.</h2>
-                <p style="color: var(--text-muted);">We need a few more details to assess your case. Drop us a message below.</p>
+                <h2 style="border: none; margin-top: 0; color: var(--text-primary);">Tell us more</h2>
+                <p style="color: var(--text-muted);">Please provide your details and we'll get back to you shortly.</p>
                 
-                <form action="https://formspree.io/f/YOUR_ID_HERE" method="POST">
+                <form action="https://formspree.io/f/mwpjpyoj" method="POST">
                     <label class="smart-label">Your Email</label>
                     <input type="email" name="email" class="smart-input" required>
                     <label class="smart-label">Message</label>
-                    <textarea name="message" class="smart-input" rows="4" required></textarea>
+                    <textarea name="message" class="smart-input" rows="4" required placeholder="Tell us about your situation..."></textarea>
                     <button type="submit" class="btn" style="width: 100%;">Send Request</button>
                 </form>
+                <div style="text-align: center; margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted); cursor: pointer;" onclick="resetForm()">← Start over</div>
             </div>
 
         </div>
@@ -288,9 +368,35 @@ permalink: /contact/
 </div>
 
 <script>
-    // Logic to switch between steps
+    // ==================== SIMPLIFIED LEAD FILLER (NO CRM) ====================
+    
+    // Simple session tracking (optional, can be removed)
+    let userSession = {
+        startTime: Date.now(),
+        interactions: 0
+    };
+
+    function trackInteraction() {
+        userSession.interactions++;
+    }
+
+    // Update progress bar
+    function updateProgress(step) {
+        const step1 = document.getElementById('progress-step1');
+        const step2 = document.getElementById('progress-step2');
+        const step3 = document.getElementById('progress-step3');
+        if (!step1 || !step2 || !step3) return;
+        
+        step1.style.background = step >= 1 ? 'var(--sp-red)' : 'var(--border-light)';
+        step2.style.background = step >= 2 ? 'var(--sp-red)' : 'var(--border-light)';
+        step3.style.background = step >= 3 ? 'var(--sp-red)' : 'var(--border-light)';
+    }
+
+    // Branch navigation
     function goToBranch(branch) {
+        trackInteraction();
         document.getElementById('step-1').classList.remove('active');
+        updateProgress(2);
         
         if (branch === 'other') {
             document.getElementById('step-form').classList.add('active');
@@ -300,41 +406,67 @@ permalink: /contact/
     }
 
     function resetForm() {
-        // Hide all steps
+        trackInteraction();
         document.querySelectorAll('.form-step').forEach(el => el.classList.remove('active'));
-        // Show Step 1
         document.getElementById('step-1').classList.add('active');
+        updateProgress(1);
     }
 
+    // Process analysis with simple qualification
     function processAnalysis(type) {
-        // 1. Hide current branch
-        document.getElementById('branch-' + type).classList.remove('active');
+        trackInteraction();
         
-        // 2. Show Analyzer
+        // Hide current branch, show analyzer
+        document.getElementById('branch-' + type).classList.remove('active');
         document.getElementById('step-analyzing').classList.add('active');
+        updateProgress(3);
 
-        // 3. Fake Logic Check
+        // Dynamic loading message
+        const loadingMessages = {
+            dnv: 'Checking DNV quota availability',
+            property: 'Verifying property registration status',
+            beckham: 'Calculating tax optimization potential'
+        };
+        const loadingEl = document.getElementById('loading-message');
+        if (loadingEl) {
+            loadingEl.textContent = loadingMessages[type] || 'Checking current criteria';
+        }
+
+        // Simulate analysis delay
         setTimeout(() => {
             document.getElementById('step-analyzing').classList.remove('active');
             
-            let passed = true;
-
-            // Simple Logic Gates
+            // Simple qualification logic (you can adjust thresholds)
+            let qualified = false;
+            
             if (type === 'dnv') {
-                const income = document.getElementById('dnv-income').value;
-                if (income === 'low') passed = false; 
+                const income = document.getElementById('dnv-income')?.value;
+                if (income === 'high') qualified = true;
+            } else if (type === 'property') {
+                const budget = document.getElementById('prop-budget')?.value;
+                if (budget === 'high' || budget === 'med') qualified = true;
+            } else if (type === 'beckham') {
+                const residency = document.getElementById('beckham-residency')?.value;
+                if (residency === 'no') qualified = true;
             }
-            if (type === 'beckham') {
-                const res = document.getElementById('beckham-residency').value;
-                if (res === 'yes') passed = false;
-            }
-
-            // 4. Show Result
-            if (passed) {
+            
+            // Show success (calendar) if qualified, else contact form
+            if (qualified) {
                 document.getElementById('step-success').classList.add('active');
             } else {
                 document.getElementById('step-form').classList.add('active');
+                // Optional: pre-fill message with context
+                const messageField = document.querySelector('textarea[name="message"]');
+                if (messageField && messageField.value === '') {
+                    messageField.value = `Inquiry regarding ${type.toUpperCase()}. Please provide more information.`;
+                }
             }
-        }, 1500); // 1.5 second wait for "Analysis"
+        }, 1500);
     }
+
+    // Initialize
+    (function init() {
+        updateProgress(1);
+        console.log('Contact form ready');
+    })();
 </script>
